@@ -15,7 +15,7 @@ const config = {
   favicon: 'img/favicon.png',
   organizationName: 'wppbav', // Usually your GitHub org/user name.
   projectName: 'developer.wppbav.com', // Usually your repo name.
-  deploymentBranch: 'docs',
+  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   presets: [
