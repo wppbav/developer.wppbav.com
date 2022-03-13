@@ -16,6 +16,7 @@ const config = {
   organizationName: 'wppbav', // Usually your GitHub org/user name.
   projectName: 'developer.wppbav.com', // Usually your repo name.
   deploymentBranch: 'docs',
+  trailingSlash: false,
 
   presets: [
     [
