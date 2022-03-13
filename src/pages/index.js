@@ -9,7 +9,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', styles.heroBanner)} style={{ minHeight: '80vh' }}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -17,7 +17,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started with the API
           </Link>
         </div>
       </div>
@@ -29,12 +29,9 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`${siteConfig.title}`}
+      description="Developer documentation for BAV@WPP and its API and suite of tools.">
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
     </Layout>
   );
 }

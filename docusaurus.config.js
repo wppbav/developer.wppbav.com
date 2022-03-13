@@ -55,9 +55,13 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'API',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'News', position: 'left'},
+          {
+              to: '/support',
+              label: 'Help & Support',
+          },
           {
             href: 'https://wppbav.com',
             label: 'BAV@WPP',
@@ -72,8 +76,16 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'API Documentation',
                 to: '/docs/intro',
+              },
+              {
+                label: 'News & Updates',
+                to: '/blog',
+              },
+              {
+                label: 'Help & Support',
+                to: '/support',
               },
             ],
           },
