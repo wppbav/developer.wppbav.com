@@ -25,7 +25,7 @@ GET /api/v1/brands?fields=name
 ## Example
 
 Let's say you want to retrieve a list of brands and their logos. Two response fields. Instead of forcing you to download
-the full [Brands API](./resources/brands.md) response, you may configure to only retrieve the columns you need.
+the full [Brands API](./core-resources/brands.md) response, you may configure to only retrieve the columns you need.
 
 ```http request
 GET /api/v1/brands/369?fields=name,logo_url
