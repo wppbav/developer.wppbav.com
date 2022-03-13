@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.png',
-  organizationName: 'bernskioldmedia', // Usually your GitHub org/user name.
-  projectName: 'wpp-thefount-docs', // Usually your repo name.
+  organizationName: 'wppbav', // Usually your GitHub org/user name.
+  projectName: 'developer.wppbav.com', // Usually your repo name.
 
   presets: [
     [
@@ -24,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/bernskioldmedia/wpp-thefount-docs',
+          editUrl: 'https://github.com/wppbav/developer.wppbav.com',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/bernskioldmedia/wpp-thefount-docs',
+            'https://github.com/wppbav/developer.wppbav.com',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
