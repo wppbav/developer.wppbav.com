@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developer.wppbav.com/blog</id>
     <title>BAV@WPP Developer Docs Blog</title>
-    <updated>2022-03-13T00:00:00.000Z</updated>
+    <updated>2022-04-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developer.wppbav.com/blog"/>
     <subtitle>BAV@WPP Developer Docs Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[Welcome to the updated developer website!]]></title>
         <id>welcome</id>
         <link href="https://developer.wppbav.com/blog/welcome"/>
-        <updated>2022-03-13T00:00:00.000Z</updated>
+        <updated>2022-04-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.]]></summary>
         <content type="html"><![CDATA[<p>Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.</p><p>We are excited that so many of you are using the API to build analytical integrations into your specific workflows and tools.</p><p>In this stream we'll be posting news relating to the API and other development features. If you've got an active API key on the platform we'll also be sending them to you via e-mail.</p>]]></content>
         <author>

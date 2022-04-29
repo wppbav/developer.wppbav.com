@@ -4,14 +4,14 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Sun, 13 Mar 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 29 Apr 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[Welcome to the updated developer website!]]></title>
             <link>https://developer.wppbav.com/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Sun, 13 Mar 2022 00:00:00 GMT</pubDate>
+            <pubDate>Fri, 29 Apr 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.]]></description>
             <content:encoded><![CDATA[<p>Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.</p><p>We are excited that so many of you are using the API to build analytical integrations into your specific workflows and tools.</p><p>In this stream we'll be posting news relating to the API and other development features. If you've got an active API key on the platform we'll also be sending them to you via e-mail.</p>]]></content:encoded>
         </item>
