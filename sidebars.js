@@ -35,6 +35,7 @@ const sidebars = {
           'core-resources/brands',
           'core-resources/categories',
           'core-resources/collections',
+          'core-resources/companies',
           'core-resources/countries',
           'core-resources/metric-groups',
           'core-resources/metrics',
