@@ -179,6 +179,10 @@ The brands endpoint supports the following filters:
 - `has_logos` - Include this query parameter to limit the results to brands which we have logos for.
 - `has_studies` - Include this query parameter to limit the results to brands which have been included in a BAV study.
 - `has_metrics` - Include this query parameter to limit the results to brands which we have BAV metrics for.
+- `studies` - A comma-separated list of study IDs to only show brands that were in the given studies.
+- `years` - A comma-separated list of year IDs to only show brands that have been studied in the given years.
+- `countries` - A comma-separated list of country IDs to only show brands that have been studied in the given countries.
+- `sectors` - A comma-separated list of sector IDs to only show brands that are in the given sectors.
 
 ## Sorting
 
