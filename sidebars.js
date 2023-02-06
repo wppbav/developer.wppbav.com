@@ -33,6 +33,7 @@ const sidebars = {
             type: 'category',
             label: 'Core Resources',
             items: [
+                'core-resources/audiences',
                 'core-resources/brands',
                 'core-resources/categories',
                 'core-resources/collections',

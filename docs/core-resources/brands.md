@@ -60,7 +60,7 @@ The slim relationship schema is used when the brand is used as part of an includ
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See
-the [Expansions section](../customizing/includes) for more information on how this works. The following relationships
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
 - `company` - The [company](./companies.md) that owns the brand.
