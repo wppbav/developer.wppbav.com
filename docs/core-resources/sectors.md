@@ -70,14 +70,14 @@ Where `123` is the system ID of the sector.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `name`
 
 ## Expansions
 
 To create a leaner response data related to sectors are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
 expanded for the categories resource:
 
 - `categories` - A list of categories that belong to this sector.
@@ -87,8 +87,8 @@ expanded for the categories resource:
 The categories endpoint supports the following filters:
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by category name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by category name.
+- [Updated Since](../customizing/filters.md)
 
 ## Sorting
 

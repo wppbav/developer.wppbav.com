@@ -111,7 +111,7 @@ supports.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `id`
 - `brand`
@@ -125,7 +125,7 @@ see [Configurable Fields](../configurable-fields.md) for more information). The 
 ## Expansions
 
 To create a leaner response, some data related to brandscape data are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
 expanded for the Brandscape Data API:
 
 - `years` - A years relationship object containing the year and its system ID.
@@ -138,8 +138,8 @@ expanded for the Brandscape Data API:
 The endpoint supports the following filters:
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by brand name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by brand name.
+- [Updated Since](../customizing/filters.md)
 - `brands` - A comma separated list of brand IDs to find.
 - `studies` - A comma separated list of study IDs to find.
 - `years` - A comma separated list of year IDs to find.

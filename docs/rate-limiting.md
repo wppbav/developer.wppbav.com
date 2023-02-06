@@ -1,7 +1,7 @@
 # Rate Limiting
 
 The API has a rate limit of 500 requests per minute based on the user. This means that the rate limit applies to all of
-your API keys collectively.
+your personal access tokens collectively.
 
 Each API response will return headers informing you of the rate limit and how many requests you have left.
 The `X-RateLimit-Limit` header will specify the current rate limit and `X-RateLimit-Remaining` will give you how many

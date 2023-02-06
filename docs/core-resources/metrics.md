@@ -99,7 +99,7 @@ Where `123` is the system ID of the metric.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `bav_id`
 - `name`
@@ -117,8 +117,8 @@ This resource does not support expansions.
 ## Filters
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by metric name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by metric name.
+- [Updated Since](../customizing/filters.md)
 - `is_active` - Only include metrics that are active. Defaults to true.
 - `is_shown_ui` - Only include metrics designed to be shown in the UI. Defaults to true.
 - `groups` - A comma-separated list of metric groups using their system ID.

@@ -117,7 +117,7 @@ GET /api/v1/countries/GB
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `name`
 - `native_name`
@@ -133,7 +133,7 @@ see [Configurable Fields](../configurable-fields.md) for more information). The 
 ## Expansions
 
 To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be expanded:
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be expanded:
 
 - `studies`
 
@@ -142,13 +142,13 @@ the [Expansions section](../expansions.md) for more information on how this work
 The countries endpoint supports the following filters:
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by brand name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by brand name.
+- [Updated Since](../customizing/filters.md)
 - `regions` - A comma-separated list of region IDs to only show countries from the specified region.
 
 ## Sorting
 
-The following fields are [sortable](../filters.md):
+The following fields are [sortable](../customizing/filters.md):
 
 - `id`
 - `name`

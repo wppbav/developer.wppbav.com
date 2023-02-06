@@ -74,7 +74,7 @@ GET /api/v1/operating_companies/123
 ## Expansions
 
 To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
 expanded for the operating companies resource:
 
 - `brand` - A slimmer brand object to get information about the brand for the operating company.
@@ -82,8 +82,8 @@ expanded for the operating companies resource:
 ## Filters
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by company name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by company name.
+- [Updated Since](../customizing/filters.md)
 
 ## Sorting
 

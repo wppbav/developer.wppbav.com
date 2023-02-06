@@ -68,7 +68,7 @@ Where `123` is the system ID of the year.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `year`
 
@@ -79,12 +79,12 @@ The years resources does not have any expansions.
 ## Filters
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by year "name".
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by year "name".
+- [Updated Since](../customizing/filters.md)
 
 ## Sorting
 
-The following fields are [sortable](../filters.md):
+The following fields are [sortable](../customizing/filters.md):
 
 - `id`
 - `year`

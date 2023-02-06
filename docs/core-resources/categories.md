@@ -90,7 +90,7 @@ Where `123` is the system ID of the category.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `name`
 - `bav_key`
@@ -101,7 +101,7 @@ see [Configurable Fields](../configurable-fields.md) for more information). The 
 ## Expansions
 
 To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
 expanded for the categories resource:
 
 - `local_names` - A list of names for this category in specific countries.
@@ -111,8 +111,8 @@ expanded for the categories resource:
 The categories endpoint supports the following filters:
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by category name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by category name.
+- [Updated Since](../customizing/filters.md)
 - `bav_key` - Include this query parameter to search by the BAV key.
 - `sectors` - Include this query parameter to limit the results to categories within the specified sector (comma-separated list of sector IDs).
 

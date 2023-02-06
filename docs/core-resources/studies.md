@@ -143,7 +143,7 @@ where `123` is the internal system ID for the study.
 ## Configurable Fields
 
 If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
 - `name`
 - `country`
@@ -160,7 +160,7 @@ see [Configurable Fields](../configurable-fields.md) for more information). The 
 ## Expansions
 
 To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
+the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
 expanded for the Brands API:
 
 - `brands` - A list of brands that were a part of the study.
@@ -170,8 +170,8 @@ expanded for the Brands API:
 The studies endpoint supports the following filters:
 
 - [Pagination](../pagination.md)
-- [Searching](../filters.md) by study name.
-- [Updated Since](../filters.md)
+- [Searching](../customizing/filters.md) by study name.
+- [Updated Since](../customizing/filters.md)
 - `country` - Filter studies by the two-letter country code (ISO 3166-1 alpha-2).
 - `year` - Filter studies by year.
 - `study_start` - Show studies whose fieldwork started on this date (Y-m-d).

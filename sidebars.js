@@ -13,48 +13,49 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  docsSidebar: [
-      'intro',
-      'authentication',
-      'rate-limiting',
-      'errors',
-      'pagination',
-      'versioning',
-      'configurable-fields',
-      'expansions',
-      'filters',
-      {
-          type: 'doc',
-          id: 'relationship-schema',
-          label: 'Relationship Objects Schema'
-      },
-    {
-      type: 'category',
-      label: 'Core Resources',
-      items: [
-          'core-resources/brands',
-          'core-resources/categories',
-          'core-resources/collections',
-          'core-resources/countries',
-          'core-resources/metric-groups',
-          'core-resources/metrics',
-          'core-resources/operating-companies',
-          'core-resources/regions',
-          'core-resources/sectors',
-          'core-resources/studies',
-          'core-resources/years',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Query Endpoints',
-      items: [
-          'query/index',
-          'query/brandscape-data',
-          'query/best-countries',
-      ],
-    },
-  ],
+    docsSidebar: [
+        'intro',
+        'authentication',
+        'rate-limiting',
+        'errors',
+        'pagination',
+        'versioning',
+        {
+            type: 'category',
+            label: 'Customizing responses',
+            items: [
+                'customizing/fields',
+                'customizing/filters',
+                'customizing/includes',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Core Resources',
+            items: [
+                'core-resources/brands',
+                'core-resources/categories',
+                'core-resources/collections',
+                'core-resources/countries',
+                'core-resources/metric-groups',
+                'core-resources/metrics',
+                'core-resources/operating-companies',
+                'core-resources/regions',
+                'core-resources/sectors',
+                'core-resources/studies',
+                'core-resources/years',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Query Endpoints',
+            items: [
+                'query/index',
+                'query/brandscape-data',
+                'query/best-countries',
+            ],
+        },
+    ],
 };
 
 module.exports = sidebars;
