@@ -1,98 +1,51 @@
----
-split: true
----
-
 # Regions
+
+You may use the Regions endpoint to retrieve details about one or more regions.
+
+## What are regions?
 
 Many of the BAV resources rely on segmenting data by country. Countries in turn belong to different geographical
 regions. This resource contains a list of all the regions.
 
-## List Regions
+## List all regions
 
 To list all of the regions and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/regions
+GET /api/v2/regions
 ```
 
-The brand list response contains details about the region.
+## Get a brand
 
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the region. |
-| `name` | string | The name of the region in english. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 7,
-            "name": "Africa"
-        }
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Region
-
-You may also directly retrieve a region's details if you already have its system ID.
+You may also directly retrieve a brand's details if you already have its system ID.
 
 ```http request
-GET /api/v1/regions/123
+GET /api/v2/regions/123
 ```
 
-Where `123` is the system ID of the region.
+Where `123` is the system ID of the brand.
 
-### Schema
+## Schema
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the region. |
-| `name` | string | The name of the region in english. |
+### Full response schema
 
----
+| Key                   | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
+|-----------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
+| `id`                  | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |                                                           |
+| `name`                | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the region in english.                   |                                                                                                                         |
+| `created_at`          | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created. |
+| `updated_at`          | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.  |
 
-```json
-{
-    "data": {
-        "id": 7,
-        "name": "Africa"
-    }
-}
-```
+### Relationship Response Schema
 
-## Configurable Fields
+The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
 
-- `name`
 
-## Expansions
+## Relationships & includes
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
-expanded:
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
 
-- `countries` - A slimmer list of countries that belong to this region.
-
-## Filters
-
-The regions endpoint supports the following filters:
-
-- [Pagination](../pagination.md)
-- [Searching](../customizing/filters.md) by region name.
-- [Updated Since](../customizing/filters.md)
-
-## Sorting
-
-The following fields are [sortable](../customizing/filters.md):
-
-- `id`
-- `name`
+- `countries` - The [countries](./countries.md) -.

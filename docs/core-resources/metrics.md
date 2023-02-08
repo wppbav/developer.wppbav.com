@@ -1,135 +1,61 @@
----
-split: true
----
-
 # Brand Metrics
 
+You may use the Brand Metrics endpoint to retrieve details about one or more brand metrics.
+
+## What are brand metrics?
+
 When BAV studies a brand it does so on a variety of metrics. These metrics are divided into [groups](./metric-groups.md). Each group relates
-to a specific way to look at a brand, or to a BAV model. 
+to a specific way to look at a brand, or to a BAV model.
 
-## List Metrics
+## List all brand metrics
 
-To list all of the metrics and browse them via the API, use the list endpoint:
-
-```http request
-GET /api/v1/brand-metrics
-```
-
-The metrics list response contains details about the metrics.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the metric. |
-| `name` | string | The primary name of the metric. |
-| `description` | string | A short description on what this metric is about. |
-| `is_active` | bool | If the metric is active or deprecated. |
-| `is_shown_ui` | bool | If the metric should be shown to users or only used for backend calculations. |
-| `group` | object | An object with the ID and name of the [brand metric group](./metric-groups.md) that the metric belongs to. |
-| `created_at` | string | A datetime string when this metric was first created. |
-| `updated_at` | string | A datetime string when this metric was last updated. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 1,
-            "name": "Brand Base",
-            "description": null,
-            "is_active": true,
-            "is_shown_ui": true,
-            "group": {
-                "id": 1,
-                "name": "Base Sizes"
-            },
-            "created_at": null,
-            "updated_at": "2021-05-14T23:10:08.000000Z"
-        }
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Metric
-
-You may also directly retrieve a metric's details if you already have its system ID.
+To list all of the brand metrics and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/brand-metrics/123
+GET /api/v2/brand-metrics
 ```
 
-Where `123` is the system ID of the metric.
+## Get a brand
 
-### Schema
+You may also directly retrieve a brand's details if you already have its system ID.
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the metric. |
-| `name` | string | The primary name of the metric. |
-| `description` | string | A short description on what this metric is about. |
-| `is_active` | bool | If the metric is active or deprecated. |
-| `is_shown_ui` | bool | If the metric should be shown to users or only used for backend calculations. |
-| `group` | object | An object with the ID and name of the [brand metric group](./metric-groups.md) that the metric belongs to. |
-| `created_at` | string | A datetime string when this metric was first created. |
-| `updated_at` | string | A datetime string when this metric was last updated. |
-
----
-
-```json
-{
-    "data": {
-        "id": 1,
-        "name": "Brand Base",
-        "description": null,
-        "is_active": true,
-        "is_shown_ui": true,
-        "group": {
-            "id": 1,
-            "name": "Base Sizes"
-        },
-        "created_at": null,
-        "updated_at": "2021-05-14T23:10:08.000000Z"
-    }
-}
+```http request
+GET /api/v2/brand-metrics/123
 ```
-## Configurable Fields
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
+Where `123` is the system ID of the brand.
 
-- `bav_id`
-- `name`
-- `description`
-- `is_active`
-- `is_shown_ui`
-- `group`
-- `created_at`
-- `updated_at`
+## Schema
 
-## Expansions
+### Full response schema
 
-This resource does not support expansions.
+| Key                         | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
+|-----------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
+| `id`                        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |
+| `name`                      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the metric.                      |
+| `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description on what this metric is about.    |
+| `is_active`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the metric is active or deprecated.               |
+| `is_public`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
+| `is_core`                   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
+| `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
+| `has_construct_score`       | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
+| `has_percentile_rank_score` | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
+| `has_percentage_score`      | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
+| `has_value_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
+| `has_index_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
+| `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created. |
+| `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.  |
 
-## Filters
+### Relationship Response Schema
 
-- [Pagination](../pagination.md)
-- [Searching](../customizing/filters.md) by metric name.
-- [Updated Since](../customizing/filters.md)
-- `is_active` - Only include metrics that are active. Defaults to true.
-- `is_shown_ui` - Only include metrics designed to be shown in the UI. Defaults to true.
-- `groups` - A comma-separated list of metric groups using their system ID.
+The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-## Sorting
 
-The following fields are sortable:
 
-- `id`
-- `name`
-- `description`
-- `group_id`
-- `created_at`
-- `updated_at`
+## Relationships & includes
+
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
+
+- `group` - The [group](./metric-groups.md) that -.

@@ -1,103 +1,56 @@
----
-split: true
----
-
 # Brand Metric Groups
+
+You may use the Brands endpoint to retrieve details about one or more brand metric groups.
+
+## What are brand metric groups?
 
 When BAV studies a brand it does so on a variety of [metrics](./metrics.md). These metrics are divided into groups. Each group relates to a specific way to look at a brand, or to a BAV model.
 
-## List Brand Metric Groups
+## List all brand metric groups
 
-To list all of the groups and browse them via the API, use the list endpoint:
-
-```http request
-GET /api/v1/brand-metric-groups
-```
-
-The groups list response contains details about the group.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the group. |
-| `name` | string | The primary name of the group. |
-| `description` | string | A short description on what this group is about. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 2,
-            "name": "Pillars",
-            "description": "The 4 pillars \u2013 Differentiation, Relevance, Esteem, and Knowledge \u2013 make up the foundation of BAV. The patterns of the pillars for a brand explain the positioning in culture"
-        },
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Brand Metric Group
-
-You may also directly retrieve a group's details if you already have its system ID.
+To list all of the brand metric groups and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/brand-metric-groups/123
+GET /api/v2/brand-metric-groups
 ```
 
-Where `123` is the system ID of the group.
+## Get a brand
 
-### Schema
+You may also directly retrieve a brand's details if you already have its system ID.
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the group. |
-| `name` | string | The primary name of the group. |
-| `description` | string | A short description on what this group is about. |
-
----
-
-```json
-{
-    {
-        "id": 2,
-        "name": "Pillars",
-        "description": "The 4 pillars \u2013 Differentiation, Relevance, Esteem, and Knowledge \u2013 make up the foundation of BAV. The patterns of the pillars for a brand explain the positioning in culture"
-    },
-}
+```http request
+GET /api/v2/brand-metric-groups/123
 ```
 
-## Configurable Fields
+Where `123` is the system ID of the brand.
+ 
+## Schema
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../customizing/fields.md) for more information). The following fields can be toggled:
+### Full response schema
 
-- `name`
-- `description`
+| Key                   | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
+|-----------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
+| `id`                  | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |
+| `name`                | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the group.                       |
+| `key`                 | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
+| `description`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A short description on what this group is about.     |
+| `is_public`           | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |                                                                                                                    |
+| `created_at`          | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created. |
+| `updated_at`          | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.  |
 
-## Expansions
+### Relationship Response Schema
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../customizing/includes.md) for more information on how this works. The following relationships can be
-expanded for the brand metric groups:
+The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-- `metrics` - A list of metrics that are part of this group.
+| Key      | Type    | Description                    |
+|----------|---------|--------------------------------|
+| `id`     | integer | The system ID for the group.   |
+| `name`   | string  | The primary name of the group. |
 
-## Filters
+## Relationships & includes
 
-The groups endpoint supports the following filters:
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
 
-- [Pagination](../pagination.md)
-- [Searching](../customizing/filters.md) by group name.
-- [Updated Since](../customizing/filters.md)
-
-## Sorting
-
-The following fields are sortable:
-
-- `id`
-- `name`
-- `description`
+- `metric` - The [metrics](./metrics.md) that -.
