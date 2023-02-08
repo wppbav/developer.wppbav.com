@@ -23,28 +23,28 @@ You may also directly retrieve a brand's details if you already have its system 
 GET /api/v2/brand-metrics/123
 ```
 
-Where `123` is the system ID of the brand.
+Where `123` is the system ID of the brand metric.
 
 ## Schema
 
 ### Full response schema
 
-| Key                         | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
-|-----------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
-| `id`                        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |
-| `name`                      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the metric.                      |
-| `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description on what this metric is about.    |
-| `is_active`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the metric is active or deprecated.               |
-| `is_public`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
-| `is_core`                   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
-| `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
-| `has_construct_score`       | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
-| `has_percentile_rank_score` | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
-| `has_percentage_score`      | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
-| `has_value_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
-| `has_index_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                    |
-| `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created. |
-| `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.  |
+| Key                         | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                 |
+|-----------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------|
+| `id`                        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                              |
+| `name`                      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the metric.                             |
+| `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description on what this metric is about.           |
+| `is_active`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the metric is active or deprecated.                      |
+| `is_public`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `is_core`                   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `has_construct_score`       | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                           |
+| `has_percentile_rank_score` | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                           |
+| `has_percentage_score`      | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                           |
+| `has_value_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                           |
+| `has_index_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                           |
+| `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was first created. |
+| `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was last updated.  |
 
 ### Relationship Response Schema
 

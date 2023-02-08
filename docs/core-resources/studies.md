@@ -15,15 +15,15 @@ To list all of the studies and browse them via the API, use the list endpoint:
 GET /api/v2/studies
 ```
 
-## Get a brand
+## Get a study
 
-You may also directly retrieve a brand's details if you already have its system ID.
+You may also directly retrieve a study's details if you already have its system ID.
 
 ```http request
 GET /api/v2/studies/123
 ```
 
-Where `123` is the system ID of the brand.
+Where `123` is the system ID of the study.
 
 ## Schema
 
@@ -43,17 +43,17 @@ Where `123` is the system ID of the brand.
 | `categories`        | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
 | `data_updated_at`   | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
 | `amount_of_cells`   | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                                |
-| `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created.             |
-| `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.              |
+| `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this study was first created.             |
+| `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this study was last updated.              |
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand is used as part of an include in another resource.
+The slim relationship schema is used when the study is used as part of an include in another resource.
 
 | Key       | Type    | Description                    |
 |-----------|---------|--------------------------------|
-| `id`      | integer | The system ID for the brand.   |
-| `name`    | string  | The primary name of the brand. |
+| `id`      | integer | The system ID for the study.   |
+| `name`    | string  | The primary name of the study. |
 | `period`  | -       | -                              |
 | `country` | -       | -                              |
 | `year`    | -       | -                              |

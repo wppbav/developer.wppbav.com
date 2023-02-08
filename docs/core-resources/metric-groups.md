@@ -14,15 +14,15 @@ To list all of the brand metric groups and browse them via the API, use the list
 GET /api/v2/brand-metric-groups
 ```
 
-## Get a brand
+## Get a brand metric group
 
-You may also directly retrieve a brand's details if you already have its system ID.
+You may also directly retrieve a brand metric group's details if you already have its system ID.
 
 ```http request
 GET /api/v2/brand-metric-groups/123
 ```
 
-Where `123` is the system ID of the brand.
+Where `123` is the system ID of the brand metric group.
  
 ## Schema
 
@@ -40,7 +40,7 @@ Where `123` is the system ID of the brand.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand is used as part of an include in another resource.
+The slim relationship schema is used when the brand metric group is used as part of an include in another resource.
 
 | Key      | Type    | Description                    |
 |----------|---------|--------------------------------|

@@ -9,7 +9,7 @@ shared between the BAV and Best Countries datasets.
 
 Examples of audiences include: All Adults (everyone), Female, Age 18-25, etc.
 
-For the BAV dataset they correspond to the available cuts of data that you can access on brands. For the Best Countries
+For the BAV dataset they correspond to the available cuts of data that you can access on audiences. For the Best Countries
 dataset they correspond to a set of filters that you can then query the dataset with.
 
 Audiences can be active and inactive. Your application should not display inactive audiences to users even if they are
@@ -37,7 +37,7 @@ You may also directly retrieve an audience's details if you already have its sys
 GET /api/v2/audiences/1
 ```
 
-Where `1` is the system ID of the brand.
+Where `1` is the system ID of the audience.
 
 :::note All adults is the base audiences
 The All Adults audience is our definition of "unfiltered" or "everyone". It always has the system ID of 1.
@@ -59,17 +59,17 @@ The All Adults audience is our definition of "unfiltered" or "everyone". It alwa
 | `bc_filters`              | array   |            :white_check_mark:             |        :x:         | :white_check_mark: | The filters to apply to the raw Best Countries dataset to get this audience.                                       |
 | `available_for_diversity` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this audience is available in the Consumer Equality Equation study.                                        |
 | `is_ethnic_minority`      | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this audience is considered an ethnic minority.                                                            |
-| `created_at`              | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created.                                                               |
-| `updated_at`              | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.                                                                |
+| `created_at`              | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this audience was first created.                                                            |
+| `updated_at`              | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this audience was last updated.                                                             |
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand is used as part of an include in another resource.
+The slim relationship schema is used when the audience is used as part of an include in another resource.
 
 | Key                 | Type    | Description                                                                                                        |
 |---------------------|---------|--------------------------------------------------------------------------------------------------------------------|
-| `id`                | integer | The system ID for the brand.                                                                                       |
-| `name`              | string  | The primary name of the brand.                                                                                     |
+| `id`                | integer | The system ID for the audience.                                                                                    |
+| `name`              | string  | The primary name of the audience.                                                                                  |
 | `is_active`         | boolean | Whether this audience is active (should be used) or not. Please don't show inactive audiences in a user interface. |
 | `is_public`         | boolean | Whether this audience is publicly available to everyone (true) or just the current user (false).                   |
 | `available_for_bav` | boolean | Whether this audience can be used with the BAV dataset.                                                            |
