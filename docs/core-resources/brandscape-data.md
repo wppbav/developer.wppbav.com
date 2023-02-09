@@ -1,28 +1,28 @@
-# Brand Scape Datas
+# BrandScape Data
 
-You may use the Brand Scape Datas endpoint to retrieve details about one or more brand scape datas.
+You may use the BrandScape Data endpoint to retrieve details about one or more brandscape data.
 
-## What are brand scape datas?
+## What are brandscape data?
 
 -
 
-## List all brand scape datas
+## List all brandscape data
 
-To list all of the brand scape datas and browse them via the API, use the list endpoint:
-
-```http request
-GET /api/v2/brand-scape-datas
-```
-
-## Get a brand scape data
-
-You may also directly retrieve a brand scape data's details if you already have its system ID.
+To list all of the brandscape data and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v2/brand-scape-datas/123
+GET /api/v2/brandscape-data
 ```
 
-Where `123` is the system ID of the brand scape data.
+## Get a brandscape data
+
+You may also directly retrieve a brandscape data's details if you already have its system ID.
+
+```http request
+GET /api/v2/brandscape-data/123
+```
+
+Where `123` is the system ID of the brandscape data.
 
 ## Schema
 
@@ -36,7 +36,7 @@ Where `123` is the system ID of the brand scape data.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand scape data is used as part of an include in another resource.
+The slim relationship schema is used when the brandscape data is used as part of an include in another resource.
 
 
 

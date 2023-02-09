@@ -36,7 +36,7 @@ const sidebars = {
                 'core-resources/audiences',
                 'core-resources/audience-groups',
                 'core-resources/brands',
-                'core-resources/brand-scape-datas',
+                'core-resources/brandscape-data',
                 'core-resources/categories',
                 'core-resources/cee-opinions',
                 'core-resources/collections',

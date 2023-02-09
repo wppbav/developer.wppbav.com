@@ -50,6 +50,11 @@ Where `123` is the system ID of the brand metric.
 
 The slim relationship schema is used when the brand is used as part of an include in another resource.
 
+| Key            | Type    | Description                            |
+|----------------|---------|----------------------------------------|
+| `id`           | integer | The system ID for the metric.          |
+| `name`         | string  | The primary name of the metric.        |
+| `is_active`    | boolean | If the metric is active or deprecated. |
 
 
 ## Relationships & includes

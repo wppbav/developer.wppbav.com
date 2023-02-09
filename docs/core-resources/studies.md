@@ -39,10 +39,11 @@ Where `123` is the system ID of the study.
 | `start_date`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the fieldwork for this study was started. |
 | `end_date`          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the fieldwork for this study ended.       |
 | `data_available_at` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the final data was made available.        |
-| `respondents`       | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
-| `categories`        | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
+| `respondents`       | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many individual respondents the study had.                   |
+| `categories`        | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many categories the study had.                               |
 | `data_updated_at`   | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
-| `amount_of_cells`   | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                                |
+| `amount_of_cells`   | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                                |
+| `amount_of_brands`  | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many brands the study had.                                   |
 | `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this study was first created.             |
 | `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this study was last updated.              |
 

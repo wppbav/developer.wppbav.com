@@ -41,6 +41,7 @@ Where `123` is the system ID of the country.
 | `area`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
 | `latitude`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
 | `longitude`    | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `flag`         | string  |                    :x:                    |        :x:         | :white_check_mark: | -                                                           |
 | `created_at`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when this country was first created.      |
 | `updated_at`   | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this country was last updated.       |
 
@@ -56,3 +57,11 @@ The slim relationship schema is used when the country is used as part of an incl
 | `code`         | object  | The two-letter code (ISO 3166-1 alpha-2) for the country.                                  |
 | `code_alpha3`  | object  | The three-letter code (ISO 3166-1 alpha-3) for the country.                                |
 | `code_numeric` | object  | The numeric code (ISO 3166-1 numeric) for the country.                                     |
+
+## Relationships & includes
+
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
+
+- `region` - The [region](./regions.md) that -.
