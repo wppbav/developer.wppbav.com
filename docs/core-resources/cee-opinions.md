@@ -1,22 +1,21 @@
-# Cee Opinions
+# Consumer Equality Equation Opinions
 
-You may use the Cee Opinions endpoint to retrieve details about one or more cee opinions.
+## What are Consumer Equality Equation opinions?
 
-## What are cee opinions?
+The Consumer Equality Equation study is a study on minority ethnic groups in the UK. This endpoint lets you access the
+aggregated responses by ethnic group on a number of questions around opinions.
 
+## List all opinions
 
-
-## List all cee opinions
-
-To list all of the cee opinions and browse them via the API, use the list endpoint:
+To list all of the opinions and browse them via the API, use the list endpoint:
 
 ```http request
 GET /api/v2/cee-opinions
 ```
 
-## Get a cee opinion
+## Get an opinion
 
-You may also directly retrieve a cee opinion's details if you already have its system ID.
+You may also directly retrieve an opinion's details if you already have its system ID.
 
 ```http request
 GET /api/v2/cee-opinions/123
@@ -28,12 +27,8 @@ Where `123` is the system ID of the cee opinion.
 
 ### Full response schema
 
-| Key                   | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                |
-|-----------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------------|
-| `id`                  | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                             |
-| `created_at`          | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this cee opinion was first created. |
-| `updated_at`          | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this cee opinion was last updated.  |
-
+Because the schema is large we omit it here. It consists of both metadata columns (study details) and the opinion and
+value columns. The values are in percent.
 
 ## Relationships & includes
 

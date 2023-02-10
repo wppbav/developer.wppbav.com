@@ -1,10 +1,11 @@
 # Countries
 
-You may use the Countries endpoint to retrieve details about one or more countries.
-
 ## What are countries?
 
-Many of the BAV resources rely on segmenting data by countries. This resource contains a list of all the countries in the world, with additional ISO codes and metadata for system use.
+Many of the BAV resources rely on segmenting data by countries. This resource contains a list of all the countries in
+the world, with additional ISO codes and metadata for system use.
+
+We suggest that you use the term `Market` instead of country when showing this in an interface.
 
 ## List all countries
 

@@ -1,11 +1,19 @@
 # Collections
 
-You may use the Collections endpoint to retrieve details about one or more collections.
-
 ## What are collections?
 
-Assets can be grouped into various different collections, either privately by the user or publically available to all
-users. You may access these for consumption via the Collections API.
+Collections are a way to group brands together. A collection can then be used for a variety of purposes to save time
+when adding brands. Instead of searching for a number of brands every time a user can add the collection in one go.
+Examples of useful collections are:
+
+- All brands that are part of a company.
+- Client brands
+- Competitor brands
+
+A collection may be public or private. A public collection is available to all users. A private collection is only
+available to the user who created it.
+
+A collection can also be shared with any number of users.
 
 ## List all collections
 

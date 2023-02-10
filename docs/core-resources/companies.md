@@ -1,15 +1,9 @@
 # Companies
 
-You may use the Companies endpoint to retrieve details about one or more companies.
-
 ## What are companies?
 
-Companies are the core of BAV. They are the entities that are researched by BAV surveys and is connected to many other
-resources. Companies differ from companies in that they are not necessarily a legal entity. Companies are owned by companies.
-
-Companies in BAV do not belong specifically to a [category resource](./categories.md). Each company is studied in a specific
-category in a specific [study](./studies.md). However, for classification purposes each company belongs to
-a [sector](./sectors.md) based on the studies it is in.
+Companies are a step above brands in the BAV hierarchy. Companies are the legal entities that own brands. These
+companies can be privately or publicly owned.
 
 ## List all companies
 
@@ -55,10 +49,10 @@ Where `123` is the system ID of the company.
 
 The slim relationship schema is used when the company is used as part of an include in another resource.
 
-| Key               | Type    | Description                      |
-|-------------------|---------|----------------------------------|
-| `id`              | integer | The system ID for the company.   |
-| `name`            | string  | The primary name of the company. |
+| Key    | Type    | Description                      |
+|--------|---------|----------------------------------|
+| `id`   | integer | The system ID for the company.   |
+| `name` | string  | The primary name of the company. |
 
 ## Relationships & includes
 

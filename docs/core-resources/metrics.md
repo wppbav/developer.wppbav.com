@@ -1,11 +1,9 @@
 # Brand Metrics
 
-You may use the Brand Metrics endpoint to retrieve details about one or more brand metrics.
-
 ## What are brand metrics?
 
-When BAV studies a brand it does so on a variety of metrics. These metrics are divided into [groups](./metric-groups.md). Each group relates
-to a specific way to look at a brand, or to a BAV model.
+When BAV studies a brand it does so on a variety of metrics. These metrics are divided
+into [groups](./metric-groups.md). Each group relates to a specific way to look at a brand, or to a BAV model.
 
 ## List all brand metrics
 
@@ -50,12 +48,11 @@ Where `123` is the system ID of the brand metric.
 
 The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-| Key            | Type    | Description                            |
-|----------------|---------|----------------------------------------|
-| `id`           | integer | The system ID for the metric.          |
-| `name`         | string  | The primary name of the metric.        |
-| `is_active`    | boolean | If the metric is active or deprecated. |
-
+| Key         | Type    | Description                            |
+|-------------|---------|----------------------------------------|
+| `id`        | integer | The system ID for the metric.          |
+| `name`      | string  | The primary name of the metric.        |
+| `is_active` | boolean | If the metric is active or deprecated. |
 
 ## Relationships & includes
 
@@ -63,4 +60,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `group` - The [group](./metric-groups.md) that -.
+- `group` - The [group](./metric-groups.md) that the metric belongs to.
