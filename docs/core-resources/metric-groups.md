@@ -27,15 +27,15 @@ Where `123` is the system ID of the brand metric group.
 
 ### Full response schema
 
-| Key           | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
-|---------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
-| `id`          | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |
-| `name`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the group.                       |
-| `key`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |
-| `description` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A short description on what this group is about.     |
-| `is_public`   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                    |                                                                                                                    |
-| `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created. |
-| `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.  |
+| Key           | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                            |
+|---------------|---------|:-----------------------------------------:|:------------------:|:------------------:|--------------------------------------------------------|
+| `id`          | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                         |
+| `name`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the group.                         |
+| `key`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A machine-readable name for the group.                 |
+| `description` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A short description on what this group is about.       |
+| `is_public`   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the group is publicly available for all users. |                                                                                                                    |
+| `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created.   |
+| `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.    |
 
 ### Relationship Response Schema
 

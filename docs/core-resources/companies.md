@@ -27,23 +27,23 @@ Where `123` is the system ID of the company.
 
 ### Full response schema
 
-| Key               | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                            |
-|-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|--------------------------------------------------------|
-| `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                         |
-| `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the company.                       |
-| `description`     | string  |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                      |
-| `currency`        | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `isin`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `ipo_date`        | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `fiscal_year_end` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `street_address`  | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `state`           | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `postal_code`     | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `city`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `website_url`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                      |
-| `officers`        | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                      |
-| `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this company was first created. |
-| `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this company was last updated.  |
+| Key               | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                     |
+|-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-----------------------------------------------------------------|
+| `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                  |
+| `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the company.                                |
+| `description`     | string  |            :white_check_mark:             |        :x:         | :white_check_mark: | A description of what the company does.                         |
+| `currency`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary reporting currency for the company.                 |
+| `isin`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The company's ISIN number (if public).                          |
+| `ipo_date`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | When the company first had its initial public offering.         |
+| `fiscal_year_end` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The month when the company's fiscal year ends.                  |
+| `street_address`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The street address for the company's listed HQ.                 |
+| `state`           | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The state/region for the company's listed HQ.                   |
+| `postal_code`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The zip/postal code for the company's listed HQ.                |
+| `city`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The city for the company's listed HQ.                           |
+| `website_url`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The company's primary website URL.                              |
+| `officers`        | array   |            :white_check_mark:             |        :x:         | :white_check_mark: | An array of names and roles of the registered company officers. |
+| `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this company was first created.          |
+| `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this company was last updated.           |
 
 ### Relationship Response Schema
 
@@ -60,9 +60,10 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `brand` - The [brand](./brands.md) .
-- `brands` - The [brands](./brands.md) .
-- `gics_sector` - The [GICS Sector](./gics-sectors.md) .
-- `stock_exchanges` - The [stock exchanges](./stock-exchanges.md) .
-- `country` - The [country](./countries.md) .
-- `latest_financials` - The [latest financials](./latest-financials.md) .
+- `brand` - The [brand](./brands.md) relation if the company name is also a tracked brand name.
+- `brands` - The [brands](./brands.md) that belong to the company.
+- `gics_sector` - The [GICS Sector](./gics-sectors.md) that categorizes the company.
+- `stock_exchanges` - The [stock exchanges](./stock-exchanges.md) that the company is listed on.
+- `country` - The [country](./countries.md) that the company is headquartered in.
+- `latest_financials` - The [latest financials](./latest-financials.md) for the company (available for public
+  companies).

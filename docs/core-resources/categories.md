@@ -18,6 +18,9 @@ These categories are therefore, a way to relate a brand to usage and not a way t
 you might be interested to know how respondents see and use Google as both a search engine and advertiser, which would
 be two distinct categories, yet does not attempt to classify what Google objectively is.
 
+This also means that the amount of brands in a category may change slightly across years and greatly across markets.
+Not all categories are available in all years and markets.
+
 ## List Categories
 
 To list all of the categories, use the list endpoint:

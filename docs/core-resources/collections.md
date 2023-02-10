@@ -37,13 +37,13 @@ Where `123` is the system ID of the collection.
 
 ### Full response schema
 
-| Key               | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                               |
-|-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-----------------------------------------------------------|
-| `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                            |
-| `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the collection.                       |
-| `collection_type` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                         |
-| `uuid`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                         |
-| `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this collection was first created. |
-| `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this collection was last updated.  |
+| Key               | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                                                                                                       |
+|-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                                                                                                    |
+| `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the collection.                                                                                                                               |
+| `collection_type` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the collection is private or public.                                                                                                                      |
+| `uuid`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The public unique identifier for the collection. Whenever a collection is shared outside of the system, or a direct link is required we use the UUID over the ID. |
+| `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this collection was first created.                                                                                                         |
+| `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this collection was last updated.                                                                                                          |
 
 

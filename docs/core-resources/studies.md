@@ -1,11 +1,13 @@
 # Studies
 
-You may use the Studies endpoint to retrieve details about one or more studies.
-
 ## What are studies?
 
-The studies resource returns overview information about BAV studies and their timelines. Both past and future studies
-are available through the API.
+A fundamental element of our datasets are studies. A study is a collection of data from respondents at a specific point
+in time. Most markets in BAV are for example covered at most once a year with the exception of the US which is done
+quarterly.
+
+Studies are a primary way of filtering our [brandscape data](./brandscape.md) and also contains information about the
+study iself, such as when it was conducted and how many respondents it had.
 
 ## List all studies
 
@@ -59,12 +61,11 @@ The slim relationship schema is used when the study is used as part of an includ
 | `country` | -       | -                              |
 | `year`    | -       | -                              |
 
-
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `country` - The [country](./countries.md) -.
-- `year` - The [year](./years.md) -.
+- `country` - The [country](./countries.md) country where the study was done.
+- `year` - The [year](./years.md) year when the study was done.

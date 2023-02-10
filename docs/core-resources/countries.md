@@ -32,17 +32,17 @@ Where `123` is the system ID of the country.
 | Key            | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                 |
 |----------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------|
 | `id`           | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID for the country.                              |
-| `is_active`    | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `is_active`    | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the market should be used/shown or not.             |
 | `name`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in English.                         |
 | `native_name`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in its native language.             |
 | `code`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The two-letter code (ISO 3166-1 alpha-2) for the country.   |
 | `code_alpha3`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The three-letter code (ISO 3166-1 alpha-3) for the country. |
 | `code_numeric` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The numeric code (ISO 3166-1 numeric) for the country.      |
-| `capital`      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
-| `area`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `capital`      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country's capital.                          |
+| `area`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The size of the country.                                    |
 | `latitude`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
 | `longitude`    | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
-| `flag`         | string  |                    :x:                    |        :x:         | :white_check_mark: | -                                                           |
+| `flag`         | string  |                    :x:                    |        :x:         | :white_check_mark: | The URL to the country's flag as an image.                  |
 | `created_at`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when this country was first created.      |
 | `updated_at`   | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this country was last updated.       |
 

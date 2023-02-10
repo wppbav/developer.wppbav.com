@@ -1,10 +1,8 @@
 # Stock Exchanges
 
-You may use the Stock Exchanges endpoint to retrieve details about one or more stock exchanges.
-
 ## What are stock exchanges?
 
-
+Stock Exchanges are the entities where public [companies](./companies.md) are listed.
 
 ## List all stock exchanges
 
@@ -32,10 +30,10 @@ Where `123` is the system ID of the stock exchange.
 |-----------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------------|
 | `id`            | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                |
 | `name`          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the stock exchange.                               |
-| `code`          | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                             |
-| `suffix`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                             |
-| `operating_mic` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                             |
-| `currency`      | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                             |
+| `code`          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The code for the stock exchange.                              |
+| `suffix`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The stock suffix when part of this stock exchange.            |
+| `operating_mic` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The operating Market Identifier Code for the stock exchange.  |
+| `currency`      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The reporting currency used by the exchange.                  |
 | `created_at`    | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this stock exchange was first created. |
 | `updated_at`    | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this stock exchange was last updated.  |
 
@@ -43,13 +41,13 @@ Where `123` is the system ID of the stock exchange.
 
 The slim relationship schema is used when the stock exchange is used as part of an include in another resource.
 
-| Key             | Type    | Description                           |
-|-----------------|---------|---------------------------------------|
-| `id`            | integer | The system ID for the stock exchange. |
-| `name`          | string  | The name of the stock exchange.       |
-| `code`          | -       | -                                     |
-| `suffix`        | string  | -                                     |
-| `operating_mic` | -       | -                                     |
+| Key             | Type    | Description                                                  |
+|-----------------|---------|--------------------------------------------------------------|
+| `id`            | integer | The system ID for the stock exchange.                        |
+| `name`          | string  | The name of the stock exchange.                              |
+| `code`          | string  | The code for the stock exchange.                             |
+| `suffix`        | string  | The stock suffix when part of this stock exchange.           |
+| `operating_mic` | string  | The operating Market Identifier Code for the stock exchange. |
 
 ## Relationships & includes
 
@@ -57,4 +55,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `country` - The [country](./countries.md) .
+- `country` - The [country](./countries.md) where the exchange is located.

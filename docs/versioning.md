@@ -12,3 +12,16 @@ Please not that we only actively support the current major version of the API. W
 version, we suggest that you update to the latest version if you are using an older version. We try and make upgrades as
 easy as possible.
 :::
+
+## Upgrading from version 1
+
+Version 2 contains breaking changes from version 1 of the API. We suggest that you review all calls and responses for
+any changes.
+
+At a high-level, these are the changes that will affect you:
+
+- There are no removed resources but several new ones.
+- Some fields have been given new names, a select few have been removed.
+- Filtering now has a new, consistent format (see [filtering](/docs/filtering.md)).
+- Sorting now has a new, simplified format (see [sorting](/docs/sorting.md)).
+- Expansions are now includes (see [includes](/docs/includes.md)).

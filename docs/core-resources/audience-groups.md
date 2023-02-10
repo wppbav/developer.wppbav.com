@@ -32,7 +32,7 @@ Where `123` is the system ID of the audience group.
 |---------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------------|
 | `id`          | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                |
 | `name`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the audience group.                               |
-| `description` | string  |            :white_check_mark:             |        :x:         | :white_check_mark: | -                                                             |
+| `description` | string  |            :white_check_mark:             |        :x:         | :white_check_mark: | An optional description about what the group is.              |
 | `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this audience group was first created. |
 | `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this audience group was last updated.  |
 

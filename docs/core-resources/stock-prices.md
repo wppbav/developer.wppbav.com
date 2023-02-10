@@ -1,9 +1,10 @@
 # Stock Prices
 
-You may use the Stock Prices endpoint to retrieve details about one or more stock prices.
-
 ## What are stock prices?
 
+Stock prices are the prices of a company's stock on a particular stock exchange. They are used to calculate the value of
+a company. We collect stock prices for all companies on all stock exchanges that belong to brands that are covered in
+BAV.
 
 ## List all stock prices
 
@@ -46,5 +47,5 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `company` - The [company](./companies.md) .
-- `stock_exchange` - The [stock exchange](./stock-exchanges.md) .
+- `company` - The [company](./companies.md).
+- `stock_exchange` - The [stock exchange](./stock-exchanges.md).
