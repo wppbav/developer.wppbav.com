@@ -3,7 +3,7 @@
 ## What are brand metrics?
 
 When BAV studies a brand it does so on a variety of metrics. These metrics are divided
-into [groups](./metric-groups.md). Each group relates to a specific way to look at a brand, or to a BAV model.
+into [groups](metric-groups.md). Each group relates to a specific way to look at a brand, or to a BAV model.
 
 ## List all brand metrics
 
@@ -60,4 +60,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `group` - The [group](./metric-groups.md) that the metric belongs to.
+- `group` - The [group](metric-groups.md) that the metric belongs to.

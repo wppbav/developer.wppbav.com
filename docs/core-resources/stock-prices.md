@@ -31,13 +31,13 @@ Where `123` is the system ID of the stock price.
 | Key                    | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                |
 |------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------------|
 | `id`                   | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                             |
-| `date`                 | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `open_price`           | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `close_price`          | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `adjusted_close_price` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `high_price`           | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `low_price`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                          |
-| `trading_volume`       | -       |            :white_check_marl:             | :white_check_mark: | :white_check_mark: | -                                                          |
+| `date`                 | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The date for the stock price value.                        |
+| `open_price`           | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The opening price for the day.                             |
+| `close_price`          | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The closing price for the day.                             |
+| `adjusted_close_price` | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The adjusted closing price for the day.                    |
+| `high_price`           | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The highest price for the day.                             |
+| `low_price`            | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The lowest price for the day.                              |
+| `trading_volume`       | integer |            :white_check_marl:             | :white_check_mark: | :white_check_mark: | The amount of trades for the day.                          |
 | `created_at`           | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this stock price was first created. |
 | `updated_at`           | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this stock price was last updated.  |
 
@@ -47,5 +47,5 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `company` - The [company](./companies.md).
-- `stock_exchange` - The [stock exchange](./stock-exchanges.md).
+- `company` - The [company](companies.md).
+- `stock_exchange` - The [stock exchange](stock-exchanges.md).

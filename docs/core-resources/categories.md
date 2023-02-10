@@ -62,4 +62,4 @@ The slim relationship schema is used when the category is used as part of an inc
 By default, relationships not included. See the [includes section](../customizing/includes) for more information on how
 this works. The following relationships are available:
 
-- `sector` - The [sector](./sectors.md) that the category belongs to.
+- `sector` - The [sector](sectors.md) that the category belongs to.

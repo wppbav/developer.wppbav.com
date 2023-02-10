@@ -8,11 +8,11 @@ terms, see the brandscape data is the "BAV data".
 
 The brandscape data endpoint gives you data by:
 
-- [Study](./studies.md)
-- [Year](./years.md)
-- [Country](./countries.md)
-- [Audience](./audiences.md)
-- [Category](./categories.md)
+- [Study](studies.md)
+- [Year](years.md)
+- [Country](countries.md)
+- [Audience](audiences.md)
+- [Category](categories.md)
 
 You can customize the response to include only the data you need, such as only specific metrics.
 
@@ -57,7 +57,7 @@ The brandscape data schema is large (≈ 350 fields). For that reason we omit th
 - Metadata (for example: study, category, brand, audience information)
 - Metric Data
 
-The metric data field names are built up by the `import_name` of the [Brand Metrics](./metrics.md) resource and a suffix
+The metric data field names are built up by the `import_name` of the [Brand Metrics](metrics.md) resource and a suffix
 depending on the score type. Not all metrics have all score types. The metric resource will show the available score
 types. Suffixes are:
 
@@ -96,9 +96,9 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `study` - The [study](./studies.md) -.
-- `year` - The [year](./years.md) -.
-- `country` - The [country](./countries.md) -.
+- `study` - The [study](studies.md) -.
+- `year` - The [year](years.md) -.
+- `country` - The [country](countries.md) -.
 - `base` - The [base](./bases.md) -.
-- `brand` - The [brand](./brands.md) -.
-- `category` - The [category](./categories.md) -.
+- `brand` - The [brand](brands.md) -.
+- `category` - The [category](categories.md) -.

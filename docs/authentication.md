@@ -1,3 +1,7 @@
+---
+displayed_sidebar: apiSidebar
+---
+
 # Authentication
 
 The API has two means of access, depending on your use-case: Personal Access Tokens and Application Access. Personal
@@ -13,7 +17,7 @@ When using a personal access token to authenticate to the API, you should use th
 example:
 
 ```bash
-curl https://fount.wppbav.com/api/v1/brands -H "Authorization: Bearer TOKEN"
+curl https://fount.wppbav.com/api/v2/brands -H "Authorization: Bearer TOKEN"
 ```
 
 ## Application Access

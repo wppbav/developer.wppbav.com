@@ -47,4 +47,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `countries` - The [countries](./countries.md) countries that are part of the region.
+- `countries` - The [countries](countries.md) countries that are part of the region.

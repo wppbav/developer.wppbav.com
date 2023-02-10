@@ -13,7 +13,7 @@
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-    docsSidebar: [
+    apiSidebar: [
         'intro',
         'authentication',
         'rate-limiting',
@@ -53,16 +53,12 @@ const sidebars = {
                 'core-resources/studies',
                 'core-resources/years',
             ],
-        },
-        {
-            type: 'category',
-            label: 'Query Endpoints',
-            items: [
-                'query/index',
-                'query/brandscape-data',
-                'query/best-countries',
-            ],
-        },
+        }
+    ],
+    embedSidebar: [
+        'embed/intro',
+        'embed/implementation',
+        'embed/display-options'
     ],
 };
 

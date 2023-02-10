@@ -2,8 +2,8 @@
 
 ## What are sectors?
 
-When doing a BAV study, some questions are asked that relate sectors to one or more [categories](./categories.md). You
-can read more about the categories and what they represent on the [categories endpoint](./categories.md).
+When doing a BAV study, some questions are asked that relate sectors to one or more [categories](categories.md). You
+can read more about the categories and what they represent on the [categories endpoint](categories.md).
 
 Each category belongs to a sector, which is a broader classification of categories. The benefit of a sector is that it
 is easier to compare across countries and years.
@@ -54,4 +54,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `categories` - The [categories](./categories.md) that belong to this sector.
+- `categories` - The [categories](categories.md) that belong to this sector.

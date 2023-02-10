@@ -2,7 +2,7 @@
 
 ## What are stock exchanges?
 
-Stock Exchanges are the entities where public [companies](./companies.md) are listed.
+Stock Exchanges are the entities where public [companies](companies.md) are listed.
 
 ## List all stock exchanges
 
@@ -55,4 +55,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `country` - The [country](./countries.md) where the exchange is located.
+- `country` - The [country](countries.md) where the exchange is located.

@@ -65,6 +65,12 @@ const config = {
                         position: 'left',
                         label: 'API',
                     },
+                    {
+                        type: 'doc',
+                        docId: 'embed/intro',
+                        position: 'left',
+                        label: 'Embed',
+                    },
                     {to: '/blog', label: 'News', position: 'left'},
                     {
                         to: '/support',

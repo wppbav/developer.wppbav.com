@@ -36,7 +36,7 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `study` - The [study](./companies.md) .
-- `country` - The [country](./countries.md) .
-- `year` - The [year](./years.md) .
+- `study` - The [study](companies.md) .
+- `country` - The [country](countries.md) .
+- `year` - The [year](years.md) .
 - `base` - The [base](./bases.md) .

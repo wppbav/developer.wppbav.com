@@ -60,10 +60,10 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `brand` - The [brand](./brands.md) relation if the company name is also a tracked brand name.
-- `brands` - The [brands](./brands.md) that belong to the company.
-- `gics_sector` - The [GICS Sector](./gics-sectors.md) that categorizes the company.
-- `stock_exchanges` - The [stock exchanges](./stock-exchanges.md) that the company is listed on.
-- `country` - The [country](./countries.md) that the company is headquartered in.
+- `brand` - The [brand](brands.md) relation if the company name is also a tracked brand name.
+- `brands` - The [brands](brands.md) that belong to the company.
+- `gics_sector` - The [GICS Sector](gics-sectors.md) that categorizes the company.
+- `stock_exchanges` - The [stock exchanges](stock-exchanges.md) that the company is listed on.
+- `country` - The [country](countries.md) that the company is headquartered in.
 - `latest_financials` - The [latest financials](./latest-financials.md) for the company (available for public
   companies).

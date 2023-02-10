@@ -1,3 +1,7 @@
+---
+displayed_sidebar: apiSidebar
+---
+
 # Errors
 
 The Fount's API uses standard HTTP response codes to indicate success or failure of an API request.

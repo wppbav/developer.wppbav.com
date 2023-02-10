@@ -7,9 +7,9 @@ You may use the Brands endpoint to retrieve details about one or more brands.
 Brands are the core of BAV. They are the entities that are researched by BAV surveys and is connected to many other
 resources. Brands differ from companies in that they are not necessarily a legal entity. Brands are owned by companies.
 
-Brands in BAV do not belong specifically to a [category resource](./categories.md). Each brand is studied in a specific
-category in a specific [study](./studies.md). However, for classification purposes each brand belongs to
-a [sector](./sectors.md) based on the studies it is in.
+Brands in BAV do not belong specifically to a [category resource](categories.md). Each brand is studied in a specific
+category in a specific [study](studies.md). However, for classification purposes each brand belongs to
+a [sector](sectors.md) based on the studies it is in.
 
 ## List all brands
 
@@ -55,7 +55,7 @@ The slim relationship schema is used when the brand is used as part of an includ
 |----------|---------|----------------------------------------------------------------|
 | `id`     | integer | The system ID for the brand.                                   |
 | `name`   | string  | The primary name of the brand.                                 |
-| `sector` | object  | An object with the brand's [sector relationship](./sectors.md) |
+| `sector` | object  | An object with the brand's [sector relationship](sectors.md) |
 
 ## Relationships & includes
 
@@ -63,7 +63,7 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `company` - The [company](./companies.md) that owns the brand.
-- `sector` - The [sector](./sectors.md) that the brand belongs to.
-- `studies` - A list of [BAV studies](./studies.md) where this brand was included.
-- `countries` - The [countries](./countries.md) where this brand may have a local name, custom logo or where it is from.
+- `company` - The [company](companies.md) that owns the brand.
+- `sector` - The [sector](sectors.md) that the brand belongs to.
+- `studies` - A list of [BAV studies](studies.md) where this brand was included.
+- `countries` - The [countries](countries.md) where this brand may have a local name, custom logo or where it is from.

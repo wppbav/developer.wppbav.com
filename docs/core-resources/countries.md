@@ -54,7 +54,7 @@ The slim relationship schema is used when the country is used as part of an incl
 |----------------|---------|--------------------------------------------------------------------------------------------|
 | `id`           | integer | The system ID for the country.                                                             |
 | `name`         | string  | The name of the country in English.                                                        |
-| `region`       | object  | An object with the region that this country belongs to [sector relationship](./sectors.md) |
+| `region`       | object  | An object with the region that this country belongs to [sector relationship](sectors.md) |
 | `code`         | object  | The two-letter code (ISO 3166-1 alpha-2) for the country.                                  |
 | `code_alpha3`  | object  | The three-letter code (ISO 3166-1 alpha-3) for the country.                                |
 | `code_numeric` | object  | The numeric code (ISO 3166-1 numeric) for the country.                                     |
@@ -65,4 +65,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `region` - The [region](./regions.md) that -.
+- `region` - The [region](regions.md) that -.

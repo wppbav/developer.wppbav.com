@@ -18,7 +18,7 @@ available through the API.
 Audiences can also be public/private. Public audiences are available to all users across the group. Private audiences
 are audiences only accessible by the current user.
 
-Audiences in turn belong to [audience groups](./audience-groups.md). These groups can be used to create a better
+Audiences in turn belong to [audience groups](audience-groups.md). These groups can be used to create a better
 selection experience in an interface as the number of audiences can be plentiful.
 
 ## List all audiences
@@ -81,4 +81,4 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `group` - The [audience group](./audience-groups.md) that this audience belongs to.
+- `group` - The [audience group](audience-groups.md) that this audience belongs to.

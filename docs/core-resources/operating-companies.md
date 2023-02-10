@@ -46,5 +46,5 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `parent` - The [company](./companies.md) that owns another company.
-- `brand` - The [brand](./brands.md) that the operating company has.
+- `parent` - The [company](companies.md) that owns another company.
+- `brand` - The [brand](brands.md) that the operating company has.
