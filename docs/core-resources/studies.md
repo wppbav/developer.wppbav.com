@@ -6,7 +6,7 @@ A fundamental element of our datasets are studies. A study is a collection of da
 in time. Most markets in BAV are for example covered at most once a year with the exception of the US which is done
 quarterly.
 
-Studies are a primary way of filtering our [brandscape data](./brandscape.md) and also contains information about the
+Studies are a primary way of filtering our [brandscape data](./brandscape-data.md) and also contains information about the
 study iself, such as when it was conducted and how many respondents it had.
 
 ## List all studies

@@ -74,5 +74,4 @@ are available:
 - `gics_sector` - The [GICS Sector](gics-sectors.md) that categorizes the company.
 - `stock_exchanges` - The [stock exchanges](stock-exchanges.md) that the company is listed on.
 - `country` - The [country](countries.md) that the company is headquartered in.
-- `latest_financials` - The [latest financials](./latest-financials.md) for the company (available for public
-  companies).
+- `latest_financials` - The latest financials for the company (available for public companies).

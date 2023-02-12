@@ -1,4 +1,3 @@
-
 # Versioning
 
 When new backwards-incompatible changes are made to the API, a new version is released. These docs are always versioned
@@ -23,6 +22,6 @@ At a high-level, these are the changes that will affect you:
 
 - There are no removed resources but several new ones.
 - Some fields have been given new names, a select few have been removed.
-- Filtering now has a new, consistent format (see [filtering](customizingers.md)).
-- Sorting now has a new, simplified format (see [sorting](customizingers.md)).
-- Expansions are now includes (see [includes](customizingudes.md)).
+- Filtering now has a new, consistent format (see [filtering](customizing/filters.md)).
+- Sorting now has a new, simplified format (see [sorting](customizing/filters.md)).
+- Expansions are now includes (see [includes](customizing/includes.md)).

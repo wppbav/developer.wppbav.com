@@ -112,6 +112,6 @@ are available:
 - `study` - The [study](studies.md) -.
 - `year` - The [year](years.md) -.
 - `country` - The [country](countries.md) -.
-- `base` - The [base](./bases.md) -.
+- `audiences` - The [audience](./audiences.md) -.
 - `brand` - The [brand](brands.md) -.
 - `category` - The [category](categories.md) -.

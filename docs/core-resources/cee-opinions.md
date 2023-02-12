@@ -55,4 +55,4 @@ are available:
 - `study` - The [study](companies.md) .
 - `country` - The [country](countries.md) .
 - `year` - The [year](years.md) .
-- `base` - The [base](./bases.md) .
+- `audience` - The [audience](./audiences.md) .

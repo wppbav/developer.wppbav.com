@@ -10,7 +10,7 @@ const config = {
     tagline: 'Developer documentation for BAV@WPP and its API and suite of tools.',
     url: 'https://developer.wppbav.com',
     baseUrl: '/',
-    onBrokenLinks: 'throw',
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.png',
     organizationName: 'wppbav', // Usually your GitHub org/user name.
