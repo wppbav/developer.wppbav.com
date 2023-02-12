@@ -51,11 +51,32 @@ Where `123` is the system ID of the brand.
 
 The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-| Key      | Type    | Description                                                    |
-|----------|---------|----------------------------------------------------------------|
-| `id`     | integer | The system ID for the brand.                                   |
-| `name`   | string  | The primary name of the brand.                                 |
+| Key      | Type    | Description                                                  |
+|----------|---------|--------------------------------------------------------------|
+| `id`     | integer | The system ID for the brand.                                 |
+| `name`   | string  | The primary name of the brand.                               |
 | `sector` | object  | An object with the brand's [sector relationship](sectors.md) |
+
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `years` - A comma-separated list of year IDs. This will filter the brands to only those that are studied in the
+  specified years.
+- `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
+  the specified categories.
+- `sectors` - A comma-separated list of sector IDs. This will filter the brands to only those in the given sectors.
+- `countries` - A comma-separated list of country IDs. This will filter the brands to only those that are studied in
+  the specified countries.
+- `regions` - A comma-separated list of region IDs. This will filter the brands to only those that are studied in
+  the specified regions.
+- `studies` - A comma-separated list of study IDs. This will filter the brands to only those that are included in the
+  specified studies.
+- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the brands to only those
+  that are studied in the specified countries.
+- `year_numbers` - A comma-separated list of year numbers. This will filter the brands to only those that are studied
+  in the specified years.
 
 ## Relationships & includes
 
