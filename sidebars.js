@@ -53,6 +53,17 @@ const sidebars = {
                 'core-resources/studies',
                 'core-resources/years',
             ],
+        },
+        {
+            type: 'category',
+            label: 'Best Countries',
+            items: [
+                'best-countries/index',
+                'best-countries/metrics',
+                'best-countries/metric-groups',
+                'best-countries/factors',
+                'best-countries/country-data',
+            ],
         }
     ],
     embedSidebar: [
