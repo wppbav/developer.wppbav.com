@@ -1,194 +1,164 @@
----
-split: true
----
-
 # Studies
 
-The studies resource returns overview information about BAV studies and their timelines. Both past and future studies
-are available through the API.
+## What are studies?
 
-## List all Studies
+A fundamental element of our datasets are studies. A study is a collection of data from respondents at a specific point
+in time. Most markets in BAV are for example covered at most once a year with the exception of the US which is done
+quarterly.
 
-Retrieve a list of all studies done by BAV.
+Studies are a primary way of filtering our [brandscape data](./brandscape-data.md) and also contains information about the
+study iself, such as when it was conducted and how many respondents it had.
+
+## List all studies
+
+To list all of the studies and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/studies
-```
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the study. |
-| `name` | string | The name of the study. |
-| `country` | object | An object with the [country details](../relationship-schema.md). |
-| `year` | integer | The year when this study was done. |
-| `start_date` | string | A datetime string when the fieldwork for this study was started. |
-| `end_date` | string | A datetime string when the fieldwork for this study ended. |
-| `data_available_at` | string | A datetime string when the final data was made available. |
-| `amount_of_respondents` | integer | How many individual respondents the study had. |
-| `amount_of_categories` | integer | How many categories the study had. |
-| `amount_of_brands` | integer | How many total brands were in the study. |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 3894,
-            "bav_id": 41305,
-            "name": "Microsoft Cloud",
-            "sector": {
-                "id": 13,
-                "name": "Computer\/Electronics"
-            },
-            "stock_ticker": "MSFT.US",
-            "stock_exchange": "NASDAQ",
-            "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg",
-            "parent": {
-                "id": 369,
-                "name": "Microsoft"
-            },
-            "primary_logo": {
-                "id": 412,
-                "name": "Microsoft Logo",
-                "formats": {
-                    "eps": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/eps\/microsoft-logo-9-april-2020.eps",
-                    "hires-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/hires-png\/microsoft-logo-9-april-2020.png",
-                    "lores-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/lores-png\/microsoft-logo-9-april-2020.png",
-                    "jpg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/jpg\/microsoft-logo-9-april-2020.jpg",
-                    "svg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg"
-                },
-                "created_at": "2020-04-09T11:22:50.000000Z",
-                "updated_at": "2020-04-09T11:22:50.000000Z"
-            },
-            "created_at": "2021-03-02T11:28:21.000000Z",
-            "updated_at": "2021-03-26T10:49:49.000000Z"
-        }
-        //...
-    ]
-    // ...
-}
+GET /api/v2/studies
 ```
 
 ## Get a study
 
-Retrieve information about a single study. Note that this endpoint doesn't contain information about the studied brands,
-please see below for this.
+You may also directly retrieve a study's details if you already have its system ID.
 
 ```http request
-GET /api/v1/studies/123
+GET /api/v2/studies/123
 ```
 
-where `123` is the internal system ID for the study.
+Where `123` is the system ID of the study.
 
-### Schema
+## Get brands in a study
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the study. |
-| `name` | string | The name of the study. |
-| `country` | object | An object with the [country details](../relationship-schema.md). |
-| `year` | integer | The year when this study was done. |
-| `start_date` | string | A datetime string when the fieldwork for this study was started. |
-| `end_date` | string | A datetime string when the fieldwork for this study ended. |
-| `data_available_at` | string | A datetime string when the final data was made available. |
-| `amount_of_respondents` | integer | How many individual respondents the study had. |
-| `amount_of_categories` | integer | How many categories the study had. |
-| `amount_of_brands` | integer | How many total brands were in the study. |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
+You may get a list of all brands in a study by using the following endpoint:
 
----
-
-```json
-{
-    "data": {
-        "id": 3894,
-        "bav_id": 41305,
-        "name": "Microsoft Cloud",
-        "sector": {
-            "id": 13,
-            "name": "Computer\/Electronics"
-        },
-        "stock_ticker": "MSFT.US",
-        "stock_exchange": "NASDAQ",
-        "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg",
-        "parent": {
-            "id": 369,
-            "name": "Microsoft"
-        },
-        "primary_logo": {
-            "id": 412,
-            "name": "Microsoft Logo",
-            "formats": {
-                "eps": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/eps\/microsoft-logo-9-april-2020.eps",
-                "hires-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/hires-png\/microsoft-logo-9-april-2020.png",
-                "lores-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/lores-png\/microsoft-logo-9-april-2020.png",
-                "jpg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/jpg\/microsoft-logo-9-april-2020.jpg",
-                "svg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg"
-            },
-            "created_at": "2020-04-09T11:22:50.000000Z",
-            "updated_at": "2020-04-09T11:22:50.000000Z"
-        },
-        "created_at": "2021-03-02T11:28:21.000000Z",
-        "updated_at": "2021-03-26T10:49:49.000000Z"
-    }
-}
+```http request
+GET /api/v2/studies/123/brands
 ```
 
-## Configurable Fields
+Where `123` is the system ID of the study.
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+## Schema
 
-- `name`
-- `country`
-- `year`
-- `start_date`
-- `end_date`
-- `data_available_at`
-- `amount_of_respondents`
-- `amount_of_categories`
-- `amount_of_brands`  
-- `created_at`
-- `updated_at`
+### Full response schema
 
-## Expansions
+| Key                 | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                      |
+|---------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------------------|
+| `id`                | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                   |
+| `name`              | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the study.                                           |
+| `is_active`         | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this study should be used.                               |
+| `type`              | object  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this is a full BAV study or a smaller study.             |
+| `period`            | object  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The period for the study (Full Year, Quarter).                   |
+| `start_date`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the fieldwork for this study was started. |
+| `end_date`          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the fieldwork for this study ended.       |
+| `data_available_at` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when the final data was made available.        |
+| `respondents`       | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many individual respondents the study had.                   |
+| `categories`        | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many categories the study had.                               |
+| `data_updated_at`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | When the data for the study was last updated.                    |
+| `amount_of_cells`   | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The total amount of cells in the study.                          |
+| `amount_of_brands`  | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How many brands the study had.                                   |
+| `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this study was first created.             |
+| `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this study was last updated.              |
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
-expanded for the Brands API:
+### Relationship Response Schema
 
-- `brands` - A list of brands that were a part of the study.
+The slim relationship schema is used when the study is used as part of an include in another resource.
 
-## Filters
+| Key       | Type    | Description                                    |
+|-----------|---------|------------------------------------------------|
+| `id`      | integer | The system ID for the study.                   |
+| `name`    | string  | The primary name of the study.                 |
+| `period`  | object  | The period for the study (Full Year, Quarter). |
+| `country` | object  | The country where the study was done.          |
+| `year`    | object  | The year when the study was done.              |
 
-The studies endpoint supports the following filters:
+### Brands in Study Schema
 
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by study name.
-- [Updated Since](../filters.md)
-- `country` - Filter studies by the two-letter country code (ISO 3166-1 alpha-2).
-- `year` - Filter studies by year.
-- `study_start` - Show studies whose fieldwork started on this date (Y-m-d).
-- `study_end` - Show studies whose fieldwork ended on this date (Y-m-d).
+When getting the brands included in a study, the following schema is used:
 
-## Sorting
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                          |
+| `brand_name` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The local brand name used in the study.                 |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this relation was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this relation was last updated.  |
 
-The following fields are sortable:
+### Categories in Study Schema
 
-- `id`
-- `name`
-- `country_id`
-- `year_id`
-- `start_date`
-- `end_date`
-- `data_available_at`
-- `respondents`
-- `categories`
-- `created_at`
-- `updated_at`
+When getting the categories included in a study, the following schema is used:
+
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                          |
+| `category`   | object  |                    :x:                    |        :x:         |        :x:         | A category relationship object.                         |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this relation was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this relation was last updated.  |
+
+## Relationships & includes
+
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
+
+- `country` - The [country](countries.md) country where the study was done.
+- `year` - The [year](years.md) year when the study was done.
+
+### For brands in a study
+
+The following relationships are available for brands in a study:
+
+- `country` - The [country](countries.md) country where the study was done.
+- `year` - The [year](years.md) year when the study was done.
+- `study` - The [study](studies.md) that the brand was included in.
+- `brand` - The [brand](brands.md) object for each brand.
+- `category` - The [category](categories.md) the brand was studied in.
+-
+
+### For categories in a study
+
+The following relationships are available for categories in a study:
+
+- `country` - The [country](countries.md) country where the study was done.
+- `year` - The [year](years.md) year when the study was done.
+- `study` - The [study](studies.md) that the brand was included in.
+- `brand` - The [brand](brands.md) object for each brand.
+- `category` - The [category](categories.md) the brand was studied in.
+
+## Additional filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `data_updated_since` - A datetime string. This will filter the studies to only those that have had their data updated
+  since the given date.
+- `active` - Set to `1` to only return active audiences.
+- `inactive` - Set to `1` to only return inactive audiences.
+- `bav_study` - Set to `1` to only return studies that are full BAV studies.
+- `released` - Set to `1` to only return studies that have been released.
+- `unreleased` - Set to `1` to only return studies that have not been released.
+- `full_year` - Set to `1` to only return studies that are full year studies (excludes US quarterly waves).
+- `open_survey` - Set to `1` to only return studies that are open to brand list feedback.
+- `regions` - A comma-separated list of region IDs. This will filter the studies to only those that are in the given
+  regions.
+- `countries` - A comma-separated list of country IDs. This will filter the studies to only those that are in the given
+  countries.
+- `country_codes` - A comma-separated list of country codes. This will filter the studies to only those that are in the
+  given countries.
+- `years` - A comma-separated list of year IDs. This will filter the studies to only those that are in the given years.
+- `year_numbers` - A comma-separated list of year numbers. This will filter the studies to only those that are in the
+  given years.
+
+### For brands in a study
+
+The following additional filters are available when fetching brands for a given study:
+
+- `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
+  the specified categories.
+- `brands` - A comma-separated list of brand IDs. This will filter the brands to only the ones provided.
+
+### For categories in a study
+
+The following additional filters are available when fetching categories for a given study:
+
+- `categories` - A comma-separated list of category IDs. This will filter the categories to only those given.
+- `brands` - A comma-separated list of brand IDs. This will filter the categories to only those that have the given
+  brands in the study.

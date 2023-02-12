@@ -1,79 +1,22 @@
----
-split: true
----
-
 # Brands
 
-Through the Brands API you may retrieve details about one or more brands. The endpoint supports both a paginated list
-view as well as a single brand lookup. You may also retrieve filterable brand metrics for a brand.
+You may use the Brands endpoint to retrieve details about one or more brands.
 
-## List brands
+## What are brands?
+
+Brands are the core of BAV. They are the entities that are researched by BAV surveys and is connected to many other
+resources. Brands differ from companies in that they are not necessarily a legal entity. Brands are owned by companies.
+
+Brands in BAV do not belong specifically to a [category resource](categories.md). Each brand is studied in a specific
+category in a specific [study](studies.md). However, for classification purposes each brand belongs to
+a [sector](sectors.md) based on the studies it is in.
+
+## List all brands
 
 To list all of the brands and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/brands
-```
-
-The brand list response contains details about the brand.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the brand. |
-| `bav_id` | integer | The brand key in the BAV database. Note that this may be *
-both* a positive and negative integer. |
-| `name` | string | The primary name of the brand. |
-| `sector` | object | An object with the brand's [sector details](../relationship-schema.md) |
-| `stock_ticker` | string | The stock ticker for this brand. If this is a child brand, this will be automatically inherited from the parent. |
-| `stock_exchange` | string | The stock exchange code where this brand is listed. If this is a child brand, this will be automatically inherited from the parent. |
-| `logo_url` | string | A URL to the latest approved version of the primary brand logo in SVG format. |
-| `parent` | object | An [object with id and name](../relationship-schema.md) of the parent brand, if this is a child brand. |
-| `primary_logo` | object | An object with the primary logo for this brand [(schema)](../relationship-schema.md). |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 3894,
-            "bav_id": 41305,
-            "name": "Microsoft Cloud",
-            "sector": {
-                "id": 13,
-                "name": "Computer\/Electronics"
-            },
-            "stock_ticker": "MSFT.US",
-            "stock_exchange": "NASDAQ",
-            "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg",
-            "parent": {
-                "id": 369,
-                "name": "Microsoft"
-            },
-            "primary_logo": {
-                "id": 412,
-                "name": "Microsoft Logo",
-                "formats": {
-                    "eps": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/eps\/microsoft-logo-9-april-2020.eps",
-                    "hires-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/hires-png\/microsoft-logo-9-april-2020.png",
-                    "lores-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/lores-png\/microsoft-logo-9-april-2020.png",
-                    "jpg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/jpg\/microsoft-logo-9-april-2020.jpg",
-                    "svg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg"
-                },
-                "created_at": "2020-04-09T11:22:50.000000Z",
-                "updated_at": "2020-04-09T11:22:50.000000Z"
-            },
-            "created_at": "2021-03-02T11:28:21.000000Z",
-            "updated_at": "2021-03-26T10:49:49.000000Z"
-        }
-        //...
-    ]
-    // ...
-}
+GET /api/v2/brands
 ```
 
 ## Get a brand
@@ -81,118 +24,67 @@ both* a positive and negative integer. |
 You may also directly retrieve a brand's details if you already have its system ID.
 
 ```http request
-GET /api/v1/brands/123
+GET /api/v2/brands/123
 ```
 
 Where `123` is the system ID of the brand.
 
-### Schema
+## Schema
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the brand. |
-| `bav_id` | integer | The brand key in the BAV database. Note that this may be *
-both* a positive and negative integer. |
-| `name` | string | The primary name of the brand. |
-| `sector` | object | An object with the brand's [sector details](../relationship-schema.md) |
-| `stock_ticker` | string | The stock ticker for this brand. If this is a child brand, this will be automatically inherited from the parent. |
-| `stock_exchange` | string | The stock exchange code where this brand is listed. If this is a child brand, this will be automatically inherited from the parent. |
-| `logo_url` | string | A URL to the latest approved version of the primary brand logo in SVG format. |
-| `parent` | object | An [object with id and name](../relationship-schema.md) of the parent brand, if this is a child brand. |
-| `primary_logo` | object | An object with the primary logo for this brand [(schema)](../relationship-schema.md). |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
+### Full response schema
 
----
+| Key                   | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                                                                                                                                             |
+|-----------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                  | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                                                                                                                                          |
+| `bav_brand_id`        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The brand key in the BAV database. Note that this may be both a positive and negative integer. Please use the `id` column over this unless you specifically need the brand key for legacy integrations. |
+| `bav_id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The brand ID in the BAV database. Please use the `id` column over this unless you specifically need the brand key for legacy integrations.                                                              |
+| `name`                | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The global name of the brand.                                                                                                                                                                           |
+| `share_of_company`    | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The percentage share that this brand makes up of the parent company's financial results.                                                                                                                |
+| `is_core`             | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this brand is considered a core brand for research purposes.                                                                                                                                    |
+| `is_studied_globally` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether this brand is designated as a brand that we aim to currently study globally. Please note that this does not necessarily mean that is included in all studies in the current year.               |
+| `url`                 | string  |                    :x:                    |        :x:         | :white_check_mark: | The URL of the brand's page on The Fount.                                                                                                                                                               |
+| `logo_url`            | string  |                    :x:                    |        :x:         | :white_check_mark: | A URL to the latest approved version of the primary brand logo in SVG format.                                                                                                                           |
+| `created_at`          | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created.                                                                                                                                                    |
+| `updated_at`          | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.                                                                                                                                                     |
 
-```json
-{
-    "data": {
-        "id": 3894,
-        "bav_id": 41305,
-        "name": "Microsoft Cloud",
-        "sector": {
-            "id": 13,
-            "name": "Computer\/Electronics"
-        },
-        "stock_ticker": "MSFT.US",
-        "stock_exchange": "NASDAQ",
-        "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg",
-        "parent": {
-            "id": 369,
-            "name": "Microsoft"
-        },
-        "primary_logo": {
-            "id": 412,
-            "name": "Microsoft Logo",
-            "formats": {
-                "eps": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/eps\/microsoft-logo-9-april-2020.eps",
-                "hires-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/hires-png\/microsoft-logo-9-april-2020.png",
-                "lores-png": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/lores-png\/microsoft-logo-9-april-2020.png",
-                "jpg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/jpg\/microsoft-logo-9-april-2020.jpg",
-                "svg": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/microsoft-logo-9-april-2020.svg"
-            },
-            "created_at": "2020-04-09T11:22:50.000000Z",
-            "updated_at": "2020-04-09T11:22:50.000000Z"
-        },
-        "created_at": "2021-03-02T11:28:21.000000Z",
-        "updated_at": "2021-03-26T10:49:49.000000Z"
-    }
-}
-```
+### Relationship Response Schema
 
-## Configurable Fields
+The slim relationship schema is used when the brand is used as part of an include in another resource.
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+| Key      | Type    | Description                                                  |
+|----------|---------|--------------------------------------------------------------|
+| `id`     | integer | The system ID for the brand.                                 |
+| `name`   | string  | The primary name of the brand.                               |
+| `sector` | object  | An object with the brand's [sector relationship](sectors.md) |
 
-- `bav_id`
-- `name`
-- `sector`
-- `stock_ticker`
-- `logo_url`
-- `stock_exchange`
-- `parent`
-- `primary_logo`
-- `created_at`
-- `updated_at`
+## Additional Filters
 
-## Expansions
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
-expanded for the Brands API:
+- `years` - A comma-separated list of year IDs. This will filter the brands to only those that are studied in the
+  specified years.
+- `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
+  the specified categories.
+- `sectors` - A comma-separated list of sector IDs. This will filter the brands to only those in the given sectors.
+- `countries` - A comma-separated list of country IDs. This will filter the brands to only those that are studied in
+  the specified countries.
+- `regions` - A comma-separated list of region IDs. This will filter the brands to only those that are studied in
+  the specified regions.
+- `studies` - A comma-separated list of study IDs. This will filter the brands to only those that are included in the
+  specified studies.
+- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the brands to only those
+  that are studied in the specified countries.
+- `year_numbers` - A comma-separated list of year numbers. This will filter the brands to only those that are studied
+  in the specified years.
 
-- `aliases` - A list of related names, usually with common misspellings, of the global brand name.
-- `local_versions` - If the brand has a version of its logo that is only used in a specific market, it may be found in
-  the local versions object.
-- `studies` - A list of BAV studies where this brand was included.
-- `metrics` - A list of metrics and related values for the brand.
+## Relationships & includes
 
-## Filters
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
 
-The brands endpoint supports the following filters:
-
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by brand name.
-- [Updated Since](../filters.md)
-- `has_logos` - Include this query parameter to limit the results to brands which we have logos for.
-- `has_studies` - Include this query parameter to limit the results to brands which have been included in a BAV study.
-- `has_metrics` - Include this query parameter to limit the results to brands which we have BAV metrics for.
-- `studies` - A comma-separated list of study IDs to only show brands that were in the given studies.
-- `years` - A comma-separated list of year IDs to only show brands that have been studied in the given years.
-- `countries` - A comma-separated list of country IDs to only show brands that have been studied in the given countries.
-- `sectors` - A comma-separated list of sector IDs to only show brands that are in the given sectors.
-
-## Sorting
-
-The following fields are sortable:
-
-- `id`
-- `name`
-- `sector_id`
-- `bav_brand_id`
-- `stock_ticker`
-- `stock_exchange`
-- `created_at`
-- `updated_at`
+- `company` - The [company](companies.md) that owns the brand.
+- `sector` - The [sector](sectors.md) that the brand belongs to.
+- `studies` - A list of [BAV studies](studies.md) where this brand was included.
+- `countries` - The [countries](countries.md) where this brand may have a local name, custom logo or where it is from.

@@ -3,49 +3,30 @@ split: true
 ---
 
 # Categories
-When doing a BAV study, some questions are asked that relate brands to one or more categories. These are categories that brands can belong to (one or multiple).
+
+## What are categories?
+
+Categories in BAV are related to how the respondent is asked their relationship to a brand in three sections only:
+
+- Usage
+- Preference
+- Recommendation
+
+All other BAV scores are the same across categories, which is a fundamental part of BAV's category-agnostic model.
+
+These categories are therefore, a way to relate a brand to usage and not a way to define what a brand is. For example,
+you might be interested to know how respondents see and use Google as both a search engine and advertiser, which would
+be two distinct categories, yet does not attempt to classify what Google objectively is.
+
+This also means that the amount of brands in a category may change slightly across years and greatly across markets.
+Not all categories are available in all years and markets.
 
 ## List Categories
 
 To list all of the categories, use the list endpoint:
 
 ```http request
-GET /api/v1/categories
-```
-
-The categories list response contains details about the brand.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the category. |
-| `name` | string | The name of the category. |
-| `bav_key` | integer | The category key in the BAV database. |
-| `sector` | object | An object with the category's [sector details](../relationship-schema.md) |
-| `created_at` | string | A datetime string when this category was first created. |
-| `updated_at` | string | A datetime string when this category was last updated. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 604,
-            "name": "Adhesives",
-            "bav_key": 26205,
-            "sector": {
-                "id": 18,
-                "name": "Household Products"
-            },
-            "created_at": "2021-03-18T02:25:05.000000Z",
-            "updated_at": "2021-03-18T02:25:05.000000Z"
-        },
-        //...
-    ]
-    // ...
-}
+GET /api/v2/categories
 ```
 
 ## Get a Category
@@ -53,76 +34,39 @@ The categories list response contains details about the brand.
 You may also directly retrieve a category's details if you already have its system ID.
 
 ```http request
-GET /api/v1/categories/123
+GET /api/v2/categories/123
 ```
 
-Where `123` is the system ID of the category.
+## Schema
 
-### Schema
+### Full response schema
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the category. |
-| `name` | string | The name of the category. |
-| `bav_key` | integer | The category key in the BAV database. |
-| `sector` | object | An object with the category's [sector details](../relationship-schema.md) |
-| `created_at` | string | A datetime string when this category was first created. |
-| `updated_at` | string | A datetime string when this category was last updated. |
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                          |
+| `name`       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The global name of the category.                        |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this category was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this category was last updated.  |
 
----
+### Relationship Response Schema
 
-```json
-{
-    "data": {
-        "id": 604,
-        "name": "Adhesives",
-        "bav_key": 26205,
-        "sector": {
-            "id": 18,
-            "name": "Household Products"
-        },
-        "created_at": "2021-03-18T02:25:05.000000Z",
-        "updated_at": "2021-03-18T02:25:05.000000Z"
-    }
-}
-```
+The slim relationship schema is used when the category is used as part of an include in another resource.
 
-## Configurable Fields
+| Key    | Type    | Description                       |
+|--------|---------|-----------------------------------|
+| `id`   | integer | The system ID for the category.   |
+| `name` | string  | The primary name of the category. |
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+## Additional Filters
 
-- `name`
-- `bav_key`
-- `sector`
-- `created_at`
-- `updated_at`
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-## Expansions
+- `sectors` - A comma-separated list of sector IDs. This will filter the categories to only those in the given sectors.
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
-expanded for the categories resource:
+## Relationships & includes
 
-- `local_names` - A list of names for this category in specific countries.
+By default, relationships not included. See the [includes section](../customizing/includes) for more information on how
+this works. The following relationships are available:
 
-## Filters
-
-The categories endpoint supports the following filters:
-
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by category name.
-- [Updated Since](../filters.md)
-- `bav_key` - Include this query parameter to search by the BAV key.
-- `sectors` - Include this query parameter to limit the results to categories within the specified sector (comma-separated list of sector IDs).
-
-## Sorting
-
-The following fields are sortable:
-
-- `id`
-- `name`
-- `bav_key`
-- `sector_id`
-- `created_at`
-- `updated_at`
+- `sector` - The [sector](sectors.md) that the category belongs to.

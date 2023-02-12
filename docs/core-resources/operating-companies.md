@@ -1,95 +1,58 @@
----
-split: true
----
-
 # Operating Companies
 
-The WPP organization consists of many operating companies. Via The Fount API you can get a basic list with names and
-logos for each.
+## What are operating companies?
+
+The WPP organization consists of many operating companies. Each user in the platform generally belongs to an operating
+company. Each operating company may belong to another operating company as a hierarchy.
+
+In some cases an operating company may also have a brand, in which case it will have a brand relationship.
 
 ## List all operating companies
 
-```http request
-GET /api/v1/operating_companies
-```
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the operating company. |
-| `name` | string | The primary name of the operating company. |
-| `logo_url` | string | A URL to the SVG version of the company logo. |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 13,
-            "name": "Burson Cohn & Wolfe",
-            "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/burson-cohn-wolfe-logo-9-july-2020.svg",
-            "created_at": "2021-02-23T16:27:32.000000Z",
-            "updated_at": "2021-02-23T16:27:32.000000Z"
-        }
-        // ...
-    ]
-    // Pagination data is added here.
-}
-```
-
-## Get an operating company
+To list all of the operating companies and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/operating_companies/123
+GET /api/v2/operating-companies
 ```
 
-### Schema
+## Get a operating company
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the operating company. |
-| `name` | string | The primary name of the operating company. |
-| `logo_url` | string | A URL to the SVG version of the company logo. |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
+You may also directly retrieve a operating company's details if you already have its system ID.
 
----
-
-```json
-{
-    "data": {
-        "id": 13,
-        "name": "Burson Cohn & Wolfe",
-        "logo_url": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/logos\/svg\/burson-cohn-wolfe-logo-9-july-2020.svg",
-        "created_at": "2021-02-23T16:27:32.000000Z",
-        "updated_at": "2021-02-23T16:27:32.000000Z"
-    }
-}
+```http request
+GET /api/v2/operating-companies/123
 ```
 
-## Expansions
+Where `123` is the system ID of the operating company.
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
-expanded for the operating companies resource:
+## Schema
 
-- `brand` - A slimmer brand object to get information about the brand for the operating company.
+### Full response schema
 
-## Filters
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                      |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                   |
+| `name`       | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The  name of the operating company.                              |                                                                                                                         |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this operating company was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this operating company was last updated.  |
 
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by company name.
-- [Updated Since](../filters.md)
+### Relationship Response Schema
 
-## Sorting
+The slim relationship schema is used when the operating company is used as part of an include in another resource.
 
-The following fields are sortable:
+## Additional Filters
 
-- `id`
-- `name`
-- `created_at`
-- `updated_at`
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `parents` - Set to a comma-separated list of operating company IDs to only return countries owned by those operating
+  companies.
+
+## Relationships & includes
+
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
+
+- `parent` - The [company](companies.md) that owns another company.
+- `brand` - The [brand](brands.md) that the operating company has.

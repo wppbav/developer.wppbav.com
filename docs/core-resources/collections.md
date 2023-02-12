@@ -1,90 +1,56 @@
----
-split: true
----
-
 # Collections
 
-Assets can be grouped into various different collections, either privately by the user or publically available to all
-users. You may access these for consumption via the Collections API.
+## What are collections?
+
+Collections are a way to group brands together. A collection can then be used for a variety of purposes to save time
+when adding brands. Instead of searching for a number of brands every time a user can add the collection in one go.
+Examples of useful collections are:
+
+- All brands that are part of a company.
+- Client brands
+- Competitor brands
+
+A collection may be public or private. A public collection is available to all users. A private collection is only
+available to the user who created it.
+
+A collection can also be shared with any number of users.
 
 ## List all collections
 
-Listing all collections currently is not possible via the REST API.
+To list all of the collections and browse them via the API, use the list endpoint:
+
+```http request
+GET /api/v2/collections
+```
 
 ## Get a collection
 
-If you know the system ID of the collection, you may retrieve it using the collections endpoint:
+You may also directly retrieve a collection's details if you already have its system ID.
 
 ```http request
-GET /api/v1/collections/123
+GET /api/v2/collections/123
 ```
 
-where `123` is the system ID for the collection.
+Where `123` is the system ID of the collection.
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the collection. |
-| `name` | string | The primary name of the collection. |
-| `type` | object | An object with the brand's sector details |
-| `aliases` | array | An array with other names for this brand. Usually misspellings. |
-| `stock_ticker` | string | The stock ticker for this brand. If this is a child brand, this will be automatically inherited from the parent. |
-| `stock_exchange` | string | The stock exchange code where this brand is listed. If this is a child brand, this will be automatically inherited from the parent. |
-| `parent` | object | An object with id and name of the parent brand, if this is a child brand. |
-| `primary_logo` | object | An object with the primary logo for this brand. (see below) |
-| `other_logos` | array | An array with other logos that we have for this brand. Could be alternative versions. |
-| `local_versions` | array | An array with alternative naming and spelling versions for a specific country, as well as a local logo if applicable. |
-| `created_at` | string | A datetime string when this brand was first created. |
-| `updated_at` | string | A datetime string when this brand was last updated. |
+## Schema
 
-#### Brands Object
+### Full response schema
 
-#### Brand Logos Object
+| Key               | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                                                                                                       |
+|-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                                                                                                    |
+| `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the collection.                                                                                                                               |
+| `collection_type` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the collection is private or public.                                                                                                                      |
+| `uuid`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The public unique identifier for the collection. Whenever a collection is shared outside of the system, or a direct link is required we use the UUID over the ID. |
+| `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this collection was first created.                                                                                                         |
+| `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this collection was last updated.                                                                                                          |
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the logo. |
-| `name` | string | The descriptive name for the logo. |
-| `formats` | object | An object with URLs to the respective logo formats available: "eps", "hires-png", "lores-png", "jpg" and "svg". |
-| `created_at` | string | A datetime string when this logo was first created. |
-| `updated_at` | string | A datetime string when this logo was last updated. |
+## Additional Filters
 
----
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-```json
-{
-    "data": {
-        "id": 71,
-        "name": "Operating Companies",
-        "type": {
-            "id": 1,
-            "name": "Public",
-            "is_public": true,
-        },
-        "brands": [
-            {
-                "id": 1191,
-                "bav_id": null,
-                "name": "Acceleration",
-                "sector": null,
-                "stock_ticker": null,
-                "logo": {
-                    "id": 1032,
-                    "name": "Acceleration logo",
-                    "formats": {
-                        "eps": "https://wpp-fount.s3.eu-west-2.amazonaws.com/logos/eps/acceleration-logo-9-july-2020.eps",
-                        "hires-png": "https://wpp-fount.s3.eu-west-2.amazonaws.com/logos/hires-png/acceleration-logo-9-july-2020.png",
-                        "lores-png": "https://wpp-fount.s3.eu-west-2.amazonaws.com/logos/lores-png/acceleration-logo-9-july-2020.png",
-                        "jpg": "https://wpp-fount.s3.eu-west-2.amazonaws.com/logos/jpg/acceleration-logo-9-july-2020.jpg",
-                        "svg": "https://wpp-fount.s3.eu-west-2.amazonaws.com/logos/svg/acceleration-logo-9-july-2020.svg"
-                    },
-                    "created_at": "2020-07-09T08:50:02.000000Z",
-                    "updated_at": "2020-07-09T08:50:02.000000Z"
-                },
-                "is_current_version": true
-            }
-            // ...
-        ],
-        "assets": []
-    }
-}
-```
+- `public` - Set to `1` to only return public collections.
+- `shared_with_me` - Set to `1` to only return collections shared with the user.
+- `mine` - Set to `1` to only return collections created by the user.

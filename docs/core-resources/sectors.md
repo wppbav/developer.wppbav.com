@@ -1,98 +1,65 @@
----
-split: true
----
-
 # Sectors
 
-When doing a BAV study, some questions are asked that relate brands to one or more categories. These are categories that
-brands can belong to (one or multiple). These categories are combined to create broader sectors.
+## What are sectors?
 
-## List Sectors
+When doing a BAV study, some questions are asked that relate sectors to one or more [categories](categories.md). You
+can read more about the categories and what they represent on the [categories endpoint](categories.md).
 
-To list all of the sectors, use the list endpoint:
+Each category belongs to a sector, which is a broader classification of categories. The benefit of a sector is that it
+is easier to compare across countries and years.
+
+## List all sectors
+
+To list all of the sectors and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/sectors
+GET /api/v2/sectors
 ```
 
-The sectors list response contains details about the brand.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the sector. |
-| `name` | string | The name of the sector. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 20,
-            "name": "Apparel & Accessories"
-        }
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Sector
+## Get a sector
 
 You may also directly retrieve a sector's details if you already have its system ID.
 
 ```http request
-GET /api/v1/sectors/123
+GET /api/v2/sectors/123
 ```
 
 Where `123` is the system ID of the sector.
 
-### Schema
+## Schema
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the sector. |
-| `name` | string | The name of the sector. |
+### Full response schema
 
----
+| Key                             | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                    |
+|---------------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|--------------------------------------------------------------------------------|
+| `id`                            | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                 |    
+| `is_active`                     | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the sector should be seen and used.                                    |                                                      
+| `name`                          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the sector.                                                        |         
+| `excluded_for_most_influential` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the sector should be part of the Most Influential brands lists or not. |
+| `created_at`                    | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this sector was first created.                          |
+| `updated_at`                    | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this sector was last updated.                           |
 
-```json
-{
-    "data": {
-        "id": 20,
-        "name": "Apparel & Accessories"
-    }
-}
-```
+### Relationship Response Schema
 
-## Configurable Fields
+The slim relationship schema is used when the sector is used as part of an include in another resource.
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+| Key    | Type    | Description                     |
+|--------|---------|---------------------------------|
+| `id`   | integer | The system ID for the sector.   |
+| `name` | string  | The primary name of the sector. |
 
-- `name`
+## Additional Filters
 
-## Expansions
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-To create a leaner response data related to sectors are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be
-expanded for the categories resource:
+- `in_most_influential` - Set to `1` to only return sectors that are part of the Most Influential lists.
+- `not_in_most_influential` - Set to `1` to only return sectors that are not part of the Most Influential lists.
 
-- `categories` - A list of categories that belong to this sector.
+## Relationships & includes
 
-## Filters
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
 
-The categories endpoint supports the following filters:
-
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by category name.
-- [Updated Since](../filters.md)
-
-## Sorting
-
-The following fields are sortable:
-
-- `id`
-- `name`
+- `categories` - The [categories](categories.md) that belong to this sector.

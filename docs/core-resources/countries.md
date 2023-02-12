@@ -1,165 +1,76 @@
----
-split: true
----
-
 # Countries
 
-Many of the BAV resources rely on segmenting data by countries. This resource contains a list of all the countries in the world, with additional ISO codes and metadata for system use.
+## What are countries?
 
-## List Countries
+Many of the BAV resources rely on segmenting data by countries. This resource contains a list of all the countries in
+the world, with additional ISO codes and metadata for system use.
+
+We suggest that you use the term `Market` instead of country when showing this in an interface.
+
+## List all countries
 
 To list all of the countries and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/countries
+GET /api/v2/countries
 ```
 
-The brand list response contains details about the country.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the country. |
-| `name` | string | The name of the country in English. |
-| `native_name` | string | The name of the country in its native language. |
-| `code` | string | The two-letter code (ISO 3166-1 alpha-2) for the country. |
-| `code_alpha3` | string | The three-letter code (ISO 3166-1 alpha-3) for the country. |
-| `code_numeric` | string | The numeric code (ISO 3166-1 numeric) for the country. |
-| `flag` | string | A URL to the country flag in SVG format. |
-| `gdp` | float | The country's GDP in USD from the latest published period. |
-| `gdp_capita` | float | The country's GDP per capita in USD from the latest published period. |
-| `population` | integer | The country's total population from the latest published period. |
-| `region` | object | An object with the region that this country belongs to [(schema)](../relationship-schema.md). |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 48,
-            "name": "United Kingdom",
-            "native_name": "United Kingdom",
-            "code": "GB",
-            "code_alpha3": "GBR",
-            "code_numeric": "826",
-            "flag": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/flags\/gb.svg",
-            "gdp": null,
-            "gdp_capita": null,
-            "population": 65110000,
-            "region": {
-                "id": 4,
-                "name": "Europe"
-            }
-        },
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Category
+## Get a country
 
 You may also directly retrieve a country's details if you already have its system ID.
 
 ```http request
-GET /api/v1/countries/123
+GET /api/v2/countries/123
 ```
 
 Where `123` is the system ID of the country.
 
-You may also retrieve the country by its two-letter or three-letter ISO code by replacing the ID with it, like so:
+## Schema
 
-```http request
-GET /api/v1/countries/GB
-```
+### Full response schema
 
-### Schema
+| Key            | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                 |
+|----------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------|
+| `id`           | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID for the country.                              |
+| `is_active`    | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the market should be used/shown or not.             |
+| `name`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in English.                         |
+| `native_name`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in its native language.             |
+| `code`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The two-letter code (ISO 3166-1 alpha-2) for the country.   |
+| `code_alpha3`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The three-letter code (ISO 3166-1 alpha-3) for the country. |
+| `code_numeric` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The numeric code (ISO 3166-1 numeric) for the country.      |
+| `capital`      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country's capital.                          |
+| `area`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The size of the country.                                    |
+| `latitude`     | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `longitude`    | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | -                                                           |
+| `flag`         | string  |                    :x:                    |        :x:         | :white_check_mark: | The URL to the country's flag as an image.                  |
+| `created_at`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when this country was first created.      |
+| `updated_at`   | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this country was last updated.       |
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the country. |
-| `name` | string | The name of the country in English. |
-| `native_name` | string | The name of the country in its native language. |
-| `code` | string | The two-letter code (ISO 3166-1 alpha-2) for the country. |
-| `code_alpha3` | string | The three-letter code (ISO 3166-1 alpha-3) for the country. |
-| `code_numeric` | string | The numeric code (ISO 3166-1 numeric) for the country. |
-| `flag` | string | A URL to the country flag in SVG format. |
-| `gdp` | float | The country's GDP in USD from the latest published period. |
-| `gdp_capita` | float | The country's GDP per capita in USD from the latest published period. |
-| `population` | integer | The country's total population from the latest published period. |
-| `region` | object | An object with the region that this country belongs to [(schema)](../relationship-schema.md). |
+### Relationship Response Schema
 
----
+The slim relationship schema is used when the country is used as part of an include in another resource.
 
-```json
-{
-    "data": {
-        "id": 48,
-        "name": "United Kingdom",
-        "native_name": "United Kingdom",
-        "code": "GB",
-        "code_alpha3": "GBR",
-        "code_numeric": "826",
-        "flag": "https:\/\/wpp-fount-dev.s3.eu-west-2.amazonaws.com\/flags\/gb.svg",
-        "gdp": null,
-        "gdp_capita": null,
-        "population": 65110000,
-        "region": {
-            "id": 4,
-            "name": "Europe"
-        }
-    }
-}
-```
+| Key            | Type    | Description                                                                              |
+|----------------|---------|------------------------------------------------------------------------------------------|
+| `id`           | integer | The system ID for the country.                                                           |
+| `name`         | string  | The name of the country in English.                                                      |
+| `region`       | object  | An object with the region that this country belongs to [sector relationship](sectors.md) |
+| `code`         | object  | The two-letter code (ISO 3166-1 alpha-2) for the country.                                |
+| `code_alpha3`  | object  | The three-letter code (ISO 3166-1 alpha-3) for the country.                              |
+| `code_numeric` | object  | The numeric code (ISO 3166-1 numeric) for the country.                                   |
 
-## Configurable Fields
+## Additional Filters
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-- `name`
-- `native_name`
-- `code`
-- `code_alpha3`
-- `code_numeric`
-- `flag`
-- `gdp`
-- `gdp_capita`
-- `population`
-- `region`
+- `active` - Set to `1` to only return active countries.
+- `regions` - Set to a comma-separated list of region IDs to only return countries in those regions.
 
-## Expansions
+## Relationships & includes
 
-To create a leaner response data related to brands are not included in the response by default. See
-the [Expansions section](../expansions.md) for more information on how this works. The following relationships can be expanded:
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
 
-- `studies`
-
-## Filters
-
-The countries endpoint supports the following filters:
-
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by brand name.
-- [Updated Since](../filters.md)
-- `regions` - A comma-separated list of region IDs to only show countries from the specified region.
-
-## Sorting
-
-The following fields are [sortable](../filters.md):
-
-- `id`
-- `name`
-- `native_name`
-- `code`
-- `code_alpha3`
-- `code_numeric`
-- `flag`
-- `gdp`
-- `gdp_capita`
-- `population`
-- `region_id`  
-- `created_at`
-- `updated_at`
+- `region` - The [region](regions.md) that -.

@@ -1,90 +1,44 @@
----
-split: true
----
-
 # Years
 
-Most of the BAV dataset is tied up in one way or another to a year.
+## What are years?
 
-## List Years
+We use a years resource to tie together all of the data that we have for a given year and to make it easily queryable.
 
-To list all of the years, use the list endpoint:
+## List all years
+
+To list all of the years and browse them via the API, use the list endpoint:
 
 ```http request
-GET /api/v1/years
+GET /api/v2/years
 ```
 
-The years list response contains details about the year.
-
-### Schema
-
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the year. |
-| `year` | integer | The "name" of the year. |
-
----
-
-```json
-{
-    "data": [
-        {
-            "id": 30,
-            "year": 2022
-        },
-        //...
-    ]
-    // ...
-}
-```
-
-## Get a Base
+## Get a year
 
 You may also directly retrieve a year's details if you already have its system ID.
 
 ```http request
-GET /api/v1/years/123
+GET /api/v2/years/123
 ```
 
 Where `123` is the system ID of the year.
 
-### Schema
+## Schema
 
-| Key | Type | Description |
-| --- | ---- | ----------- |
-| `id` | integer | The system ID for the year. |
-| `year` | integer | The "name" of the year. |
----
+### Full response schema
 
-```json
-{
-    "data": {
-        "id": 30,
-        "year": 2022
-    },
-}
-```
+| Key                 | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                           |
+|---------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------|
+| `id`                | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                        |
+| `year`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The year (name).                                      |
+| `has_ogilvy_impact` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the year should have Ogilvy Impact data available. |                                                                                                                        |
+| `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this year was first created.   |
+| `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this year was last updated.    |
 
-## Configurable Fields
+### Relationship Response Schema
 
-If you only need some of the fields you can optimize the request for a leaner response (
-see [Configurable Fields](../configurable-fields.md) for more information). The following fields can be toggled:
+The slim relationship schema is used when the year is used as part of an include in another resource.
 
-- `year`
-
-## Expansions
-
-The years resources does not have any expansions.
-
-## Filters
-
-- [Pagination](../pagination.md)
-- [Searching](../filters.md) by year "name".
-- [Updated Since](../filters.md)
-
-## Sorting
-
-The following fields are [sortable](../filters.md):
-
-- `id`
-- `year`
+| Key    | Type    | Description                 |
+|--------|---------|-----------------------------|
+| `id`   | integer | The system ID for the year. |
+| `year` | string  | The year (name).            |
