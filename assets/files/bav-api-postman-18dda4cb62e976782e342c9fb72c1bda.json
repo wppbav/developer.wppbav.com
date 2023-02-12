@@ -1,0 +1,3018 @@
+{
+  "info": {
+    "name": "BAV API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List all audience groups",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/audience-groups",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "audiences",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/audience-groups"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audience-groups",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single audience group",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/audience-groups/1",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "audiences",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/audience-groups/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audience-groups",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all audiences",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/audiences",
+          "query": [
+            {
+              "key": "fields",
+              "value": "name",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "group",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/audiences"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audiences",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single audience",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/audiences/1?include=group",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "group",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/audiences/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audiences",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all brands",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brands",
+          "query": [
+            {
+              "key": "fields[brands]",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brands"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brands",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single brand",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brands/369?include=sector,company,studies,countries",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "sector,company,studies,countries",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brands/369"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brands",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all brand metrics",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brand-metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brand-metrics"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metrics",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single brand metric",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brand-metrics/1?include=",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brand-metrics/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metrics",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all brand metric groups",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brand-metric-groups",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brand-metric-groups"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metric-groups",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single brand metric group",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brand-metric-groups/1?include=metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "name",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brand-metric-groups/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metric-groups",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all brandscape data",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brandscape-data",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "metric_keys",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of metric keys to automatically include only these metric data for all score types."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brandscape-data"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brandscape-data",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single brandscape datapoint",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/brandscape-data/1?include=",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/brandscape-data/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brandscape-data",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all categories",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/categories",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "sector",
+              "disabled": true,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "metric_keys",
+              "value": "",
+              "disabled": true,
+              "description": null
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/categories"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/categories",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single category",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/categories/1?include=sector",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "sector",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/categories/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/categories",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all opinions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/cee-opinions?include=study,country,year,audience",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "study,country,year,audience",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/cee-opinions"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/cee-opinions",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single opinion datapoint",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/cee-opinions/1?include=study,country,year,audience",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "study,country,year,audience",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/cee-opinions/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/cee-opinions",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all collections",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/collections?include=brands",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "brands",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/collections"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/collections",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single collection",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/collections/71?include=brands",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "brands",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/collections/71"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/collections",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all companies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/companies?include=brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/companies"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single company",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/companies/71?include=brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/companies/71"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all countries",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/countries?include=region",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "region",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/countries"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single country",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/countries/1?include=region",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "region",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/countries/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a country's indicators",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/countries/1/indicators",
+          "query": null,
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/countries/1/indicators"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a country's indicators for a specific year",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/countries/1/indicators/1",
+          "query": null,
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/countries/1/indicators/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all GICS Sectors",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/gics-sectors?include=companies",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "companies",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/gics-sectors"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/gics-sectors",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single GICS sector",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/gics-sectors/1?include=companies",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "companies",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/gics-sectors/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all operating companies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/operating-companies?include=brand,parent",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "brand,parent",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/operating-companies"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/operating-companies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single operating company",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/operating-companies/1?include=parent,brand",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "parent,brand",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/operating-companies/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/operating-companies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all regions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/regions?include=countries",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "countries",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/regions"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/regions",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single region",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/regions/1?include=countries",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "countries",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/regions/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/regions",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all sectors",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/sectors?include=categories",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "categories",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/sectors"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/sectors",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single sector",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/sectors/1?include=categories",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "categories",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/sectors/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/sectors",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all stock exchanges",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/stock-exchanges?include=country,companies",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "country,companies",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/stock-exchanges"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-exchanges",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single stock exchange",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/stock-exchanges/1?include=companies,country",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "companies,country",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/stock-exchanges/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-exchanges",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all stock prices",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/stock-prices?include=company,stock_exchange",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "company,stock_exchange",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/stock-prices"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-prices",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single stock price",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/stock-prices/1?include=company,stock_exchange",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "company,stock_exchange",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/stock-prices/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-prices",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all studies",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/studies?include=country,year",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "country,year",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/studies"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/studies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single study",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/studies/1?include=country,year",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "country,year",
+              "disabled": false,
+              "description": "A comma-separated list of incuded relationships."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/studies/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/studies",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all years",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/years",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/years"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/years",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single year",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/years/1",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/years/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/years",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all best countries metrics",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-metrics"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single best countries metric",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-metrics/1",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-metrics/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all best countries metric groups",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-metric-groups?include=metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": false,
+              "description": "A comma-separated list of relationships to include."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-metric-groups"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single best countries metric group",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-metric-groups/1?include=metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": false,
+              "description": null
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-metric-groups/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "List all best countries factors",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-factors?include=metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "sort",
+              "value": "",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "per_page",
+              "value": "25",
+              "disabled": true,
+              "description": "The amount of records per page. Defaults to 25. Can be set up to 1000."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": false,
+              "description": "A comma-separated list of relationships to include."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-factors"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get a single best countries factor",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries-factors/1?include=metrics",
+          "query": [
+            {
+              "key": "fields",
+              "value": "",
+              "disabled": true,
+              "description": "A comma separated list of allowed fields."
+            },
+            {
+              "key": "include",
+              "value": "metrics",
+              "disabled": false,
+              "description": "A comma-separated list of factors to include."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries-factors/1"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get calculated data for a year",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries/countries/2022/attributes/ranks?sort=country",
+          "query": [
+            {
+              "key": "sort",
+              "value": "country",
+              "disabled": false,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            },
+            {
+              "key": "countries",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of country IDs to get data for."
+            },
+            {
+              "key": "country_codes",
+              "value": "",
+              "disabled": true,
+              "description": "A comma-separated list of ISO two-letter country codes to get data for."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries/countries/2022/attributes/ranks"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    },
+    {
+      "name": "Get raw data for a year",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}{{version}}/best-countries/countries/raw/2022",
+          "query": [
+            {
+              "key": "sort",
+              "value": "country.name",
+              "disabled": true,
+              "description": "The field to sort on. Prefix with - to sort descending."
+            }
+          ],
+          "protocol": null,
+          "host": [
+            "{{baseUrl}}{{version}}/best-countries/countries/raw/2022"
+          ],
+          "port": null,
+          "path": null
+        },
+        "description": "",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "disabled": false,
+            "description": null
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiKey}}",
+            "disabled": false,
+            "description": null
+          }
+        ],
+        "body": null,
+        "auth": null
+      },
+      "protocolProfileBehavior": {
+        "followRedirects": false,
+        "followOriginalHttpMethod": false,
+        "followAuthorizationHeader": false
+      },
+      "response": []
+    }
+  ]
+}

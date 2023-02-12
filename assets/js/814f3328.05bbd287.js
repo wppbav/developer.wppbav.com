@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkthe_fount=self.webpackChunkthe_fount||[]).push([[535],{5641:function(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome to the updated developer website!","permalink":"/blog/welcome"}]}')}}]);

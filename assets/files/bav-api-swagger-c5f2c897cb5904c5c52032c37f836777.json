@@ -1,0 +1,1917 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "BAV API V2",
+    "version": "v2.0.0"
+  },
+  "host": "fount.wppbav.test",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/v2",
+  "paths": {
+    "/audience-groups": {
+      "get": {
+        "summary": "List all audience groups",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audience-groups",
+        "operationId": "464fbe59-9ff5-4415-9269-19cb61412a0d",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/audience-groups/{Audience Group ID}": {
+      "get": {
+        "summary": "Get a single audience group",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audience-groups",
+        "operationId": "06c33ef1-f2af-49db-9e03-9f0bcc82a867",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Audience Group ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/audiences": {
+      "get": {
+        "summary": "List all audiences",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audiences",
+        "operationId": "7358f9d3-3105-4568-a1dc-2dd16a6e6d7c",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/audiences/{Audience ID}": {
+      "get": {
+        "summary": "Get a single audience",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/audiences",
+        "operationId": "769d1611-8625-43b9-a200-20dfa44f318e",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "group",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Audience ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brands": {
+      "get": {
+        "summary": "List all brands",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brands",
+        "operationId": "b1686a79-e4cd-4c89-8290-6b582fec4ea9",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brands/{Brand ID}": {
+      "get": {
+        "summary": "Get a single brand",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brands",
+        "operationId": "550a42cd-38b4-46da-bb72-17f08902e278",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "sector,company,studies,countries",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "369",
+            "name": "Brand ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brand-metrics": {
+      "get": {
+        "summary": "List all brand metrics",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metrics",
+        "operationId": "5e9c71cc-a375-497e-beb6-e0b9ef795313",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brand-metrics/{Brand Metric ID}": {
+      "get": {
+        "summary": "Get a single brand metric",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metrics",
+        "operationId": "73555d8b-3661-4a29-bb4b-cb445cf90802",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Brand Metric ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brand-metric-groups": {
+      "get": {
+        "summary": "List all brand metric groups",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metric-groups",
+        "operationId": "23737cea-07d1-4095-8354-091bf51fc652",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brand-metric-groups/{Brand Metric Group ID}": {
+      "get": {
+        "summary": "Get a single brand metric group",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brand-metric-groups",
+        "operationId": "103fec6b-fef7-4932-a69f-ba56d14bd9c8",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "metrics",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Brand Metric Group ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brandscape-data": {
+      "get": {
+        "summary": "List all brandscape data",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brandscape-data",
+        "operationId": "12e974c0-95b2-44be-925c-5ef0352d7970",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/brandscape-data/{Brandscape Datapoint ID}": {
+      "get": {
+        "summary": "Get a single brandscape datapoint",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/brandscape-data",
+        "operationId": "7e55c02b-a76a-461d-bee5-532cccb17e92",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Brandscape Datapoint ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "List all categories",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/categories",
+        "operationId": "e80be89a-9110-43d4-996d-d8b8a4043209",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/categories/{Category ID}": {
+      "get": {
+        "summary": "Get a single category",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/resources/categories",
+        "operationId": "d0a8e510-ad72-4994-b771-e54dab0061de",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "sector",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Category ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/cee-opinions": {
+      "get": {
+        "summary": "List all opinions",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/cee-opinions",
+        "operationId": "7e54f210-d798-4c4a-8a7b-3a48f40b5a9c",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "study,country,year,audience",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/cee-opinions/{CEE Opinion Datapoint ID}": {
+      "get": {
+        "summary": "Get a single opinion datapoint",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/cee-opinions",
+        "operationId": "349ee18f-68bb-4db7-98b3-1aa5244a315e",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "study,country,year,audience",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "CEE Opinion Datapoint ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/collections": {
+      "get": {
+        "summary": "List all collections",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/collections",
+        "operationId": "d2b7f8c1-5c31-44f8-b825-bb0921b7ea6a",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "brands",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/collections/{Collection ID}": {
+      "get": {
+        "summary": "Get a single collection",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/collections",
+        "operationId": "72867dbc-fe9a-49ec-995d-afc658d0313e",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "brands",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "71",
+            "name": "Collection ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/companies": {
+      "get": {
+        "summary": "List all companies",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "operationId": "498907b1-68c2-4648-b15d-07d433343276",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/companies/{Company ID}": {
+      "get": {
+        "summary": "Get a single company",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "operationId": "bb453e4c-21ae-4c1b-a8f8-759daa0b440b",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "brand,brands,gics_sector,stock_exchanges,country,latest_financials",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "71",
+            "name": "Company ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/countries": {
+      "get": {
+        "summary": "List all countries",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "operationId": "c8ea3a05-20fc-4625-b562-9b195036e832",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "region",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/countries/{Country ID}": {
+      "get": {
+        "summary": "Get a single country",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "operationId": "a9900e59-f3bb-405f-8bda-01697318a679",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "region",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Country ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/countries/{Country ID}/indicators": {
+      "get": {
+        "summary": "Get a country's indicators",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "operationId": "605bedf1-d1f5-4fdb-a191-f794cd8ce2ed",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Country ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/countries/{Country ID}/indicators/{Year ID}": {
+      "get": {
+        "summary": "Get a country's indicators for a specific year",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/countries",
+        "operationId": "058a4fb8-1cde-449f-b7be-2754b1a85684",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Country ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Year ID",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/gics-sectors": {
+      "get": {
+        "summary": "List all GICS Sectors",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/gics-sectors",
+        "operationId": "29497aab-daca-4ccc-8fc9-e4fc6388eb61",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "companies",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/gics-sectors/{GICS Sector ID}": {
+      "get": {
+        "summary": "Get a single GICS sector",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/companies",
+        "operationId": "59932298-8727-413d-8efe-a4e407ea5850",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "companies",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "GICS Sector ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/operating-companies": {
+      "get": {
+        "summary": "List all operating companies",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/operating-companies",
+        "operationId": "47592772-7299-4fcb-940c-5c31fb1b6ae7",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "brand,parent",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/operating-companies/{Operating Company ID}": {
+      "get": {
+        "summary": "Get a single operating company",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/operating-companies",
+        "operationId": "f77ac484-25d9-4e87-bbfa-dc6abc680450",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "parent,brand",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Operating Company ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/regions": {
+      "get": {
+        "summary": "List all regions",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/regions",
+        "operationId": "f136b652-743b-44e7-a11a-c560881c46e4",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "countries",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/regions/{Region ID}": {
+      "get": {
+        "summary": "Get a single region",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/regions",
+        "operationId": "fbf62988-bc68-4069-9de0-7eedfc1f31eb",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "countries",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Region ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/sectors": {
+      "get": {
+        "summary": "List all sectors",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/sectors",
+        "operationId": "06a87dec-6c80-44ca-aafc-ae8454b63be6",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "categories",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/sectors/{Sector ID}": {
+      "get": {
+        "summary": "Get a single sector",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/sectors",
+        "operationId": "68e4c7d7-6dcc-426d-b8b5-0ca36ccbbcd1",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "categories",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Sector ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/stock-exchanges": {
+      "get": {
+        "summary": "List all stock exchanges",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-exchanges",
+        "operationId": "82c0c3cc-c24f-414d-af61-87da328a8d81",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "country,companies",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/stock-exchanges/{Stock Exchange ID}": {
+      "get": {
+        "summary": "Get a single stock exchange",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-exchanges",
+        "operationId": "d79c0174-2265-49b8-a43f-cb16a5904952",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "companies,country",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Stock Exchange ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/stock-prices": {
+      "get": {
+        "summary": "List all stock prices",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-prices",
+        "operationId": "a9abb0fa-54ad-4b0a-a7db-1c5e33964a47",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "company,stock_exchange",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/stock-prices/{Stock Price ID}": {
+      "get": {
+        "summary": "Get a single stock price",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/stock-prices",
+        "operationId": "c9301f4c-5eca-48b0-9381-b647e6b7ca5f",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "company,stock_exchange",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Stock Price ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/studies": {
+      "get": {
+        "summary": "List all studies",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/studies",
+        "operationId": "40da71d4-f26b-4356-b21b-08f5069226ff",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "country,year",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/studies/{Study ID}": {
+      "get": {
+        "summary": "Get a single study",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/studies",
+        "operationId": "0348b3f6-7b69-42d2-919b-d0c1d44cdfcc",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "country,year",
+            "name": "include",
+            "description": "A comma-separated list of incuded relationships.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Study ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/years": {
+      "get": {
+        "summary": "List all years",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/years",
+        "operationId": "667bc360-98f6-4d7b-b47f-98dcdd3d52ad",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/years/{Year ID}": {
+      "get": {
+        "summary": "Get a single year",
+        "description": "For more information, please see https://developer.wppbav.com/docs/2.x/core-resources/years",
+        "operationId": "d9a3d6ae-d0f8-4246-acd5-6b08942cb15b",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Year ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-metrics": {
+      "get": {
+        "summary": "List all best countries metrics",
+        "description": "",
+        "operationId": "b6fe17eb-8d21-4716-871f-e869c83d5b01",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-metrics/{Best Countries Metric ID}": {
+      "get": {
+        "summary": "Get a single best countries metric",
+        "description": "",
+        "operationId": "15e20983-f2f5-43b0-bca4-9fbed2eae236",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Best Countries Metric ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-metric-groups": {
+      "get": {
+        "summary": "List all best countries metric groups",
+        "description": "",
+        "operationId": "213c2a7c-b67d-4187-8c29-5cf26f14d9b0",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "metrics",
+            "name": "include",
+            "description": "A comma-separated list of relationships to include.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-metric-groups/{Best Countries Metric Group ID}": {
+      "get": {
+        "summary": "Get a single best countries metric group",
+        "description": "",
+        "operationId": "94acae54-7197-48cf-be66-8e7d6cad0cfb",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "metrics",
+            "name": "include",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Best Countries Metric Group ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-factors": {
+      "get": {
+        "summary": "List all best countries factors",
+        "description": "",
+        "operationId": "9629579b-fe52-48ff-9426-74174b37260b",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "metrics",
+            "name": "include",
+            "description": "A comma-separated list of relationships to include.",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries-factors/{Best Countries Factor ID}": {
+      "get": {
+        "summary": "Get a single best countries factor",
+        "description": "",
+        "operationId": "9f184d9a-1c1f-41b4-b493-de13530d2f10",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "metrics",
+            "name": "include",
+            "description": "A comma-separated list of factors to include.",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "default": "1",
+            "name": "Best Countries Factor ID",
+            "description": "The system ID to fetch.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries/countries/{Year Number}/{Data Type}/{Score Type}": {
+      "delete": {
+        "summary": "Get calculated data for a year",
+        "description": "",
+        "operationId": "5c1fbc8a-fbf7-4b2d-b321-ea3cad8e84b0",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "default": "country",
+            "name": "sort",
+            "description": "The field to sort on. Prefix with - to sort descending.",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "minimum": 2022,
+            "default": "2022",
+            "name": "Year Number",
+            "description": "The year number to get the data for, for example: 2022.",
+            "required": true,
+            "in": "path"
+          },
+          {
+            "type": "string",
+            "default": "attributes",
+            "enum": [
+              "factors",
+              "attributes"
+            ],
+            "name": "Data Type",
+            "description": "Which data type to get: factors or attributes.",
+            "required": true,
+            "in": "path"
+          },
+          {
+            "type": "string",
+            "default": "ranks",
+            "enum": [
+              "ranks",
+              "scores"
+            ],
+            "name": "Score Type",
+            "description": "Which score type to get: ranks or scores",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    },
+    "/best-countries/countries/raw/{Year Number}": {
+      "get": {
+        "summary": "Get raw data for a year",
+        "description": "",
+        "operationId": "59c4c562-092f-4301-a434-728718b97da2",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "default": "application/json",
+            "name": "Accept",
+            "required": false,
+            "in": "header"
+          },
+          {
+            "type": "string",
+            "minimum": 2022,
+            "default": "2022",
+            "name": "Year Number",
+            "description": "The year number to get the data for, for example: 2022.",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "no response description was provided for this operation"
+          }
+        },
+        "security": [
+          {
+            "oauth_2_auth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "oauth_2_auth": {
+      "type": "oauth2",
+      "scopes": {}
+    }
+  },
+  "tags": []
+}

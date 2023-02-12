@@ -4,13 +4,26 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Fri, 29 Apr 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 12 Feb 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Introducing the BAV API v2.0]]></title>
+            <link>https://developer.wppbav.com/blog/introducing-version-2-0</link>
+            <guid>https://developer.wppbav.com/blog/introducing-version-2-0</guid>
+            <pubDate>Sun, 12 Feb 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are excited to release the second version of the API which includes a number of new features and improvements. Thank]]></description>
+            <content:encoded><![CDATA[<p>We are excited to release the second version of the API which includes a number of new features and improvements. Thank
+you to everyone who have provided feedback and suggestions for improvements.</p><p>With the new version we aim to make a series of breaking changes that are only possible with a new version of the API.
+They will allow us to better add continuous improvements and new features regularly without having to release new
+breaking-change versions.</p><p>We suggest that you review all calls and responses for any changes to the responses.</p><p>At a high-level, these are the changes that will affect you:</p><ul><li>There are no removed resources but several new ones.</li><li>Some fields have been given new names, a select few have been removed.</li><li>Filtering now has a new, consistent format (see <a href="/docs/2.x/customizing/filters">filtering</a>).</li><li>Sorting now has a new, simplified format (see <a href="/docs/2.x/customizing/filters">sorting</a>).</li><li>Expansions are now includes (see <a href="/docs/2.x/customizing/includes">includes</a>).</li><li>Ability to scope API keys to specific operations.</li></ul><p>If you are having problems with using the API, or if you have any questions or feedback,
+please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Welcome to the updated developer website!]]></title>
             <link>https://developer.wppbav.com/blog/welcome</link>
-            <guid>welcome</guid>
+            <guid>https://developer.wppbav.com/blog/welcome</guid>
             <pubDate>Fri, 29 Apr 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.]]></description>
             <content:encoded><![CDATA[<p>Welcome, to the updated BAV@WPP developer website which currently houses the BAV API documentation but will also be the home to any future development related documentation for BAV.</p><p>We are excited that so many of you are using the API to build analytical integrations into your specific workflows and tools.</p><p>In this stream we'll be posting news relating to the API and other development features. If you've got an active API key on the platform we'll also be sending them to you via e-mail.</p>]]></content:encoded>
