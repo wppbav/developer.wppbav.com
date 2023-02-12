@@ -1,6 +1,3 @@
----
-displayed_sidebar: apiSidebar
----
 # Rate Limiting
 
 The API has a rate limit of 500 requests per minute based on the user. This means that the rate limit applies to all of

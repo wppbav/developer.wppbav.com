@@ -45,3 +45,10 @@ The slim relationship schema is used when the audience group is used as part of 
 | `id`   | integer | The system ID for the audience group.   |
 | `name` | string  | The primary name of the audience group. |
 
+## Relationships & includes
+
+By default, relationships apart from the sector are not included. See
+the [includes section](../customizing/includes) for more information on how this works. The following relationships
+are available:
+
+- `audiences` - The [audiences](audiences.md) that belong to this audience group.

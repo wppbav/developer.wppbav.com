@@ -41,6 +41,7 @@ Where `123` is the system ID of the brand metric.
 | `has_percentage_score`      | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a percentage score available.                             |
 | `has_value_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a value score available.                                  |
 | `has_index_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has the two index scores available (brandscape and category). |
+| `brandscape_data_columns`   | array   |                    :x:                    |        :x:         |        :x:         | An array of column names in the `brandscape_data` endpoint for this metric.      |
 | `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was first created.                      |
 | `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was last updated.                       |
 

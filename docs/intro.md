@@ -1,7 +1,3 @@
----
-displayed_sidebar: apiSidebar
----
-
 # Introduction
 
 The Fount has a modern REST API available for consuming data through external systems. Most of the system's data can be

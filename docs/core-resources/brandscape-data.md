@@ -89,6 +89,8 @@ by reducing the need for lookups in our database. These are:
 - `brand_name`. A text search on the brand name.
 - `year_number`. A comma-separated of years by their numbers (for example: 2022) which can be used over a `year_id`
   filter.
+- `metric_keys` - A comma-separated list of metric keys (for example: `differentation,relevance`) which can be used to
+  automatically get all the available score types for these metrics only without having to get each field specifically.
 
 ## Relationships & includes
 
