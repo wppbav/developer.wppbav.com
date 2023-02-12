@@ -130,6 +130,22 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 - `data_updated_since` - A datetime string. This will filter the studies to only those that have had their data updated
   since the given date.
+- `active` - Set to `1` to only return active audiences.
+- `inactive` - Set to `1` to only return inactive audiences.
+- `bav_study` - Set to `1` to only return studies that are full BAV studies.
+- `released` - Set to `1` to only return studies that have been released.
+- `unreleased` - Set to `1` to only return studies that have not been released.
+- `full_year` - Set to `1` to only return studies that are full year studies (excludes US quarterly waves).
+- `open_survey` - Set to `1` to only return studies that are open to brand list feedback.
+- `regions` - A comma-separated list of region IDs. This will filter the studies to only those that are in the given
+  regions.
+- `countries` - A comma-separated list of country IDs. This will filter the studies to only those that are in the given
+  countries.
+- `country_codes` - A comma-separated list of country codes. This will filter the studies to only those that are in the
+  given countries.
+- `years` - A comma-separated list of year IDs. This will filter the studies to only those that are in the given years.
+- `year_numbers` - A comma-separated list of year numbers. This will filter the studies to only those that are in the
+  given years.
 
 ### For brands in a study
 

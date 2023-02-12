@@ -49,6 +49,15 @@ The slim relationship schema is used when the stock exchange is used as part of 
 | `suffix`        | string  | The stock suffix when part of this stock exchange.           |
 | `operating_mic` | string  | The operating Market Identifier Code for the stock exchange. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `countries` - A comma-separated list of country IDs to only return stock exchanges in those countries.
+- `country_codes` - A comma-separated list of country codes (two-letter, ISO standard) to only return stock exchanges in
+  those countries.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

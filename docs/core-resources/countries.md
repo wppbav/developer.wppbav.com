@@ -50,14 +50,22 @@ Where `123` is the system ID of the country.
 
 The slim relationship schema is used when the country is used as part of an include in another resource.
 
-| Key            | Type    | Description                                                                                |
-|----------------|---------|--------------------------------------------------------------------------------------------|
-| `id`           | integer | The system ID for the country.                                                             |
-| `name`         | string  | The name of the country in English.                                                        |
+| Key            | Type    | Description                                                                              |
+|----------------|---------|------------------------------------------------------------------------------------------|
+| `id`           | integer | The system ID for the country.                                                           |
+| `name`         | string  | The name of the country in English.                                                      |
 | `region`       | object  | An object with the region that this country belongs to [sector relationship](sectors.md) |
-| `code`         | object  | The two-letter code (ISO 3166-1 alpha-2) for the country.                                  |
-| `code_alpha3`  | object  | The three-letter code (ISO 3166-1 alpha-3) for the country.                                |
-| `code_numeric` | object  | The numeric code (ISO 3166-1 numeric) for the country.                                     |
+| `code`         | object  | The two-letter code (ISO 3166-1 alpha-2) for the country.                                |
+| `code_alpha3`  | object  | The three-letter code (ISO 3166-1 alpha-3) for the country.                              |
+| `code_numeric` | object  | The numeric code (ISO 3166-1 numeric) for the country.                                   |
+
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `active` - Set to `1` to only return active countries.
+- `regions` - Set to a comma-separated list of region IDs to only return countries in those regions.
 
 ## Relationships & includes
 

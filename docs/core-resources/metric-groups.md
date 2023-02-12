@@ -46,6 +46,14 @@ The slim relationship schema is used when the brand metric group is used as part
 | `id`   | integer | The system ID for the group.   |
 | `name` | string  | The primary name of the group. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `public` - Set to `1` to only return public metrics.
+- `private` - Set to `1` to only return private metrics.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

@@ -30,6 +30,22 @@ Where `123` is the system ID of the cee opinion.
 Because the schema is large we omit it here. It consists of both metadata columns (study details) and the opinion and
 value columns. The values are in percent.
 
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `years` - A comma-separated list of year IDs. This will filter the opinions to only those for the given years.
+- `year_numbers` - A comma-separated list of year numbers. This will filter the opinions to only those
+  for the given years.
+- `studies` - A comma-separated list of study IDs. This will filter the opinions to only those for the given studies.
+- `audiences` - A comma-separated list of audience IDs. This will filter the opinions to only those in the given
+  audiences.
+- `countries` - A comma-separated list of country IDs. This will filter the opinions to only those for the given
+  countries.
+- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the opinions to only those
+  for the given countries.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

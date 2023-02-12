@@ -55,6 +55,22 @@ The slim relationship schema is used when the brand is used as part of an includ
 | `name`      | string  | The primary name of the metric.        |
 | `is_active` | boolean | If the metric is active or deprecated. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `active` - Set to `1` to only return active metrics.
+- `inactive` - Set to `1` to only return inactive metrics.
+- `public` - Set to `1` to only return public metrics.
+- `private` - Set to `1` to only return private metrics.
+- `groups` - A comma-separated list of audience group IDs. This will only return metrics that belong to the
+  specified groups.
+- `current` - Set to `1` to only return metrics that are in use in studies today.
+- `legacy` - Set to `1` to only return legacy metrics.
+- `core` - Set to `1` to only return core metrics.
+- `custom` - Set to `1` to only return custom metrics.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

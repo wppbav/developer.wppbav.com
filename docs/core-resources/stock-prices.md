@@ -41,6 +41,15 @@ Where `123` is the system ID of the stock price.
 | `created_at`           | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this stock price was first created. |
 | `updated_at`           | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this stock price was last updated.  |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `companies` - A comma-separated list of company IDs to only return stock prices for those companies.
+- `stock_exchanges` - A comma-separated list of stock exchange IDs to only return stock prices for those stock
+  exchanges.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

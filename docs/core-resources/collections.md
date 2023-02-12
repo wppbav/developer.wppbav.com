@@ -46,4 +46,11 @@ Where `123` is the system ID of the collection.
 | `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this collection was first created.                                                                                                         |
 | `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this collection was last updated.                                                                                                          |
 
+## Additional Filters
 
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `public` - Set to `1` to only return public collections.
+- `shared_with_me` - Set to `1` to only return collections shared with the user.
+- `mine` - Set to `1` to only return collections created by the user.

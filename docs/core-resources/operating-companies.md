@@ -40,6 +40,14 @@ Where `123` is the system ID of the operating company.
 
 The slim relationship schema is used when the operating company is used as part of an include in another resource.
 
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `parents` - Set to a comma-separated list of operating company IDs to only return countries owned by those operating
+  companies.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

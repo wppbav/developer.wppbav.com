@@ -57,6 +57,13 @@ The slim relationship schema is used when the category is used as part of an inc
 | `id`   | integer | The system ID for the category.   |
 | `name` | string  | The primary name of the category. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `sectors` - A comma-separated list of sector IDs. This will filter the categories to only those in the given sectors.
+
 ## Relationships & includes
 
 By default, relationships not included. See the [includes section](../customizing/includes) for more information on how

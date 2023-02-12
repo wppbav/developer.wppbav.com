@@ -48,6 +48,14 @@ The slim relationship schema is used when the sector is used as part of an inclu
 | `id`   | integer | The system ID for the sector.   |
 | `name` | string  | The primary name of the sector. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `in_most_influential` - Set to `1` to only return sectors that are part of the Most Influential lists.
+- `not_in_most_influential` - Set to `1` to only return sectors that are not part of the Most Influential lists.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

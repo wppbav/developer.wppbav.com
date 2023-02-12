@@ -83,12 +83,23 @@ All fields are sortable, filterable and configurable.
 In addition to the standard filters and all the fields, we have a set of helper filters to make querying the data easier
 by reducing the need for lookups in our database. These are:
 
+- `countries` - A comma-separated list of country IDs (for example: 1,2,3).
 - `country_code`. A comma-separated list of ISO two letter country codes (for example: GB) which can take the place of
-  a `country_id`
-  filter.
-- `brand_name`. A text search on the brand name.
+  a `country_id` filter.
+- `years` - A comma-separated list of year IDs (for example: 1,2,3).
 - `year_number`. A comma-separated of years by their numbers (for example: 2022) which can be used over a `year_id`
   filter.
+- `brands` - A comma-separated list of brand IDs (for example: 1,2,3).
+- `categories` - A comma-separated list of category IDs (for example: 1,2,3).
+- `audiences` - A comma-separated list of audience IDs (for example: 1,2,3).
+- `studies` - A comma-separated list of study IDs (for example: 1,2,3).
+- `brand_name`. A text search on the brand name.
+
+## Additional Column Customizations
+
+In addition to the standard column customizations we have a helper parameter. This is used as a top-level query
+parameter.
+
 - `metric_keys` - A comma-separated list of metric keys (for example: `differentation,relevance`) which can be used to
   automatically get all the available score types for these metrics only without having to get each field specifically.
 

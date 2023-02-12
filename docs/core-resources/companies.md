@@ -54,6 +54,15 @@ The slim relationship schema is used when the company is used as part of an incl
 | `id`   | integer | The system ID for the company.   |
 | `name` | string  | The primary name of the company. |
 
+## Additional Filters
+
+For convenience, we have a set of additional filters that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `public` - Set to `1` to only return public (listed) companies.
+- `private` - Set to `1` to only return private (unlisted) companies.
+- `brands` - Set to a comma-separated list of brand IDs to only return companies that own those brands.
+
 ## Relationships & includes
 
 By default, relationships apart from the sector are not included. See

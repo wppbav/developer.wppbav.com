@@ -9,7 +9,8 @@ shared between the BAV and Best Countries datasets.
 
 Examples of audiences include: All Adults (everyone), Female, Age 18-25, etc.
 
-For the BAV dataset they correspond to the available cuts of data that you can access on audiences. For the Best Countries
+For the BAV dataset they correspond to the available cuts of data that you can access on audiences. For the Best
+Countries
 dataset they correspond to a set of filters that you can then query the dataset with.
 
 Audiences can be active and inactive. Your application should not display inactive audiences to users even if they are
@@ -74,6 +75,18 @@ The slim relationship schema is used when the audience is used as part of an inc
 | `is_public`         | boolean | Whether this audience is publicly available to everyone (true) or just the current user (false).                   |
 | `available_for_bav` | boolean | Whether this audience can be used with the BAV dataset.                                                            |
 | `available_for_bc`  | boolean | Whether this audience can be used with the Best Countries dataset.                                                 |
+
+## Additional Filters
+
+For convenience, we have a set of additional filters for brands that are not available in
+the [default filters](../customizing/filters.md) or are part of the columns. These are:
+
+- `active` - Set to `1` to only return active audiences.
+- `inactive` - Set to `1` to only return inactive audiences.
+- `public` - Set to `1` to only return public audiences.
+- `private` - Set to `1` to only return private audiences.
+- `groups` - A comma-separated list of audience group IDs. This will only return audiences that belong to the
+  specified groups.
 
 ## Relationships & includes
 
