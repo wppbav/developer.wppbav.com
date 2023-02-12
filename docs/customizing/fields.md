@@ -17,11 +17,11 @@ Configurable fields are available on both indexes and single resource endpoints.
 
 ## Making a request
 
-Configuring fields is done by adding the `fields` query parameter and passing a comma-separated string of field names,
+Configuring fields is done by adding the `fields` query parameter, the snake-case name of the resource, and passing a comma-separated string of field names,
 like so:
 
 ```http request
-GET /api/v2/brands?fields=id,name
+GET /api/v2/brands?fields[brands]=id,name
 ```
 
 ## Example: Getting a list of brands for a dropdown selection
@@ -31,7 +31,7 @@ the value and the name for the display label. Instead of forcing you to download
 full [Brands response](../core-resources/brands.md) response, you may configure to only retrieve the columns you need.
 
 ```http request
-GET /api/v2/brands?fields=id,name
+GET /api/v2/brands?fields[brands]=id,name
 ```
 
 This request would result in the following lean response:

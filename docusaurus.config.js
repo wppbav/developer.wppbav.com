@@ -17,6 +17,7 @@ const config = {
     projectName: 'developer.wppbav.com', // Usually your repo name.
     deploymentBranch: 'gh-pages',
     trailingSlash: false,
+    staticDirectories: ['public', 'static'],
 
     presets: [
         [

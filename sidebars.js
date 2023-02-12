@@ -20,6 +20,7 @@ const sidebars = {
         'errors',
         'pagination',
         'versioning',
+        'resources',
         {
             type: 'category',
             label: 'Customizing responses',
