@@ -75,12 +75,23 @@ The slim relationship schema is used when the study is used as part of an includ
 
 When getting the brands included in a study, the following schema is used:
 
-| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                          |
-|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------|
-| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                       |
-| `brand_name` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The local brand name used in the study.              |
-| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this study was first created. |
-| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this study was last updated.  |
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                          |
+| `brand_name` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The local brand name used in the study.                 |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this relation was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this relation was last updated.  |
+
+### Categories in Study Schema
+
+When getting the categories included in a study, the following schema is used:
+
+| Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
+|--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                          |
+| `category`   | object  |                    :x:                    |        :x:         |        :x:         | A category relationship object.                         |
+| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this relation was first created. |
+| `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this relation was last updated.  |
 
 ## Relationships & includes
 
@@ -100,6 +111,17 @@ The following relationships are available for brands in a study:
 - `study` - The [study](studies.md) that the brand was included in.
 - `brand` - The [brand](brands.md) object for each brand.
 - `category` - The [category](categories.md) the brand was studied in.
+-
+
+### For categories in a study
+
+The following relationships are available for categories in a study:
+
+- `country` - The [country](countries.md) country where the study was done.
+- `year` - The [year](years.md) year when the study was done.
+- `study` - The [study](studies.md) that the brand was included in.
+- `brand` - The [brand](brands.md) object for each brand.
+- `category` - The [category](categories.md) the brand was studied in.
 
 ## Additional filters
 
@@ -113,17 +135,14 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 The following additional filters are available when fetching brands for a given study:
 
-- `years` - A comma-separated list of year IDs. This will filter the brands to only those that are studied in the
-  specified years.
 - `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
   the specified categories.
-- `countries` - A comma-separated list of country IDs. This will filter the brands to only those that are studied in
-  the specified countries.
-- `regions` - A comma-separated list of region IDs. This will filter the brands to only those that are studied in
-  the specified regions.
-- `studies` - A comma-separated list of study IDs. This will filter the brands to only those that are included in the
-  specified studies.
-- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the brands to only those
-  that are studied in the specified countries.
-- `year_numbers` - A comma-separated list of year numbers. This will filter the brands to only those that are studied
-  in the specified years.
+- `brands` - A comma-separated list of brand IDs. This will filter the brands to only the ones provided.
+
+### For categories in a study
+
+The following additional filters are available when fetching categories for a given study:
+
+- `categories` - A comma-separated list of category IDs. This will filter the categories to only those given.
+- `brands` - A comma-separated list of brand IDs. This will filter the categories to only those that have the given
+  brands in the study.
