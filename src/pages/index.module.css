@@ -4,20 +4,30 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image: -webkit-gradient(linear, left top, right top, from(#000050), color-stop(#6B15D5), to(#328FFF));
+    background-image: -webkit-linear-gradient(left, #000050, #6B15D5, #328FFF);
+    background-image: linear-gradient(to right, #000050, #6B15D5, #328FFF);
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+    .heroBanner {
+        padding: 2rem;
+    }
 }
 
 .buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    width: 100%;
 }
