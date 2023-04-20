@@ -93,6 +93,8 @@ by reducing the need for lookups in our database. These are:
 - `categories` - A comma-separated list of category IDs (for example: 1,2,3).
 - `audiences` - A comma-separated list of audience IDs (for example: 1,2,3).
 - `studies` - A comma-separated list of study IDs (for example: 1,2,3).
+- `sectors` - A comma-separated list of sector IDs (for example: 1,2,3).
+- `companies` - A comma-separated list of company IDs (for example: 1,2,3)
 - `brand_name`. A text search on the brand name.
 
 ## Additional Column Customizations
@@ -109,9 +111,11 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `study` - The [study](studies.md) -.
-- `year` - The [year](years.md) -.
-- `country` - The [country](countries.md) -.
-- `audiences` - The [audience](./audiences.md) -.
-- `brand` - The [brand](brands.md) -.
-- `category` - The [category](categories.md) -.
+- `study` - The [study](studies.md) for the brandscape data record.
+- `year` - The [year](years.md) for the brandscape data record.
+- `country` - The [country](countries.md) for the brandscape data record.
+- `audiences` - The [audience](./audiences.md) for the brandscape data record.
+- `brand` - The [brand](brands.md) for the brandscape data record.
+- `category` - The [category](categories.md) for the brandscape data record.
+- `sector` - The [sector](sectors.md) for the brandscape data record.
+- `company` - The [company](companies.md) for the brandscape data record.
