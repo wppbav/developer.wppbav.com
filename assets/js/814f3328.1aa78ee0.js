@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkthe_fount=self.webpackChunkthe_fount||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Introducing the BAV API v2.0","permalink":"/blog/introducing-version-2-0"},{"title":"Welcome to the updated developer website!","permalink":"/blog/welcome"}]}')}}]);
