@@ -65,6 +65,23 @@ const sidebars = {
                 'best-countries/factors',
                 'best-countries/country-data',
             ],
+        },
+        {
+            type: 'category',
+            label: 'Tools / TurboPitch',
+            items: [
+                'tools/index',
+                'tools/brand-personality-match',
+                'tools/brand-vulnerability-map',
+                'tools/brand-worth-map',
+                'tools/category-worth-map',
+                'tools/commitment-funnel',
+                'tools/cost-of-entry',
+                'tools/love-plus',
+                'tools/partnership-exchange-map',
+                'tools/swot',
+                'tools/toplist-market',
+            ],
         }
     ],
     embedSidebar: [
