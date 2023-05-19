@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developer.wppbav.com/blog</id>
     <title>BAV@WPP Developer Docs Blog</title>
-    <updated>2023-04-20T00:00:00.000Z</updated>
+    <updated>2023-05-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developer.wppbav.com/blog"/>
     <subtitle>BAV@WPP Developer Docs Blog</subtitle>
     <icon>https://developer.wppbav.com/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[New TurboPitch endpoints]]></title>
+        <id>https://developer.wppbav.com/blog/new-turbo-pitch-endpoints</id>
+        <link href="https://developer.wppbav.com/blog/new-turbo-pitch-endpoints"/>
+        <updated>2023-05-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[While the API has always contained the ability to fetch all the Brandscape Data values, a lot of the time you only need]]></summary>
+        <content type="html"><![CDATA[<p>While the API has always contained the ability to fetch all the Brandscape Data values, a lot of the time you only need
+a subset of data in a specific way. This is the philosophy behind the suite of TurboPitch endpoints which are already
+available in The Fount for you to use.</p><p>Today we are opening up the use of these to the API as well, so that you can get the data programatically
+in the same way as you can graphically in The Fount.</p><p>The new endpoints are available for most of the TurboPitch tools. If one that you need isn't yet available, please reach
+out to us, and we are happy to add it for you.</p><p>If you are having problems with using the API, or if you have any questions or feedback,
+please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content>
+        <author>
+            <name>Erik Bernskiold</name>
+            <uri>https://github.com/erikbernskiold</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[New company and sector details on Brandscape Data]]></title>
         <id>https://developer.wppbav.com/blog/upgraded-brandscape-data</id>
