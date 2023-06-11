@@ -6,7 +6,11 @@ The Fount's API uses standard HTTP response codes to indicate success or failure
 In general codes in the `200` range indicate success. Codes in the `400` range indicate some sort of error in the
 information provided. Codes in the `500` range indicate errors with The Fount's servers and systems.
 
-Along with the response code a human readable `error` attribute is generally sent explaining what went wrong.
+Along with the response code a human readable `message` attribute is generally sent explaining what went wrong.
+
+:::note
+If you receive an HTML response when an error occurs check your accept header. The Fount's API will attempt to respond to errors based on your request. By setting the `Accept: application/json` header you can ensure that you always get a JSON response in all instances.
+:::
 
 ## Response Codes
 
@@ -24,7 +28,7 @@ Along with the response code a human readable `error` attribute is generally sen
 ```json
 {
   "data": {
-    "error": "Human readable error message."
+    "message": "Human readable error message."
   }
 }
 ```
