@@ -20,7 +20,6 @@ const sidebars = {
         'errors',
         'pagination',
         'versioning',
-        'resources',
         {
             type: 'category',
             label: 'Customizing responses',
@@ -88,6 +87,16 @@ const sidebars = {
         'embed/intro',
         'embed/implementation',
         'embed/display-options'
+    ],
+    toolsSidebar: [
+        'developer-tools/index',
+        {
+            type: 'category',
+            label: 'Python SDK',
+            items: [
+                'developer-tools/python/index',
+            ],
+        }
     ],
 };
 
