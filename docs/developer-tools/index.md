@@ -22,7 +22,7 @@ language we don't yet have an SDK for and would consider packaging it as an SDK 
 
 The Python SDK is created and maintained by Ignacio Maiz at BAV@WPP.
 
-**[Read More ›](python/intro.md)**
+**[Read More ›](python/index.md)**
 
 ## BAV API Specification
 

@@ -95,6 +95,35 @@ const sidebars = {
             label: 'Python SDK',
             items: [
                 'developer-tools/python/index',
+                {
+                    type: 'category',
+                    label: 'Getting Started',
+                    items: [
+                        'developer-tools/python/getting-started/authentication',
+                        'developer-tools/python/getting-started/installation',
+                        'developer-tools/python/getting-started/reference-classes'
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Usage',
+                    items: [
+                        'developer-tools/python/usage/basic',
+                        'developer-tools/python/usage/advanced',
+                    ],
+                },
+                {
+                    type: 'category',
+                    label: 'Endpoints',
+                    items: [
+                        'developer-tools/python/endpoints/index',
+                        'developer-tools/python/endpoints/audiences',
+                        'developer-tools/python/endpoints/brands',
+                        'developer-tools/python/endpoints/brandscape-data',
+                        'developer-tools/python/endpoints/studies',
+                    ],
+                },
+                "developer-tools/python/contributing"
             ],
         }
     ],
