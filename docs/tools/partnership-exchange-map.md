@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/partnership-exchange-map
+GET /api/v2/tools/partnership-exchange-map
 ```
 
 ## Parameters
