@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/category-worth-map
+GET /api/v2/tools/category-worth-map
 ```
 
 ## Parameters

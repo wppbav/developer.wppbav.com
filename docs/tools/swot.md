@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/swot
+GET /api/v2/tools/swot
 ```
 
 ## Parameters

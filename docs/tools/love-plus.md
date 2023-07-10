@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/love-plus
+GET /api/v2/tools/love-plus
 ```
 
 ## Parameters

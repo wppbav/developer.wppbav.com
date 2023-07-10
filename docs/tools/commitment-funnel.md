@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/commitment-funnel
+GET /api/v2/tools/commitment-funnel
 ```
 
 ## Parameters
