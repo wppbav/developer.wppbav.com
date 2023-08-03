@@ -20,7 +20,6 @@ const sidebars = {
         'errors',
         'pagination',
         'versioning',
-        'resources',
         {
             type: 'category',
             label: 'Customizing responses',
@@ -88,6 +87,32 @@ const sidebars = {
         'embed/intro',
         'embed/implementation',
         'embed/display-options'
+    ],
+    toolsSidebar: [
+        'developer-tools/index',
+        {
+            type: 'category',
+            label: 'Python SDK',
+            items: [
+                'developer-tools/python/index',
+                'developer-tools/python/installation',
+                'developer-tools/python/authentication',
+                'developer-tools/python/reference-classes',
+                'developer-tools/python/basic-usage',
+                'developer-tools/python/advanced-usage',
+                {
+                    type: 'category',
+                    label: 'Endpoints',
+                    items: [
+                        'developer-tools/python/endpoints/index',
+                        'developer-tools/python/endpoints/audiences',
+                        'developer-tools/python/endpoints/brands',
+                        'developer-tools/python/endpoints/brandscape-data',
+                        'developer-tools/python/endpoints/studies',
+                    ],
+                }
+            ],
+        }
     ],
 };
 

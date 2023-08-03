@@ -1,8 +1,13 @@
-
 # Authentication
 
 The API has two means of access, depending on your use-case: Personal Access Tokens and Application Access. Personal
 Access Tokens are the easiest way to get started with the API.
+
+:::caution
+Please take care not to share your API keys with anyone. All API keys should
+be treated as sensitive. Make sure it is not visible in any code you share publicly, committed to any repositories or
+otherwise exposed.
+:::
 
 ## Personal Access Tokens
 

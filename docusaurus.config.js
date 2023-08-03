@@ -72,6 +72,12 @@ const config = {
                         position: 'left',
                         label: 'Embed',
                     },
+                    {
+                        type: 'doc',
+                        docId: 'developer-tools/index',
+                        position: 'left',
+                        label: 'Developer Tools',
+                    },
                     {to: '/blog', label: 'News', position: 'left'},
                     {
                         to: '/support',
