@@ -10,9 +10,9 @@ on [GitHub](https://github.com/wppbav/bavapi-sdk-python/).
 
 Queries are validated automatically thanks to `pydantic` and retrieved asynchronously via the `httpx` package.
 
-To start using `bavapi`, go to the [Getting Started](getting-started/authentication.md) section.
+To start using `bavapi`, go to the [Installation](installation.md) section.
 
-After going through the "Getting Started" section, please see [Basic Usage](usage/basic.md). For more advanced topics,
+After going through the Installation, please see [Basic Usage](usage/basic.md). For more advanced topics,
 see the [Advanced Usage](usage/advanced.md) section.
 
 Each Fount API endpoint may behave slightly differently. You can find detailed explanations in
