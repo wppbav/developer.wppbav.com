@@ -12,8 +12,8 @@ Queries are validated automatically thanks to `pydantic` and retrieved asynchron
 
 To start using `bavapi`, go to the [Installation](installation.md) section.
 
-After going through the Installation, please see [Basic Usage](usage/basic.md). For more advanced topics,
-see the [Advanced Usage](usage/advanced.md) section.
+After going through the Installation, please see [Basic Usage](basic-usage.md). For more advanced topics,
+see the [Advanced Usage](advanced-usage.md) section.
 
 Each Fount API endpoint may behave slightly differently. You can find detailed explanations in
 the [Endpoints](python/endpoints/) section.
