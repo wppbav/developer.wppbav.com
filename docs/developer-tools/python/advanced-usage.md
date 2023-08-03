@@ -1,5 +1,5 @@
 ---
-sidebar_label: Advanced
+sidebar_label: Advanced Usage
 ---
 
 # Advanced Usage
@@ -12,7 +12,7 @@ This section is intended for developers who are interested in embedding `bavapi`
 
 ## The `Client` interface
 
-The `Client` class is the backbone of `bavapi`, and it is the recommended way to interact with the Fount for more advanced users.
+The `Client` class is the backbone of `bavapi`, and it is the recommended way to interact with the API for more advanced users.
 
 :::tip
 If you're familiar with the `requests` or `httpx` python packages, this is similar to using `requests.Session()` or `httpx.Client()`.
@@ -31,7 +31,6 @@ The `Client` interface is based on `httpx.Client`, so it benefits from all the p
 By using `Client`, you will also get all these benefits, including in Jupyter Notebooks.
 
 ## Using the `Client` interface
-
 
 It is recommended to use `Client` in an `async with` block:
 
@@ -95,4 +94,4 @@ All Fount queries performed with `bavapi.Query` support the following parameters
 - `include`: Additional linked resources to include in the response.
 - `updated_since`: Only return items that have been updated since this timestamp.
 
-For more information on the behavior of each of these parameters, see the [Fount API docs](https://developer.wppbav.com/docs/2.x/intro).
+For more information on the behavior of each of these parameters, see the [main API docs](/intro.md).

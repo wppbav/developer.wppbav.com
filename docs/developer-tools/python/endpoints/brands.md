@@ -9,7 +9,7 @@ The `brands` endpoint has full support, including query validation.
 | ---------- | -------- | --------------- | --------------- |
 | `"brands"` | `brands` | `Client.brands` | `BrandsFilters` |
 
-For more information on available filters and functionality, see the Fount documentation for the [`brands`](/core-resources/brands.md) endpoint.
+For more information on available filters and functionality, see the main API documentation for the [brands endpoint](/core-resources/brands.md).
 
 ## Usage
 
