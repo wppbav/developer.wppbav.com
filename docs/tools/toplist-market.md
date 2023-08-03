@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/toplist-market
+GET /api/v2/tools/toplist-market
 ```
 
 ## Parameters

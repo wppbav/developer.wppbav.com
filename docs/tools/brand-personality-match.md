@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/brand-personality-match
+GET /api/v2/tools/brand-personality-match
 ```
 
 ## Parameters

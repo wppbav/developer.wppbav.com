@@ -3,7 +3,7 @@
 ## Creating a query
 
 ```http request
-GET /api/v2/cost-of-entry
+GET /api/v2/tools/cost-of-entry
 ```
 
 ## Parameters
