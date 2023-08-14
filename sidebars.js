@@ -44,6 +44,7 @@ const sidebars = {
                 'core-resources/collections',
                 'core-resources/companies',
                 'core-resources/countries',
+                'core-resources/cities',
                 'core-resources/gics-sectors',
                 'core-resources/operating-companies',
                 'core-resources/regions',
