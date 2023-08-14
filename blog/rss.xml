@@ -4,10 +4,21 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Thu, 03 Aug 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[New Cities Endpoint]]></title>
+            <link>https://developer.wppbav.com/blog/new-cities-endpoint</link>
+            <guid>https://developer.wppbav.com/blog/new-cities-endpoint</guid>
+            <pubDate>Tue, 15 Aug 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[For some of the data that we track, we need to map it to a city. For this reason we maintain a database of cities in the]]></description>
+            <content:encoded><![CDATA[<p>For some of the data that we track, we need to map it to a city. For this reason we maintain a database of cities in the
+world with a population over 500 people, based on the <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a> database.</p><p>We have now made this database available through the API. You can find the documentation for the new endpoint in the
+<a href="/docs/2.x/core-resources/cities">API reference</a>.</p><p>The cities endpoint comes with a few filters that you can use to narrow down the results. For example, you can filter
+by country or region, or for example retrieve capitals only.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[New Python SDK]]></title>
             <link>https://developer.wppbav.com/blog/new-python-sdk</link>

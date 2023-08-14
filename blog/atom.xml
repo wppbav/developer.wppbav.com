@@ -2,11 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developer.wppbav.com/blog</id>
     <title>BAV@WPP Developer Docs Blog</title>
-    <updated>2023-08-03T00:00:00.000Z</updated>
+    <updated>2023-08-15T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developer.wppbav.com/blog"/>
     <subtitle>BAV@WPP Developer Docs Blog</subtitle>
     <icon>https://developer.wppbav.com/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[New Cities Endpoint]]></title>
+        <id>https://developer.wppbav.com/blog/new-cities-endpoint</id>
+        <link href="https://developer.wppbav.com/blog/new-cities-endpoint"/>
+        <updated>2023-08-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[For some of the data that we track, we need to map it to a city. For this reason we maintain a database of cities in the]]></summary>
+        <content type="html"><![CDATA[<p>For some of the data that we track, we need to map it to a city. For this reason we maintain a database of cities in the
+world with a population over 500 people, based on the <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a> database.</p><p>We have now made this database available through the API. You can find the documentation for the new endpoint in the
+<a href="/docs/2.x/core-resources/cities">API reference</a>.</p><p>The cities endpoint comes with a few filters that you can use to narrow down the results. For example, you can filter
+by country or region, or for example retrieve capitals only.</p>]]></content>
+        <author>
+            <name>Erik Bernskiold</name>
+            <uri>https://github.com/erikbernskiold</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[New Python SDK]]></title>
         <id>https://developer.wppbav.com/blog/new-python-sdk</id>
