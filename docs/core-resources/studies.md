@@ -111,7 +111,7 @@ The following relationships are available for brands in a study:
 - `study` - The [study](studies.md) that the brand was included in.
 - `brand` - The [brand](brands.md) object for each brand.
 - `category` - The [category](categories.md) the brand was studied in.
--
+- `category.sector` - Includes the [sector](sectors.md) the category belongs to, nested on the categories relationship object.
 
 ### For categories in a study
 
