@@ -52,6 +52,7 @@ const sidebars = {
                 'core-resources/stock-exchanges',
                 'core-resources/stock-prices',
                 'core-resources/studies',
+                'core-resources/tools',
                 'core-resources/years',
             ],
         },
