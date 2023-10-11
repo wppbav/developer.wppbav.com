@@ -28,7 +28,7 @@ the [Endpoints](python/endpoints/) section.
 ## Example usage
 
 :::info "Protected access"
-:lock: To use `bavapi`, you will need a Fount API token. Read more in the [Authentication](./authentication) section.
+:lock: To use `bavapi`, you will need a Fount API token. Read more in the [Authentication](../authentication) section.
 :::
 
 ```py
