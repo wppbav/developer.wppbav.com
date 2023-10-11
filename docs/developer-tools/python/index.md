@@ -4,6 +4,13 @@ sidebar_label: Overview
 
 # Python SDK
 
+[![CI status](https://github.com/wppbav/bavapi-sdk-python/actions/workflows/ci.yml/badge.svg)](https://github.com/wppbav/bavapi-sdk-python/actions/workflows/ci.yml)
+[![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/nachomaiz/32196acdc05431cd2bc7a8c73a587a8d/raw/covbadge.json)](https://github.com/wppbav/bavapi-sdk-python/actions/workflows/ci.yml)
+[![release status](https://github.com/wppbav/bavapi-sdk-python/actions/workflows/release.yml/badge.svg)](https://github.com/wppbav/bavapi-sdk-python/actions/workflows/release.yml)
+[![PyPI](https://img.shields.io/pypi/v/wpp-bavapi)](https://pypi.org/project/wpp-bavapi/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wpp-bavapi)
+](https://pypi.org/project/wpp-bavapi/)
+
 The Python SDK for the BAV API makes it easy to consume BAV data within your Python scripts. It is published
 as `wpp-bavapi` in [PyPI](https://pypi.org/project/wpp-bavapi/) and hosted
 on [GitHub](https://github.com/wppbav/bavapi-sdk-python/).
@@ -17,6 +24,24 @@ see the [Advanced Usage](advanced-usage.md) section.
 
 Each Fount API endpoint may behave slightly differently. You can find detailed explanations in
 the [Endpoints](python/endpoints/) section.
+
+## Example usage
+
+:::info "Protected access"
+:lock: To use `bavapi`, you will need a Fount API token. Read more in the [Authentication](../authentication) section.
+:::
+
+```py
+>>> import bavapi
+>>> result = bavapi.brands("TOKEN", name="Swatch") # Replace "TOKEN" with your token.
+>>> result
+```
+
+|     | sector_id | sector_name           | id   | name   | ... |
+| --: | :-------- | :-------------------- | :--- | :----- | :-- |
+|   0 | 233       | Apparel & Accessories | 8635 | Swatch | ... |
+| ... | ...       | ...                   | ...  | ...    | ... |
+
 
 ## Features
 

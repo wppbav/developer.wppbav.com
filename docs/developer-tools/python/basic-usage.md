@@ -16,22 +16,30 @@ import bavapi
 
 ## Making Requests
 
-You can query the available [endpoints](../endpoints) with their corresponding methods. Replace `TOKEN` with
+:::info SSL issues
+It's possible that you get `SSL: CERTIFICATE_VERIFY_FAILED` errors when performing requests with `bavapi`. At the moment, it is not clear to what might be the source of the issue; as it only happens sometimes, and the error doesn't appear to happen with other tested URLs.
+
+Usually, making the request again solves the issue, but you might have to do so a couple of times if the issue persists.
+
+:bulb: If you have any thoughts on how to solve this, please open an [issue](https://github.com/wppbav/bavapi-sdk-python/issues/) on GitHub.
+:::
+
+You can query the available [endpoints](./endpoints) with their corresponding methods. Replace `TOKEN` with
 your [API key](authentication.md)
 
 ```py
-swatch = bavapi.brands("TOKEN", name="Swatch")  # (1)
+swatch = bavapi.brands("TOKEN", name="Swatch")  # Replace `TOKEN` with your API key
 ```
 
 These endpoints methods will return a pandas DataFrame containing the data retrieved for your query:
 
-| | id | name | ... |
+|     | id     | name   | ... |
 | --: | :----- | :----- | :-- |
-| 0 | 2342 | Swatch | ... |
-| 1 | 127896 | Swatch | ... |
-| ... | ... | ... | ... |
+|   0 | 2342   | Swatch | ... |
+|   1 | 127896 | Swatch | ... |
+| ... | ...    | ...    | ... |
 
-You can make requests to other [endpoints](../endpoints/index.md) in the same way:
+You can make requests to other [endpoints](./endpoints/) in the same way:
 
 ```py
 uk_studies = bavapi.studies("TOKEN", country_code="GB")
@@ -67,6 +75,8 @@ Each endpoint has a filter class associated with it, as each endpoint has its ow
 | `"brandscape-data"` | `BrandscapeFilters` |
 | `"studies"`         | `StudiesFilters`    |
 
+These filters are available under the `bavapi.filters` namespace.
+
 :::caution Don't mix and match filters
 Using a filters class not meant for a specific endpoint will raise a `ValueError`.
 
@@ -76,25 +86,24 @@ match the expected filter types. Use the dictionary method with caution.
 
 These classes are available in the `bavapi.filters` module.
 
-Some of the more common filters for each endpoint have been added directly to the `bavapi` functions.
+Some of the more common filters for each endpoint have been added directly to the `bavapi` functions. More info in the [endpoints](./endpoints/) section.
 
 :::info Example
 `bavapi.brands` has parameters such as `name`, `country_codes`, `year_numbers`, `brand_id` or `studies`, which you can
 use directly from the function without creating a filters instance.
 :::
 
-However, less commonly used filters, as well as [value filters](#value-filters) must be specified by using the `filters`
-parameters in each function.
+However, less commonly used filters, as well as [value filters](#value-filters) must be specified by using the `filters` parameters in each function.
 
 Filters can be specified using a python dictionary (if you know the name of the filters you need), or directly creating
 a filter instance.
 
 <Tabs>
-  <TabItem value="class" label="Filters class" default>
+  <TabItem value="filters" label="Filters instance (recommended)" default>
 
 ```py
 result = bavapi.brands(
-    filters=BrandsFilters(name="Swatch", country_codes=["US", "UK"])
+    filters=bavapi.filters.BrandsFilters(name="Swatch", country_codes=["US", "UK"])
 )
 ```
 
@@ -139,13 +148,67 @@ When using additional value filters, which might not be available in the argumen
 recommended to use the `filters` parameter instead of mixing function parameters and Filters parameters:
 
 ```py
-bavapi.brands(filters=BrandsFilters(name="Swatch", sector_name="Watches"))
+bavapi.brands(filters=bavapi.filters.BrandsFilters(name="Swatch", sector_name="Watches"))
 ```
 
-## Using Reference Classes
+## Using *Reference* Classes
 
-The SDK provides [reference classes](./reference-classes) to make API queries easier to construct. Please see
+The SDK provides reference classes to make API queries easier to construct. Please see
 the [Reference Classes](./reference-classes) section for more info.
+
+## Timeout
+
+:::info New from `v0.8`
+:::
+
+By default, API requests will timeout after 30 seconds in order to avoid hangups.
+
+This may happen more commonly when performing requests with more than 50-100 pages. If you get a `TimeoutError`, you can change this parameter to allow for longer timeouts.
+
+It is possible to set the time before timeout when performing requests with `bavapi`:
+
+<Tabs>
+  <TabItem value="sync" label="Sync" default>
+
+```py
+bavapi.brands(TOKEN, "Facebook", timeout=60)
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async">
+
+```py
+async with bavapi.Client(TOKEN, timeout=60) as client:
+    await client.brands("Facebook")
+```
+  </TabItem>
+</Tabs>
+
+## Suppressing progress bars
+
+:::info New from `v0.9`
+:::
+
+`bavapi` displays progress bars to show download progress. Each tick in the progress bar refers to individual pages being downloaded.
+
+It's possible to supress progress bar outputs via the `verbose` parameter in function calls and `Client` init methods:
+
+<Tabs>
+  <TabItem value="sync" label="Sync (Won't show progress bar)" default>
+
+```py
+bavapi.brands(TOKEN, "Facebook", verbose=False)
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async (Won't show progress bar)">
+
+```py
+async with bavapi.Client(TOKEN, verbose=False) as client:
+    await client.brands("Facebook")
+```
+  </TabItem>
+</Tabs>
 
 ## Other Parameters
 
@@ -195,7 +258,7 @@ The `brandscape_data` function includes `study`, `brand`, `category` and `audien
 All requests to the Fount are [paginated](/pagination.md), meaning that one must request and receive from the server one page at a
 time. The SDK automatically combines all responses into one data table for convenience.
 
-While the default value for the API is 100, it is possible to set a custom number of `per_page` elements for each
+While the default value for the API is `100`, it is possible to set a custom number of `per_page` elements for each
 request:
 
 ```py
@@ -213,24 +276,23 @@ It is possible that some of the data retrieved from the Fount includes multiple 
 For example, requesting the `studies` include in `bavapi.brands` will return a column containing lists of dictionaries
 with study info for all studies that a brand appears in.
 
-| | id | name | studies |
+|     |    id | name     | studies                             |
 | --: | ----: | :------- | :---------------------------------- |
-| 0 | 24353 | Facebook | [{'id': 254, 'name': 'Argentina ... |
-| ... | ... | ... | ... |
+|   0 | 24353 | Facebook | [{'id': 254, 'name': 'Argentina ... |
+| ... |   ... | ...      | ...                                 |
 :::
 
-`bavapi` provides an `expand` parameter to its functions and methods that will take those lists of dictionaries and
-generate a new entry (row) in the resulting DataFrame for each element in the list.
+`bavapi` provides an `stack_data` parameter to its functions and methods that will take those lists of dictionaries and generate a new entry (row) in the resulting DataFrame for each element in the list.
 
 ```py
-bavapi.brands("Facebook", include="studies", expand=True)
+bavapi.brands("Facebook", include="studies", stack_data=True)
 ```
 
-| | id | name | studies_id | studies_name | ... |
+|     |    id | name     | studies_id | studies_name            | ... |
 | --: | ----: | :------- | ---------: | :---------------------- | --- |
-| 0 | 24353 | Facebook | 254 | Argentina - Adults 2011 | ... |
-| 1 | 24353 | Facebook | 787 | Argentina - Adults 2012 | ... |
-| ... | ... | ... | ... | ... | ... |
+|   0 | 24353 | Facebook |        254 | Argentina - Adults 2011 | ... |
+|   1 | 24353 | Facebook |        787 | Argentina - Adults 2012 | ... |
+| ... |   ... | ...      |        ... | ...                     | ... |
 
 ## Datetime in Fount responses
 
@@ -242,5 +304,5 @@ For now, parse datetime values manually using `pandas` instead.
 The functions shown in the "Basic usage" section are meant for easy use in Jupyter notebooks, experimentation, one-off
 scripts, etc.
 
-For more advanced uses and significant performance benefits, see [Advanced Usage](advanced-usage) next.
+For more advanced uses and performance benefits, see [Advanced Usage](advanced-usage) next.
 :::
