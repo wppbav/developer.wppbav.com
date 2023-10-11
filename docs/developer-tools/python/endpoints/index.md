@@ -35,7 +35,7 @@ With the `raw_query` functions and methods, you can perform requests to any endp
 Queries from `raw_query` functions and methods return a list of JSON dictionaries, instead of a `pandas` DataFrame.
 
 :::note
-You need to use a `Query` instance to perform queries with `raw_query` methods. [More info](../usage/advanced.md#raw-queries)
+You need to use a `Query` instance to perform queries with `raw_query` methods. [More info](./advanced-usage#other-endpoints)
 :::
 
 ### Usage
