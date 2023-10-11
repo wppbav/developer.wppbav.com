@@ -41,7 +41,7 @@ You need to use a `Query` instance to perform queries with `raw_query` methods. 
 ### Usage
 
 <Tabs>
-  <TabItem value="sync" label="Sync">
+  <TabItem value="sync" label="Sync" default>
 
 ```py
 import bavapi
@@ -50,7 +50,7 @@ result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
 ```
 
   </TabItem>
-  <TabItem value="async" label="Async" default>
+  <TabItem value="async" label="Async">
 
 ```py
 import bavapi
