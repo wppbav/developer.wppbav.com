@@ -15,22 +15,22 @@ the [brandscape data endpoint](/core-resources/brandscape-data.md).
 ## Usage
 
 <Tabs>
-  <TabItem value="async" label="Async" default>
+  <TabItem value="sync" label="Sync" default>
+
+```py title="Using top-level functions"
+import bavapi
+
+result = bavapi.brandscape_data("TOKEN", name="Facebook")
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async">
 
 ```py title="Using Client asynchronously"
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
     result = await bav.brandscape_data(name="Facebook")
-```
-
-  </TabItem>
-  <TabItem value="sync" label="Sync">
-
-```py title="Using top-level functions"
-import bavapi
-
-result = bavapi.brandscape_data("TOKEN", name="Facebook")
 ```
 
   </TabItem>
@@ -43,6 +43,18 @@ result = bavapi.brandscape_data("TOKEN", name="Facebook")
 - `country_code` instead of `country_codes`.
 
 :::
+
+## Available filters in function calls
+
+These filters are available directly within the function/method:
+
+- `country_code`
+- `year_number`
+- `audiences`
+- `brand_name` (will perform a search on brand name)
+- `studies`
+
+For other filters, passing a `BrandscapeFilters` instance to the `filters` parameter is required.
 
 ## Required filters
 
@@ -60,7 +72,9 @@ bavapi.brandscape_data("TOKEN", year_number=2022) # Error, not enough filters
 
 bavapi.brandscape_data("TOKEN", brand_name="Facebook") # OK
 
-bavapi.brandscape_data("TOKEN", country_code="UK", brands=123)  # OK
+bavapi.brandscape_data(
+    "TOKEN", filters=bavapi.filters.BrandscapeFilters(audience=22, brands=123)
+)  # OK
 ```
 
 ## Default includes

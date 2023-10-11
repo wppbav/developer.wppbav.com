@@ -14,7 +14,16 @@ For more information on available filters and functionality, see the main API do
 ## Usage
 
 <Tabs>
-  <TabItem value="async" label="Async" default>
+  <TabItem value="sync" label="Sync" default>
+
+```py title="Using top-level functions"
+import bavapi
+
+result = bavapi.audiences("TOKEN", name="All Adults")
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async">
 
 ```py title="Using Client asynchronously"
 import bavapi
@@ -24,13 +33,17 @@ async with bavapi.Client("TOKEN") as bav:
 ```
 
   </TabItem>
-  <TabItem value="sync" label="Sync">
-
-```py title="Using top-level functions"
-import bavapi
-
-result = bavapi.audiences("TOKEN", name="All Adults")
-```
-
-  </TabItem>
 </Tabs>
+
+## Available filters in function calls
+
+These filters are available directly within the function/method:
+
+- `audience_id`
+- `active`
+- `inactive`
+- `public`
+- `private`
+- `groups`
+
+For other filters, passing an `AudienceFilters` instance to the `filters` parameter is required.

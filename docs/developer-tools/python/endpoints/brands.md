@@ -14,7 +14,16 @@ For more information on available filters and functionality, see the main API do
 ## Usage
 
 <Tabs>
-  <TabItem value="async" label="Async" default>
+  <TabItem value="sync" label="Sync" default>
+
+```py title="Using top-level functions"
+import bavapi
+
+result = bavapi.brands("TOKEN", name="Facebook")
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async">
 
 ```py title="Using Client asynchronously"
 import bavapi
@@ -24,13 +33,16 @@ async with bavapi.Client("TOKEN") as bav:
 ```
 
   </TabItem>
-  <TabItem value="sync" label="Sync">
-
-```py title="Using top-level functions"
-import bavapi
-
-result = bavapi.brands("TOKEN", name="Facebook")
-```
-
-  </TabItem>
 </Tabs>
+
+## Available filters in function calls
+
+These filters are available directly within the function/method:
+
+- `name`
+- `country_codes`
+- `year_numbers`
+- `brand_id`
+- `studies`
+
+For other filters, passing a `BrandsFilters` instance to the `filters` parameter is required.
