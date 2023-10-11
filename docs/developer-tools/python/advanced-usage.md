@@ -23,9 +23,11 @@ Using the `Client` class instead of the top-level endpoint functions (`bavapi.br
 The `Client` interface is based on `httpx.Client`, so it benefits from all the performance features from `httpx`:
 
 :::note Quote from the `httpx` [docs](https://www.python-httpx.org/advanced/)
+
 - Reduced latency across requests (no handshaking).
 - Reduced CPU usage and round-trips.
 - Reduced network congestion.
+
 :::
 
 By using `Client`, you will also get all these benefits, including in Jupyter Notebooks.
@@ -52,7 +54,7 @@ await client.aclose()  # Close the connection after you're done making requests
 Because of the large number of available endpoints in the Fount and the highly customizable queries, some endpoints won't have extended support from the start.
 
 :::note Open for feedback
-If you would like to see new endpoints with full type annotation support, please open an [issue](https://github.com/wppbav/bavapi-sdk-python/issues) on GitHub with the Feature Request template.
+If you would like to see new endpoints with full type annotations and validation support, please open an [issue](https://github.com/wppbav/bavapi-sdk-python/issues) on GitHub with the "Feature Request" template.
 :::
 
 `bavapi` provides `raw_query` functions/methods to access all the available endpoints without existing endpoint functions/methods:
@@ -64,7 +66,10 @@ These `raw_query` methods require the use of `bavapi.Query` instances to make th
 
 ```py
 async with bavapi.Client("TOKEN") as fount:
-    res = fount.raw_query("companies", Query(filters=FountFilters(name="Facebook")))
+    res = fount.raw_query(
+        "companies",
+        bavapi.Query(filters=bavapi.filters.FountFilters(name="Apple"))
+    )
 ```
 
 These functions will return a list of JSON dictionaries, one for each entry retrieved from the Fount:
@@ -95,3 +100,18 @@ All Fount queries performed with `bavapi.Query` support the following parameters
 - `updated_since`: Only return items that have been updated since this timestamp.
 
 For more information on the behavior of each of these parameters, see the [main API docs](/intro.md).
+
+## User Agent
+
+:::info New in `v0.8.0`
+:::
+
+It is possible to set the `User Agent` parameter for HTTP requests.
+
+The default user agent is `"BAVAPI SDK Python"`.
+
+If you want to change the user agent for your application, you can set it when instantiating a `Client`:
+
+```py
+client = bavapi.Client(user_agent="Your User Agent")
+```
