@@ -15,7 +15,7 @@ the [Authentication](developer-tools/python/authentication.md) section for more 
 instructions for using `.env` files within your Python project.
 :::
 
-As of `v0.5` the following reference classes will be generated in a folder named `bavapi_refs`:
+As of `v0.9` the following reference classes will be generated in a folder named `bavapi_refs`:
 
 - `Audiences`: encodes audience IDs
 - `Countries`: encodes country IDs
