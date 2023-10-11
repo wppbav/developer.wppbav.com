@@ -7,7 +7,7 @@ sidebar_label: Overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-As of `v0.5`, there are four endpoints that have been fully implemented in `bavapi`:
+As of `v0.9`, there are four endpoints that have been fully implemented in `bavapi`:
 
 - [`audiences`](audiences.md)
 - [`brands`](brands.md)
@@ -41,6 +41,15 @@ You need to use a `Query` instance to perform queries with `raw_query` methods. 
 ### Usage
 
 <Tabs>
+  <TabItem value="sync" label="Sync">
+
+```py
+import bavapi
+
+result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
+```
+
+  </TabItem>
   <TabItem value="async" label="Async" default>
 
 ```py
@@ -48,15 +57,6 @@ import bavapi
 
 async with bavapi.Client("TOKEN") as fount:
     result = await fount.raw_query("companies", bavapi.Query())
-```
-
-  </TabItem>
-  <TabItem value="sync" label="Sync">
-
-```py
-import bavapi
-
-result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
 ```
 
   </TabItem>
@@ -68,8 +68,7 @@ Since the result of these queries will be a list of JSON dictionaries, you can u
 import bavapi
 from bavapi.parsing.responses import parse_response
 
-async with bavapi.Client("TOKEN") as fount:
-    result = await fount.raw_query("companies", bavapi.Query())
+result = bavapi.raw_query("companies", bavapi.Query())
 
 parsed = parse_response(result)  # will return a DataFrame
 ```
