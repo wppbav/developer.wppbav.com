@@ -9,7 +9,7 @@ The `brand-metrics` endpoint has full support, including query validation.
 | ----------------- | --------------- | ---------------------- | --------------------- |
 | `"brand-metrics"` | `brand_metrics` | `Client.brand_metrics` | `BrandMetricsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`brand-metrics` endpoint](/core-resources/brand-metrics.md).
+For more information on available filters and functionality, see the main API documentation for the [`brand-metrics` endpoint](/core-resources/metrics.md).
 
 ## Usage
 
