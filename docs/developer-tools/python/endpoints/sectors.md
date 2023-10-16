@@ -1,15 +1,15 @@
-# Studies
+# Sectors
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `studies` endpoint has full support, including query validation.
+The `sectors` endpoint has full support, including query validation.
 
 | Endpoint    | Function  | `Client` method  | Filters class    |
 | ----------- | --------- | ---------------- | ---------------- |
-| `"studies"` | `studies` | `Client.studies` | `StudiesFilters` |
+| `"sectors"` | `sectors` | `Client.sectors` | `SectorsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`studies` endpoint](/core-resources/studies.md).
+For more information on available filters and functionality, see the main API documentation for the [`sectors` endpoint](/core-resources/sectors.md).
 
 ## Usage
 
@@ -19,7 +19,7 @@ For more information on available filters and functionality, see the main API do
 ```py title="Using top-level functions"
 import bavapi
 
-result = bavapi.studies("TOKEN", country_codes="US")
+result = bavapi.sectors("TOKEN", name="Distribution")
 ```
 
   </TabItem>
@@ -29,7 +29,7 @@ result = bavapi.studies("TOKEN", country_codes="US")
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
-    result = await bav.studies(country_codes="US")
+    result = await bav.sectors(name="Distribution")
 ```
 
   </TabItem>
@@ -39,9 +39,8 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `country_codes`
-- `year_numbers`
-- `full_year`
-- `study_id`
+- `name`
+- `in_most_influential`
+- `not_in_most_influential`
 
-For other filters, passing a `StudiesFilters` instance to the `filters` parameter is required.
+For other filters, passing an `SectorsFilters` instance to the `filters` parameter is required.

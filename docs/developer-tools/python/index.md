@@ -45,8 +45,18 @@ the [Endpoints](python/endpoints/) section.
 
 ## Features
 
-- Support for all endpoints in the Fount API. Extended support for the `audiences`, `brands`, `brandscape-data`
-  and `studies` endpoints. Other endpoints are available via the `raw_query` functions and methods.
+- Support for all endpoints in the Fount API.
+    - Extended support for the following endpoints:
+        - `audiences`
+        - `brand-metrics`
+        - `brand-metric-groups`
+        - `brands`
+        - `brandscape-data`
+        - `categories`
+        - `collections`
+        - `sectors`
+        - `studies`
+    - Other endpoints are available via the `raw_query` functions and methods.
 - Validates query parameters are of the correct types and provides type hints for better IDE support.
 - Retrieve multiple pages of data simultaneously, as well as monitors and prevents exceeding API rate limit.
 - Both synchronous and asynchronous APIs for accessing BAV data.
