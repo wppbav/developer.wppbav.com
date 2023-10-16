@@ -108,8 +108,13 @@ const sidebars = {
                     items: [
                         'developer-tools/python/endpoints/index',
                         'developer-tools/python/endpoints/audiences',
+                        'developer-tools/python/endpoints/brand-metric-groups',
+                        'developer-tools/python/endpoints/brand-metrics',
                         'developer-tools/python/endpoints/brands',
                         'developer-tools/python/endpoints/brandscape-data',
+                        'developer-tools/python/endpoints/categories',
+                        'developer-tools/python/endpoints/collections',
+                        'developer-tools/python/endpoints/sectors',
                         'developer-tools/python/endpoints/studies',
                     ],
                 }
