@@ -6,10 +6,10 @@ import TabItem from '@theme/TabItem';
 The `audiences` endpoint has full support, including query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
-|---------------|-------------|--------------------|--------------------|
+| ------------- | ----------- | ------------------ | ------------------ |
 | `"audiences"` | `audiences` | `Client.audiences` | `AudiencesFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [audiences endpoint](/core-resources/audiences.md).
+For more information on available filters and functionality, see the main API documentation for the [`audiences` endpoint](/core-resources/audiences.md).
 
 ## Usage
 

@@ -6,11 +6,11 @@ import TabItem from '@theme/TabItem';
 The `brandscape-data` endpoint has full support, including query validation.
 
 | Endpoint            | Function          | `Client` method          | Filters class       |
-|---------------------|-------------------|--------------------------|---------------------|
+| ------------------- | ----------------- | ------------------------ | ------------------- |
 | `"brandscape-data"` | `brandscape_data` | `Client.brandscape_data` | `BrandscapeFilters` |
 
 For more information on available filters and functionality, see the main API documentation for
-the [brandscape data endpoint](/core-resources/brandscape-data.md).
+the [`brandscape-data` endpoint](/core-resources/brandscape-data.md).
 
 ## Usage
 
