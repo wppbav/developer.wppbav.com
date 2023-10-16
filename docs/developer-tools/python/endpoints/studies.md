@@ -9,7 +9,7 @@ The `studies` endpoint has full support, including query validation.
 | ----------- | --------- | ---------------- | ---------------- |
 | `"studies"` | `studies` | `Client.studies` | `StudiesFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`studies` endpoint](https://developer.wppbav.com/docs/2.x/core-resources/studies).
+For more information on available filters and functionality, see the main API documentation for the [`studies` endpoint](/core-resources/studies.md).
 
 ## Usage
 
