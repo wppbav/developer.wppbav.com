@@ -4,6 +4,9 @@ sidebar_label: Reference Classes
 
 # Reference Classes
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 The SDK can generate some convenience reference classes which map Fount resource IDs with a more readable name, both for
 ease of use and for autocompletion in IDEs.
 
@@ -15,7 +18,7 @@ the [Authentication](developer-tools/python/authentication.md) section for more 
 instructions for using `.env` files within your Python project.
 :::
 
-As of `v0.9` the following reference classes will be generated in a folder named `bavapi_refs`:
+As of `v0.10` the following reference classes will be generated in a folder named `bavapi_refs`:
 
 - `Audiences`: encodes audience IDs
 - `Countries`: encodes country IDs
@@ -34,14 +37,14 @@ And could be used to have better visibility when filtering API responses:
   <TabItem value="ref" label="Using Reference class" default>
 
 ```py title="Explicit audience filter"
-fountapi.brandscape_data(country_code="US", year=2022, audiences=Audiences.ALL_ADULTS)
+bavapi.brandscape_data(country_code="US", year=2022, audiences=Audiences.ALL_ADULTS)
 ```
 
   </TabItem>
   <TabItem value="no-ref" label="Not using Reference class">
 
 ```py title="Audience filter not human-readable"
-fountapi.brandscape_data(country_code="US", year=2022, audiences=27)
+bavapi.brandscape_data(country_code="US", year=2022, audiences=27)
 ```
 
   </TabItem>
@@ -51,11 +54,29 @@ fountapi.brandscape_data(country_code="US", year=2022, audiences=27)
 Please take care not to commit reference classes to public repositories. Add `bavapi_refs/` to your `.gitignore` file.
 :::
 
-To generate these reference classes, run the following command:
+To generate these reference classes, there are two options for authenticating your requests:
+
+- Specify the Fount API token via the `-t`/`--token` argument
+- Use a `.env` file to store your Fount API token and install `python-dotenv` to read the file into your environment. See the [Authentication](authentication.md#recommended-way-to-manage-api-keys) section for more info.
+
+Run the following command:
+
+<Tabs>
+  <TabItem value="with-env" label="With a `.env` file" default>
 
 ```prompt
 bavapi-gen-refs --all
 ```
+
+  </TabItem>
+  <TabItem value="without-env" label="Using the `-t`/`--token` argument">
+
+```prompt
+bavapi-gen-refs -t "TOKEN" --all
+```
+
+  </TabItem>
+</Tabs>
 
 Alternatively, you can specify the name of the reference class to generate:
 
