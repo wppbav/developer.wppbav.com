@@ -44,9 +44,9 @@ async with bavapi.Client("TOKEN") as bav:
 Otherwise, it is possible to use `Client` methods outside of an `async with` block, but it might be slightly less performant.
 
 ```py
-client = bavapi.Client("TOKEN")
-result = await client.brands("Swatch")
-await client.aclose()  # Close the connection after you're done making requests
+bav = bavapi.Client("TOKEN")
+result = await bav.brands("Swatch")
+await bav.aclose()  # Close the connection after you're done making requests
 ```
 
 ## Other endpoints
@@ -65,8 +65,8 @@ If you would like to see new endpoints with full type annotations and validation
 These `raw_query` methods require the use of `bavapi.Query` instances to make the request:
 
 ```py
-async with bavapi.Client("TOKEN") as fount:
-    res = fount.raw_query(
+async with bavapi.Client("TOKEN") as bav:
+    res = bav.raw_query(
         "companies",
         bavapi.Query(filters=bavapi.filters.FountFilters(name="Apple"))
     )
@@ -113,5 +113,5 @@ The default user agent is `"BAVAPI SDK Python"`.
 If you want to change the user agent for your application, you can set it when instantiating a `Client`:
 
 ```py
-client = bavapi.Client(user_agent="Your User Agent")
+bav = bavapi.Client(user_agent="Your User Agent")
 ```

@@ -178,8 +178,8 @@ bavapi.brands(TOKEN, "Facebook", timeout=60)
   <TabItem value="async" label="Async">
 
 ```py
-async with bavapi.Client(TOKEN, timeout=60) as client:
-    await client.brands("Facebook")
+async with bavapi.Client(TOKEN, timeout=60) as bav:
+    await bav.brands("Facebook")
 ```
   </TabItem>
 </Tabs>
@@ -204,8 +204,8 @@ bavapi.brands(TOKEN, "Facebook", verbose=False)
   <TabItem value="async" label="Async (Won't show progress bar)">
 
 ```py
-async with bavapi.Client(TOKEN, verbose=False) as client:
-    await client.brands("Facebook")
+async with bavapi.Client(TOKEN, verbose=False) as bav:
+    await bav.brands("Facebook")
 ```
   </TabItem>
 </Tabs>
