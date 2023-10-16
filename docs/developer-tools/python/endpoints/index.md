@@ -7,11 +7,16 @@ sidebar_label: Overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-As of `v0.9`, there are four endpoints that have been fully implemented in `bavapi`:
+As of `v0.10`, there are four endpoints that have been fully implemented in `bavapi`:
 
 - [`audiences`](audiences.md)
+- [`brand-metrics`](brand-metrics.md)
+- [`brand-metric-groups`](brand-metric-groups.md)
 - [`brands`](brands.md)
 - [`brandscape-data`](brandscape-data.md)
+- [`categories`](categories.md)
+- [`collections`](collections.md)
+- [`sectors`](sectors.md)
 - [`studies`](studies.md)
 
 "Implemented" meaning that the endpoint has a corresponding function, `Client` method, and filters class associated with them. More info in each endpoint's respective section linked above.
@@ -29,7 +34,7 @@ While there are some commonly used endpoints with more extensive validation supp
 With the `raw_query` functions and methods, you can perform requests to any endpoint in the Fount, even if it's not supported with dedicated code.
 
 | Endpoint | Function    | `Client` method    | Filters class  |
-|----------|-------------|--------------------|----------------|
+| -------- | ----------- | ------------------ | -------------- |
 | `{any}`  | `raw_query` | `Client.raw_query` | `FountFilters` |
 
 Queries from `raw_query` functions and methods return a list of JSON dictionaries, instead of a `pandas` DataFrame.
@@ -55,8 +60,8 @@ result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
 ```py
 import bavapi
 
-async with bavapi.Client("TOKEN") as fount:
-    result = await fount.raw_query("companies", bavapi.Query())
+async with bavapi.Client("TOKEN") as bav:
+    result = await bav.raw_query("companies", bavapi.Query())
 ```
 
   </TabItem>
