@@ -9,7 +9,7 @@ The `brand-metric-groups` endpoint has full support, including query validation.
 | ----------------------- | --------------------- | ---------------------------- | -------------------------- |
 | `"brand-metric-groups"` | `brand_metric_groups` | `Client.brand_metric_groups` | `BrandMetricGroupsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`brand-metric-groups` endpoint](/core-resources/brand-metric-groups.md).
+For more information on available filters and functionality, see the main API documentation for the [`brand-metric-groups` endpoint](/core-resources/metric-groups.md).
 
 ## Usage
 
