@@ -66,6 +66,10 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 - `active` - Set to `1` to only return active countries.
 - `regions` - Set to a comma-separated list of region IDs to only return countries in those regions.
+- `with_studies` - Include this parameter to only return countries that have studies.
+- `with_recent_studies` - Set to a number (X) to only return countries that have studies in the last X calendar years.
+  For example: When set to 0 it will return countries that have studies in the current. When set to 1 it will return
+  countries that have studies in the current or past calendar year.
 
 ## Relationships & includes
 
