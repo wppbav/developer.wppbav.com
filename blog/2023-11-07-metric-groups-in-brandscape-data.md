@@ -1,6 +1,6 @@
 ---
 slug: metric-groups-in-brandscape-data
-title: New filter on Brandscape Data":" Metric Groups
+title: New filter on Brandscape Data - Metric Groups
 authors: erikbernskiold
 ---
 
