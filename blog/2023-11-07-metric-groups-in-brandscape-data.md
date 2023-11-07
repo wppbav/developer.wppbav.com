@@ -5,7 +5,7 @@ authors: erikbernskiold
 ---
 
 We strive to make working with the core, raw dataset in
-the [Brandscape Data endpoint](./docs/core-resources/brandscape-data.md) as easy as possible. To reduce the
+the Brandscape Data endpoint as easy as possible. To reduce the
 complexity in querying the dataset, we have added a new Metric Groups filter.
 
 The filter works the same as the existing metrics filter, but customizes the response to include all the metrics in a
@@ -24,4 +24,4 @@ GET /api/v2/brandscape-data?metric_group_keys=imagery,pillars
 ```
 
 For a full list of the available groups you can refer to the UI in The Fount or query
-the [Metric Groups](./docs/core-resources/metric-groups.md) endpoint.
+the Metric Groups endpoint.
