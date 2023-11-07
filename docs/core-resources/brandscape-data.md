@@ -104,6 +104,9 @@ parameter.
 
 - `metric_keys` - A comma-separated list of metric keys (for example: `differentation,relevance`) which can be used to
   automatically get all the available score types for these metrics only without having to get each field specifically.
+- `metric_group_keys` - A comma-separated list of metric group keys (for example: `imagery,pillars`) which can be used
+  to automatically get all the available score types for the metrics in these groups, without having to set each metric
+  specifically.
 
 ## Relationships & includes
 
