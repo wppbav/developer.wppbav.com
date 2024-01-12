@@ -42,21 +42,24 @@ the [Endpoints](python/endpoints/) section.
 |   0 | 233       | Apparel & Accessories | 8635 | Swatch | ... |
 | ... | ...       | ...                   | ...  | ...    | ... |
 
-
 ## Features
 
 - Support for all endpoints in the Fount API.
-    - Extended support for the following endpoints:
-        - `audiences`
-        - `brand-metrics`
-        - `brand-metric-groups`
-        - `brands`
-        - `brandscape-data`
-        - `categories`
-        - `collections`
-        - `sectors`
-        - `studies`
-    - Other endpoints are available via the `raw_query` functions and methods.
+  - Extended support for the following endpoints:
+    - [`audiences`](endpoints/audiences.md)
+    - [`brand-metrics`](endpoints/brand-metrics.md)
+    - [`brand-metric-groups`](endpoints/brand-metric-groups.md)
+    - [`brands`](endpoints/brands.md)
+    - [`brandscape-data`](endpoints/brandscape-data.md)
+    - [`categories`](endpoints/categories.md)
+    - [`cities`](endpoints/cities.md)
+    - [`collections`](endpoints/collections.md)
+    - [`companies`](endpoints/companies.md)
+    - [`countries`](endpoints/countries.md)
+    - [`sectors`](endpoints/sectors.md)
+    - [`studies`](endpoints/studies.md)
+    - [`years`](endpoints/years.md)
+  - Other endpoints are available via the `raw_query` functions and methods.
 - Validates query parameters are of the correct types and provides type hints for better IDE support.
 - Retrieve multiple pages of data simultaneously, as well as monitors and prevents exceeding API rate limit.
 - Both synchronous and asynchronous APIs for accessing BAV data.
@@ -68,4 +71,5 @@ on [GitHub](https://github.com/wppbav/bavapi-sdk-python/issues/).
 
 ## Contributing
 
-We welcome contributions to the Python SDK which is hosted as a public repository on GitHub. Please see the [Contributing](https://github.com/wppbav/bavapi-sdk-python/blob/main/CONTRIBUTING.md) document for more information.
+We welcome contributions to the Python SDK which is hosted as a public repository on GitHub. Please see the
+[Contributing](https://github.com/wppbav/bavapi-sdk-python/blob/main/CONTRIBUTING.md) document for more information.
