@@ -7,8 +7,8 @@ sidebar_label: Basic Usage
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you have installed `bavapi` and acquired a token from the Fount, you can start using `bavapi` directly in Python or
-in a Jupyter Notebook.
+Once you have installed `bavapi` and acquired a token from the Fount, you can start using `bavapi` directly in Python
+or in a Jupyter Notebook.
 
 ```py
 import bavapi
@@ -16,16 +16,8 @@ import bavapi
 
 ## Making Requests
 
-:::info SSL issues
-It's possible that you get `SSL: CERTIFICATE_VERIFY_FAILED` errors when performing requests with `bavapi`. At the moment, it is not clear to what might be the source of the issue; as it only happens sometimes, and the error doesn't appear to happen with other tested URLs.
-
-Usually, making the request again solves the issue, but you might have to do so a couple of times if the issue persists.
-
-:bulb: If you have any thoughts on how to solve this, please open an [issue](https://github.com/wppbav/bavapi-sdk-python/issues/) on GitHub.
-:::
-
-You can query the available [endpoints](./endpoints) with their corresponding methods. Replace `TOKEN` with
-your [API key](authentication.md)
+You can query the available [endpoints](endpoints/) with their corresponding methods. Replace `TOKEN` with
+your [API key](authentication).
 
 ```py
 swatch = bavapi.brands("TOKEN", name="Swatch")  # Replace `TOKEN` with your API key
@@ -39,7 +31,7 @@ These endpoints methods will return a pandas DataFrame containing the data retri
 |   1 | 127896 | Swatch | ... |
 | ... | ...    | ...    | ... |
 
-You can make requests to other [endpoints](./endpoints/) in the same way:
+You can make requests to other [endpoints](endpoints/) in the same way:
 
 ```py
 uk_studies = bavapi.studies("TOKEN", country_code="GB")
@@ -49,11 +41,18 @@ uk22 = bavapi.brandscape_data("TOKEN", year_numbers=2022, country_code="GB", aud
 all_adults = bavapi.audiences("TOKEN", name="All Adults")
 ```
 
-## Filtering responses
+:::info Want to use other endpoints?
+The BAV API is very extensive, so not all endpoints are fully implemented yet.
+
+To query unsupported endpoints see the [Other endpoints](advanced-usage#other-endpoints) section in Advanced Usage.
+:::
+
+## `bavapi` query parameters
 
 In order to validate the request parameters before sending a bad request, `bavapi` will automatically check that the
 parameters from your query and filters are of the type expected by the Fount API. If any parameter doesn't conform to
 the API requirements, `bavapi` will raise a `ValidationError`.
+
 
 :::note What it's doing
 `bavapi` performs an initial request to make sure the query parameters are valid, and to retrieve information about the
@@ -66,34 +65,44 @@ above 10, which it is by default), no further requests will be performed, and in
 will be returned.
 :::
 
+### Filters
+
 Each endpoint has a filter class associated with it, as each endpoint has its own filter requirements:
 
 | Endpoint            | Filters class       |
 |---------------------|---------------------|
 | `"audiences"`       | `AudiencesFilters`  |
+| `"brand-metrics"`          | `BrandMetricsFilters`     |
+| `"brand-metric-groups"`          | `BrandMetricGroupsFilters`     |
 | `"brands"`          | `BrandsFilters`     |
 | `"brandscape-data"` | `BrandscapeFilters` |
+| `"categories"`         | `CategoriesFilters`    |
+| `"collections"`         | `CollectionsFilters`    |
+| `"companies"`         | `CompaniesFilters`    |
+| `"sectors"`         | `SectorsFilters`    |
 | `"studies"`         | `StudiesFilters`    |
+| `"years"`         | `YearsFilters`    |
 
 These filters are available under the `bavapi.filters` namespace.
 
 :::caution Don't mix and match filters
-Using a filters class not meant for a specific endpoint will raise a `ValueError`.
+Using a filters class not meant for a specific endpoint won't raise any errors from the outset, but it also won't
+provide IDE type support or type validation to the parameters that are associated with each endpoint.
 
-However, using a dictionary instead (as seen in the instructions below) won't raise errors if the dictionary doesn't
-match the expected filter types. Use the dictionary method with caution.
+Similarly, using a dictionary (as seen in the example below) won't provide validation or type hints. Use the dictionary
+method with caution.
 :::
 
-These classes are available in the `bavapi.filters` module.
-
-Some of the more common filters for each endpoint have been added directly to the `bavapi` functions. More info in the [endpoints](./endpoints/) section.
+Some of the more common filters for each endpoint have been added directly to the `bavapi` functions. More info in the
+[endpoints](./endpoints/) section.
 
 :::info Example
 `bavapi.brands` has parameters such as `name`, `country_codes`, `year_numbers`, `brand_id` or `studies`, which you can
 use directly from the function without creating a filters instance.
 :::
 
-However, less commonly used filters, as well as [value filters](#value-filters) must be specified by using the `filters` parameters in each function.
+However, less commonly used filters, as well as [value filters](#value-filters) must be specified by using the `filters`
+parameters in each function.
 
 Filters can be specified using a python dictionary (if you know the name of the filters you need), or directly creating
 a filter instance.
@@ -151,67 +160,6 @@ recommended to use the `filters` parameter instead of mixing function parameters
 bavapi.brands(filters=bavapi.filters.BrandsFilters(name="Swatch", sector_name="Watches"))
 ```
 
-## Using *Reference* Classes
-
-The SDK provides reference classes to make API queries easier to construct. Please see
-the [Reference Classes](./reference-classes) section for more info.
-
-## Timeout
-
-:::info New from `v0.8`
-:::
-
-By default, API requests will timeout after 30 seconds in order to avoid hangups.
-
-This may happen more commonly when performing requests with more than 50-100 pages. If you get a `TimeoutError`, you can change this parameter to allow for longer timeouts.
-
-It is possible to set the time before timeout when performing requests with `bavapi`:
-
-<Tabs>
-  <TabItem value="sync" label="Sync" default>
-
-```py
-bavapi.brands(TOKEN, "Facebook", timeout=60)
-```
-
-  </TabItem>
-  <TabItem value="async" label="Async">
-
-```py
-async with bavapi.Client(TOKEN, timeout=60) as bav:
-    await bav.brands("Facebook")
-```
-  </TabItem>
-</Tabs>
-
-## Suppressing progress bars
-
-:::info New from `v0.9`
-:::
-
-`bavapi` displays progress bars to show download progress. Each tick in the progress bar refers to individual pages being downloaded.
-
-It's possible to supress progress bar outputs via the `verbose` parameter in function calls and `Client` init methods:
-
-<Tabs>
-  <TabItem value="sync" label="Sync (Won't show progress bar)" default>
-
-```py
-bavapi.brands(TOKEN, "Facebook", verbose=False)
-```
-
-  </TabItem>
-  <TabItem value="async" label="Async (Won't show progress bar)">
-
-```py
-async with bavapi.Client(TOKEN, verbose=False) as bav:
-    await bav.brands("Facebook")
-```
-  </TabItem>
-</Tabs>
-
-## Other Parameters
-
 ### Fields
 
 It is possible to [specify which fields](/customizing/fields.md) a response should contain. If so, the API will **only**
@@ -242,7 +190,7 @@ Aside from the data directly available for each of the resources in the Fount, t
 across endpoints.
 
 Each endpoint supports different [included fields](/customizing/includes.md). Please read the
-main [BAV API documentation](/intro.md) for more info on the specific set of includes supported by each endpoint.
+[API documentation](/intro.md) for more info on the specific set of includes supported by each endpoint.
 
 ```py
 # will include info about the brand's company
@@ -255,18 +203,84 @@ The `brandscape_data` function includes `study`, `brand`, `category` and `audien
 
 ### Pagination
 
-All requests to the Fount are [paginated](/pagination.md), meaning that one must request and receive from the server one page at a
-time. The SDK automatically combines all responses into one data table for convenience.
+All requests to the Fount are [paginated](/pagination.md), meaning that one must request and receive from the server
+one page at a time. The SDK automatically combines all responses into one data table for convenience.
 
-While the default value for the API is `100`, it is possible to set a custom number of `per_page` elements for each
-request:
+Pagination is controlled by three parameters:
+
+- `page`
+- `per_page`
+- `max_pages`
+
+If only `page` is set to an integer greater than `0`, that single page will be requested.
 
 ```py
-# will send requests for the specified number of elements.
-result = bavapi.brands(name="Swatch", per_page=1000)
+bavapi.studies(page=1)  # Will request a single page of data
 ```
 
+If either `per_page` or `max_pages` are set, `bavapi` will request the appropriate pages from the Fount API.
+
+While the Fount API default is `25`, the default `per_page` set by `bavapi` is `100`.
+
+:::note
 The maximum number of elements per page allowed by the Fount API is `1000`.
+:::
+
+`bavapi` will calculate the number of pages from the total items reported by the Fount.
+
+It is also possible to set the number of `max_pages`, which will limit the number of pages requested regardless of the
+reported total.
+
+The `page` value will be used as the starting page for the request. Therefore, if `page=10` and, for example,
+`max_pages=30`, `bavapi` will request pages `10` to `40`.
+
+```py
+# Request pages with 50 items per page
+# up to pages calculated from total reported
+bavapi.studies("TOKEN", per_page=50)
+
+# Request pages with 100 items (default) per page up to 10 pages
+# or pages calculated from total reported, whichever is smaller
+bavapi.studies("TOKEN", max_pages=10)
+
+# Request pages with 10 items per page up to 100 pages
+# or pages calculated from total reported, whichever is smaller
+bavapi.studies("TOKEN", per_page=10, max_pages=100)
+
+# Request pages with 100 items (default) per page from page 3 to 33
+# or pages calculated from total reported, whichever is smaller
+bavapi.studies("TOKEN", page=3, max_pages=30)
+```
+
+### Metric and metric group keys
+
+`metric_keys` and `metric_group_keys` are special filters to specify the data *columns* that the response should
+contain.
+
+The API response will include all score types for that metric or metric group.
+
+:::note
+Currently, only the `brandscape-data` endpoint supports the use of metric and metric group keys. All other endpoints
+will ignore this parameter. More info in the
+[`brandscape-data`](endpoints/brandscape-data.md#metric-and-metric-group-keys) endpoint section.
+:::
+
+## Using `Query` objects
+
+While the available parameters in endpoint functions and methods are provided for convenience, it is possible to use
+`bavapi.Query` objects directly inside function calls.
+
+Similarly to filters objects, when using `Query` in one of the endpoint methods, the parameter values specified in the
+`Query` object will take precedence over parameters specified at the function level.
+
+```py
+# will use `name="Facebook"` because `query` values take precedence.
+bavapi.brands(name="Swatch", query=bavapi.Query(filters={"name":"Facebook"}))
+```
+
+:::note
+Read more about `Query` in the [Advanced usage](./advanced-usage#the-query-class) section.
+:::
 
 ## Formatting output
 
@@ -282,7 +296,8 @@ with study info for all studies that a brand appears in.
 | ... |   ... | ...      | ...                                 |
 :::
 
-`bavapi` provides an `stack_data` parameter to its functions and methods that will take those lists of dictionaries and generate a new entry (row) in the resulting DataFrame for each element in the list.
+`bavapi` provides a `stack_data` parameter to its functions and methods that will take those lists of dictionaries and
+generate a new entry (row) in the resulting DataFrame for each element in the list.
 
 ```py
 bavapi.brands("Facebook", include="studies", stack_data=True)
@@ -294,15 +309,109 @@ bavapi.brands("Facebook", include="studies", stack_data=True)
 |   1 | 24353 | Facebook |        787 | Argentina - Adults 2012 | ... |
 | ... |   ... | ...      |        ... | ...                     | ... |
 
-## Datetime in Fount responses
+## Suppressing progress bars
 
-Parsing of datetime values in API responses is not currently supported, though it is a planned feature.
+`bavapi` displays progress bars to show download progress. Each tick in the progress bar refers to individual pages
+being downloaded.
 
-For now, parse datetime values manually using `pandas` instead.
+It's possible to supress progress bar outputs via the `verbose` parameter in function calls and `Client` init methods:
 
-:::tip
-The functions shown in the "Basic usage" section are meant for easy use in Jupyter notebooks, experimentation, one-off
-scripts, etc.
+<Tabs>
+  <TabItem value="sync" label="Sync (Won't show progress bar)" default>
 
-For more advanced uses and performance benefits, see [Advanced Usage](advanced-usage) next.
+```py
+bavapi.brands(TOKEN, "Facebook", verbose=False)
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async (Won't show progress bar)">
+
+```py
+async with bavapi.Client(TOKEN, verbose=False) as bav:
+    await bav.brands("Facebook")
+```
+  </TabItem>
+</Tabs>
+
+## Timeout
+
+By default, API requests will timeout after 30 seconds in order to avoid hangups.
+
+This may happen more commonly when performing requests with more than 50-100 pages. If you get a `TimeoutError`, you
+can change this parameter to allow for longer timeouts.
+
+It is possible to set the time before timeout when performing requests with `bavapi`:
+
+<Tabs>
+  <TabItem value="sync" label="Sync" default>
+
+```py
+bavapi.brands(TOKEN, "Facebook", timeout=60)
+```
+
+  </TabItem>
+  <TabItem value="async" label="Async">
+
+```py
+async with bavapi.Client(TOKEN, timeout=60) as bav:
+    await bav.brands("Facebook")
+```
+
+  </TabItem>
+</Tabs>
+
+## Error handling
+
+### Warn or raise when a page fails to download
+
+You can control the error handling behavior of `bavapi` by changing the `on_errors` parameter in top-level functions
+and the `Client` interface.
+
+Options and examples:
+
+- `"warn"` (default): Will return all successfully downloaded data, and warn at the end about any pages that failed
+- downloading so they can be manually retried.
+- `"raise"`: Will raise any exception that occurs immediately. This was the default behavior until `v0.13`.
+
+<Tabs>
+  <TabItem value="warn" label="Warn" default>
+
+```py
+>>> bavapi.brands("TOKEN", "Facebook", verbose=False, on_errors="warn") # Fails page 1
+UserWarning: Could not fetch pages: ["page 1: Exception(...)"]  # Does not raise
+```
+
+  </TabItem>
+  <TabItem value="raise" label="Raise">
+
+```py
+>>> bavapi.brands("TOKEN", "Facebook", verbose=False, on_errors="raise") # Fails page 1
+Exception: ...  # Raised
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution "Some requests may still raise"
+During the initial handshake between `bavapi` and the Fount API, only SSL errors are retried. Therefore, some queries
+may still raise exceptions even if `on_errors` is set to `"warn"`:
+
+- Invalid parameters will raise a `ValidationError` if they are not of the correct Python type
+- Server errors will raise an `APIError` with additional details about the issue
+- Queries with no results found will raise a `DataNotFoundError`
+- Requests which exceed the user's rate limit will raise a `RateLimitExceededError`
+:::
+
+### Retry failed requests
+
+`bavapi` will automatically retry requests that fail because of an exception. The number of retry attempts can be
+controlled via the `retries` parameter in top-level functions and the `Client` interface:
+
+```py
+bavapi.brands("TOKEN", retries=5)  # Will retry pages 5 times after original failure
+```
+
+:::note
+There are some additional, advanced options for controlling the behavior of `bavapi` requests. More info in the
+[Control `bavapi` batching behavior](advanced-usage#control-bavapi-batching-behavior) section from the Advanced Usage documentation.
 :::
