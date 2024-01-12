@@ -9,7 +9,8 @@ The `sectors` endpoint has full support, including query validation.
 | ----------- | --------- | ---------------- | ---------------- |
 | `"sectors"` | `sectors` | `Client.sectors` | `SectorsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`sectors` endpoint](/core-resources/sectors.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`sectors` endpoint](/core-resources/sectors.md).
 
 ## Usage
 
@@ -39,8 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `name`
-- `in_most_influential`
-- `not_in_most_influential`
+- Positional filters: `name`, `in_most_influential`
+- Keyword filters: `sector_id`
 
 For other filters, passing an `SectorsFilters` instance to the `filters` parameter is required.

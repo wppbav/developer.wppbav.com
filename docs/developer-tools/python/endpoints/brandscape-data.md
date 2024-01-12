@@ -48,11 +48,8 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `country_code`
-- `year_number`
-- `audiences`
-- `brand_name` (will perform a search on brand name)
-- `studies`
+- Positional filters: `country_code`, `year_number`, `audiences`, `brand_name` (search by name)
+- Keyword filters: `studies`
 
 For other filters, passing a `BrandscapeFilters` instance to the `filters` parameter is required.
 
@@ -134,5 +131,4 @@ columns:
 - `relevance_rank`
 - Brand information such as `id`, `brand_name`, and `category_name`
 - Any additional columns from the `include` parameter
-
 :::

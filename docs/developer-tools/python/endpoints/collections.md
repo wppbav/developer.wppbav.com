@@ -9,7 +9,8 @@ The `collections` endpoint has full support, including query validation.
 | --------------- | ------------- | -------------------- | -------------------- |
 | `"collections"` | `collections` | `Client.collections` | `CollectionsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`collections` endpoint](/core-resources/collections.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`collections` endpoint](/core-resources/collections.md).
 
 ## Usage
 
@@ -39,9 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `name`
-- `public`
-- `shared_with_me`
-- `mine`
+- Positional filters: `name`, `public`
+- Keyword filters: `collection_id`, `shared_with_me`, `mine`
 
 For other filters, passing an `CollectionsFilters` instance to the `filters` parameter is required.

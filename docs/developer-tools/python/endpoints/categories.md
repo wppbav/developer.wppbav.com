@@ -9,7 +9,8 @@ The `categories` endpoint has full support, including query validation.
 | -------------- | ------------ | ------------------- | ------------------- |
 | `"categories"` | `categories` | `Client.categories` | `CategoriesFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`categories` endpoint](/core-resources/categories.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`categories` endpoint](/core-resources/categories.md).
 
 ## Usage
 
@@ -39,14 +40,16 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `name`
-- `sector`
+- Positional filters: `name`, `sector`
+- Keyword filters: `category_id`
 
 For other filters, passing an `CategoriesFilters` instance to the `filters` parameter is required.
 
 ## Default includes
 
-In order to provide critical information about the data retrieved from `categories`, and to move its structure in line with data downloads from the Fount or BAV's Cultural Rank Tool (CRT), some `include` values are requested by default: `sector`.
+In order to provide critical information about the data retrieved from `categories`, and to move its structure in line
+with data downloads from the Fount or BAV's Cultural Rank Tool (CRT), some `include` values are requested by default:
+`sector`.
 
 ```py
 # All default (sector) includes will be requested

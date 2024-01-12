@@ -9,7 +9,8 @@ The `brand-metric-groups` endpoint has full support, including query validation.
 | ----------------------- | --------------------- | ---------------------------- | -------------------------- |
 | `"brand-metric-groups"` | `brand_metric_groups` | `Client.brand_metric_groups` | `BrandMetricGroupsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`brand-metric-groups` endpoint](/core-resources/metric-groups.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`brand-metric-groups` endpoint](/core-resources/metric-groups.md).
 
 ## Usage
 
@@ -39,8 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `name`
-- `active`
-- `inactive`
+- Positional filters: `name`, `active`
+- Keyword filters: `group_id`
 
 For other filters, passing an `BrandMetricGroupsFilters` instance to the `filters` parameter is required.

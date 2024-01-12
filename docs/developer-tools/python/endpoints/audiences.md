@@ -9,7 +9,8 @@ The `audiences` endpoint has full support, including query validation.
 | ------------- | ----------- | ------------------ | ------------------ |
 | `"audiences"` | `audiences` | `Client.audiences` | `AudiencesFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`audiences` endpoint](/core-resources/audiences.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`audiences` endpoint](/core-resources/audiences.md).
 
 ## Usage
 
@@ -39,11 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `audience_id`
-- `active`
-- `inactive`
-- `public`
-- `private`
-- `groups`
+- Positional filters: `name`, `active`, `public`
+- Keyword filters: `audience_id`, `private`, `groups`
 
 For other filters, passing an `AudienceFilters` instance to the `filters` parameter is required.

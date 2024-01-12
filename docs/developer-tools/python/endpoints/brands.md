@@ -9,7 +9,8 @@ The `brands` endpoint has full support, including query validation.
 | ---------- | -------- | --------------- | --------------- |
 | `"brands"` | `brands` | `Client.brands` | `BrandsFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`brands` endpoint](/core-resources/brands.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`brands` endpoint](/core-resources/brands.md).
 
 ## Usage
 
@@ -39,10 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `name`
-- `country_codes`
-- `year_numbers`
-- `brand_id`
-- `studies`
+- Positional filters: `name`, `country_codes`, `year_numbers`
+- Keyword filters: `brand_id`, `studies`
 
 For other filters, passing a `BrandsFilters` instance to the `filters` parameter is required.
