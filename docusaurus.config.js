@@ -103,7 +103,7 @@ const config = {
                         items: [
                             {
                                 label: 'API Documentation',
-                                to: '/docs/intro',
+                                to: '/docs/2.x/intro',
                             },
                             {
                                 label: 'News & Updates',

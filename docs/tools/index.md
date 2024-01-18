@@ -1,6 +1,6 @@
 # Overview
 
-While the core of BAV is the [brandscape data](/docs/brandscape/overview.md) and the metrics within, the metrics are
+While the core of BAV is the [brandscape data](/core-resources/brandscape-data.md) and the metrics within, the metrics are
 often used in specific ways. Either by combining a set of metrics together to tell a specific story, or to do some
 further mathematical work on the data to arrive at new insights. This is what each tool within BAV and its TurboPitch
 suite does.

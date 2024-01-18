@@ -9,7 +9,8 @@ The `studies` endpoint has full support, including query validation.
 | ----------- | --------- | ---------------- | ---------------- |
 | `"studies"` | `studies` | `Client.studies` | `StudiesFilters` |
 
-For more information on available filters and functionality, see the main API documentation for the [`studies` endpoint](/core-resources/studies.md).
+For more information on available filters and functionality, see the main API documentation for the
+[`studies` endpoint](/core-resources/studies.md).
 
 ## Usage
 
@@ -39,9 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- `country_codes`
-- `year_numbers`
-- `full_year`
-- `study_id`
+- Positional filters: `country_codes`, `year_numbers`, `full_year`, `released`, `bav_study`
+- Keyword filters: `study_id`
 
 For other filters, passing a `StudiesFilters` instance to the `filters` parameter is required.

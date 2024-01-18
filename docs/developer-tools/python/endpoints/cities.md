@@ -1,16 +1,16 @@
-# Brands
+# Cities
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `brands` endpoint has full support, including query validation.
+The `cities` endpoint has full support, including query validation.
 
 | Endpoint   | Function | `Client` method | Filters class   |
 | ---------- | -------- | --------------- | --------------- |
-| `"brands"` | `brands` | `Client.brands` | `BrandsFilters` |
+| `"cities"` | `cities` | `Client.cities` | `CitiesFilters` |
 
 For more information on available filters and functionality, see the main API documentation for the
-[`brands` endpoint](/core-resources/brands.md).
+[`cities` endpoint](/core-resources/cities.md).
 
 ## Usage
 
@@ -20,7 +20,7 @@ For more information on available filters and functionality, see the main API do
 ```py title="Using top-level functions"
 import bavapi
 
-result = bavapi.brands("TOKEN", name="Facebook")
+result = bavapi.cities("TOKEN", name="Paris")
 ```
 
   </TabItem>
@@ -30,7 +30,7 @@ result = bavapi.brands("TOKEN", name="Facebook")
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
-    result = await bav.brands(name="Facebook")
+    result = await bav.cities(name="Paris")
 ```
 
   </TabItem>
@@ -40,7 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- Positional filters: `name`, `country_codes`, `year_numbers`
-- Keyword filters: `brand_id`, `studies`
+- Positional filters: `capitals`, `countries`, `in_best_countries`
+- Keyword filters: `city_id`
 
-For other filters, passing a `BrandsFilters` instance to the `filters` parameter is required.
+For other filters, passing an `CitiesFilters` instance to the `filters` parameter is required.

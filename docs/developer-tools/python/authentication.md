@@ -1,12 +1,12 @@
 # Authentication
 
-Access to the API via the Python SDK works the same way as it does in the API as a whole. Please follow the instructions
-in the [Authentication](/authentication.md) section of the main API documentation to get started.
+Access to the API via the Python SDK works the same way as it does in the API as a whole. Please follow the
+instructions in the [Authentication](/authentication.md) section of the main API documentation to get started.
 
 In order to keep your API token secure, you should avoid using your token directly in your code and applications.
 
-Instead, place the code in a `.env` file at the top of your project directory, and use `python-dotenv` to load the token
-into your environment:
+Instead, place the code in a `.env` file at the top of your project directory, and use `python-dotenv` to load the
+token into your environment:
 
 ```prompt
 my-project-folder

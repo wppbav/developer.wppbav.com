@@ -1,16 +1,16 @@
-# Audiences
+# Countries
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `audiences` endpoint has full support, including query validation.
+The `countries` endpoint has full support, including query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
-| `"audiences"` | `audiences` | `Client.audiences` | `AudiencesFilters` |
+| `"countries"` | `countries` | `Client.countries` | `CountriesFilters` |
 
 For more information on available filters and functionality, see the main API documentation for the
-[`audiences` endpoint](/core-resources/audiences.md).
+[`countries` endpoint](/core-resources/countries.md).
 
 ## Usage
 
@@ -20,7 +20,7 @@ For more information on available filters and functionality, see the main API do
 ```py title="Using top-level functions"
 import bavapi
 
-result = bavapi.audiences("TOKEN", name="All Adults")
+result = bavapi.countries("TOKEN", name="France")
 ```
 
   </TabItem>
@@ -30,7 +30,7 @@ result = bavapi.audiences("TOKEN", name="All Adults")
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
-    result = await bav.audiences(name="All Adults")
+    result = await bav.countries(name="France")
 ```
 
   </TabItem>
@@ -40,7 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- Positional filters: `name`, `active`, `public`
-- Keyword filters: `audience_id`, `private`, `groups`
+- Positional filters: `active`, `regions`, `with_studies`
+- Keyword filters: `country_id`, `with_recent_studies`
 
-For other filters, passing an `AudienceFilters` instance to the `filters` parameter is required.
+For other filters, passing an `CountriesFilters` instance to the `filters` parameter is required.

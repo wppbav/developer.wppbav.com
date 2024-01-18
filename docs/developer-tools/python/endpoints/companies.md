@@ -1,16 +1,16 @@
-# Audiences
+# Companies
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `audiences` endpoint has full support, including query validation.
+The `companies` endpoint has full support, including query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
-| `"audiences"` | `audiences` | `Client.audiences` | `AudiencesFilters` |
+| `"companies"` | `companies` | `Client.companies` | `CompaniesFilters` |
 
 For more information on available filters and functionality, see the main API documentation for the
-[`audiences` endpoint](/core-resources/audiences.md).
+[`companies` endpoint](/core-resources/companies.md).
 
 ## Usage
 
@@ -20,7 +20,7 @@ For more information on available filters and functionality, see the main API do
 ```py title="Using top-level functions"
 import bavapi
 
-result = bavapi.audiences("TOKEN", name="All Adults")
+result = bavapi.companies("TOKEN", name="Unilever")
 ```
 
   </TabItem>
@@ -30,7 +30,7 @@ result = bavapi.audiences("TOKEN", name="All Adults")
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
-    result = await bav.audiences(name="All Adults")
+    result = await bav.companies(name="Unilever")
 ```
 
   </TabItem>
@@ -40,7 +40,7 @@ async with bavapi.Client("TOKEN") as bav:
 
 These filters are available directly within the function/method:
 
-- Positional filters: `name`, `active`, `public`
-- Keyword filters: `audience_id`, `private`, `groups`
+- Positional filters: `public`, `private`, `brands`
+- Keyword filters: `company_id`
 
-For other filters, passing an `AudienceFilters` instance to the `filters` parameter is required.
+For other filters, passing an `CompaniesFilters` instance to the `filters` parameter is required.
