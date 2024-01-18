@@ -78,7 +78,7 @@ These `raw_query` methods require the use of `bavapi.Query` instances to make th
 
 ```py
 async with bavapi.Client("TOKEN") as bav:
-    res = bav.raw_query(
+    res = await bav.raw_query(
         "companies",
         bavapi.Query(filters=bavapi.filters.FountFilters(name="Apple"))
     )
@@ -138,7 +138,7 @@ All Fount queries performed with `bavapi.Query` support the following parameters
 - `include`: Additional linked resources to include in the response.
 - `updated_since`: Only return items that have been updated since this timestamp.
 
-For more information on the behavior of each of these parameters, see the [customizing fields](/customizing/fields)
+For more information on the behavior of each of these parameters, see the [customizing fields](/customizing/fields.md)
 section.
 
 ### Raw parameter dictionary
