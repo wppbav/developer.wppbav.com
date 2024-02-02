@@ -84,6 +84,16 @@ const sidebars = {
                 'tools/swot',
                 'tools/toplist-market',
             ],
+        },
+        {
+            type: 'category',
+            label: 'Audience Export',
+            items: [
+                'audience-export/index',
+                'audience-export/bav-respondent-ids',
+                'audience-export/ao-respondent-ids',
+                'audience-export/ao-progressive-numbers',
+            ],
         }
     ],
     embedSidebar: [
