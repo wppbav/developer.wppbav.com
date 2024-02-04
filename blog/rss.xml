@@ -4,10 +4,18 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Fri, 19 Jan 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Feb 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Introducing Webhooks]]></title>
+            <link>https://developer.wppbav.com/blog/introducing-webhooks</link>
+            <guid>https://developer.wppbav.com/blog/introducing-webhooks</guid>
+            <pubDate>Mon, 05 Feb 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[We are excited to improve the BAV API with support for webhooks on key platform events. Webhooks allow you to receive HTTP push notifications for data changes in BAV. This allows you to build richer integrations on top of BAV. You could, for example, use it to react in realtime to new data being available or make audiences seamlessly available in your own systems.]]></description>
+            <content:encoded><![CDATA[<p>We are excited to improve the BAV API with support for webhooks on key platform events. Webhooks allow you to receive HTTP push notifications for data changes in BAV. This allows you to build richer integrations on top of BAV. You could, for example, use it to react in realtime to new data being available or make audiences seamlessly available in your own systems.</p><p>Webhooks is also a crucial part of our new <a href="https://developer.wppbav.com/docs/2.x/audience-export" target="_blank" rel="noopener noreferrer">Audience Export</a>. They are also a core part of upcoming enhancements to allowing other applications to integrate tightly with BAV. Being able to share more data across systems means more convenience for end users and a greater improvement to daily workflows.</p><p>Take a look at the <a href="https://developer.wppbav.com/docs/2.x/webhooks" target="_blank" rel="noopener noreferrer">comphrehensive webhooks documentation</a> with code examples and recommendations to how best to get started with and implement webhooks.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[BAV Python SDK reaches v1.0!]]></title>
             <link>https://developer.wppbav.com/blog/python-sdk-1-0</link>
