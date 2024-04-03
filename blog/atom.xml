@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://developer.wppbav.com/blog</id>
     <title>BAV@WPP Developer Docs Blog</title>
-    <updated>2024-02-05T00:00:00.000Z</updated>
+    <updated>2024-04-03T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://developer.wppbav.com/blog"/>
     <subtitle>BAV@WPP Developer Docs Blog</subtitle>
     <icon>https://developer.wppbav.com/img/favicon.png</icon>
+    <entry>
+        <title type="html"><![CDATA[New Archetypes Tools API Endpoint]]></title>
+        <id>https://developer.wppbav.com/blog/new-archetypes-endpoint</id>
+        <link href="https://developer.wppbav.com/blog/new-archetypes-endpoint"/>
+        <updated>2024-04-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[All of the BAV Archetype ranks and scores have been available directly through]]></summary>
+        <content type="html"><![CDATA[<p>All of the BAV Archetype ranks and scores have been available directly through
+the <a href="/docs/2.x/core-resources/brandscape-data">Brandscape Data</a> endpoint. The new Archetypes Tools API endpoint offers a
+more convenient way of accessing the Archetypes data.</p><p>It also adds support for getting the "Competitive Archetype" data, which is not available through the Brandscape Data
+endpoint. Archetypes are divided between the "Cultural Archetype" (against all brands in a study) and the "Competitive
+Archetype" (against a competitive set). The competitive set can be defined as either a collection or a category.</p><p>All the querying details are available in the <a href="/docs/2.x/tools/archetypes">Archetypes API</a>
+documentation in the Tools / TurboPitch section.</p>]]></content>
+        <author>
+            <name>Erik Bernskiold</name>
+            <uri>https://github.com/erikbernskiold</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Introducing Webhooks]]></title>
         <id>https://developer.wppbav.com/blog/introducing-webhooks</id>

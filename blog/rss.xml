@@ -4,10 +4,23 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Mon, 05 Feb 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Apr 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[New Archetypes Tools API Endpoint]]></title>
+            <link>https://developer.wppbav.com/blog/new-archetypes-endpoint</link>
+            <guid>https://developer.wppbav.com/blog/new-archetypes-endpoint</guid>
+            <pubDate>Wed, 03 Apr 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[All of the BAV Archetype ranks and scores have been available directly through]]></description>
+            <content:encoded><![CDATA[<p>All of the BAV Archetype ranks and scores have been available directly through
+the <a href="/docs/2.x/core-resources/brandscape-data">Brandscape Data</a> endpoint. The new Archetypes Tools API endpoint offers a
+more convenient way of accessing the Archetypes data.</p><p>It also adds support for getting the "Competitive Archetype" data, which is not available through the Brandscape Data
+endpoint. Archetypes are divided between the "Cultural Archetype" (against all brands in a study) and the "Competitive
+Archetype" (against a competitive set). The competitive set can be defined as either a collection or a category.</p><p>All the querying details are available in the <a href="/docs/2.x/tools/archetypes">Archetypes API</a>
+documentation in the Tools / TurboPitch section.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Introducing Webhooks]]></title>
             <link>https://developer.wppbav.com/blog/introducing-webhooks</link>
