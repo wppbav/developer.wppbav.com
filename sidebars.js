@@ -73,6 +73,7 @@ const sidebars = {
             label: 'Tools / TurboPitch',
             items: [
                 'tools/index',
+                'tools/archetypes',
                 'tools/brand-personality-match',
                 'tools/brand-vulnerability-map',
                 'tools/brand-worth-map',
