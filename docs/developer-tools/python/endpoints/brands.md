@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`brands` endpoint](/core-resources/brands.md).
+:::
+
 The `brands` endpoint has full support, including query validation.
 
 | Endpoint   | Function | `Client` method | Filters class   |
 | ---------- | -------- | --------------- | --------------- |
 | `"brands"` | `brands` | `Client.brands` | `BrandsFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`brands` endpoint](/core-resources/brands.md).
 
 ## Usage
 

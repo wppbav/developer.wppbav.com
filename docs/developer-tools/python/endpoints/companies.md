@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`companies` endpoint](/core-resources/companies.md).
+:::
+
 The `companies` endpoint has full support, including query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
 | `"companies"` | `companies` | `Client.companies` | `CompaniesFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`companies` endpoint](/core-resources/companies.md).
 
 ## Usage
 

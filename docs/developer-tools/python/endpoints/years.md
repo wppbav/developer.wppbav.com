@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`years` endpoint](/core-resources/years.md).
+:::
+
 The `years` endpoint has full support, including query validation.
 
-| Endpoint      | Function    | `Client` method    | Filters class      |
-| ------------- | ----------- | ------------------ | ------------------ |
-| `"years"` | `years` | `Client.years` | `YearsFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`years` endpoint](/core-resources/years.md).
+| Endpoint  | Function | `Client` method | Filters class  |
+| --------- | -------- | --------------- | -------------- |
+| `"years"` | `years`  | `Client.years`  | `YearsFilters` |
 
 ## Usage
 
