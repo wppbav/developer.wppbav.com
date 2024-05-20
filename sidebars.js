@@ -114,12 +114,14 @@ const sidebars = {
                 'developer-tools/python/reference-classes',
                 'developer-tools/python/basic-usage',
                 'developer-tools/python/advanced-usage',
+                'developer-tools/python/tools',
                 {
                     type: 'category',
                     label: 'Endpoints',
                     items: [
                         'developer-tools/python/endpoints/index',
                         'developer-tools/python/endpoints/audiences',
+                        'developer-tools/python/endpoints/audience-groups',
                         'developer-tools/python/endpoints/brand-metric-groups',
                         'developer-tools/python/endpoints/brand-metrics',
                         'developer-tools/python/endpoints/brands',
