@@ -7,9 +7,10 @@ sidebar_label: Overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-As of `v1.0`, these are the endpoints that have been fully implemented in `bavapi`:
+As of `v1.1`, these are the endpoints that have been fully implemented in `bavapi`:
 
 - [`audiences`](audiences.md)
+- [`audience-groups`](audience-groups.md)
 - [`brand-metrics`](brand-metrics.md)
 - [`brand-metric-groups`](brand-metric-groups.md)
 - [`brands`](brands.md)

@@ -47,6 +47,7 @@ the [Endpoints](python/endpoints/) section.
 - Support for all endpoints in the Fount API.
   - Extended support for the following endpoints:
     - [`audiences`](endpoints/audiences.md)
+    - [`audience-groups`](endpoints/audience-groups.md)
     - [`brand-metrics`](endpoints/brand-metrics.md)
     - [`brand-metric-groups`](endpoints/brand-metric-groups.md)
     - [`brands`](endpoints/brands.md)

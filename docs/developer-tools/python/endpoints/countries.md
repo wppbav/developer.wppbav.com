@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`countries` endpoint](/core-resources/countries.md).
+:::
+
 The `countries` endpoint has full support, including query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
 | `"countries"` | `countries` | `Client.countries` | `CountriesFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`countries` endpoint](/core-resources/countries.md).
 
 ## Usage
 

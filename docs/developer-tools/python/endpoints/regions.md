@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`regions` endpoint](/core-resources/regions.md).
+:::
+
 The `regions` endpoint has full support, including query validation.
 
-| Endpoint      | Function    | `Client` method    | Filters class      |
-| ------------- | ----------- | ------------------ | ------------------ |
+| Endpoint    | Function  | `Client` method  | Filters class    |
+| ----------- | --------- | ---------------- | ---------------- |
 | `"regions"` | `regions` | `Client.regions` | `RegionsFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`regions` endpoint](/core-resources/regions.md).
 
 ## Usage
 

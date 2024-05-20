@@ -3,14 +3,15 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info
+Read more in the API documentation for the [`cities` endpoint](/core-resources/cities.md).
+:::
+
 The `cities` endpoint has full support, including query validation.
 
 | Endpoint   | Function | `Client` method | Filters class   |
 | ---------- | -------- | --------------- | --------------- |
 | `"cities"` | `cities` | `Client.cities` | `CitiesFilters` |
-
-For more information on available filters and functionality, see the main API documentation for the
-[`cities` endpoint](/core-resources/cities.md).
 
 ## Usage
 
