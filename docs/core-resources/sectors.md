@@ -63,3 +63,7 @@ the [includes section](../customizing/includes) for more information on how this
 are available:
 
 - `categories` - The [categories](categories.md) that belong to this sector.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

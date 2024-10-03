@@ -162,3 +162,7 @@ The following additional filters are available when fetching categories for a gi
 - `categories` - A comma-separated list of category IDs. This will filter the categories to only those given.
 - `brands` - A comma-separated list of brand IDs. This will filter the categories to only those that have the given
   brands in the study.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

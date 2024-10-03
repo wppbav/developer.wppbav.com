@@ -95,3 +95,7 @@ the [includes section](../customizing/includes) for more information on how this
 are available:
 
 - `group` - The [audience group](audience-groups.md) that this audience belongs to.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

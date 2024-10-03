@@ -70,3 +70,7 @@ By default, relationships not included. See the [includes section](../customizin
 this works. The following relationships are available:
 
 - `sector` - The [sector](sectors.md) that the category belongs to.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

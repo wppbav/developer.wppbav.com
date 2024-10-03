@@ -26,6 +26,7 @@ const sidebars = {
             label: 'Customizing responses',
             items: [
                 'customizing/fields',
+                'customizing/searching',
                 'customizing/filters',
                 'customizing/includes',
             ],

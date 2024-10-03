@@ -48,3 +48,7 @@ the [includes section](../customizing/includes) for more information on how this
 are available:
 
 - `countries` - The [countries](countries.md) countries that are part of the region.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.
