@@ -42,3 +42,7 @@ The slim relationship schema is used when the year is used as part of an include
 |--------|---------|-----------------------------|
 | `id`   | integer | The system ID for the year. |
 | `year` | string  | The year (name).            |
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

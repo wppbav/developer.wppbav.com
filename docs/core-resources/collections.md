@@ -54,3 +54,7 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 - `public` - Set to `1` to only return public collections.
 - `shared_with_me` - Set to `1` to only return collections shared with the user.
 - `mine` - Set to `1` to only return collections created by the user.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

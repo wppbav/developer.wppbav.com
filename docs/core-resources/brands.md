@@ -88,3 +88,7 @@ are available:
 - `sector` - The [sector](sectors.md) that the brand belongs to.
 - `studies` - A list of [BAV studies](studies.md) where this brand was included.
 - `countries` - The [countries](countries.md) where this brand may have a local name, custom logo or where it is from.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.

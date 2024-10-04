@@ -79,3 +79,7 @@ the [includes section](../customizing/includes) for more information on how this
 are available:
 
 - `region` - The [region](regions.md) that -.
+
+## Searching
+
+This endpoint supports searching. See the [searching section](../customizing/searching) for more details.
