@@ -26,7 +26,7 @@ swatch = bavapi.brands("TOKEN", name="Swatch")  # Replace `TOKEN` with your API 
 These endpoints methods will return a pandas DataFrame containing the data retrieved for your query:
 
 |     | id     | name   | ... |
-| --: | :----- | :----- | :-- |
+|----:|:-------|:-------|:----|
 |   0 | 2342   | Swatch | ... |
 |   1 | 127896 | Swatch | ... |
 | ... | ...    | ...    | ... |
@@ -53,7 +53,6 @@ In order to validate the request parameters before sending a bad request, `bavap
 parameters from your query and filters are of the type expected by the Fount API. If any parameter doesn't conform to
 the API requirements, `bavapi` will raise a `ValidationError`.
 
-
 :::note What it's doing
 `bavapi` performs an initial request to make sure the query parameters are valid, and to retrieve information about the
 number of pages it will need to fetch.
@@ -69,19 +68,19 @@ will be returned.
 
 Each endpoint has a filter class associated with it, as each endpoint has its own filter requirements:
 
-| Endpoint            | Filters class       |
-|---------------------|---------------------|
-| `"audiences"`       | `AudiencesFilters`  |
-| `"brand-metrics"`          | `BrandMetricsFilters`     |
-| `"brand-metric-groups"`          | `BrandMetricGroupsFilters`     |
-| `"brands"`          | `BrandsFilters`     |
-| `"brandscape-data"` | `BrandscapeFilters` |
-| `"categories"`         | `CategoriesFilters`    |
-| `"collections"`         | `CollectionsFilters`    |
-| `"companies"`         | `CompaniesFilters`    |
-| `"sectors"`         | `SectorsFilters`    |
-| `"studies"`         | `StudiesFilters`    |
-| `"years"`         | `YearsFilters`    |
+| Endpoint                | Filters class              |
+|-------------------------|----------------------------|
+| `"audiences"`           | `AudiencesFilters`         |
+| `"brand-metrics"`       | `BrandMetricsFilters`      |
+| `"brand-metric-groups"` | `BrandMetricGroupsFilters` |
+| `"brands"`              | `BrandsFilters`            |
+| `"brandscape-data"`     | `BrandscapeFilters`        |
+| `"categories"`          | `CategoriesFilters`        |
+| `"collections"`         | `CollectionsFilters`       |
+| `"companies"`           | `CompaniesFilters`         |
+| `"sectors"`             | `SectorsFilters`           |
+| `"studies"`             | `StudiesFilters`           |
+| `"years"`               | `YearsFilters`             |
 
 These filters are available under the `bavapi.filters` namespace.
 
@@ -290,10 +289,11 @@ It is possible that some of the data retrieved from the Fount includes multiple 
 For example, requesting the `studies` include in `bavapi.brands` will return a column containing lists of dictionaries
 with study info for all studies that a brand appears in.
 
-|     |    id | name     | studies                             |
-| --: | ----: | :------- | :---------------------------------- |
-|   0 | 24353 | Facebook | [{'id': 254, 'name': 'Argentina ... |
-| ... |   ... | ...      | ...                                 |
+|     |    id | name     | studies                               |
+|----:|------:|:---------|:--------------------------------------|
+|   0 | 24353 | Facebook | `[{'id': 254, 'name': 'Argentina ...` |
+| ... |   ... | ...      | ...                                   |
+
 :::
 
 `bavapi` provides a `stack_data` parameter to its functions and methods that will take those lists of dictionaries and
@@ -304,7 +304,7 @@ bavapi.brands("Facebook", include="studies", stack_data=True)
 ```
 
 |     |    id | name     | studies_id | studies_name            | ... |
-| --: | ----: | :------- | ---------: | :---------------------- | --- |
+|----:|------:|:---------|-----------:|:------------------------|-----|
 |   0 | 24353 | Facebook |        254 | Argentina - Adults 2011 | ... |
 |   1 | 24353 | Facebook |        787 | Argentina - Adults 2012 | ... |
 | ... |   ... | ...      |        ... | ...                     | ... |
@@ -330,6 +330,7 @@ bavapi.brands(TOKEN, "Facebook", verbose=False)
 async with bavapi.Client(TOKEN, verbose=False) as bav:
     await bav.brands("Facebook")
 ```
+
   </TabItem>
 </Tabs>
 
@@ -400,7 +401,7 @@ may still raise exceptions even if `on_errors` is set to `"warn"`:
 - Server errors will raise an `APIError` with additional details about the issue
 - Queries with no results found will raise a `DataNotFoundError`
 - Requests which exceed the user's rate limit will raise a `RateLimitExceededError`
-:::
+  :::
 
 ### Retry failed requests
 
@@ -413,5 +414,6 @@ bavapi.brands("TOKEN", retries=5)  # Will retry pages 5 times after original fai
 
 :::note
 There are some additional, advanced options for controlling the behavior of `bavapi` requests. More info in the
-[Control `bavapi` batching behavior](advanced-usage#control-bavapi-batching-behavior) section from the Advanced Usage documentation.
+[Control `bavapi` batching behavior](advanced-usage#control-bavapi-batching-behavior) section from the Advanced Usage
+documentation.
 :::
