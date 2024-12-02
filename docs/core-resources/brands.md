@@ -77,6 +77,7 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
   that are studied in the specified countries.
 - `year_numbers` - A comma-separated list of year numbers. This will filter the brands to only those that are studied
   in the specified years.
+- `has_studies` - Only include brands that have been included in any study at any point in time.
 
 ## Relationships & includes
 
