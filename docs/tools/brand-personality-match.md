@@ -10,6 +10,6 @@ GET /api/v2/tools/brand-personality-match
 
 | Key         |          Required?           | Type          | Description                             |
 |-------------|:----------------------------:|---------------|-----------------------------------------|
-| `brands`    |      :white_check_mark:      | numeric array | A comma-separated list of Brand IDs.    |
-| `studies`   |      :white_check_mark:      | numeric array | A comma-separated list of Study IDs.    |
-| `audiences` | :x: (defaults to All Adults) | numeric array | A comma-separated list of Audience IDs. |
+| `brands`    |      :white_check_mark:      | numeric array | A single Brand ID in array format.      |
+| `studies`   |      :white_check_mark:      | numeric array | A single Study ID in array format.      |
+| `audiences` | :x: (defaults to All Adults) | numeric array | A single Audience ID in array format.   |
