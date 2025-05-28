@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`countries` endpoint](/core-resources/countries.md).
+Read more in the API documentation for the [`countries` endpoint](/metadata/countries.md).
 :::
 
 The `countries` endpoint has full support, including query validation.

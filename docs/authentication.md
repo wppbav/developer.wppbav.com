@@ -28,7 +28,7 @@ When you want to integrate BAV into your own application, you will want to use o
 full OAuth 2 compatible authentication flow that allows you to act on behalf of a given user who needs to authorize your
 application.
 
-This flow is currently in beta. [Contact us](mailto:support@bernskioldmedia.com) for more information.
+This flow is currently in beta. [Contact us](mailto:support@bernskiold.com) for more information.
 
 :::note Embedding The Fount into your application
 If you want to be able to use our The Fount tools from within your application we allow a special embed integration that

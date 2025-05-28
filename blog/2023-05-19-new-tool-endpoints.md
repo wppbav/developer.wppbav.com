@@ -15,4 +15,4 @@ The new endpoints are available for most of the TurboPitch tools. If one that yo
 out to us, and we are happy to add it for you.
 
 If you are having problems with using the API, or if you have any questions or feedback,
-please [do reach out to us](mailto:support@bernskioldmedia.com). We are happy to help.
+please [do reach out to us](mailto:support@bernskiold.com). We are happy to help.

@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`brand-metrics` endpoint](/core-resources/metrics.md).
+Read more in the API documentation for the [`brand-metrics` endpoint](/metrics/metrics.md).
 :::
 
 The `brand-metrics` endpoint has full support, including query validation.

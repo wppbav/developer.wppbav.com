@@ -27,9 +27,8 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    // Please change this to your repo.
-                    editUrl: 'https://github.com/wppbav/developer.wppbav.com/edit/main',
                     lastVersion: 'current',
+                    breadcrumbs: false,
                     versions: {
                         current: {
                             label: 'v2',
@@ -42,7 +41,9 @@ const config = {
                     },
                 },
                 blog: {
-                    showReadingTime: true
+                    showReadingTime: false,
+                    showLastUpdateAuthor: false,
+                    blogSidebarCount: 'ALL',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
@@ -54,6 +55,11 @@ const config = {
     themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            colorMode: {
+                defaultMode: 'light',
+                disableSwitch: true,
+                respectPrefersColorScheme: false,
+            },
             navbar: {
                 title: 'BAV@WPP Developer',
                 logo: {
@@ -69,6 +75,12 @@ const config = {
                     },
                     {
                         type: 'doc',
+                        docId: 'ai/intro',
+                        position: 'left',
+                        label: 'AI',
+                    },
+                    {
+                        type: 'doc',
                         docId: 'embed/intro',
                         position: 'left',
                         label: 'Embed',
@@ -79,7 +91,7 @@ const config = {
                         position: 'left',
                         label: 'Developer Tools',
                     },
-                    {to: '/blog', label: 'News', position: 'left'},
+                    {to: '/blog', label: 'Changes', position: 'left'},
                     {
                         to: '/support',
                         label: 'Help & Support',
@@ -128,8 +140,8 @@ const config = {
                                 href: 'https://fount.wppbav.com/',
                             },
                             {
-                                label: 'Stocks Watch Live',
-                                href: 'https://stockprice.wppbav.com/',
+                                label: 'BAV FUtures',
+                                href: 'https://futures.wppbav.com/',
                             },
                         ],
                     },
@@ -139,11 +151,7 @@ const config = {
                             {
                                 label: 'WPP Open',
                                 href: 'https://open.wpp.com',
-                            },
-                            {
-                                label: 'API Portal',
-                                href: 'https://api-portal.wpp.com/',
-                            },
+                            }
                         ],
                     },
                 ]

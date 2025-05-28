@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`brand-metric-groups` endpoint](/core-resources/metric-groups.md).
+Read more in the API documentation for the [`brand-metric-groups` endpoint](/metrics/metric-groups.md).
 :::
 
 The `brand-metric-groups` endpoint has full support, including query validation.

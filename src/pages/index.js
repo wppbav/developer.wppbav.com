@@ -24,7 +24,9 @@ const features = [
         title: 'API',
         description: (
             <>
-                The BAV API contains research data and metadata about brands, countries and companies.
+                Access the BAV API to retrieve data about brands across markets, years and for audiences. The API
+                provides endpoints for
+                the full range of BAV research- and metadata.
             </>
         ),
         link: '/docs/2.x/intro',
@@ -33,8 +35,18 @@ const features = [
         title: 'Embed',
         description: (
             <>
-                Integrate our tools into your application without having to recreate everything through our customizable
-                embed integrations.
+                Integrate BAV reports into your application without having to recreate everything by using our
+                customizable embed integrations.
+            </>
+        ),
+        link: '/docs/2.x/embed/intro',
+    },
+    {
+        title: 'AI Agents',
+        description: (
+            <>
+                Supercharge your AI agents with BAV data. Our MCP server allows you to integrate BAV data into your AI
+                applications, enabling them provide insights based on BAV data.
             </>
         ),
         link: '/docs/2.x/embed/intro',
@@ -45,7 +57,7 @@ function Feature({imageUrl, title, description, link}) {
     const imgUrl = useBaseUrl(imageUrl);
     const linkUrl = useBaseUrl(link);
     return (
-        <div className={clsx('col col--5', styles.feature)}>
+        <div className={clsx('col col--4', styles.feature)}>
             {imgUrl && (
                 <div className="text--center">
                     <img className={styles.featureImage} src={imgUrl} alt={title}/>

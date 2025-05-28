@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`brandscape-data` endpoint](/core-resources/brandscape-data.md).
+Read more in the API documentation for the [`brandscape-data` endpoint](/brand-data/brandscape-data.md).
 :::
 
 The `brandscape-data` endpoint has full support, including query validation.
@@ -58,7 +58,7 @@ For other filters, passing a `BrandscapeFilters` instance to the `filters` param
 
 `brandscape-data` can retrieve brand datasets from an arbitrary combination of studies, audiences and years, so it is
 possible that the request becomes too large for the server to deliver effectively for all users. Please see the see the
-main API documentation for the [brandscape data endpoint](/core-resources/brandscape-data.md) for more details on
+main API documentation for the [brandscape data endpoint](/brand-data/brandscape-data.md) for more details on
 required filters to apply.
 
 If a query does not have any of these combinations of filters, it will raise a `ValidationError`:

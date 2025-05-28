@@ -34,4 +34,4 @@ GET /api/v2/brandscape-data/?filter[sectors]=1
 You can read more in the [Brandscape Data endpoint docs](/docs/2.x/core-resources/brandscape-data).
 
 If you are having problems with using the API, or if you have any questions or feedback,
-please [do reach out to us](mailto:support@bernskioldmedia.com). We are happy to help.
+please [do reach out to us](mailto:support@bernskiold.com). We are happy to help.
