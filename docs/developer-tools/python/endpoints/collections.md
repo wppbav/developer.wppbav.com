@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`collections` endpoint](/core-resources/collections.md).
+Read more in the API documentation for the [`collections` endpoint](/brands/collections.md).
 :::
 
 The `collections` endpoint has full support, including query validation.

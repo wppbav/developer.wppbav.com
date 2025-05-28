@@ -57,7 +57,7 @@ test data. This will allow you to test your endpoint without having to wait for 
 ## Creating the webhook on The Fount
 
 Currently, you cannot create webhooks on The Fount yourself. You will need to reach out to us
-at [support@bernskioldmedia.com](mailto:support@bernskioldmedia.com). We will then add the webhook to the system for
+at [support@bernskiold.com](mailto:support@bernskiold.com). We will then add the webhook to the system for
 you and provide you with the secret key that you will need to verify the authenticity of the webhook requests.
 
 You are more than welcome to reach out as you start to plan your integration and we can help you get started.

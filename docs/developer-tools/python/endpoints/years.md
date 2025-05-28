@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`years` endpoint](/core-resources/years.md).
+Read more in the API documentation for the [`years` endpoint](/metadata/years.md).
 :::
 
 The `years` endpoint has full support, including query validation.

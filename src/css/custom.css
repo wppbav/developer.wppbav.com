@@ -4,36 +4,131 @@
  * work well for content-centric websites.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #000050;
-  --ifm-color-primary-dark: #000048;
-  --ifm-color-primary-darker: #000044;
-  --ifm-color-primary-darkest: #000038;
-  --ifm-color-primary-light: #000058;
-  --ifm-color-primary-lighter: #00005c;
-  --ifm-color-primary-lightest: #000068;
-  --ifm-code-font-size: 95%;
+    --ifm-color-primary: #000050;
+    --ifm-color-primary-dark: #000048;
+    --ifm-color-primary-darker: #000044;
+    --ifm-color-primary-darkest: #000038;
+    --ifm-color-primary-light: #000058;
+    --ifm-color-primary-lighter: #00005c;
+    --ifm-color-primary-lightest: #000068;
+    --ifm-code-font-size: 95%;
+
+    --ifm-heading-font-weight: 600;
+
+    --ifm-alert-shadow: 0;
+    --ifm-alert-border-radius: 0.5rem;
+    --ifm-alert-border-left-width: 0;
+
+    --ifm-color-secondary-contrast-background: rgb(246, 248, 250);
+
+    --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #2efec1;
-  --ifm-color-primary-dark: #10feb8;
-  --ifm-color-primary-darker: #01feb4;
-  --ifm-color-primary-darkest: #01d194;
-  --ifm-color-primary-light: #4cfeca;
-  --ifm-color-primary-lighter: #5bfece;
-  --ifm-color-primary-lightest: #88fedc;
+    --ifm-color-primary: #2efec1;
+    --ifm-color-primary-dark: #10feb8;
+    --ifm-color-primary-darker: #01feb4;
+    --ifm-color-primary-darkest: #01d194;
+    --ifm-color-primary-light: #4cfeca;
+    --ifm-color-primary-lighter: #5bfece;
+    --ifm-color-primary-lightest: #88fedc;
 }
 
 .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
 }
 
 [data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    box-shadow: none;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.hero {
+    margin: 0 1rem;
+    border-radius: 1.5rem;
+}
+
+.theme-doc-sidebar-container {
+    border: 0;
+}
+
+.theme-doc-sidebar-container .menu {
+    padding-top: 1.5rem;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+    background-color: transparent;
+}
+
+.theme-doc-sidebar-item-link-level-1,
+.theme-doc-sidebar-item-category-level-1 {
+    padding: 0 0.5rem;
+}
+
+.theme-doc-sidebar-item-category.theme-doc-sidebar-item-category-level-1 {
+    margin-top: 1rem;
+}
+
+.menu__link {
+    font-size: 14px;
+}
+
+.menu__list-item-collapsible:hover,
+.menu__link:hover, .menu__caret:hover {
+    background-color: transparent;
+    color: var(--ifm-color-primary);
+}
+
+.menu__list-item-collapsible {
+    margin-bottom: 0.75rem;
+}
+
+.menu__list .menu__list {
+    padding-left: 1rem;
+}
+
+.menu__link--sublist-caret:after {
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5"><path fill-rule="evenodd" d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z" clip-rule="evenodd" /></svg>');
+}
+
+.menu__list-item:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.theme-doc-version-badge {
+    display: none;
+}
+
+.theme-doc-markdown {
+    margin-top: 2rem;
+}
+
+.theme-code-block {
+    box-shadow: none !important;
+    border-radius: 0.5rem !important;
+}
+
+article a:not([class]) {
+    text-decoration: underline;
+    text-decoration-thickness: clamp(1px, .1em, 3px);
+    text-underline-offset: clamp(2px, .225em, 6px);
+    text-decoration-color: var(--ifm-color-emphasis-600);
+    transition: var(--ifm-transition-fast);
+    transition-property: color, text-decoration-color, background;
+}
+
+article header .avatar {
+    display: none;
 }

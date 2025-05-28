@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`studies` endpoint](/core-resources/studies.md).
+Read more in the API documentation for the [`studies` endpoint](/studies/studies.md).
 :::
 
 The `studies` endpoint has full support, including query validation.

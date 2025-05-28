@@ -1,11 +1,11 @@
 # Overview
 
-While the core of BAV is the [brandscape data](/core-resources/brandscape-data.md) and the metrics within, the metrics are
+While the core of BAV is the [brandscape data](brandscape-data.md) and the metrics within, the metrics are
 often used in specific ways. Either by combining a set of metrics together to tell a specific story, or to do some
 further mathematical work on the data to arrive at new insights. This is what each tool within BAV and its TurboPitch
 suite does.
 
-The tool endpoints in the API correspond to each TurboPitch tool that can be used in The Fount. Each response is
+The other endpoints in the API correspond to each "data model" in BAV. Each response is
 slightly different, based on the data. The data returned includes, where applicable, brandscape data, calculated data
 and all relevant wording.
 

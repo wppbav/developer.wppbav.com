@@ -1,7 +1,7 @@
 # Tools/TurboPitch
 
 :::info
-Read more in the API documentation for the [tools endpoint](/tools/index.md).
+Read more in the API documentation for the [tools endpoint](/brand-data/index.md).
 :::
 
 The `tools` namespace in `bavapi` and the API enables access to ready-made analyses and frameworks to gain direct insights from BAV data.

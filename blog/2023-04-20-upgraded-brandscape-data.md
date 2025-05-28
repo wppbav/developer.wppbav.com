@@ -4,7 +4,7 @@ title: New company and sector details on Brandscape Data
 authors: erikbernskiold
 ---
 
-The [Brandscape Data](/docs/2.x/core-resources/brandscape-data) endpoint has been extended with details and filtering based on two new relationships: Sector and Company.
+The [Brandscape Data](/docs/2.x/brand-data/brandscape-data) endpoint has been extended with details and filtering based on two new relationships: Sector and Company.
 
 The sector is a higher-level grouping of categories to create larger groups of brands. Whereas categories can vary greatly between markets, sectors stay consitent. This makes them perfect for cross-market and cross-year analysis.
 
@@ -31,7 +31,7 @@ GET /api/v2/brandscape-data/?filter[companies]=1,2
 GET /api/v2/brandscape-data/?filter[sectors]=1
 ```
 
-You can read more in the [Brandscape Data endpoint docs](/docs/2.x/core-resources/brandscape-data).
+You can read more in the [Brandscape Data endpoint docs](/docs/2.x/brand-data/brandscape-data).
 
 If you are having problems with using the API, or if you have any questions or feedback,
-please [do reach out to us](mailto:support@bernskioldmedia.com). We are happy to help.
+please [do reach out to us](mailto:support@bernskiold.com). We are happy to help.

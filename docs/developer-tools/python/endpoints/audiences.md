@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`audiences` endpoint](/core-resources/audiences.md).
+Read more in the API documentation for the [`audiences` endpoint](/audiences/audiences.md).
 :::
 
 The `audiences` endpoint has full support, including query validation.

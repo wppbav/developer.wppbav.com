@@ -28,7 +28,7 @@ GET /api/v2/brands?fields[brands]=id,name
 
 Let's say you want to retrieve a list of brands to show in a dropdown for users to select. You'll want the brand ID for
 the value and the name for the display label. Instead of forcing you to download the
-full [Brands response](../core-resources/brands.md) response, you may configure to only retrieve the columns you need.
+full [Brands response](../brand-data/brands.md), you may configure to only retrieve the columns you need.
 
 ```http request
 GET /api/v2/brands?fields[brands]=id,name
