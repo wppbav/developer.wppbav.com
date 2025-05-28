@@ -13,6 +13,7 @@ const config = {
     baseUrl: '/',
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
+    onBrokenAnchors: 'warn',
     favicon: 'img/favicon.png',
     organizationName: 'wppbav', // Usually your GitHub org/user name.
     projectName: 'developer.wppbav.com', // Usually your repo name.
