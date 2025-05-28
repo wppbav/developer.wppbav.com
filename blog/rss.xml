@@ -4,10 +4,24 @@
         <title>BAV@WPP Developer Docs Blog</title>
         <link>https://developer.wppbav.com/blog</link>
         <description>BAV@WPP Developer Docs Blog</description>
-        <lastBuildDate>Thu, 10 Apr 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 May 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Introducing the BAV MCP Server]]></title>
+            <link>https://developer.wppbav.com/blog/mcp-server</link>
+            <guid>https://developer.wppbav.com/blog/mcp-server</guid>
+            <pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Your AI models and agents can now use the official BAV MCP server to access BAV data in both a simple and secure way. An]]></description>
+            <content:encoded><![CDATA[<p>Your AI models and agents can now use the official BAV MCP server to access BAV data in both a simple and secure way. An
+MCP server is a convenient way to connect your AI models and agents to external data sources, such as BAV. The server
+offers a set of tools that agents can trigger to get the data they need to then process and use in their tasks.</p>
+<p>Our new remote MCP server uses the latest MCP (Model Control Protocol) standard.</p>
+<p>We're excited to see how you and your agents use BAV data to power your workflows. If you have questions, feedback, or
+requests for new MCP tools, please let us know.</p>
+<p><a href="https://developer.wppbav.com/docs/2.x/ai/mcp-server">Read more about the MCP Server</a></p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[New Health Check Endpoint]]></title>
             <link>https://developer.wppbav.com/blog/new-health-check-endpoint</link>
@@ -61,12 +75,12 @@ details.</p>]]></content:encoded>
             <pubDate>Wed, 03 Apr 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[All of the BAV Archetype ranks and scores have been available directly through]]></description>
             <content:encoded><![CDATA[<p>All of the BAV Archetype ranks and scores have been available directly through
-the <a href="https://developer.wppbav.com/docs/2.x/core-resources/brandscape-data">Brandscape Data</a> endpoint. The new Archetypes Tools API endpoint offers a
+the <a href="https://developer.wppbav.com/docs/2.x/brand-data/brandscape-data">Brandscape Data</a> endpoint. The new Archetypes Tools API endpoint offers a
 more convenient way of accessing the Archetypes data.</p>
 <p>It also adds support for getting the "Competitive Archetype" data, which is not available through the Brandscape Data
 endpoint. Archetypes are divided between the "Cultural Archetype" (against all brands in a study) and the "Competitive
 Archetype" (against a competitive set). The competitive set can be defined as either a collection or a category.</p>
-<p>All the querying details are available in the <a href="https://developer.wppbav.com/docs/2.x/tools/archetypes">Archetypes API</a>
+<p>All the querying details are available in the <a href="https://developer.wppbav.com/docs/2.x/brand-data/archetypes">Archetypes API</a>
 documentation in the Tools / TurboPitch section.</p>]]></content:encoded>
         </item>
         <item>
@@ -160,7 +174,7 @@ in the same way as you can graphically in The Fount.</p>
 <p>The new endpoints are available for most of the TurboPitch tools. If one that you need isn't yet available, please reach
 out to us, and we are happy to add it for you.</p>
 <p>If you are having problems with using the API, or if you have any questions or feedback,
-please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
+please <a href="mailto:support@bernskiold.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[New company and sector details on Brandscape Data]]></title>
@@ -168,16 +182,16 @@ please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopene
             <guid>https://developer.wppbav.com/blog/upgraded-brandscape-data</guid>
             <pubDate>Thu, 20 Apr 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[The Brandscape Data endpoint has been extended with details and filtering based on two new relationships: Sector and Company.]]></description>
-            <content:encoded><![CDATA[<p>The <a href="https://developer.wppbav.com/docs/2.x/core-resources/brandscape-data">Brandscape Data</a> endpoint has been extended with details and filtering based on two new relationships: Sector and Company.</p>
+            <content:encoded><![CDATA[<p>The <a href="https://developer.wppbav.com/docs/2.x/brand-data/brandscape-data">Brandscape Data</a> endpoint has been extended with details and filtering based on two new relationships: Sector and Company.</p>
 <p>The sector is a higher-level grouping of categories to create larger groups of brands. Whereas categories can vary greatly between markets, sectors stay consitent. This makes them perfect for cross-market and cross-year analysis.</p>
 <p>The company is the legal entity that owns a given brand. One company can own many brands. Through the company you can tie together financial performance such as annual results or stock price details with the brandscape data.</p>
 <p>Both are available now as includes in the brandscape data endpoint. This means that for each brandscape data record you can get the company and sector details along with all other data.</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Include the company</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">GET /api/v2/brandscape-data/?include=company</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Include the sector</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">GET /api/v2/brandscape-data/?include=company</span><br></span></code></pre></div></div>
 <p>Both of them are also available to filter by so that you can get the brandscape data for all brands in one or more sectors and/or companies:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Only include two specific companies.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">GET /api/v2/brandscape-data/?filter[companies]=1,2</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"># Only include the sector with ID 1.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">GET /api/v2/brandscape-data/?filter[sectors]=1</span><br></span></code></pre></div></div>
-<p>You can read more in the <a href="https://developer.wppbav.com/docs/2.x/core-resources/brandscape-data">Brandscape Data endpoint docs</a>.</p>
+<p>You can read more in the <a href="https://developer.wppbav.com/docs/2.x/brand-data/brandscape-data">Brandscape Data endpoint docs</a>.</p>
 <p>If you are having problems with using the API, or if you have any questions or feedback,
-please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
+please <a href="mailto:support@bernskiold.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Introducing the BAV API v2.0]]></title>
@@ -201,7 +215,7 @@ breaking-change versions.</p>
 <li>Ability to scope API keys to specific operations.</li>
 </ul>
 <p>If you are having problems with using the API, or if you have any questions or feedback,
-please <a href="mailto:support@bernskioldmedia.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
+please <a href="mailto:support@bernskiold.com" target="_blank" rel="noopener noreferrer">do reach out to us</a>. We are happy to help.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Welcome to the updated developer website!]]></title>
