@@ -21,6 +21,7 @@ const sidebars = {
         'pagination',
         'versioning',
         'webhooks',
+        'health-check',
         {
             type: 'category',
             label: 'Customizing responses',
