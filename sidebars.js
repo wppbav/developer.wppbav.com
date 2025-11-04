@@ -132,7 +132,18 @@ const sidebars = {
     ],
     aiSidebar: [
         'ai/intro',
-        'ai/mcp-server'
+        'ai/agents',
+        {
+            type: 'category',
+            label: 'MCP Servers',
+            items: [
+                'ai/mcp/intro',
+                'ai/mcp/access-authorization',
+                'ai/mcp/bav',
+                'ai/mcp/best-countries',
+                'ai/mcp/financial-data'
+            ],
+        }
     ],
     toolsSidebar: [
         'developer-tools/index',
