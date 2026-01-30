@@ -13,7 +13,7 @@ otherwise exposed.
 
 Personal Access Tokens are the easiest way to get started with the API. They allow you to make API requests on your own
 account without requiring you to build a full OAuth flow. Personal Access Tokens can be created and managed from
-your [profile settings page in The Fount](https://fount.wppbav.com/api).
+the [API section in The Fount](https://fount.wppbav.com/api).
 
 When using a personal access token to authenticate to the API, you should use the `Bearer` authentication scheme. For
 example:
