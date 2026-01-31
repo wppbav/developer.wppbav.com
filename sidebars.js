@@ -141,7 +141,8 @@ const sidebars = {
                 'ai/mcp/access-authorization',
                 'ai/mcp/bav',
                 'ai/mcp/best-countries',
-                'ai/mcp/financial-data'
+                'ai/mcp/financial-data',
+                'ai/mcp/social'
             ],
         }
     ],
