@@ -10,14 +10,14 @@ based on user instructions.
 
 ## WPP Open & Creative Studio
 
-Our set of pre-made BAV agents are available in WPP Open & Creative Studio. These agents can be run standalone or be
+Our set of pre-made BAV agents are available in WPP Open and the Agent Hub. These agents can be run standalone or be
 combined into more complex workflows and other data sources to create powerful AI-driven analysis.
 
-Our core agent, the BAV Brand Brain, is a free chat agent that allows users to interact with the BAV dataset in a
+Our core agent, the Brand Analytics Agent, is a free chat agent that allows users to interact with the BAV dataset in a
 natural language format. Users can ask questions about brand performance, consumer insights, and market trends, and
 receive detailed responses based on the BAV data.
 
-In addition to the BAV Brand Brain, we offer a variety of specialized agents that focus on specific aspects of brand
+In addition to the Brand Analytics Agent, we offer a variety of specialized agents that focus on specific aspects of brand
 analysis. These agents can help users with tasks such as competitive analysis, consumer sentiment analysis, and
 market segmentation.
 
