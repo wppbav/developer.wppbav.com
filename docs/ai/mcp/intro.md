@@ -20,6 +20,7 @@ Please refer to each server's documentation for more details on the available to
 - [Financial Data MCP Server](./financial-data.md) - Access to financial data for listed companies worldwide, powered by
   BAV Futures.
 - [Market Share MCP Server](./market-share.md) - Access to market share data via Euromonitor for brands and companies.
+- [Social Data MCP Server](./social.md) - Access to social data via Sightly
 
 ## Building an internal tool?
 
