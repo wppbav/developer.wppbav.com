@@ -1,10 +1,10 @@
 ---
-sidebar_label: Overview
+sidebar_label: Data Models
 ---
 
-# Brandscape Models
+# Data Models
 
-The brandscape model endpoints return the data behind the core BAV data models, such as the Powergrid, Pillars and
+The data model endpoints return the data behind the core BAV data models, such as the Powergrid, Pillars and
 Imagery. Rather than having to know which [brand metrics](../metrics/metrics.md) make up each model, you ask for the
 model and get back the relevant metrics for each brand, together with the brand, study, audience and category they
 belong to.
@@ -29,7 +29,7 @@ the [Super CX](super-cx.md) page.
 
 The [Agency Change Predictor](agency-change-predictor.md) is built on the same filters, but returns its own response.
 
-All brandscape model endpoints require the **BAV Brand Data** (`bav:brand-data`) scope.
+All data model endpoints require the **BAV Brand Data** (`bav:brand-data`) scope.
 
 ## Category specific and category agnostic models
 
@@ -53,7 +53,7 @@ GET /api/v2/tools/pillars?brands[]=148&countries[]=US&years[]=2025
 
 ## Parameters
 
-All brandscape model endpoints share the same set of parameters.
+All data model endpoints share the same set of parameters.
 
 List parameters are arrays. In a query string, pass repeated values (`brands[]=148&brands[]=149`). Each value can be
 either an ID or a name. When you pass a name, the system will attempt to find the right record based on the similarity

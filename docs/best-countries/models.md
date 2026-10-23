@@ -35,7 +35,7 @@ The parameters are sent as a JSON body. List parameters are arrays, and each val
 | `countries` |  :x: (defaults to all)       | array  | The [countries](../metadata/countries.md) to read, by country ID, two- or three-letter ISO code, or name. Returns every country measured in the year when left out. |
 | `audiences` | :x: (defaults to All Adults) | array  | The [audiences](../audiences/audiences.md) to read, by audience ID or name.                                                  |
 | `scoreType` |  :x: (depends on the model)  | string | The score type. See [score types](#score-types).                                                                             |
-| `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brandscape-models/index.md#response-formats).        |
+| `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brand-data/data-models.md#response-formats).        |
 
 ### City models
 
@@ -47,7 +47,7 @@ The city models take the same parameters as the country models, but with `cities
 | `cities`    |  :x: (defaults to all)       | array  | The [cities](../metadata/cities.md) to read, by city ID or name. Returns every city measured in the year when left out. |
 | `audiences` | :x: (defaults to All Adults) | array  | The [audiences](../audiences/audiences.md) to read, by audience ID or name.                                         |
 | `scoreType` |  :x: (depends on the model)  | string | The score type. See [score types](#score-types).                                                                    |
-| `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brandscape-models/index.md#response-formats). |
+| `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brand-data/data-models.md#response-formats). |
 
 ### Score types
 

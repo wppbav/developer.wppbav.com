@@ -38,7 +38,7 @@ exist simply matches nothing.
 | `data_types`    |          :x:          | array  | What is being measured, as Euromonitor data type IDs or names. Rows that differ only by data type are not comparable, so filtering to one is usually what you want. Max 50.                                                         |
 | `years`         |          :x:          | array  | The [years](../metadata/years.md), as year IDs or year numbers. A year does not narrow a query on its own and has to be combined with a narrowing filter. Max 50.                                                                    |
 | `score_type`    |          :x:          | string | Which measure the `value` of each row carries. One of `actual_usd` (default), `actual_local`, `percentage` or `rank`. See [score types](#score-types).                                                                               |
-| `format`        |          :x:          | string | The response format: `json` (default), `llm` (the data as CSV with instructions for use in AI prompts, see [response formats](../brandscape-models/index.md#response-formats)) or `mcp` (the response shape used by our MCP servers). |
+| `format`        |          :x:          | string | The response format: `json` (default), `llm` (the data as CSV with instructions for use in AI prompts, see [response formats](../brand-data/data-models.md#response-formats)) or `mcp` (the response shape used by our MCP servers). |
 
 \* At least one of `brands`, `companies`, `bav_brands`, `bav_companies`, `categories`, `geographies` or `industries` is
 required. A request without any of these is rejected with a validation error.

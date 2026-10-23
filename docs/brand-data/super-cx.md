@@ -6,11 +6,11 @@ Heart and X Factor components, which in turn are built from a set of underlying 
 Super CX is category specific. The category should always be shown together with the brand, as it can significantly
 change the interpretation of the results.
 
-There are two ways to get Super CX data: the brandscape model endpoint and the Super CX tool endpoint. We recommend the
-brandscape model endpoint for new integrations, as it shares its parameters and response with the
-other [brandscape models](index.md).
+There are two ways to get Super CX data: the data model endpoint and the Super CX tool endpoint. We recommend the
+data model endpoint for new integrations, as it shares its parameters and response with the
+other [data models](data-models.md).
 
-## Brandscape model
+## Data model
 
 ### Creating a query
 
@@ -22,13 +22,13 @@ This endpoint requires the `bav:brand-data` scope.
 
 ### Parameters
 
-This endpoint takes the [shared brandscape model parameters](index.md#parameters): `brands`, `studies`, `countries`,
+This endpoint takes the [shared data model parameters](data-models.md#parameters): `brands`, `studies`, `countries`,
 `years`, `audiences`, `study_types`, `benchmarks` and `format`. At least one of `brands`, `studies`, `countries` or
 `years` is required.
 
 ### Response
 
-The response follows the [standard brandscape model schema](index.md#schema). The data points include the metrics in
+The response follows the [standard data model schema](data-models.md#schema). The data points include the metrics in
 the `super-cx` [metric group](../metrics/metric-groups.md).
 
 ## Super CX tool

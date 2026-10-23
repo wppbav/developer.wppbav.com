@@ -18,7 +18,7 @@ The Fount.
 
 ## Parameters
 
-The ACP takes the same filters as the [brandscape models](index.md#parameters), apart from `benchmarks` and `format`.
+The ACP takes the same filters as the [data models](data-models.md#parameters), apart from `benchmarks` and `format`.
 The filters can be passed as arrays (`brands[]=148&brands[]=149`) or, for backwards compatibility, as comma-separated
 lists (`brands=148,149`).
 
@@ -29,7 +29,7 @@ lists (`brands=148,149`).
 | `countries`   |        At least one*           | array   | [Country](../metadata/countries.md) IDs, codes or names.                                                            |
 | `years`       |        At least one*           | array   | [Year](../metadata/years.md) IDs or year numbers.                                                                   |
 | `audiences`   |  :x: (defaults to All Adults)  | array   | [Audience](../audiences/audiences.md) IDs or names.                                                                 |
-| `study_types` | :x: (defaults to `syndicated`) | array   | The kinds of study that a `countries` and `years` filter may resolve to. See [brandscape models](index.md#parameters). |
+| `study_types` | :x: (defaults to `syndicated`) | array   | The kinds of study that a `countries` and `years` filter may resolve to. See [data models](data-models.md#parameters). |
 | `category`    |              :x:               | integer | Only include brands in this [category](../studies/categories.md) ID.                                                |
 | `search`      |              :x:               | string  | Search brands by name.                                                                                              |
 | `customWeights` |            :x:               | object  | Custom weights for the checks, keyed by check name. See [custom weights](#custom-weights).                          |

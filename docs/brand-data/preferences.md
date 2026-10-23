@@ -27,13 +27,13 @@ This endpoint requires the `bav:brand-data` scope.
 
 ## Parameters
 
-This endpoint takes the [shared brandscape model parameters](index.md#parameters): `brands`, `studies`, `countries`,
+This endpoint takes the [shared data model parameters](data-models.md#parameters): `brands`, `studies`, `countries`,
 `years`, `audiences`, `study_types`, `benchmarks` and `format`. At least one of `brands`, `studies`, `countries` or
 `years` is required.
 
 ## Response
 
-The response follows the [standard brandscape model schema](index.md#schema).
+The response follows the [standard data model schema](data-models.md#schema).
 
 ### Metrics
 
