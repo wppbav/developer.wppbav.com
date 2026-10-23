@@ -47,7 +47,9 @@ The servers support the discovery and registration mechanisms in the MCP specifi
 - **Dynamic client registration:** Clients can register themselves using the registration endpoint, so you do not need
   to create an OAuth client up front.
 
-The authorization code grant is used with PKCE (`S256`), and refresh tokens are supported.
+MCP clients use the authorization code grant with PKCE (`S256`), and refresh tokens are supported. Dynamic client
+registration is only available to MCP clients. OAuth clients that you create for an application in The Fount are
+confidential clients with a client secret, see [OAuth 2](../../authentication.md#oauth-2).
 
 ### Personal Access Tokens
 
@@ -64,19 +66,20 @@ Authorization: Bearer YOUR_API_KEY
 
 ### Applications
 
-If you are building an application for the group, we can set you up with an application. Applications can
-authenticate in a few different ways:
+If you are building an application, you can create one yourself under **Applications** in the
+[API section in The Fount](https://fount.wppbav.com/api). Applications can authenticate in a few different ways:
 
 - **OAuth on behalf of a user:** Users authorize your application through the OAuth flow, and your application acts on
   their behalf with their permissions.
-- **Application tokens:** An access token belonging to the application itself. Requests are made as the application.
-- **Client credentials:** Applications approved for it can request a token using the OAuth client credentials grant.
-  This works like an application token.
+- **Application API keys:** An API key belonging to the application itself. Requests are made as the application's own
+  user, with the access an administrator has set up for it.
+- **Client credentials:** A token requested with the OAuth client credentials grant. It works like an application API
+  key, is limited to the client's scopes and lasts one hour.
 
-Applications that have been approved to act on behalf of users can pass the e-mail address of the user in the
-`X-Act-As-User` header together with an application token or a client credentials token. The token must explicitly
-include the `act-as-user` scope. The request is then made as that user, with their permissions. The legacy
-`X-User-Email` header is still accepted but we recommend moving to `X-Act-As-User`.
+Applications that we have marked as trusted and approved to act on behalf of users can pass the e-mail address of a
+user in the `X-Act-As-User` header, together with an application API key or a client credentials token. The token must
+explicitly include the `act-as-user` scope. The request is then made as that user, with their permissions. The legacy
+`X-User-Email` header is still accepted, but we recommend moving to `X-Act-As-User`.
 
 ```
 Authorization: Bearer YOUR_APPLICATION_TOKEN
@@ -84,17 +87,17 @@ X-Act-As-User: jane.doe@wpp.com
 ```
 
 :::note
-Tokens issued to a user through OAuth cannot act as another user. The `X-Act-As-User` header is only accepted with
-application tokens.
+Tokens issued to a user, whether through OAuth or as a personal access token, can't act as another user. The only
+exception is legacy tokens with the `bav:auto-login` system scope.
 :::
 
-Applications can be restricted to only accept requests from a set of allow-listed IP addresses. When an application
-has an IP allow-list, every request it makes, whether for itself or on behalf of a user, must come from one of those
-addresses. This also applies when requesting a token with the client credentials grant.
+Applications can use two separate IP lists:
 
-For internal applications it is possible to skip the consent screen by having your application specifically
-allow-listed as a trusted application. Consent is only skipped when the request comes from one of the application's
-allow-listed IP addresses. We recommend this approach for internal tools as it provides a smoother user experience.
-Please reach out if you would like to have your application set up.
+- **Allowed API IP addresses** restrict where API and MCP calls can come from. When set, every request the application
+  makes, whether as itself or on behalf of a user, must come from one of those addresses. This also applies when
+  requesting a token with the client credentials grant.
+- **Trusted IP addresses** are used for trusted internal applications to skip the consent screen. Consent is only
+  skipped when the user's browser is on one of these addresses. We recommend this for internal tools as it gives a
+  smoother experience. Please reach out if you would like your application to be trusted.
 
 See the [authentication documentation](../../authentication.md) for more information on applications and tokens.
