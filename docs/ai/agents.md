@@ -22,3 +22,9 @@ analysis. These agents can help users with tasks such as competitive analysis, c
 market segmentation.
 
 Please [get in touch with us](mailto:bavsupport@wpp.com) for access to these agents.
+
+## Building your own agents
+
+If you want to build your own agents, you can connect them directly to BAV data using our
+[MCP servers](mcp/intro.md). In WPP Open, the MCP servers are available as tools in the Creative Studio agent builder,
+see [connecting clients](mcp/connecting-clients.md#wpp-open).

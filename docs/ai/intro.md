@@ -25,8 +25,10 @@ You can use the agents standalone or as part of a larger agentic team.
 
 [Read more](agents.md)
 
-## MCP Server
+## MCP Servers
 
-Your AI models and agents can use the official BAV MCP server to access BAV data in both a simple and secure way.
+Your AI models and agents can use the official BAV MCP servers to access BAV data, Best Countries, financial data and
+Euromonitor market share data in both a simple and secure way. The servers work with any MCP client that supports
+remote servers, including Claude, ChatGPT, Copilot and the agent builder in WPP Open.
 
-[Read more](mcp/index.md)
+[Read more](mcp/intro.md)

@@ -1,9 +1,13 @@
+---
+sidebar_label: Introduction
+---
+
 # Introduction
 
 By using an MCP server you can connect your AI models and agents directly to BAV data. This allows your agents to
 retrieve up-to-date information from BAV and use it to answer user queries, generate insights, and power your workflows.
 
-MCP (Model Control Protocol) is a standard protocol that allows AI models and agents to interact with external data
+MCP (Model Context Protocol) is an open standard that allows AI models and agents to interact with external data
 sources through a set of defined tools. Think of it as an API but specifically designed for AI models and agents to call
 tools to retrieve data.
 
@@ -15,12 +19,28 @@ requests for new MCP tools, please let us know.
 We currently offer a few different MCP servers that you can connect to depending on which dataset you want to access.
 Please refer to each server's documentation for more details on the available tools.
 
-- [BAV MCP Server](./bav.md) - Access to all WPP BAV data.
-- [Best Countries MCP Server](./best-countries.md) - Access to WPP BAV Best Countries data.
-- [Financial Data MCP Server](./financial-data.md) - Access to financial data for listed companies worldwide, powered by
-  BAV Futures.
-- [Market Share MCP Server](./market-share.md) - Access to market share data via Euromonitor for brands and companies.
-- [Social Data MCP Server](./social.md) - Access to social data via Sightly
+| Server                                          | URL                                           | Data                                                              |
+|-------------------------------------------------|-----------------------------------------------|-------------------------------------------------------------------|
+| [BAV](./bav.md)                                 | `https://mcp-beta.wppbav.com/v1/bav`            | WPP BAV brand equity data and metadata.                           |
+| [Best Countries](./best-countries.md)           | `https://mcp-beta.wppbav.com/v1/best-countries` | WPP BAV Best Countries data on how countries and cities are seen. |
+| [Financial Data](./financial-data.md)           | `https://mcp-beta.wppbav.com/v1/futures`        | Financial data and share prices for listed companies worldwide.   |
+| [Market Share](./market-share.md)               | `https://mcp-beta.wppbav.com/v1/market-share`   | Euromonitor market share for brands and companies.                |
+
+:::note
+The domain will change to `mcp.wppbav.com` in the future. We'll communicate this change in advance with a good notice
+period so you can update your applications accordingly.
+:::
+
+In addition to our own servers, the [Social Data](./social.md) connector by our partner Sightly is available as a
+third-party connector in WPP Open. It gives your agents access to real-time social and news listening data that works
+well alongside BAV brand perception data.
+
+## Getting started
+
+- **[Concepts](./concepts.md)** explains how the servers, tools and data fit together.
+- **[Access & Authorization](./access-authorization.md)** covers who can connect and how authorization works.
+- **[Connecting Clients](./connecting-clients.md)** shows how to add the servers to Claude, ChatGPT, Copilot, WPP Open
+  and other MCP clients.
 
 ## Building an internal tool?
 
