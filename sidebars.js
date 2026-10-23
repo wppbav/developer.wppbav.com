@@ -42,6 +42,8 @@ const sidebars = {
             items: [
                 'brands/brands',
                 'brands/collections',
+                'brands/brand-tags',
+                'brands/brand-variations',
             ],
         },
         {
@@ -74,11 +76,42 @@ const sidebars = {
         },
         {
             type: 'category',
+            label: 'Brandscape Models',
+            items: [
+                'brandscape-models/index',
+                'brandscape-models/powergrid',
+                'brandscape-models/pillars',
+                'brandscape-models/imagery',
+                'brandscape-models/personality',
+                'brandscape-models/influence',
+                'brandscape-models/brand-worth',
+                'brandscape-models/preferences',
+                'brandscape-models/usage',
+                'brandscape-models/recommendation',
+                'brandscape-models/super-cx',
+                'brandscape-models/agency-change-predictor',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Audiences',
             items: [
                 'audiences/audiences',
                 'audiences/audience-groups',
+                'audiences/managing-audiences',
                 'audiences/export',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Audience Origin',
+            items: [
+                'audience-origin/index',
+                'audience-origin/metrics',
+                'audience-origin/metric-groups',
+                'audience-origin/touchpoints',
+                'audience-origin/frequencies',
+                'audience-origin/query',
             ],
         },
         {
@@ -90,6 +123,8 @@ const sidebars = {
                 'best-countries/metric-groups',
                 'best-countries/factors',
                 'best-countries/country-data',
+                'best-countries/models',
+                'best-countries/raw-data',
             ],
         },
         {
@@ -102,10 +137,32 @@ const sidebars = {
         },
         {
             type: 'category',
+            label: 'Market Share',
+            items: [
+                'market-share/index',
+                'market-share/catalog',
+                'market-share/brand-shares',
+                'market-share/company-shares',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Metric Glossaries',
             items: [
                 'metrics/metrics',
                 'metrics/metric-groups',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Measures & Questions',
+            items: [
+                'measures/index',
+                'measures/brand-measure-groups',
+                'measures/brand-measures',
+                'measures/bav-question-groups',
+                'measures/bav-questions',
+                'measures/study-catalog',
             ],
         },
         {
@@ -119,6 +176,7 @@ const sidebars = {
                 'metadata/gics-sectors',
                 'metadata/stock-exchanges',
                 'metadata/countries',
+                'metadata/country-indicators',
                 'metadata/cities',
             ],
         },
@@ -135,13 +193,17 @@ const sidebars = {
         'ai/agents',
         {
             type: 'category',
-            label: 'MCP Servers',
+            label: 'MCP Connectors',
             items: [
                 'ai/mcp/intro',
+                'ai/mcp/concepts',
                 'ai/mcp/access-authorization',
+                'ai/mcp/connecting-clients',
+                'ai/mcp/mcp-apps',
                 'ai/mcp/bav',
                 'ai/mcp/best-countries',
                 'ai/mcp/financial-data',
+                'ai/mcp/market-share',
                 'ai/mcp/social'
             ],
         }
