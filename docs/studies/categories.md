@@ -37,6 +37,10 @@ You may also directly retrieve a category's details if you already have its syst
 GET /api/v2/categories/123
 ```
 
+Where `123` is the system ID of the category.
+
+The categories endpoints are read-only and require a token with the `bav:brand-data` scope.
+
 ## Schema
 
 ### Full response schema
@@ -57,19 +61,22 @@ The slim relationship schema is used when the category is used as part of an inc
 | `id`   | integer | The system ID for the category.   |
 | `name` | string  | The primary name of the category. |
 
+When the category is included with a nested `sector` include (for example `category.sector`), the relationship object
+also contains a `sector` object.
+
 ## Additional Filters
 
-For convenience, we have a set of additional filters for brands that are not available in
+For convenience, we have a set of additional filters for categories that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `sectors` - A comma-separated list of sector IDs. This will filter the categories to only those in the given sectors.
 
 ## Relationships & includes
 
-By default, relationships not included. See the [includes section](../customizing/includes) for more information on how
+By default, relationships are not included. See the [includes section](../customizing/includes) for more information on how
 this works. The following relationships are available:
 
-- `sector` - The [sector](sectors.md) that the category belongs to.
+- `sector` - The [sector](../metadata/sectors.md) that the category belongs to.
 
 ## Searching
 

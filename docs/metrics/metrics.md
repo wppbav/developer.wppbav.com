@@ -13,9 +13,9 @@ To list all of the brand metrics and browse them via the API, use the list endpo
 GET /api/v2/brand-metrics
 ```
 
-## Get a brand
+## Get a brand metric
 
-You may also directly retrieve a brand's details if you already have its system ID.
+You may also directly retrieve a brand metric's details if you already have its system ID.
 
 ```http request
 GET /api/v2/brand-metrics/123
@@ -30,24 +30,25 @@ Where `123` is the system ID of the brand metric.
 | Key                         | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                      |
 |-----------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|----------------------------------------------------------------------------------|
 | `id`                        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                   |
+| `key`                       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A machine-readable key for the metric. Brandscape data fields are named after it. |
 | `name`                      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the metric.                                                  |
 | `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description on what this metric is about.                                |
 | `is_active`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the metric is active or deprecated.                                           |
 | `is_public`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric is publicly available for all users.                          |
 | `is_core`                   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric is part of the core set of BAV metrics.                       |
 | `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has been discontinued and will not available in new studies.  |
-| `has_construct_score`       | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a construct score available.                              |
-| `has_percentile_rank_score` | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a percentile rank score available.                        |
-| `has_percentage_score`      | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a percentage score available.                             |
-| `has_value_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has a value score available.                                  |
-| `has_index_score`           | -       |            :white_check_mark:             |        :x:         | :white_check_mark: | Whether the metric has the two index scores available (brandscape and category). |
-| `brandscape_data_columns`   | array   |                    :x:                    |        :x:         |        :x:         | An array of column names in the `brandscape_data` endpoint for this metric.      |
+| `has_construct_score`       | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a construct score available.                              |
+| `has_percentile_rank_score` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a percentile rank score available.                        |
+| `has_percentage_score`      | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a percentage score available.                             |
+| `has_value_score`           | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a value score available.                                  |
+| `has_index_score`           | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has the two index scores available (brandscape and category). |
+| `brandscape_data_columns`   | array   |                    :x:                    |        :x:         |        :x:         | An array of the field names for this metric in the [brandscape data](../brand-data/brandscape-data.md) endpoint. |
 | `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was first created.                      |
-| `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was last updated.                       |
+| `updated_at`                | string  | ([updated since](../customizing/filters.md)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand metric was last updated.                       |
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand is used as part of an include in another resource.
+The slim relationship schema is used when the brand metric is used as part of an include in another resource.
 
 | Key         | Type    | Description                            |
 |-------------|---------|----------------------------------------|
@@ -57,15 +58,15 @@ The slim relationship schema is used when the brand is used as part of an includ
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters for brands that are not available in
+For convenience, we have a set of additional filters for brand metrics that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `active` - Set to `1` to only return active metrics.
 - `inactive` - Set to `1` to only return inactive metrics.
 - `public` - Set to `1` to only return public metrics.
 - `private` - Set to `1` to only return private metrics.
-- `groups` - A comma-separated list of audience group IDs. This will only return metrics that belong to the
-  specified groups.
+- `group` - A comma-separated list of [brand metric group](metric-groups.md) IDs. This will only return metrics that
+  belong to the specified groups.
 - `current` - Set to `1` to only return metrics that are in use in studies today.
 - `legacy` - Set to `1` to only return legacy metrics.
 - `core` - Set to `1` to only return core metrics.
@@ -73,8 +74,8 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
-the [includes section](../customizing/includes) for more information on how this works. The following relationships
+By default, relationships are not included. See
+the [includes section](../customizing/includes.md) for more information on how this works. The following relationships
 are available:
 
 - `group` - The [group](metric-groups.md) that the metric belongs to.

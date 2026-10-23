@@ -23,6 +23,25 @@ GET /api/v2/companies/123
 
 Where `123` is the system ID of the company.
 
+## Get a company's stock prices
+
+To get the historical share prices for a company's primary stock exchange listing, use the company stock prices
+endpoint:
+
+```http request
+GET /api/v2/companies/123/stock-prices
+```
+
+Where `123` is the system ID of the company.
+
+This returns the same response as the [stock prices endpoint](stock-prices.md#response) and is not paginated. It
+accepts the `from`, `to` and `interval` parameters described in
+the [stock prices documentation](stock-prices.md#parameters). Omitting `from` and `to` returns the full price history,
+so use a date window or a `weekly` or `monthly` `interval` to keep the response small.
+
+A company without a primary listing returns no rows, and its ID is listed in `meta.companies_without_listing`. A `503`
+error is returned if the market data provider cannot be reached.
+
 ## Schema
 
 ### Full response schema
@@ -44,6 +63,7 @@ Where `123` is the system ID of the company.
 | `officers`        | array   |            :white_check_mark:             |        :x:         | :white_check_mark: | An array of names and roles of the registered company officers. |
 | `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this company was first created.          |
 | `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this company was last updated.           |
+| `url`             | string  |                    :x:                    |        :x:         |        :x:         | The URL to view the company in The Fount.                       |
 
 ### Relationship Response Schema
 
@@ -61,17 +81,19 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 - `public` - Set to `1` to only return public (listed) companies.
 - `private` - Set to `1` to only return private (unlisted) companies.
-- `brands` - Set to a comma-separated list of brand IDs to only return companies that own those brands.
+- `brands` - Set to a comma-separated list of brand IDs to only return companies whose linked `brand` (the brand that
+  represents the company itself) is one of those brands. This does not match every brand the company owns.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `brand` - The [brand](brands.md) relation if the company name is also a tracked brand name.
-- `brands` - The [brands](brands.md) that belong to the company.
-- `gics_sector` - The [GICS Sector](gics-sectors.md) that categorizes the company.
-- `stock_exchanges` - The [stock exchanges](stock-exchanges.md) that the company is listed on.
-- `country` - The [country](countries.md) that the company is headquartered in.
+- `brand` - The [brand](../brands/brands.md) that represents the company itself, where one is linked.
+- `brands` - The [brands](../brands/brands.md) that belong to the company.
+- `gics_sector` - The [GICS Sector](../metadata/gics-sectors.md) that categorizes the company.
+- `stock_exchanges` - The [stock exchanges](../metadata/stock-exchanges.md) that the company is listed on. Each
+  exchange also includes the company's `stock_ticker` on that exchange.
+- `country` - The [country](../metadata/countries.md) that the company is registered in.
 - `latest_financials` - The latest financials for the company (available for public companies).

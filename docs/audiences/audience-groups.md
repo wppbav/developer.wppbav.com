@@ -2,7 +2,7 @@
 
 ## What are audience groups?
 
-[Audiences](audiences.md) are cuts of respondents that can be used ta analyze datasets. Audience Groups are a way to
+[Audiences](audiences.md) are cuts of respondents that can be used to analyze datasets. Audience Groups are a way to
 organize audiences into groups. For example, there are several audiences for different age cuts which are all grouped
 under the Age group.
 
@@ -14,15 +14,17 @@ To list all of the audience groups and browse them via the API, use the list end
 GET /api/v2/audience-groups
 ```
 
-## Get a audience group
+## Get an audience group
 
-You may also directly retrieve a audience group's details if you already have its system ID.
+You may also directly retrieve an audience group's details if you already have its system ID.
 
 ```http request
 GET /api/v2/audience-groups/123
 ```
 
 Where `123` is the system ID of the audience group.
+
+The audience groups endpoints are read-only.
 
 ## Schema
 
@@ -47,11 +49,12 @@ The slim relationship schema is used when the audience group is used as part of 
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `audiences` - The [audiences](audiences.md) that belong to this audience group.
+- `audiences` - The [audiences](audiences.md) that belong to this audience group, using the
+  [audience relationship schema](audiences.md#relationship-response-schema).
 
 ## Searching
 

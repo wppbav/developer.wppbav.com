@@ -2,7 +2,7 @@
 
 ## What are stock exchanges?
 
-Stock Exchanges are the entities where public [companies](companies.md) are listed.
+Stock Exchanges are the entities where public [companies](../company-data/companies.md) are listed.
 
 ## List all stock exchanges
 

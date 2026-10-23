@@ -10,9 +10,8 @@ your own systems. This is what the Audience Export Integration is designed for.
 
 ## How it works
 
-All audiences are available through the [Audiences API](audiences.md) and you can listen to data
-change
-events for updated audiences through [Webhooks](../webhooks.md). However, doing so requires you to always maintain the
+All audiences are available through the [Audiences API](audiences.md) and you can listen to data change events for
+updated audiences through [Webhooks](../webhooks.md). However, doing so requires you to always maintain the
 full list of audiences in your system. This is where the Audience Export Integration comes in.
 
 With the Audience Export Integration your application is added as an export destination for an audience within The
@@ -41,8 +40,11 @@ Which format you choose depends on your use case and the data you need, as well 
 The first format is always available for all datasets. The second format is available for all BAV studies. Formats 3 and
 4 are available for all Audience Origin studies.
 
-In addition, formats 2, 3 and 4 are available for all Honeycomb studies. These are studies where BAV and Audience Origin
-data have been fused together.
+In addition, formats 2, 3 and 4 are available for all fused studies (the "AO+BAV Fused" study type). These are studies
+where BAV and Audience Origin data have been fused together.
+
+Formats 3 and 4 can also be fetched directly from the API for a given audience and study. See
+[Fetching respondents from the API](#fetching-respondents-from-the-api).
 
 ## Access control
 
@@ -56,7 +58,8 @@ on their e-mail address.
 To get started with the Audience Export Integration you'll want to become familiar with:
 
 - The different type of supported formats for the audience export.
-- The [Audiences API](audiences.md) and how to use it to create and manage audiences.
+- The [Audiences API](audiences.md) and how to use it to read audiences, and
+  [Managing audiences](managing-audiences.md) for how to create and manage them.
 - The [Webhooks](../webhooks.md) and how to listen to audience export events.
 
 As you start thinking about how to use the Audience Export Integration,
@@ -115,9 +118,7 @@ see the [Audience API schema](audiences.md).
 
 ### Audience Origin Respondent IDs
 
-The Audience Origin Respondent ID (AO ID) is a unique identifier for each respondent in an audience. This ID is used to
-link the
-respondent to the data in the data warehouse. IDs take slightly different forms depending on the study but are most
+The Audience Origin Respondent ID (AO ID) is a unique identifier for each respondent in an audience. This ID is used to link the respondent to the data in the data warehouse. IDs take slightly different forms depending on the study but are most
 recently v4 UUIDs.
 
 :::warning Specific approval required
@@ -201,6 +202,55 @@ see the [Audience API schema](audiences.md).
     }
   },
   "respondents": [
+    "808_2x_4",
+    "809_2x_4",
+    "810_2x_4"
+  ]
+}
+```
+
+## Fetching respondents from the API
+
+In addition to the webhook-based export, the Audience Origin respondent IDs and progressive numbers for an audience can
+be fetched directly from the API, one study at a time.
+
+### Audience Origin Respondent IDs
+
+```http request
+GET /api/v2/audiences/{audienceId}/respondents/ao-ids/{studyId}
+```
+
+Returns the Audience Origin IDs of the respondents in the audience for the given study. Respondents without an Audience
+Origin ID are left out.
+
+### Audience Origin Progressive Numbers
+
+```http request
+GET /api/v2/audiences/{audienceId}/respondents/ao-progressive-numbers/{studyId}
+```
+
+Returns the Audience Origin progressive numbers of the respondents in the audience for the given study. Respondents
+without a progressive number are left out.
+
+### Requirements
+
+Both endpoints require:
+
+- A token with the `bav:audience-origin-data` scope.
+- Access to both the audience and the study.
+- The user's permission to export Audience Origin IDs (`ao-ids`) or Audience Origin progressive numbers
+  (`ao-progressive-numbers`) respectively. This permission requires specific approval.
+
+A `404` is returned if the audience or study does not exist, and a `403` if you are not allowed to access them or to
+export.
+
+### Response
+
+The response is not paginated. It contains a single `data` key with an array of identifiers:
+
+```json
+{
+  "data": [
     "808_2x_4",
     "809_2x_4",
     "810_2x_4"

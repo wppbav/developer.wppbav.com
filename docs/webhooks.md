@@ -7,40 +7,52 @@ Webhooks allow you to receive HTTP push notifications for data changes in BAV. T
 integrations on top of BAV. You could, for example, use it to react in realtime to new data being available or make
 audiences seamlessly available in your own systems.
 
-Our webhooks belong to the global platform. You can configure webhooks provide events based on all users and operating
-companies or specific users and/or operating companies. For example, you may only want to listen to new audiences
-created by users within GroupM.
+Our webhooks belong to the global platform. You can configure webhooks to provide events based on all users and
+operating companies or specific users and/or operating companies. For example, you may only want to listen to new
+audiences created by users within GroupM. Filtering on users and operating companies applies to the audience and
+collection events. Other events are always sent for all changes.
 
-The webhooks come in two categories "data change webhooks" and other events. The data change webhooks are triggered
-when data changes in BAV. The other events are triggered when other events occur in BAV.
+## Events
 
-The data change webhooks are currently supported for the following objects:
+When a webhook is set up, it is subscribed to one or more events. The data change events are triggered when data is
+created, updated or deleted in BAV:
 
-- `Audiences`
-- `Brands`
-- `Brand Metrics`
-- `Collections`
-- `Studies`
+| Event                        | `type` in the payload | Description                                                                           |
+|------------------------------|-----------------------|---------------------------------------------------------------------------------------|
+| `audiences_data_change`      | `Audience`            | An [audience](audiences/audiences.md) was created, updated or deleted.                |
+| `brands_data_change`         | `Brand`               | A [brand](brands/brands.md) was created, updated or deleted.                          |
+| `brand_metrics_data_change`  | `BrandMetric`         | A [brand metric](metrics/metrics.md) was created, updated or deleted.                 |
+| `collections_data_change`    | `Collection`          | A [collection](brands/collections.md) was created, updated or deleted.                |
+| `studies_data_change`        | `Study`               | A [study](studies/studies.md) was created, updated or deleted.                        |
 
-The other events are currently supported for the following events:
+The following events can also be added to a webhook, but are not currently being sent:
 
-- `Audience Export` - [Documentation](#)
+| Event                                 | Description                                    |
+|---------------------------------------|------------------------------------------------|
+| `audience_origin_metrics_data_change` | An Audience Origin metric was changed.         |
+| `tools_data_change`                   | A tool was changed.                            |
+| `tool_queries_data_change`            | A tool query was changed.                      |
+| `audience_export_italy_creator`       | An audience was exported to Italy Creator.     |
 
 ## How does a webhook work?
 
-A webhook is simple a HTTP POST request to a URL you specify. The request is automatically triggered by BAV when data
+A webhook is simply a HTTP POST request to a URL you specify. The request is automatically triggered by BAV when data
 updates or the event occurs. The request contains a [JSON payload](#the-webhook-payload) with the data that has changed
 or the event that has occurred.
 
 To receive data from the webhook all you need is a simple HTTP endpoint that:
 
-- Is available on a publicly accessible HTTPS, non-localhost URL.
-- Responds with a `HTTP 200` status code to the Webhook POST request.
+- Is available on a publicly accessible HTTPS, non-localhost URL with a valid SSL certificate.
+- Responds with a `2xx` status code (for example `HTTP 200`) to the webhook POST request within 5 seconds.
 
-If your endpoint does not respond with a `HTTP 200` status code the request will be retried a few times. We use an
-exponential backoff delay between retried. This means that for each retry the delay between retries will be longer. If
-your endpoint continues to fail to respond it will be automatically disabled. You'll receive a notification when this
-occurs. It must then be manually re-enabled when the issue has been fixed.
+If your endpoint does not respond with a `2xx` status code within 5 seconds, the request will be retried. Each webhook
+call is attempted up to 10 times in total. We use an exponential backoff delay between retries, which means that the
+delay gets longer for each retry: 10 seconds after the first attempt, then 100 seconds, 1,000 seconds (about 17
+minutes), 10,000 seconds (about 2.8 hours) and then 100,000 seconds (about 28 hours) between each of the remaining
+attempts.
+
+If all attempts fail, the webhook will be automatically disabled and the webhook's contacts will receive an email
+notification. It must then be manually re-enabled when the issue has been fixed.
 
 ## Getting started
 
@@ -49,7 +61,7 @@ Implementing webhooks is simpler than you might think. In summary, you'll need t
 - Create a receiving endpoint for the webhook.
 - Verify the authenticity of the webhook request by validating the signature in the request.
 - Parse the JSON payload in the request to get the data that has changed or the event that has occurred and process it.
-- Respond to the request with a `HTTP 200` status code.
+- Respond to the request with a `2xx` status code (for example `HTTP 200`).
 
 As some events are triggered by BAV it can be useful to use the sample payloads provided in the documentation to use as
 test data. This will allow you to test your endpoint without having to wait for the event to occur in BAV.
@@ -97,17 +109,17 @@ The custom headers sent by BAV are:
 | Name            | Description                                        |
 |-----------------|----------------------------------------------------|
 | `BAV-Delivery`  | A UUID (v4) that uniquely identifies this payload. |
-| `BAV-Event`     | The resource type that triggered this event.       |
+| `BAV-Event`     | The resource type that triggered this event. This is the same as the `type` field in the body. |
 | `BAV-Signature` | The HMAC signature of the webhook payload.         |
 
 The payload is sent with the following body:
 
 | Field              | Description                                                                                                                                          |
 |--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `action`           | The type of action that took place. This is only available for data change events and is otherwise not present. One of: `create`, `update`, `delete` |
+| `action`           | The type of action that took place. For data change events, one of: `created`, `updated`, `deleted`.                                                 |
 | `data`             | The data for the object in the same format as the object's full response schema. You can find this in the documentation for each endpoint.           |
-| `type`             | The type of resource that was targeted.                                                                                                              |
-| `url`              | The URL to the object's page on The Fount.                                                                                                           |
+| `type`             | The type of resource that was targeted, for example `Brand`. See [events](#events).                                                                  |
+| `url`              | The URL to the object's page on The Fount, when it has one. Otherwise `null`.                                                                        |
 | `webhookDate`      | The date of the event in ISO 8601 format.                                                                                                            |
 | `webhookTimestamp` | The date of the event in Unix timestamp format.                                                                                                      |
 | `webhookId`        | A UUID (v4) that uniquely identifies this payload.                                                                                                   |
@@ -116,7 +128,7 @@ For example:
 
 ```json
 {
-  "action": "create",
+  "action": "created",
   "data": {
     "id": 1,
     "name": "BAV@WPP"
@@ -124,8 +136,8 @@ For example:
   },
   "type": "Brand",
   "url": "https://fount.wppbav.com/brands/1",
-  "webhookDate": "2024-01-01T00:00:00Z",
-  "webhookTimestamp": 1672531200,
+  "webhookDate": "2024-01-01T00:00:00+00:00",
+  "webhookTimestamp": 1704067200,
   "webhookId": "7efba5b3-f551-4862-ad1e-2667d09a40bb"
 }
 ```

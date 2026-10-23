@@ -12,3 +12,19 @@ and all relevant wording.
 Each endpoint documentation will show you which parameters each endpoint takes and what the response will look like.
 However, we suggest that you also try each tool in the graphical interface on The Fount to get a better understanding of
 the results.
+
+## Access
+
+All tool endpoints require a token with the `bav:brand-data` scope. In addition, each tool requires that the user has
+access to that tool in The Fount; otherwise a `403` response is returned.
+
+## Parameter formats
+
+Most tool endpoints take comma-separated lists of IDs, for example `brands=148,149`. Where a page lists a parameter as
+taking a single ID, only one value is accepted. The [Commitment Funnel](commitment-funnel.md) instead follows the
+[brandscape data models](brandscape-data.md) and takes array parameters (`brands[]=148&brands[]=149`), which also accept
+names, and can select studies by `countries` and `years`.
+
+Unless stated otherwise, the `audiences` parameter defaults to All Adults (audience ID `1`), and responses are returned
+as JSON in a `data` key.
+

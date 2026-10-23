@@ -13,7 +13,19 @@ Examples of useful collections are:
 A collection may be public or private. A public collection is available to all users. A private collection is only
 available to the user who created it.
 
-A collection can also be shared with any number of users.
+A collection can also be shared with any number of users. Through the API you only see your own collections, public
+collections and collections shared with you.
+
+Collection IDs can be used wherever an endpoint takes a `collections` filter or benchmark, for example in the
+[brand data tools](../brand-data/index.md).
+
+:::info Read-only
+
+The collections endpoints are read-only. Although a `bav:collections:write` token scope exists, the REST API has no
+endpoints for creating, updating or deleting collections, and `POST`, `PUT`/`PATCH` and `DELETE` requests to
+`/api/v2/collections` return a `400 Bad Request` response.
+
+:::
 
 ## List all collections
 
@@ -41,8 +53,9 @@ Where `123` is the system ID of the collection.
 |-------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                                                                                                    |
 | `name`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the collection.                                                                                                                               |
-| `collection_type` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the collection is private or public.                                                                                                                      |
-| `uuid`            | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The public unique identifier for the collection. Whenever a collection is shared outside of the system, or a direct link is required we use the UUID over the ID. |
+| `collection_type` | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The collection type: `1` public, `2` private or `3` report (deprecated).                                                                                          |
+| `uuid`            | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The public unique identifier for the collection. Whenever a collection is shared outside of the system, or a direct link is required we use the UUID over the ID. |
+| `url`             | string  |                    :x:                    |        :x:         |        :x:         | The URL to view the collection in The Fount.                                                                                                                      |
 | `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this collection was first created.                                                                                                         |
 | `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this collection was last updated.                                                                                                          |
 
@@ -54,6 +67,16 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 - `public` - Set to `1` to only return public collections.
 - `shared_with_me` - Set to `1` to only return collections shared with the user.
 - `mine` - Set to `1` to only return collections created by the user.
+
+Any value turns these filters on.
+
+## Relationships & includes
+
+By default, relationships are not included. See the [includes section](../customizing/includes) for more information
+on how this works. The following relationships are available:
+
+- `brands` - The [brands](brands.md) in the collection, using the brand relationship schema (`id`, `name`, `sector`
+  and `signalai_id`).
 
 ## Searching
 

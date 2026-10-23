@@ -31,11 +31,11 @@ Where `123` is the system ID of the brand metric group.
 |---------------|---------|:-----------------------------------------:|:------------------:|:------------------:|--------------------------------------------------------|
 | `id`          | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                         |
 | `name`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the group.                         |
-| `key`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A machine-readable name for the group.                 |
+| `key`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A machine-readable name for the group. Used by the `metric_group_keys` parameter on [brandscape data](../brand-data/brandscape-data.md). |
 | `description` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A short description on what this group is about.       |
-| `is_public`   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the group is publicly available for all users. |                                                                                                                    |
-| `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this brand was first created.   |
-| `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this brand was last updated.    |
+| `is_public`   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the group is publicly available for all users. |
+| `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this group was first created.   |
+| `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this group was last updated.    |
 
 ### Relationship Response Schema
 
@@ -48,16 +48,16 @@ The slim relationship schema is used when the brand metric group is used as part
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters for brands that are not available in
+For convenience, we have a set of additional filters for brand metric groups that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-- `public` - Set to `1` to only return public metrics.
-- `private` - Set to `1` to only return private metrics.
+- `public` - Set to `1` to only return public groups.
+- `private` - Set to `1` to only return private groups.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `metric` - The [metrics](metrics.md) that are part of this group.
+- `metrics` - The [metrics](metrics.md) that are part of this group.

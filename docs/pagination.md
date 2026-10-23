@@ -9,7 +9,8 @@ and collections.
 You may use the following query parameters on list resources:
 
 - `page` will let you set the currently active page.
-- `per_page` will let you set how many records you want to retrieve per page. Maximum of 1000. Default is 25.
+- `per_page` will let you set how many records you want to retrieve per page. Maximum of 1000. Default is 25. A `400`
+  error is returned if you ask for more than 1000 records per page.
 
 URL Example:
 
@@ -121,4 +122,5 @@ The structure of the API list response is as follows:
     "to": 15,
     "total": 2434
   }
+}
 ```
