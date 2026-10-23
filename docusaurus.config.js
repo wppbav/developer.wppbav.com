@@ -82,12 +82,6 @@ const config = {
                     },
                     {
                         type: 'doc',
-                        docId: 'embed/intro',
-                        position: 'left',
-                        label: 'Embed',
-                    },
-                    {
-                        type: 'doc',
                         docId: 'developer-tools/index',
                         position: 'left',
                         label: 'Developer Tools',
