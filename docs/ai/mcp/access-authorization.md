@@ -87,8 +87,7 @@ X-Act-As-User: jane.doe@wpp.com
 ```
 
 :::note
-Tokens issued to a user, whether through OAuth or as a personal access token, can't act as another user. The only
-exception is legacy tokens with the `bav:auto-login` system scope.
+Tokens issued to a user, whether through OAuth or as a personal access token, can't act as another user.
 :::
 
 Applications can use two separate IP lists:

@@ -361,8 +361,7 @@ All of these are required:
   [Contact us](mailto:support@bernskiold.com) if your application needs it.
 - **The token belongs to the application.** Use an [application API key](#application-api-keys) or a
   [client credentials token](#client-credentials-flow). A token that a user issued to your application through the
-  authorization code flow can't act as another user, and neither can a personal access token (apart from legacy
-  tokens with the [`bav:auto-login`](#system-scopes) scope).
+  authorization code flow can't act as another user, and neither can a personal access token.
 - **The token has the `act-as-user` scope by name.** The scope is only offered once the application is approved. The
   `*` scope doesn't include it, and a client credentials token only gets it when you ask for it in `scope`.
 - **The request comes from an allowed address**, if the application has
@@ -402,7 +401,7 @@ Authentication errors are always returned as JSON with a `message`, even if you 
 | `403` | `This application does not allow requests from this IP address.`                               | The request comes from outside the application's [allowed API IP addresses](#restricting-where-api-calls-come-from).   |
 | `403` | `This application has been deactivated.`                                                        | The application has been deactivated.                                                                                  |
 | `403` | `A token issued to a user cannot act as another user.`                                          | `X-Act-As-User` was sent with an OAuth token issued to a user.                                                         |
-| `403` | `This token is not allowed to act as another user.`                                             | `X-Act-As-User` was sent with a personal access token without the legacy `bav:auto-login` scope.                       |
+| `403` | `This token is not allowed to act as another user.`                                             | `X-Act-As-User` was sent with a personal access token.                                                                 |
 | `403` | `This application is not allowed to act on behalf of users.`                                    | The application isn't trusted and approved to act on behalf of users.                                                  |
 | `403` | `The token does not have the act-as-user scope.`                                                | The application's token doesn't name the `act-as-user` scope.                                                          |
 | `403` | `The user to act as is not active.`                                                             | The user in `X-Act-As-User` has been deactivated.                                                                      |
@@ -468,13 +467,8 @@ resource, a `403` error is returned.
 
 ### System scopes
 
-A few scopes are not for general use and can't be self-assigned:
+Some scopes are not for general use and can't be self-assigned. The `act-as-user` scope lets an approved application
+[act on behalf of users](#acting-on-behalf-of-users). It is only offered on an application's own API keys and client
+credentials clients once the application has been approved to act on behalf of users.
 
-- `act-as-user` lets an approved application [act on behalf of users](#acting-on-behalf-of-users). It is only offered
-  on an application's own API keys and client credentials clients once the application has been approved to act on
-  behalf of users.
-- `bav:auto-login` is a legacy system scope for older trusted integrations. A personal access token that names it
-  explicitly can still send `X-Act-As-User`. It requires a special permission and can't be given to applications. New
-  integrations should use an application approved to act on behalf of users instead.
-
-[Contact us](mailto:support@bernskiold.com) if you think your integration needs one of these.
+[Contact us](mailto:support@bernskiold.com) if you think your integration needs it.
