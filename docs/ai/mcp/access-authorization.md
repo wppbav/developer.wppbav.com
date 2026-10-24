@@ -78,8 +78,7 @@ If you are building an application, you can create one yourself under **Applicat
 
 Applications that we have marked as trusted and approved to act on behalf of users can pass the e-mail address of a
 user in the `X-Act-As-User` header, together with an application API key or a client credentials token. The token must
-explicitly include the `act-as-user` scope. The request is then made as that user, with their permissions. The legacy
-`X-User-Email` header is still accepted, but we recommend moving to `X-Act-As-User`.
+explicitly include the `act-as-user` scope. The request is then made as that user, with their permissions.
 
 ```
 Authorization: Bearer YOUR_APPLICATION_TOKEN

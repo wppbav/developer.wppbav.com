@@ -366,9 +366,6 @@ we can instead have unknown users created as BAV users on their first request.
 
 Activity performed this way is recorded against the user, and notes that it was made through your application.
 
-The legacy `X-User-Email` header is still accepted in place of `X-Act-As-User`, but we recommend moving to
-`X-Act-As-User`.
-
 ## IP restrictions
 
 There are two separate IP lists on an application:
