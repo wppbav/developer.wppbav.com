@@ -71,8 +71,8 @@ If you are building an application, you can create one yourself under **Applicat
 
 - **OAuth on behalf of a user:** Users authorize your application through the OAuth flow, and your application acts on
   their behalf with their permissions.
-- **Application API keys:** An API key belonging to the application itself. Requests are made as the application's own
-  user, with the access an administrator has set up for it.
+- **Application API keys:** An API key belonging to the application itself. Requests are made as the application, with
+  the access that has been set up for it.
 - **Client credentials:** A token requested with the OAuth client credentials grant. It works like an application API
   key, is limited to the client's scopes and lasts one hour.
 

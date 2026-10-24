@@ -94,16 +94,11 @@ by their e-mail address, and give each of them a role:
 
 An application always keeps at least one owner. Only an owner can give, change or take away the Owner role.
 
-### The application's own user
+### Application access
 
-Every application has its own user, which you can see as **Acts as** on the application's page. When the application
-calls the API as itself, the request is made as this user. Its roles, agency and data access decide what the
-application can see, in the same way as for a person.
-
-A new application's user starts with only basic access. An administrator sets up the access it needs.
-[Contact us](mailto:support@bernskiold.com) to have access added to your application.
-
-This user can't be used to sign in to The Fount.
+When the application calls the API as itself, it has its own access to data, separate from that of its members. A new
+application starts with only basic access. [Contact us](mailto:support@bernskiold.com) to have the access it needs
+added.
 
 ### Application API keys
 
@@ -124,9 +119,8 @@ curl https://fount.wppbav.com/api/v2/brands \
 ```
 
 :::note Service accounts
-Applications replace service accounts. Every service account has been converted to an application, with the
-account as the application's own user. Tokens issued to a service account keep working, with the same access, and are
-now managed as the application's API keys.
+Applications replace service accounts. Every service account has been converted to an application. Tokens issued to a
+service account keep working, with the same access, and are now managed as the application's API keys.
 :::
 
 ### OAuth clients
@@ -458,8 +452,7 @@ The [health check](health-check.md) endpoint doesn't require authentication or a
 Most of the dataset scopes are tied to a permission in The Fount. You can only give a scope to a key when the account
 it belongs to has access to the dataset it covers. For example, the `bav:best-countries-data` scope is only available
 on a personal access token if you have access to Best Countries. For an application's API keys and client credentials
-clients, the scopes on offer depend on the access of the [application's own user](#the-applications-own-user), not on
-yours.
+clients, the scopes on offer depend on the [application's access](#application-access), not on yours.
 
 Scopes control which endpoints a token can use. Within those endpoints, you can still only see the data that the
 account the request is made as has access to. If that account doesn't have permission to perform an action or see a
