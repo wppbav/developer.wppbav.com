@@ -13,11 +13,9 @@ Imagery is category agnostic.
 
 ```http request
 POST /api/v2/brandscape/imagery
-GET /api/v2/tools/imagery
 ```
 
-The `POST` endpoint takes its parameters as a JSON body, and the `GET` endpoint takes the same parameters as query
-parameters. Both return the same response.
+The parameters are sent as a JSON body.
 
 This endpoint requires the `bav:brand-data` scope.
 

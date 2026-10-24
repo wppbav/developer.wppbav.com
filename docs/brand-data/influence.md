@@ -5,8 +5,6 @@ Innovation, Authenticity, Status, Trust, Convenience, Contemporary, Performance,
 
 Influence is category agnostic.
 
-Influence is only available as a `POST` request. There is no `GET /api/v2/tools/influence` endpoint.
-
 ## Creating a query
 
 ```http request

@@ -11,23 +11,18 @@ belong to.
 
 The following models are available:
 
-| Model                                     | Endpoint                          | Category specific? | Also available as          |
-|-------------------------------------------|-----------------------------------|:------------------:|----------------------------|
-| [Powergrid](powergrid.md)                 | `POST /api/v2/brandscape/powergrid`      |        :x:         | `GET /api/v2/tools/powergrid`      |
-| [Pillars](pillars.md)                     | `POST /api/v2/brandscape/pillars`        |        :x:         | `GET /api/v2/tools/pillars`        |
-| [Imagery](imagery.md)                     | `POST /api/v2/brandscape/imagery`        |        :x:         | `GET /api/v2/tools/imagery`        |
-| [Personality](personality.md)             | `POST /api/v2/brandscape/personality`    |        :x:         | `GET /api/v2/tools/personality`    |
-| [Influence](influence.md)                 | `POST /api/v2/brandscape/influence`      |        :x:         | -                                  |
-| [Brand Worth](brand-worth.md)             | `POST /api/v2/brandscape/brand-worth`    |        :x:         | -                                  |
-| [Preferences](preferences.md)             | `POST /api/v2/brandscape/preferences`    | :white_check_mark: | `GET /api/v2/tools/preferences`    |
-| [Usage](usage.md)                         | `POST /api/v2/brandscape/usage`          | :white_check_mark: | `GET /api/v2/tools/usage`          |
-| [Recommendation](recommendation.md)       | `POST /api/v2/brandscape/recommendation` | :white_check_mark: | `GET /api/v2/tools/recommendation` |
-| [Super CX](super-cx.md)                   | `POST /api/v2/brandscape/super-cx`       | :white_check_mark: | `GET /api/v2/tools/super-cx`*      |
-
-\* `GET /api/v2/tools/super-cx` is a separate tool endpoint with its own parameters and response. See
-the [Super CX](super-cx.md) page.
-
-The [Agency Change Predictor](agency-change-predictor.md) is built on the same filters, but returns its own response.
+| Model                               | Endpoint                                 | Category specific? |
+|-------------------------------------|------------------------------------------|:------------------:|
+| [Brand Worth](brand-worth.md)       | `POST /api/v2/brandscape/brand-worth`    |        :x:         |
+| [Imagery](imagery.md)               | `POST /api/v2/brandscape/imagery`        |        :x:         |
+| [Influence](influence.md)           | `POST /api/v2/brandscape/influence`      |        :x:         |
+| [Personality](personality.md)       | `POST /api/v2/brandscape/personality`    |        :x:         |
+| [Pillars](pillars.md)               | `POST /api/v2/brandscape/pillars`        |        :x:         |
+| [Powergrid](powergrid.md)           | `POST /api/v2/brandscape/powergrid`      |        :x:         |
+| [Preferences](preferences.md)       | `POST /api/v2/brandscape/preferences`    | :white_check_mark: |
+| [Recommendation](recommendation.md) | `POST /api/v2/brandscape/recommendation` | :white_check_mark: |
+| [Super CX](super-cx.md)             | `POST /api/v2/brandscape/super-cx`       | :white_check_mark: |
+| [Usage](usage.md)                   | `POST /api/v2/brandscape/usage`          | :white_check_mark: |
 
 All data model endpoints require the **BAV Brand Data** (`bav:brand-data`) scope.
 
@@ -43,13 +38,13 @@ it can significantly change the interpretation of the results.
 ## Creating a query
 
 Each model is available as a `POST` request to `/api/v2/brandscape/{model}` where the parameters are sent as a JSON
-body. Most models are also available as a `GET` request to `/api/v2/tools/{model}` where the same parameters are sent
-as query parameters. The two return the same response.
+body.
 
 ```http request
 POST /api/v2/brandscape/pillars
-GET /api/v2/tools/pillars?brands[]=148&countries[]=US&years[]=2025
 ```
+
+Most models can also be requested with `GET` and query parameters, as part of the [tools](tools.md#data-model-tools).
 
 ## Parameters
 

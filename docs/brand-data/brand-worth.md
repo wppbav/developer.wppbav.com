@@ -8,8 +8,7 @@ Brand Worth returns the data behind the Brand Worth Map: each brand's percentile
 - **Emotional Choice** - `worth_more` rank below 50 and `good_value` rank below 50.
 - **Value Champion** - `worth_more` rank below 50 and `good_value` rank above 50.
 
-Brand Worth is only available as a `POST` request. For the Brand Worth Map tool, see
-the [Brand Worth Map](../brand-data/brand-worth-map.md) endpoint.
+For the Brand Worth Map tool, see the [Brand Worth Map](brand-worth-map.md) endpoint.
 
 ## Creating a query
 
