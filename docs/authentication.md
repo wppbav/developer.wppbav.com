@@ -30,6 +30,14 @@ exposed.
 Personal access tokens are the easiest way to get started. When you build something that other people will use, create
 an [application](#applications) instead.
 
+:::tip We recommend OAuth
+Where you can, use [OAuth 2](#oauth-2) rather than a long-lived personal access token or application API key. With
+OAuth, users approve what your application can do and can revoke that access at any time, each request is made with the
+permissions of the person using your application. Use the [authorization code flow](#authorization-code-flow)
+when people sign in to your application, and the [client credentials flow](#client-credentials-flow) for
+machine-to-machine integrations.
+:::
+
 Whichever method you use, the request has the permissions and data access of the account it is made as, and the token
 must have the [scope](#scopes) the endpoint requires.
 
@@ -105,6 +113,9 @@ and developers manage the keys under **API Keys** on the application's page, in 
 given, not your own.
 
 Expiry e-mails for an application's keys go to its owners, admins and developers.
+
+For machine-to-machine integrations, we recommend the [client credentials flow](#client-credentials-flow) over an API
+key. It gives the same access as the application, but with tokens that last an hour instead of a long-lived key.
 
 ```bash
 curl https://fount.wppbav.com/api/v2/brands \
