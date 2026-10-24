@@ -361,8 +361,7 @@ All of these are required:
 - **The request comes from an allowed address**, if the application has
   [allowed API IP addresses](#restricting-where-api-calls-come-from).
 
-The user must be an active user. If no user has the e-mail address, a `422` error is returned. For BAV applications,
-we can instead have unknown users created as BAV users on their first request.
+The user must be an active user. If no user has the e-mail address, a `422` error is returned.
 
 Activity performed this way is recorded against the user, and notes that it was made through your application.
 
