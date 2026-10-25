@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`brandscape-data` endpoint](/brand-data/brandscape-data.md).
 :::
 
-The `brandscape-data` endpoint has full support, including query validation.
+The `brandscape-data` endpoint has full support. This support includes query validation.
 
 | Endpoint            | Function          | `Client` method          | Filters class       |
 | ------------------- | ----------------- | ------------------------ | ------------------- |
@@ -38,7 +38,7 @@ async with bavapi.Client("TOKEN") as bav:
 </Tabs>
 
 :::caution
-`brandscape-data` has filters which have a slightly **different** name than for other endpoints:
+Some `brandscape-data` filters have a slightly **different** name than the filters for other endpoints:
 
 - `year_number` instead of `year_numbers`.
 - `country_code` instead of `country_codes`.
@@ -52,16 +52,15 @@ These filters are available directly within the function/method:
 - Positional filters: `country_code`, `year_number`, `audiences`, `brand_name` (search by name)
 - Keyword filters: `studies`
 
-For other filters, passing a `BrandscapeFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `BrandscapeFilters` instance to the `filters` parameter.
 
 ## Required filters
 
-`brandscape-data` can retrieve brand datasets from an arbitrary combination of studies, audiences and years, so it is
-possible that the request becomes too large for the server to deliver effectively for all users. Please see the see the
-main API documentation for the [brandscape data endpoint](/brand-data/brandscape-data.md) for more details on
-required filters to apply.
+`brandscape-data` can get brand datasets from any combination of studies, audiences and years. Thus, a request can
+become too large for the server to deliver effectively for all users. For more details about the required filters, see
+the main API documentation for the [brandscape data endpoint](/brand-data/brandscape-data.md).
 
-If a query does not have any of these combinations of filters, it will raise a `ValidationError`:
+If a query does not have one of these combinations of filters, it will raise a `ValidationError`:
 
 ```py
 bavapi.brandscape_data("TOKEN")  # Error, no filters specified
@@ -77,15 +76,14 @@ bavapi.brandscape_data(
 
 ## Default includes
 
-In order to provide critical information about the data retrieved from `brandscape-data` some `include` values are
-requested by
+To give critical information about the data from `brandscape-data`, `bavapi` requests some `include` values by
 default: `study`, `brand`, `category` and `audience`.
 
-If you add any of these values in the `include` field by themselves, the default won't be used, and `bavapi` will make a
-request with the specified `include` instead.
+If you add one of these values in the `include` field by itself, `bavapi` does not use the default. It makes a request
+with the specified `include` instead.
 
-If, on the other hand, you request an `include` that is *not* part of the default values, `bavapi` will append that new
-value to the default `include` values.
+If you request an `include` that is *not* part of the default values, `bavapi` will add that new value to the default
+`include` values.
 
 ```py
 # All default includes will be requested
@@ -101,30 +99,26 @@ bavapi.brandscape_data("TOKEN", brand_name="Facebook", include="company")
 
 ## Clashing column names
 
-Some includes can have clashing column names with the original data. This happens, for example, with the `"brand"`
-include, which when expanded will have column names such as `"brand_name"`, which is already present in
-the `brandscape-data` table.
+Some includes can have column names that clash with the column names of the original data. For example, the expanded
+`"brand"` include has column names such as `"brand_name"`. The `brandscape-data` table already has this column.
 
-To circumvent this issue, the response parsing function will append the `"global_"` prefix to includes with potentially
-clashing names.
+To prevent this problem, the response parsing function adds the `"global_"` prefix to includes that can have clashing
+names.
 
-As a result, you will see a set of columns, extracted from the `"brand"` include, which will have a `"global_"` prefix
-in their names.
+Thus, a set of columns from the `"brand"` include will have a `"global_"` prefix in their names.
 
 :::caution
-This may change in future versions of `bavapi` as the parsing logic is upgraded.
+This can change in future versions of `bavapi` when the parsing logic changes.
 :::
 
 ## Metric keys
 
-`brandscape-data` provides a special filter to specify the data *columns* that the response should
-contain: `metric_keys`.
+`brandscape-data` has a special filter to specify which data *columns* the response contains: `metric_keys`.
 
-You can specify the metrics that your response should contain, and the API will include all score types for that metric.
+You can specify the metrics for your response. The API will include all score types for each of these metrics.
 
 :::info Example
-Setting `metric_keys` to `["differentiation", "relevance"]` will instruct the request to only return the following
-columns:
+If you set `metric_keys` to `["differentiation", "relevance"]`, the request will return only the following columns:
 
 - `differentiation_c`
 - `differentiation_rank`

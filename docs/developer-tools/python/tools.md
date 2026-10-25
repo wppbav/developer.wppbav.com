@@ -1,18 +1,18 @@
 # Tools/TurboPitch
 
 :::info
-Read more in the API documentation for the [tools endpoint](/brand-data/index.md).
+Read more in the API documentation for the [tools endpoint](/brand-data/tools.md).
 :::
 
-The `tools` namespace in `bavapi` and the API enables access to ready-made analyses and frameworks to gain direct insights from BAV data.
+The `tools` namespace in `bavapi` and the API gives access to ready-made analyses and frameworks. These give direct insights from BAV data.
 
-Every tool operates by requesting the analysis to be performed on specific brands, categories, markets or audiences, specified by their ID in the Fount. The analysis is performed on the server, and the results are returned once retrieved.
+Each tool requests an analysis of specific brands, categories, markets or audiences. You identify these items by their ID in the Fount. The server does the analysis, and returns the results when they are available.
 
-Because the breadth of filters and parameters is much simpler than the query API endpoints, `pydantic` models are not needed to make requests. Function parameters are still type validated.
+The filters and parameters of the tools are much simpler than the filters and parameters of the query API endpoints. Thus, you do not need `pydantic` models to make requests. The SDK still validates the types of the function parameters.
 
 ## Using `bavapi.tools`
 
-The `tools` interface must be used through the `async` interface provided by the `bavapi.tools.ToolsClient` class:
+You must use the `tools` interface through the `async` interface of the `bavapi.tools.ToolsClient` class:
 
 ```py
 from bavapi.tools import ToolsClient
@@ -21,7 +21,7 @@ async with ToolsClient("TOKEN") as client:  # Replace `"TOKEN"` with your own AP
     result = await client.brand_worth_map(brands=1, studies=1)
 ```
 
-You can also manually close the connection instead of using an `async with` block:
+You can also close the connection manually instead of with an `async with` block:
 
 ```py
 from bavapi.tools import ToolsClient
@@ -33,10 +33,10 @@ finally:
     await client.aclose()  # Close the connection with the API server
 ```
 
-You will need to instantiate a new `ToolsClient` object once you use it inside the `async with` block or call `aclose`.
+After you use a `ToolsClient` object inside the `async with` block or call `aclose`, you must instantiate a new `ToolsClient` object.
 
 :::caution Different return types by endpoint
-Each tool will return results with different signatures. Some will return simply `pandas.DataFrame` instances, and others will return a tuple of additional metadata as a JSON dictionary and parsed data as a `pandas.DataFrame`. Please check the return type for each endpoint method in the docstrings or type hints.
+Each tool returns results with a different signature. Some tools return only `pandas.DataFrame` instances. Other tools return a tuple: additional metadata as a JSON dictionary, and parsed data as a `pandas.DataFrame`. Check the return type for each endpoint method in the docstrings or type hints.
 
 ```py
 await ToolsClient("TOKEN").brand_worth_map(...)  # returns (JSONDict, pd.DataFrame)
@@ -47,20 +47,20 @@ await ToolsClient("TOKEN").brand_personality_match(...)  # returns pd.DataFrame
 
 ## Client settings
 
-Unlike the query API endpoints, these tools do not return paginated results, so many of the parameters to control pagination behavior in the query endpoints are not used. You can still specify the following when initializing `ToolsClient`:
+These tools do not return paginated results, which is different from the query API endpoints. Thus, the tools do not use many of the pagination parameters of the query endpoints. When you initialize `ToolsClient`, you can still specify the following:
 
 - `auth_token`
 - `base_url`
 - `user_agent`
-- `headers`: if used, don't pass `auth_token` and `user_agent`
-- `client`: if used, don't pass `auth_token`, `headers` and `user_agent`
+- `headers`: if you use this parameter, do not pass `auth_token` and `user_agent`
+- `client`: if you use this parameter, do not pass `auth_token`, `headers` and `user_agent`
 - `retries`
 
-Please refer to the [basic usage](basic-usage.md) section for more information on how to use these configuration parameters.
+For more information about how to use these configuration parameters, see the [basic usage](basic-usage.md) section.
 
 ## Available endpoints
 
-The available tools endpoints are the following:
+The available tools endpoints are:
 
 - `archetypes`
 - `brand_personality_match`
@@ -71,7 +71,7 @@ The available tools endpoints are the following:
 - `love_plus`
 - `partnership_exchange_map`
 
-Endpoints not currently implemented are:
+These endpoints are not implemented at this time:
 
 - `category_worth_map`
 - `swot`

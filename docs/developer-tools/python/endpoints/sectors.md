@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`sectors` endpoint](/core-resources/sectors.md).
 :::
 
-The `sectors` endpoint has full support, including query validation.
+The `sectors` endpoint has full support. This support includes query validation.
 
 | Endpoint    | Function  | `Client` method  | Filters class    |
 | ----------- | --------- | ---------------- | ---------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `in_most_influential`
 - Keyword filters: `sector_id`
 
-For other filters, passing an `SectorsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `SectorsFilters` instance to the `filters` parameter.

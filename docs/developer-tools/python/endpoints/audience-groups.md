@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`audience-groups` endpoint](/core-resources/audience-groups.md).
 :::
 
-The `audience-groups` endpoint has full support, including query validation.
+The `audience-groups` endpoint has full support. This support includes query validation.
 
 | Endpoint            | Function          | `Client` method          | Filters class           |
 | ------------------- | ----------------- | ------------------------ | ----------------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`
 - Keyword filters: `audience_group_id`
 
-For other filters, passing an `AudienceGroupsFilters` instance to the `filters` parameter is required.
+For other filters, you must give an `AudienceGroupsFilters` instance to the `filters` parameter.

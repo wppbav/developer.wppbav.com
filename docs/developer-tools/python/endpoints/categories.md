@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`categories` endpoint](/core-resources/categories.md).
 :::
 
-The `categories` endpoint has full support, including query validation.
+The `categories` endpoint has full support. This support includes query validation.
 
 | Endpoint       | Function     | `Client` method     | Filters class       |
 | -------------- | ------------ | ------------------- | ------------------- |
@@ -44,13 +44,13 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `sector`
 - Keyword filters: `category_id`
 
-For other filters, passing an `CategoriesFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `CategoriesFilters` instance to the `filters` parameter.
 
 ## Default includes
 
-In order to provide critical information about the data retrieved from `categories`, and to move its structure in line
-with data downloads from the Fount or BAV's Cultural Rank Tool (CRT), some `include` values are requested by default:
-`sector`.
+`bavapi` requests some `include` values by default: `sector`. These values give critical information about the data
+from `categories`. They also make its structure align with data downloads from the Fount or BAV's Cultural Rank Tool
+(CRT).
 
 ```py
 # All default (sector) includes will be requested

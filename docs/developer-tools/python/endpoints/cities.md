@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`cities` endpoint](/core-resources/cities.md).
 :::
 
-The `cities` endpoint has full support, including query validation.
+The `cities` endpoint has full support. This support includes query validation.
 
 | Endpoint   | Function | `Client` method | Filters class   |
 | ---------- | -------- | --------------- | --------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `capitals`, `countries`, `in_best_countries`
 - Keyword filters: `city_id`
 
-For other filters, passing an `CitiesFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `CitiesFilters` instance to the `filters` parameter.

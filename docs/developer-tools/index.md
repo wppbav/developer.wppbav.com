@@ -4,18 +4,18 @@ sidebar_label: Overview
 
 # Developer Tools and SDKs
 
-Libraries and tools for interacting with your BAV API integration.
+Libraries and tools to work with your BAV API integration.
 
-We want to make it as easy as possible for you to work with the BAV API. With SDKs we take care of the heavy lifting for
-you, so you can spend more time building your integration.
+We want to make it as easy as possible for you to work with the BAV API. The SDKs do the difficult work for you. Thus,
+you can spend more time on your integration.
 
-Since BAV is an internal WPP product we don't have a dedicated team to build and maintain SDKs. Instead we rely on the
-WPP community to help maintain SDKs for languages that they write in. By sharing the load we can ensure that the SDKs
-are maintained and up to date, while saving time and effort for everyone.
+BAV is an internal WPP product, so we do not have a dedicated team to build and maintain SDKs. Instead, we rely on the
+WPP community to help maintain SDKs for the languages that they write in. When we share the work, we can make sure that
+the SDKs stay maintained and up to date. This also saves time and effort for everyone.
 
 :::note
-The collection of SDKs here are driven by community need and development. If you have done an integration with a
-language we don't yet have an SDK for and would consider packaging it as an SDK and sharing, please let us know.
+Community need and community development drive the collection of SDKs on this page. Did you make an integration in a
+language that does not have an SDK yet? If you want to package it as an SDK and share it, let us know.
 :::
 
 ## Python SDK
@@ -26,9 +26,9 @@ The Python SDK is created and maintained by Ignacio Maiz at BAV@WPP.
 
 ## BAV API Specification
 
-The API specifications will help you get set up with a broad range of API tools, such as Postman.
+The API specifications help you set up a broad range of API tools, such as Postman.
 
 - [Postman Collection](/collections/bav-api-postman.json)
 - [Swagger Definition](/collections/bav-api-swagger.json)
 
-*(right-click and select to download the file to your computer)*
+*(To download a file to your computer, right-click the link and select the download option.)*

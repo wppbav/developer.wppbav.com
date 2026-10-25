@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`brand-metric-groups` endpoint](/metrics/metric-groups.md).
 :::
 
-The `brand-metric-groups` endpoint has full support, including query validation.
+The `brand-metric-groups` endpoint has full support. This support includes query validation.
 
 | Endpoint                | Function              | `Client` method              | Filters class              |
 | ----------------------- | --------------------- | ---------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `active`
 - Keyword filters: `group_id`
 
-For other filters, passing an `BrandMetricGroupsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `BrandMetricGroupsFilters` instance to the `filters` parameter.

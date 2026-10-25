@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`collections` endpoint](/brands/collections.md).
 :::
 
-The `collections` endpoint has full support, including query validation.
+The `collections` endpoint has full support. This support includes query validation.
 
 | Endpoint        | Function      | `Client` method      | Filters class        |
 | --------------- | ------------- | -------------------- | -------------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `public`
 - Keyword filters: `collection_id`, `shared_with_me`, `mine`
 
-For other filters, passing an `CollectionsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `CollectionsFilters` instance to the `filters` parameter.

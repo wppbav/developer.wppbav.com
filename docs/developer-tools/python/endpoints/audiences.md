@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`audiences` endpoint](/audiences/audiences.md).
 :::
 
-The `audiences` endpoint has full support, including query validation.
+The `audiences` endpoint has full support. This support includes query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `active`, `public`
 - Keyword filters: `audience_id`, `private`, `groups`
 
-For other filters, passing an `AudiencesFilters` instance to the `filters` parameter is required.
+For other filters, you must give an `AudiencesFilters` instance to the `filters` parameter.
