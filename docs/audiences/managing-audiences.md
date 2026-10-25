@@ -13,7 +13,7 @@ An audience has these layers:
 
 - **Audience.** The audience itself with its name, description and visibility.
 - **Definitions.** An audience has one or more definitions. Each definition reads from a dataset (`bav` or
-  `audience-origin`) and uses the questions of a base study. A definition can also be limited to a specific country or
+  `audience-origin`). Audiences support only these two datasets. Each definition uses the questions of a base study. A definition can also be limited to a specific country or
   study. A definition that is not limited applies to all of the audience's data.
 - **Segments.** Each definition contains segments. A segment is a group of conditions that a respondent has to meet.
   The `within_segment_operator` decides how the conditions inside the segment combine (`AND` requires all of them, `OR`
@@ -107,7 +107,7 @@ Each definition in `definitions` accepts:
 
 | Key                   | Type    |      Required      | Description                                                                                                                         |
 |-----------------------|---------|:------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-| `dataset`             | string  | :white_check_mark: | The dataset the definition reads from. One of `bav`, `audience-origin`, `best-countries` or `momentum`.                             |
+| `dataset`             | string  | :white_check_mark: | The dataset the definition reads from. Use `bav` or `audience-origin`. The validation also accepts `best-countries` and `momentum`, but audiences do not support these datasets. |
 | `base_study_id`       | integer | :white_check_mark: | The ID of the [study](../studies/studies.md) whose questions the definition uses.                                                   |
 | `definitionable_type` | string  |        :x:         | What the definition is limited to: `country` or `study`. Leave empty for a definition that applies to all of the audience's data.  |
 | `definitionable_id`   | integer |        :x:         | The ID of the country or study the definition is limited to.                                                                        |
@@ -247,7 +247,7 @@ When you delete a segment, the API also deletes its metrics. The response has th
 | `within_segment_operator`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How the metrics in the segment combine: `AND` or `OR`.                                             |
 | `between_segments_operator` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | How the segment combines with the one before it: `AND` or `OR`.                                    |
 | `created_at`                | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this segment was first created.                                             |
-| `updated_at`                | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this segment was last updated.                                              |
+| `updated_at`                | string  | ([updated since](../customizing/filters.md)) | :white_check_mark: | :white_check_mark: | A datetime string when this segment was last updated.                                              |
 | `metrics`                   | array   |                    :x:                    |        :x:         |        :x:         | The [segment metrics](#segment-metric-schema) that make up the segment. Always included.           |
 
 The following relationships are available as includes on the segment endpoints:

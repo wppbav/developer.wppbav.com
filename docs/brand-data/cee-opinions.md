@@ -38,8 +38,8 @@ You can do the same with `id` (exact filter), `created_at` and `updated_at`.
 
 ## Additional Filters
 
-For convenience, there are also some additional filters for opinions. These filters are not in
-the [default filters](../customizing/filters.md) and are not part of the columns. They are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `years` - A comma-separated list of year IDs. This filters the opinions to only those for the given years.
 - `year_number` - A comma-separated list of year numbers. This filters the opinions to only those for the given

@@ -45,10 +45,11 @@ GET /api/v2/brands?sort=-name
 
 ## Updated Since
 
-On an index request, you can get only the data that was updated after a specific date and time. To do this, use the
-`updated_since` filter. This filter takes a date time value in the format `YYYY-MM-DD HH:II:SS`.
+On an index request, you can get only the data that was updated on or after a specific date. To do this, use the
+`updated_since` filter. This filter takes a date in the format `YYYY-MM-DD`. The filter compares only the date part of
+the update time. Do not add a time to the value.
 
-A request that shows only the brands that were updated after January 1, 2023 can look like this:
+A request that shows only the brands that were updated on or after January 1, 2023 can look like this:
 
 ```http request
 GET /api/v2/brands?filter[updated_since]=2023-01-01

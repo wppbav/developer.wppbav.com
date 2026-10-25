@@ -67,8 +67,8 @@ also contains a `sector` object.
 
 ## Additional Filters
 
-For convenience, there are some additional filters for categories that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `sectors` - A comma-separated list of sector IDs. The API filters the categories to only those in the given sectors.
 

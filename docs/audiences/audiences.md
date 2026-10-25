@@ -50,7 +50,7 @@ GET /api/v2/audiences/1
 
 Where `1` is the system ID of the audience. Include `definitions.segments.metrics` to get its full definition.
 
-:::note All adults is the base audiences
+:::note All Adults is the base audience
 The All Adults audience is our definition of "unfiltered" or "everyone". It always has the system ID of 1.
 :::
 
@@ -133,8 +133,8 @@ See [Managing audiences](managing-audiences.md) for the full segment and metric 
 
 ## Additional Filters
 
-For convenience, audiences have a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `active` - Set to `1` to return only active audiences.
 - `inactive` - Set to `1` to return only inactive audiences.

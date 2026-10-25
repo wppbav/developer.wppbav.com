@@ -77,8 +77,8 @@ value can mean different things in two studies.
 
 ## Additional Filters
 
-For convenience, there is a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `touchpoint_id` - The ID of a [touchpoint](touchpoints.md) to filter by.
 - `frequency_id` - The ID of a [frequency](frequencies.md) to filter by.

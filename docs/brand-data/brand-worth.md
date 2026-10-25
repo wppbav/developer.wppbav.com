@@ -16,6 +16,8 @@ For the Brand Worth Map tool, see the [Brand Worth Map](brand-worth-map.md) endp
 POST /api/v2/brandscape/brand-worth
 ```
 
+Send the parameters as a JSON body.
+
 This endpoint requires the `bav:brand-data` scope.
 
 ## Parameters

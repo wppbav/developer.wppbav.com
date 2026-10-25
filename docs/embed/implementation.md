@@ -9,25 +9,26 @@ To bypass the Okta login screen in the embed, you can pre-authenticate your user
 - Your application must use Okta.
 - You can pass an email address, first name and last name of your user.
 
-:::note Getting access approval
+:::note Access approval
 To use the embed integration through our auto-login flow and bypass a user connection approval screen, you must
 request approval. Contact support@bernskiold.com.
 :::
 
-:::tip How to authenticate?
-For more information about how to authenticate against the API, see the [Authentication](docs/authentication.md) section
+:::tip Authentication
+For more information about how to authenticate against the API, see the [Authentication](../authentication.md) section
 in the API docs.
 :::
 
 To authenticate the user, make a request against the auto login endpoint:
 
-```json
+```http request
 POST https://fount.wppbav.com/api/v1/auto-login
+Content-Type: application/json
 
 {
-"email": "my-email@example.org"
-"first_name": "Test",
-"last_name": "Person",
+  "email": "my-email@example.org",
+  "first_name": "Test",
+  "last_name": "Person"
 }
 ```
 
@@ -39,7 +40,7 @@ The request returns an access token for the user. Pass this token to the embed i
 }
 ```
 
-:::caution Access Token Expiration
+:::caution Access token expiry
 Access tokens expire every day at 00:00 UTC.
 :::
 
@@ -60,6 +61,6 @@ The supported products endpoint gives the required and optional filters that you
 <iframe src="https://fount.wppbav.com/embed/turbopitch/brand360?access_token=XXXXXX&brands[0]=1020"></iframe> 
 ```
 
-:::caution Parameters Format
-Always pass the supported parameters in an array format, for example:`?brands[0]=998&brands[1]=999`
+:::caution Parameter format
+Always pass the supported parameters in an array format, for example `?brands[0]=998&brands[1]=999`
 :::

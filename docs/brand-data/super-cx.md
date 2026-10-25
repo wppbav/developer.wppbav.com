@@ -15,6 +15,8 @@ endpoint for new integrations, because it shares its parameters and response wit
 POST /api/v2/brandscape/super-cx
 ```
 
+Send the parameters as a JSON body.
+
 This endpoint requires the `bav:brand-data` scope.
 
 ## Parameters

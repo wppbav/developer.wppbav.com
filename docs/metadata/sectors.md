@@ -35,7 +35,7 @@ Where `123` is the system ID of the sector.
 | `id`                            | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                 |    
 | `is_active`                     | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether you can see and use the sector.                                        |                                                      
 | `name`                          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the sector.                                                        |         
-| `excluded_for_most_influential` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the sector should be part of the Most Influential brands lists or not. |
+| `excluded_for_most_influential` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If true, the Most Influential Brands lists do not include this sector.         |
 | `created_at`                    | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this sector was first created.                          |
 | `updated_at`                    | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this sector was last updated.                           |
 
@@ -50,15 +50,15 @@ The API uses the slim relationship schema when the sector is part of an include 
 
 ## Additional Filters
 
-For convenience, there are some additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `in_most_influential` - Set to `1` to only return sectors that are part of the Most Influential lists.
 - `not_in_most_influential` - Set to `1` to only return sectors that are not part of the Most Influential lists.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 

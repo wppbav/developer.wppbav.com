@@ -32,18 +32,17 @@ Where `123` is the system ID of the region.
 
 | Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                           |
 |--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------|
-| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                        |                                                           |
-| `name`       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the region in english.                    |                                                                                                                         |
+| `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                        |
+| `name`       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the region in English.                    |
 | `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this region was first created. |
 | `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this region was last updated.  |
 
-### Relationship Response Schema
-
-The API uses the slim relationship schema when the region is part of an include in another resource.
+The region does not have a slim relationship schema. When a [country](countries.md) shows its region, the API uses
+the full response schema.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 

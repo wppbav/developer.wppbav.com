@@ -84,8 +84,8 @@ it for the `replacement`, `parent` and `children` includes.
 
 ## Additional Filters
 
-For convenience, brands have a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `years` - A comma-separated list of year IDs. The filter returns only the brands that are studied in the specified
   years.

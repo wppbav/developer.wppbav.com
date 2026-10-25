@@ -6,7 +6,7 @@ system. We made it a priority to make access as simple as possible.
 To use the API, you need an access token. See the [authentication section](authentication.md) for information about
 how to get one.
 
-:::note Building a user-facing app? Please let us know...
+:::note Tell us about user-facing applications
 If you integrate BAV data into an application, reporting tool or other system where other people also use the data,
 [tell us before you do this](/support). It is important for the credibility of BAV that the data is used correctly and
 shown in the correct context. BAV can be complex, so we want to make sure that you have the correct support and

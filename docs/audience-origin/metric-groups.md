@@ -53,8 +53,8 @@ The API uses the slim relationship schema when the metric group is part of an in
 
 ## Additional Filters
 
-For convenience, there is a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `only_parents` - Set to `1` to return only top-level groups.
 - `only_children` - Set to `1` to return only groups nested under a parent.

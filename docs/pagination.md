@@ -28,7 +28,7 @@ The API list response has this structure:
     {
       ...
     }
-    // Here's the specific request data for the resource.
+    // The data for the resource is here.
   ],
   "links": {
     "first": "https://fount.wppbav.com/api/v2/brands?page=1",
@@ -118,9 +118,9 @@ The API list response has this structure:
       }
     ],
     "path": "https://fount.wppbav.com/api/v2/brands",
-    "per_page": 15,
-    "to": 15,
-    "total": 2434
+    "per_page": 25,
+    "to": 25,
+    "total": 4062
   }
 }
 ```

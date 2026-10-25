@@ -66,8 +66,8 @@ the brandscape data.
 
 ## Additional Filters
 
-For convenience, brand variations have a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `brands` - A comma-separated list of brand IDs. The filter returns only the variations of these brands.
 - `keys` - A comma-separated list of brand variation keys.

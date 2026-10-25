@@ -11,6 +11,8 @@ Influence is category agnostic.
 POST /api/v2/brandscape/influence
 ```
 
+Send the parameters as a JSON body.
+
 This endpoint requires the `bav:brand-data` scope.
 
 ## Parameters

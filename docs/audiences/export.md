@@ -68,6 +68,23 @@ We want to make the integration as smooth as possible for you and your users.
 
 ## Export Types
 
+### Audience Definition
+
+The Audience Definition is the full audience with its definitions, segments and metrics. Use it to create the audience
+again in your own system. This export option is available for all datasets.
+
+#### Schema
+
+The payload uses the [full response schema](audiences.md#full-response-schema) of the Audiences API. It is the same
+object that the [Webhooks](../webhooks.md) send for audience data changes. The payload includes these relationships:
+
+- `group` - The [audience group](audience-groups.md).
+- `user` - The owner, with their `operating_company`.
+- `definitions` - The [definitions](audiences.md#definition-schema), with their `segments`. Each segment includes its
+  `metrics`.
+
+The payload does not include a `respondents` key.
+
 ### BAV Respondent IDs
 
 The BAV Respondent ID is a unique identifier for each respondent in an audience. This ID links the respondent to each
@@ -92,7 +109,7 @@ the [Audience API schema](audiences.md).
   "is_public": false,
   "is_standard": false,
   "deployed_at": "2021-01-01T00:00:00Z",
-  "segments_updated_at": "2021-01-01T00:00:00Z",
+  "definitions_updated_at": "2021-01-01T00:00:00Z",
   "created_at": "2021-01-01T00:00:00Z",
   "updated_at": "2021-01-01T00:00:00Z",
   "group": {
@@ -138,7 +155,7 @@ the [Audience API schema](audiences.md).
   "is_public": false,
   "is_standard": false,
   "deployed_at": "2021-01-01T00:00:00Z",
-  "segments_updated_at": "2021-01-01T00:00:00Z",
+  "definitions_updated_at": "2021-01-01T00:00:00Z",
   "created_at": "2021-01-01T00:00:00Z",
   "updated_at": "2021-01-01T00:00:00Z",
   "group": {
@@ -162,7 +179,7 @@ the [Audience API schema](audiences.md).
 
 ### Audience Origin Progressive Numbers
 
-The Audience Origin progressive number is an alternative ID. The GroupM Italy Audience Creator is its primary user.
+The Audience Origin progressive number is an alternative ID. The Italy Audience Creator is its primary user. GroupM in Italy uses this tool.
 
 :::warning Specific approval required
 This export option is available only after approval from Choreograph.
@@ -183,7 +200,7 @@ the [Audience API schema](audiences.md).
   "is_public": false,
   "is_standard": false,
   "deployed_at": "2021-01-01T00:00:00Z",
-  "segments_updated_at": "2021-01-01T00:00:00Z",
+  "definitions_updated_at": "2021-01-01T00:00:00Z",
   "created_at": "2021-01-01T00:00:00Z",
   "updated_at": "2021-01-01T00:00:00Z",
   "group": {

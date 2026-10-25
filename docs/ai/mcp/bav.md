@@ -49,7 +49,7 @@ does not have access to that part of the platform. Most tools are available to a
 products need more access. The access column in the tables below tells what each tool requires.
 
 **Tip:** You can ask the agent to list the available tools. You can also use
-the [list tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools#listing-tools) mechanism from
+the [list tools](https://modelcontextprotocol.io/specification/2025-11-25/server/tools#listing-tools) mechanism from
 the MCP specification. This mechanism returns the full tool definitions, with parameters and descriptions.
 
 ### Metadata and Lookup Tools

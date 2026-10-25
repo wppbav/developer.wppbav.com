@@ -51,8 +51,8 @@ The API uses the slim relationship schema when the stock exchange is part of an 
 
 ## Additional Filters
 
-For convenience, there are some additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `countries` - A comma-separated list of country IDs to only return stock exchanges in those countries.
 - `country_codes` - A comma-separated list of country codes (two-letter, ISO standard) to only return stock exchanges in
@@ -60,8 +60,10 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
 - `country` - The [country](countries.md) where the exchange is located.
+- `companies` - The [companies](../company-data/companies.md) that are listed on the exchange, with the stock ticker
+  of each company.

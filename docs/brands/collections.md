@@ -61,8 +61,8 @@ Where `123` is the system ID of the collection.
 
 ## Additional Filters
 
-For convenience, collections have a set of additional filters. These filters are not in
-the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `public` - Set to `1` to return only public collections.
 - `shared_with_me` - Set to `1` to return only collections shared with the user.

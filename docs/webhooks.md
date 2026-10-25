@@ -159,7 +159,7 @@ To verify the webhook, calculate the signature from the request body with the we
 compare the calculated signature with the signature in the `BAV-Signature` header. We recommend that you use the raw
 request body content for the hash, because JSON parsing can change it.
 
-:::warning Securing the webhook secret
+:::warning Protect the webhook secret
 Always keep the webhook secret secure. Do not expose it in your frontend code or in public or private repositories. Do
 not hardcode it into your code. The secret is as sensitive as a password.
 

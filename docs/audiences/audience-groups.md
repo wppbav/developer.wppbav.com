@@ -36,7 +36,7 @@ The audience groups endpoints are read-only.
 | `name`        | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the audience group.                               |
 | `description` | string  |            :white_check_mark:             |        :x:         | :white_check_mark: | An optional description about what the group is.              |
 | `created_at`  | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this audience group was first created. |
-| `updated_at`  | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this audience group was last updated.  |
+| `updated_at`  | string  | ([updated since](../customizing/filters.md)) | :white_check_mark: | :white_check_mark: | A datetime string when this audience group was last updated.  |
 
 ### Relationship Response Schema
 
@@ -50,7 +50,7 @@ The API uses the slim relationship schema when the audience group is part of an 
 ## Relationships & includes
 
 By default, the response does not include relationships. See
-the [includes section](../customizing/includes) for more information on how this works. The following relationships
+the [includes section](../customizing/includes.md) for more information on how this works. The following relationships
 are available:
 
 - `audiences` - The [audiences](audiences.md) that belong to this audience group, with the
@@ -58,4 +58,4 @@ are available:
 
 ## Searching
 
-This endpoint supports searching. See the [searching section](../customizing/searching) for more details.
+This endpoint supports searching. See the [searching section](../customizing/searching.md) for more details.

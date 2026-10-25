@@ -76,8 +76,8 @@ The API uses the slim relationship schema when the company is part of an include
 
 ## Additional Filters
 
-For convenience, there are some additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `public` - Set to `1` to only return public (listed) companies.
 - `private` - Set to `1` to only return private (unlisted) companies.

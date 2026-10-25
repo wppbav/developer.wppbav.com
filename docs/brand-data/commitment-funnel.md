@@ -9,7 +9,7 @@ It has seven stages: Loyalty, Adoption and Consideration (behavioral), Awareness
 GET /api/v2/tools/commitment-funnel
 ```
 
-This endpoint takes the same filters as the [brandscape data models](brandscape-data.md). Pass array parameters with
+This endpoint takes the same filters as the [data models](data-models.md). Pass array parameters with
 array syntax, for example:
 
 ```http request
@@ -32,7 +32,7 @@ You can use `countries` and `years` instead to select studies by market and year
 
 :::note
 
-The [brandscape data models](brandscape-data.md) accept the `benchmarks` and `format` parameters. These parameters pass
+The [data models](data-models.md) accept the `benchmarks` and `format` parameters. These parameters pass
 validation on this endpoint, but the endpoint does not apply them. The Commitment Funnel always responds with JSON and
 does not add benchmark rows.
 

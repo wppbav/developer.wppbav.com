@@ -30,7 +30,7 @@ Where `123` is the system ID of the year.
 |---------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------|
 | `id`                | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                        |
 | `year`              | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The year (name).                                      |
-| `has_ogilvy_impact` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the year should have Ogilvy Impact data available. |                                                                                                                        |
+| `has_ogilvy_impact` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If true, the year has Ogilvy Impact data.             |
 | `created_at`        | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this year was first created.   |
 | `updated_at`        | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this year was last updated.    |
 
