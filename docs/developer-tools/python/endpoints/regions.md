@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`regions` endpoint](/core-resources/regions.md).
+Read more in the API documentation for the [`regions` endpoint](/metadata/regions.md).
 :::
 
 The `regions` endpoint has full support. This support includes query validation.

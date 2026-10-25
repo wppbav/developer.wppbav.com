@@ -36,7 +36,7 @@ You can make requests to other [endpoints](endpoints/) in the same way:
 ```py
 uk_studies = bavapi.studies("TOKEN", country_code="GB")
 
-uk22 = bavapi.brandscape_data("TOKEN", year_numbers=2022, country_code="GB", audiences=1)
+uk22 = bavapi.brandscape_data("TOKEN", year_number=2022, country_code="GB", audiences=1)
 
 all_adults = bavapi.audiences("TOKEN", name="All Adults")
 ```
@@ -53,7 +53,7 @@ To query unsupported endpoints, see the [Other endpoints](advanced-usage#other-e
 from your query and filters are of the type that the Fount API expects. If a parameter does not agree with the API
 requirements, `bavapi` will raise a `ValidationError`.
 
-:::note What it's doing
+:::note How validation works
 `bavapi` sends an initial request to make sure that the query parameters are valid. This request also gets the number
 of pages that `bavapi` must fetch.
 
@@ -70,21 +70,25 @@ Each endpoint has its own filter requirements, so each endpoint has a related fi
 
 | Endpoint                | Filters class              |
 |-------------------------|----------------------------|
+| `"audience-groups"`     | `AudienceGroupsFilters`    |
 | `"audiences"`           | `AudiencesFilters`         |
 | `"brand-metrics"`       | `BrandMetricsFilters`      |
 | `"brand-metric-groups"` | `BrandMetricGroupsFilters` |
 | `"brands"`              | `BrandsFilters`            |
 | `"brandscape-data"`     | `BrandscapeFilters`        |
 | `"categories"`          | `CategoriesFilters`        |
+| `"cities"`              | `CitiesFilters`            |
 | `"collections"`         | `CollectionsFilters`       |
 | `"companies"`           | `CompaniesFilters`         |
+| `"countries"`           | `CountriesFilters`         |
+| `"regions"`             | `RegionsFilters`           |
 | `"sectors"`             | `SectorsFilters`           |
 | `"studies"`             | `StudiesFilters`           |
 | `"years"`               | `YearsFilters`             |
 
 These filters are available under the `bavapi.filters` namespace.
 
-:::caution Don't mix and match filters
+:::caution Use the correct filters class for each endpoint
 If you use a filters class that is not for the specific endpoint, you will not get errors at the start. But you will
 also not get IDE type support or type validation for the parameters of that endpoint.
 
@@ -111,7 +115,7 @@ create a filters instance directly.
 
 ```py
 result = bavapi.brands(
-    filters=bavapi.filters.BrandsFilters(name="Swatch", country_codes=["US", "UK"])
+    "TOKEN", filters=bavapi.filters.BrandsFilters(name="Swatch", country_codes=["US", "GB"])
 )
 ```
 
@@ -120,7 +124,7 @@ result = bavapi.brands(
 
 ```py
 result = bavapi.brands(
-    filters={"name":"Swatch", "country_codes":["US", "UK"]}
+    "TOKEN", filters={"name":"Swatch", "country_codes":["US", "GB"]}
 )
 ```
 
@@ -131,7 +135,7 @@ result = bavapi.brands(
 If you specify both regular function parameters and filters, the request uses the values in the filters parameter:
 
 ```py
-result = bavapi.brands(name="Swatch", filters={"name": "Facebook"})
+result = bavapi.brands("TOKEN", name="Swatch", filters={"name": "Facebook"})
 ```
 
 The request will use `name="Facebook"`, because values specified in the `filters` parameter take precedence.
@@ -146,16 +150,16 @@ You **must** specify these value filters in the `filters` parameter. If you add 
 keyword arguments, `bavapi` will raise a `ValidationError`.
 
 ```py
-bavapi.brands(name="Swatch", filters={"sector_name": "Watches"})  # ok
+bavapi.brands("TOKEN", name="Swatch", filters={"sector_name": "Watches"})  # ok
 
-bavapi.brands(name="Swatch", sector_name="Watches")  # raises ValidationError
+bavapi.brands("TOKEN", name="Swatch", sector_name="Watches")  # raises ValidationError
 ```
 
 Some value filters are not available as arguments to the function call. If you use these value filters, we recommend
 that you use only the `filters` parameter. Do not mix function parameters and Filters parameters:
 
 ```py
-bavapi.brands(filters=bavapi.filters.BrandsFilters(name="Swatch", sector_name="Watches"))
+bavapi.brands("TOKEN", filters=bavapi.filters.BrandsFilters(name="Swatch", sector_name="Watches"))
 ```
 
 ### Fields
@@ -164,7 +168,7 @@ You can [specify which fields](/customizing/fields.md) a response contains. If y
 **only** those fields.
 
 ```py
-result = bavapi.brands(name="Swatch", fields=["id", "name"])
+result = bavapi.brands("TOKEN", name="Swatch", fields=["id", "name"])
 result.columns  # will only have ["id", "name"] as columns
 ```
 
@@ -174,10 +178,10 @@ You can [sort the data](/customizing/filters.md#sorting-results) by a column fro
 
 ```py
 # sorted by name
-result = bavapi.brands(name="Swatch", sort="name")
+result = bavapi.brands("TOKEN", name="Swatch", sort="name")
 
 # descending sorted by name (note the '-')
-result = bavapi.brands(name="Swatch", sort="-name")
+result = bavapi.brands("TOKEN", name="Swatch", sort="-name")
 ```
 
 By default, responses are sorted by item id, in ascending order.
@@ -191,7 +195,7 @@ that each endpoint supports, read the [API documentation](/intro.md).
 
 ```py
 # will include info about the brand's company
-result = bavapi.brands(name="Swatch", includes="company")
+result = bavapi.brands("TOKEN", name="Swatch", include="company")
 ```
 
 :::note Default Includes
@@ -212,7 +216,7 @@ Three parameters control pagination:
 If you set only `page` to an integer greater than `0`, `bavapi` requests only that page.
 
 ```py
-bavapi.studies(page=1)  # Will request a single page of data
+bavapi.studies("TOKEN", page=1)  # Will request a single page of data
 ```
 
 If you set `per_page` or `max_pages`, `bavapi` will request the applicable pages from the Fount API.
@@ -271,7 +275,7 @@ object take precedence over the parameters at the function level.
 
 ```py
 # will use `name="Facebook"` because `query` values take precedence.
-bavapi.brands(name="Swatch", query=bavapi.Query(filters={"name":"Facebook"}))
+bavapi.brands("TOKEN", name="Swatch", query=bavapi.Query(filters={"name":"Facebook"}))
 ```
 
 :::note
@@ -297,7 +301,7 @@ The `bavapi` functions and methods have a `stack_data` parameter. This parameter
 It then makes a new entry (row) in the resulting DataFrame for each element in the list.
 
 ```py
-bavapi.brands("Facebook", include="studies", stack_data=True)
+bavapi.brands("TOKEN", "Facebook", include="studies", stack_data=True)
 ```
 
 |     |    id | name     | studies_id | studies_name            | ... |
@@ -389,7 +393,7 @@ Exception: ...  # Raised
   </TabItem>
 </Tabs>
 
-:::caution "Some requests may still raise"
+:::caution Some requests can still raise exceptions
 During the initial handshake between `bavapi` and the Fount API, `bavapi` retries only SSL errors. Thus, some queries
 can still raise exceptions when `on_errors` is set to `"warn"`:
 

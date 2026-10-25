@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`brands` endpoint](/core-resources/brands.md).
+Read more in the API documentation for the [`brands` endpoint](/brands/brands.md).
 :::
 
 The `brands` endpoint has full support. This support includes query validation.

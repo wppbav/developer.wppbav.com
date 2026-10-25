@@ -24,12 +24,12 @@ After the installation, see [Basic Usage](basic-usage.md). For more advanced top
 [Advanced Usage](advanced-usage.md) section.
 
 The behavior of each Fount API endpoint can be slightly different. You can find detailed explanations in
-the [Endpoints](python/endpoints/) section.
+the [Endpoints](endpoints/index.md) section.
 
 ## Example usage
 
-:::info "Protected access"
-:lock: To use `bavapi`, you need a Fount API token. Read more in the [Authentication](../authentication) section.
+:::info Protected access
+:lock: To use `bavapi`, you need a Fount API token. Read more in the [Authentication](authentication.md) section.
 :::
 
 ```py
@@ -58,6 +58,7 @@ the [Endpoints](python/endpoints/) section.
     - [`collections`](endpoints/collections.md)
     - [`companies`](endpoints/companies.md)
     - [`countries`](endpoints/countries.md)
+    - [`regions`](endpoints/regions.md)
     - [`sectors`](endpoints/sectors.md)
     - [`studies`](endpoints/studies.md)
     - [`years`](endpoints/years.md)

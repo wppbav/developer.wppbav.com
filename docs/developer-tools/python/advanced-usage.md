@@ -92,7 +92,7 @@ These functions return a list of JSON dictionaries, one for each entry from the 
 
 :::tip
 These methods are for custom data processing that does not make a `pandas` DataFrame. But you can also use some of
-the parsing functions in `bavapising.responses`.
+the parsing functions in `bavapi.parsing.responses`.
 :::
 
 ## The `Query` class
@@ -127,12 +127,19 @@ All Fount queries that use `bavapi.Query` support the following parameters:
 
 - `id`: Return only results for a specific id.
 - `page`: The page number of results to return.
-- `per_page`: The number of results to return per page. Default is 25 and maximum is 100.
+- `per_page`: The number of results to return per page. The Fount API default is 25 and the maximum is 1000. For
+  paginated queries, the `bavapi` default is 100.
 - `max_pages`: The maximum number of pages to request. By default, `bavapi` requests all pages in a query.
 - `fields`: The keys for the fields to include in the response. Usually they are the field name in lower case.
 - `sort`: The key(s) for the field(s) to order the response results by.
 - `include`: Additional linked resources to include in the response.
-- `updated_since`: Only return items that changed after this timestamp.
+- `metric_keys`: The keys for the metrics to include in the response. Only the `brandscape-data` endpoint supports
+  this parameter.
+- `metric_group_keys`: The keys for the metric groups to include in the response. Only the `brandscape-data` endpoint
+  supports this parameter.
+
+To get only the items that changed after a timestamp, use the `updated_since` filter in `filters`. All filters classes
+have this filter.
 
 For more information about the behavior of each of these parameters, see the [customizing fields](/customizing/fields.md)
 section.
@@ -146,14 +153,14 @@ the Fount API:
 >>> bavapi.Query(
 ...     filters=BrandscapeFilters(
 ...         brand_name="Facebook",
-...         year_numbers=[2012, 2013, 2014, 2015]
+...         year_number=[2012, 2013, 2014, 2015]
 ...     ),
 ...     include=["company"]
 ... ).to_params(endpoint="brandscape-data")  # (1)
 {
-    "include[brandscape-data]": "company",  # (2)
+    "include": "company",  # (2)
     "filter[brand_name]": "Facebook",
-    "year_numbers": "2012,2013,2014,2015",
+    "filter[year_number]": "2012,2013,2014,2015",
 }
 ```
 
@@ -166,7 +173,7 @@ the Fount API:
 `bavapi` automatically batches paginated requests to the API to improve latency and throughput. The default values
 keep about twenty concurrent requests at a time.
 
-`bavapi` also automatically retries failed requests. You can set the number of retries (default `2`).
+`bavapi` also automatically retries failed requests. You can set the number of retries (default `3`).
 
 Both top-level functions and the `Client` class have the following parameters to control the behavior of the requests:
 

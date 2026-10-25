@@ -14,7 +14,7 @@ A console command generates these classes automatically. This command becomes av
 
 :::note Protected Access
 You need a Fount API token to generate reference files. For more information, and for instructions on how to use
-`.env` files in your Python project, see the [Authentication](developer-tools/python/authentication.md) section.
+`.env` files in your Python project, see the [Authentication](authentication.md) section.
 :::
 
 As of `v1.1`, the command generates the following reference classes in a folder named `bavapi_refs`:
@@ -36,14 +36,14 @@ You can use it to make your filters for API responses easier to read:
   <TabItem value="ref" label="Using Reference class" default>
 
 ```py title="Explicit audience filter"
-bavapi.brandscape_data(country_code="US", year=2022, audiences=Audiences.ALL_ADULTS)
+bavapi.brandscape_data("TOKEN", country_code="US", year_number=2022, audiences=Audiences.ALL_ADULTS)
 ```
 
   </TabItem>
   <TabItem value="no-ref" label="Not using Reference class">
 
 ```py title="Audience filter not human-readable"
-bavapi.brandscape_data(country_code="US", year=2022, audiences=27)
+bavapi.brandscape_data("TOKEN", country_code="US", year_number=2022, audiences=27)
 ```
 
   </TabItem>
@@ -57,7 +57,7 @@ When you generate these reference classes, you have two options to authenticate 
 
 - Specify the Fount API token with the `-t`/`--token` argument.
 - Store your Fount API token in a `.env` file, and install `python-dotenv` to read the file into your environment.
-  For more information, see the [Authentication](authentication.md#recommended-way-to-manage-api-keys) section.
+  For more information, see the [Authentication](authentication.md) section.
 
 Run the following command:
 

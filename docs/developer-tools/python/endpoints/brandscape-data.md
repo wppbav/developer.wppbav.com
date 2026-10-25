@@ -21,7 +21,7 @@ The `brandscape-data` endpoint has full support. This support includes query val
 ```py title="Using top-level functions"
 import bavapi
 
-result = bavapi.brandscape_data("TOKEN", name="Facebook")
+result = bavapi.brandscape_data("TOKEN", brand_name="Facebook")
 ```
 
   </TabItem>
@@ -31,7 +31,7 @@ result = bavapi.brandscape_data("TOKEN", name="Facebook")
 import bavapi
 
 async with bavapi.Client("TOKEN") as bav:
-    result = await bav.brandscape_data(name="Facebook")
+    result = await bav.brandscape_data(brand_name="Facebook")
 ```
 
   </TabItem>
@@ -70,7 +70,7 @@ bavapi.brandscape_data("TOKEN", year_number=2022) # Error, not enough filters
 bavapi.brandscape_data("TOKEN", brand_name="Facebook") # OK
 
 bavapi.brandscape_data(
-    "TOKEN", filters=bavapi.filters.BrandscapeFilters(audience=22, brands=123)
+    "TOKEN", filters=bavapi.filters.BrandscapeFilters(audiences=22, brands=123)
 )  # OK
 ```
 
@@ -111,11 +111,16 @@ Thus, a set of columns from the `"brand"` include will have a `"global_"` prefix
 This can change in future versions of `bavapi` when the parsing logic changes.
 :::
 
-## Metric keys
+## Metric and metric group keys
 
-`brandscape-data` has a special filter to specify which data *columns* the response contains: `metric_keys`.
+`brandscape-data` functions and methods have two special parameters to specify which data *columns* the response
+contains: `metric_keys` and `metric_group_keys`.
 
-You can specify the metrics for your response. The API will include all score types for each of these metrics.
+- Use `metric_keys` to specify the metrics for your response.
+- Use `metric_group_keys` to specify the metric groups for your response.
+
+The API will include all score types for each of these metrics or metric groups. Each parameter accepts one key or a
+list of keys.
 
 :::info Example
 If you set `metric_keys` to `["differentiation", "relevance"]`, the request will return only the following columns:
@@ -127,3 +132,14 @@ If you set `metric_keys` to `["differentiation", "relevance"]`, the request will
 - Brand information such as `id`, `brand_name`, and `category_name`
 - Any additional columns from the `include` parameter
 :::
+
+```py
+# Returns only the score columns for the "differentiation" metric
+bavapi.brandscape_data("TOKEN", studies=111, metric_keys="differentiation")
+
+# Returns only the score columns for the metrics in the "pillars" metric group
+bavapi.brandscape_data("TOKEN", studies=111, metric_group_keys="pillars")
+```
+
+To find the available metric keys and metric group keys, use the [`brand-metrics`](brand-metrics.md) and
+[`brand-metric-groups`](brand-metric-groups.md) endpoints.

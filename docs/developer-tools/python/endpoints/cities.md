@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`cities` endpoint](/core-resources/cities.md).
+Read more in the API documentation for the [`cities` endpoint](/metadata/cities.md).
 :::
 
 The `cities` endpoint has full support. This support includes query validation.

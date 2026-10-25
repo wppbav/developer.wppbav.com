@@ -87,7 +87,7 @@ The result of these queries is a list of JSON dictionaries. To parse the JSON re
 import bavapi
 from bavapi.parsing.responses import parse_response
 
-result = bavapi.raw_query("companies", bavapi.Query())
+result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
 
 parsed = parse_response(result)  # will return a DataFrame
 ```

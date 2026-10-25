@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`companies` endpoint](/core-resources/companies.md).
+Read more in the API documentation for the [`companies` endpoint](/company-data/companies.md).
 :::
 
 The `companies` endpoint has full support. This support includes query validation.

@@ -4,7 +4,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`categories` endpoint](/core-resources/categories.md).
+Read more in the API documentation for the [`categories` endpoint](/studies/categories.md).
 :::
 
 The `categories` endpoint has full support. This support includes query validation.
@@ -54,7 +54,7 @@ from `categories`. They also make its structure align with data downloads from t
 
 ```py
 # All default (sector) includes will be requested
-bavapi.categories("TOKEN", name="All Adults")
+bavapi.categories("TOKEN", name="Soap")
 ```
 
 To suppress default includes, set `include` to `"no_default"`.
