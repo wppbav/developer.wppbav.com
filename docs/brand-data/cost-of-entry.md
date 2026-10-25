@@ -23,7 +23,7 @@ This endpoint uses the singular `brand`, `study` and `audience` parameters.
 
 :::caution
 
-`comparisonName` is accepted but is currently not applied to the Cost of Entry output; the category or collection name
-is used.
+The endpoint accepts `comparisonName`, but it currently does not apply it to the Cost of Entry output. The output uses
+the category or collection name.
 
 :::

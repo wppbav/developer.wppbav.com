@@ -1,6 +1,6 @@
 # Partnership Exchange Map
 
-The Partnership Exchange Map compares the imagery attributes of two brands to show what each could bring to a
+The Partnership Exchange Map compares the imagery attributes of two brands to show what each brand can bring to a
 partnership.
 
 ## Creating a query
@@ -11,8 +11,8 @@ GET /api/v2/tools/partnership-exchange-map
 
 ## Parameters
 
-Give one brand in `brands` and its partner in `comparison_brands`. The exchange is directional, so swapping the two
-gives a different result.
+Give one brand in `brands` and its partner in `comparison_brands`. The exchange is directional. If you swap the two
+brands, you get a different result.
 
 | Key                 |          Required?           | Type    | Description                          |
 |---------------------|:----------------------------:|---------|--------------------------------------|

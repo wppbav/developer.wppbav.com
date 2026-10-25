@@ -1,6 +1,6 @@
 # Personality
 
-Personality types provide a higher-level understanding of how a brand is perceived by consumers. They categorize brands
+Personality types give a higher-level understanding of how consumers perceive a brand. They categorize brands
 into ten distinct personality types based on the [imagery](imagery.md) attributes. The personality types are consistent
 across all studies.
 
@@ -12,7 +12,7 @@ Personality is category agnostic.
 POST /api/v2/brandscape/personality
 ```
 
-The parameters are sent as a JSON body.
+Send the parameters as a JSON body.
 
 This endpoint requires the `bav:brand-data` scope.
 
@@ -31,4 +31,4 @@ The response follows the [standard data model schema](data-models.md#schema).
 The data points include the metrics in the `personality` [metric group](../metrics/metric-groups.md), each with:
 
 - `percentage` - The percentage of respondents who associate the brand with the personality type.
-- `rank` - The percentile rank (0-100) comparing the brand to all other brands in the market.
+- `rank` - The percentile rank (0-100) that compares the brand to all other brands in the market.

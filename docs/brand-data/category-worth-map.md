@@ -1,7 +1,8 @@
 # Category Worth Map
 
-The Category Worth Map is the [Brand Worth Map](brand-worth-map.md) for categories rather than brands. Each category is
-placed on the "Worth paying more for" and "Providing good value" axes using the average percentile rank of its brands.
+The Category Worth Map is the [Brand Worth Map](brand-worth-map.md) for categories rather than brands. The map places
+each category on the "Worth paying more for" and "Providing good value" axes. It uses the average percentile rank of the
+brands in the category.
 
 ## Creating a query
 

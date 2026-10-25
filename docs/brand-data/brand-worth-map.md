@@ -1,7 +1,7 @@
 # Brand Worth Map
 
-The Brand Worth Map places brands on two axes, "Worth paying more for" and "Providing good value", and classifies them
-into four quadrants split at a percentile rank of 50: Brand Worth (high on both), Desire (high worth, low value), Value
+The Brand Worth Map places brands on two axes, "Worth paying more for" and "Providing good value". It classifies the
+brands into four quadrants, split at a percentile rank of 50: Brand Worth (high on both), Desire (high worth, low value), Value
 Champion (high value, low worth) and Emotional Choice (low on both).
 
 ## Creating a query

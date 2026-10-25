@@ -1,7 +1,7 @@
 # Agency Change Predictor
 
-The Agency Change Predictor (ACP) analyzes brand vulnerability using ten weighted checks to determine the likelihood of
-an agency change. It combines brand equity metrics with category comparisons to provide a vulnerability assessment for
+The Agency Change Predictor (ACP) analyzes brand vulnerability. It uses ten weighted checks to determine the likelihood
+of an agency change. It combines brand equity metrics with category comparisons to give a vulnerability assessment for
 each brand.
 
 ## Creating a query
@@ -18,9 +18,9 @@ The Fount.
 
 ## Parameters
 
-The ACP takes the same filters as the [data models](data-models.md#parameters), apart from `benchmarks` and `format`.
-The filters can be passed as arrays (`brands[]=148&brands[]=149`) or, for backwards compatibility, as comma-separated
-lists (`brands=148,149`).
+The ACP takes the same filters as the [data models](data-models.md#parameters), except `benchmarks` and `format`.
+You can pass the filters as arrays (`brands[]=148&brands[]=149`). For backwards compatibility, you can also pass them as
+comma-separated lists (`brands=148,149`).
 
 | Key           |          Required?             | Type    | Description                                                                                                         |
 |---------------|:------------------------------:|---------|---------------------------------------------------------------------------------------------------------------------|
@@ -29,8 +29,8 @@ lists (`brands=148,149`).
 | `countries`   |        At least one*           | array   | [Country](../metadata/countries.md) IDs, codes or names.                                                            |
 | `years`       |        At least one*           | array   | [Year](../metadata/years.md) IDs or year numbers.                                                                   |
 | `audiences`   |  :x: (defaults to All Adults)  | array   | [Audience](../audiences/audiences.md) IDs or names.                                                                 |
-| `study_types` | :x: (defaults to `syndicated`) | array   | The kinds of study that a `countries` and `years` filter may resolve to. See [data models](data-models.md#parameters). |
-| `category`    |              :x:               | integer | Only include brands in this [category](../studies/categories.md) ID.                                                |
+| `study_types` | :x: (defaults to `syndicated`) | array   | The kinds of study that a `countries` and `years` filter can resolve to. See [data models](data-models.md#parameters). |
+| `category`    |              :x:               | integer | Include only brands in this [category](../studies/categories.md) ID.                                                |
 | `search`      |              :x:               | string  | Search brands by name.                                                                                              |
 | `customWeights` |            :x:               | object  | Custom weights for the checks, keyed by check name. See [custom weights](#custom-weights).                          |
 | `mustPass`    |              :x:               | array   | Checks the brand must pass, i.e. problems it must not have. Max 10.                                                 |
@@ -41,7 +41,7 @@ lists (`brands=148,149`).
 ## The checks
 
 Each check names a problem, so a brand passes a check when it does not have that problem. Each check has a default
-weight that is used in the standard vulnerability score.
+weight that the standard vulnerability score uses.
 
 | Check                                       | Weight | Name                                | Description                                                                                         |
 |---------------------------------------------|:------:|-------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -57,23 +57,25 @@ weight that is used in the standard vulnerability score.
 | `has_lower_preference_than_category`        |   1    | Lower Preference                    | Preference below the category average.                                                              |
 
 The popularity rank is the "gaining in popularity" rank on the classic BAV methodology and the "trendy" rank on the
-2025 methodology. It is returned as `raw_metrics.popularity_rank`.
+2025 methodology. The response gives it as `raw_metrics.popularity_rank`.
 
 :::note Spelling
 The check `has_lower_differentation_than_category` contains a legacy typo ("differentation" instead of
-"differentiation"). It is kept for backwards compatibility.
+"differentiation"). The API keeps this name for backwards compatibility.
 :::
 
-The category comparisons average every brand that the study measured in the category, regardless of which brands you
-asked for. They are worked out per study, so a brand is always compared with its own market.
+The category comparisons use the average of every brand that the study measured in the category. The brands that you
+asked for do not change this average. The API calculates the comparisons per study, so it always compares a brand with
+its own market.
 
-A check is `null` when a metric it needs is missing for the brand, for example when usage was not asked. A `null`
-check counts as passed in the score, and neither `mustPass` nor `mustNotPass` on that check matches the brand.
+A check is `null` when a metric that it needs is missing for the brand. For example, this occurs if the survey did not
+ask about usage. In the score, a `null` check counts as passed. Also, neither `mustPass` nor `mustNotPass` on that check
+matches the brand.
 
 ### Filtering on checks
 
 Use `mustPass` and `mustNotPass` to filter the brands by their check results. A check cannot be in both lists. For
-example, to get brands that are not vulnerable and not churning, but are poorly differentiated:
+example, to get brands that are not vulnerable and do not have high churn, but have low differentiation:
 
 ```http request
 GET /api/v2/tools/agency-change-predictor?studies[]=635&mustPass[]=is_vulnerable&mustPass[]=has_high_churn&mustNotPass[]=low_differentiation
@@ -82,7 +84,7 @@ GET /api/v2/tools/agency-change-predictor?studies[]=635&mustPass[]=is_vulnerable
 ### Custom weights
 
 Use `customWeights` to calculate a second vulnerability score with your own weights. Each weight is an integer from 0
-to 10, keyed by check name. A weight of `0` drops the check from the score. A check that you leave out keeps its default
+to 10, keyed by check name. A weight of `0` removes the check from the score. A check that you leave out keeps its default
 weight. At least one weight must be greater than 0.
 
 ```http request
@@ -91,15 +93,15 @@ GET /api/v2/tools/agency-change-predictor?studies[]=635&customWeights[is_vulnera
 
 ## Response
 
-The response contains a `meta` object and a `data` array. Every brand matching the filters is returned, including
-brands that pass every check and so score zero.
+The response contains a `meta` object and a `data` array. The response contains every brand that matches
+the filters. This includes brands that pass every check and thus have a score of zero.
 
 ### Meta
 
 | Key                    | Type    | Description                                                                                                                                       |
 |------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| `source`               | string  | A source label naming the studies and audiences, suitable for captioning.                                                                         |
-| `studies_used`         | array   | The studies the data came from. This is useful when you filter by `countries`, since the studies are then chosen for you. Each study includes its `study_id`, `name`, `country`, `year` and `type`, along with other details where available. |
+| `source`               | string  | A source label that names the studies and audiences. You can use it as a caption.                                                                 |
+| `studies_used`         | array   | The studies that the data came from. This is useful if you filter by `countries`, because the API then selects the studies for you. Each study includes its `study_id`, `name`, `country`, `year` and `type`, and other details where available. |
 | `is_category_specific` | boolean | Whether the data is category specific.                                                                                                            |
 
 ### Data
@@ -120,8 +122,8 @@ The `data` object contains:
 
 | Key                            | Type   | Description                                                                                                                                                                                         |
 |--------------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `vulnerability_score_standard` | float  | The vulnerability score (0-100) using the default weights.                                                                                                                                          |
-| `vulnerability_score_custom`   | float  | The vulnerability score (0-100) using your `customWeights`.                                                                           |
-| `checks`                       | object | The result of each of the ten [checks](#the-checks), keyed by check name. `true` when the brand has the problem, `false` when it does not, and `null` when the check could not be evaluated.       |
+| `vulnerability_score_standard` | float  | The vulnerability score (0-100) that uses the default weights.                                                                                                                                      |
+| `vulnerability_score_custom`   | float  | The vulnerability score (0-100) that uses your `customWeights`.                                                                       |
+| `checks`                       | object | The result of each of the ten [checks](#the-checks), keyed by check name. `true` when the brand has the problem, `false` when it does not, and `null` when the API cannot evaluate the check.      |
 | `category_comparisons`         | object | The category averages used by the comparison checks: `differentiation_average`, `gaining_in_popularity_average`, `one_i_prefer_average`, `recommendation_average` and `churn_ratio`.              |
 | `raw_metrics`                  | object | The metric values used in the checks: `differentiation_rank`, `relevance_rank`, `esteem_rank`, `knowledge_rank`, `brand_strength_rank`, `brand_stature_rank`, `gaining_in_popularity_rank`, `popularity_rank`, `total_users_pct`, `lapsed_user_pct`, `churn_ratio`, `recommend_to_a_friend_pct` and `one_i_prefer_pct`. |

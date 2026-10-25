@@ -1,13 +1,13 @@
 # Super CX
 
-Super CX measures a brand's perceived customer experience. It is made up of the overall Super CX score and its Head,
-Heart and X Factor components, which in turn are built from a set of underlying measures.
+Super CX measures a brand's perceived customer experience. It contains the overall Super CX score and its Head, Heart
+and X Factor components. Each component is built from a set of underlying measures.
 
-Super CX is category specific. The category should always be shown together with the brand, as it can significantly
-change the interpretation of the results.
+Super CX is category specific. Always show the category together with the brand. The category can significantly change
+the interpretation of the results.
 
 There is also a [Super CX tool](super-cx-tool.md) with its own parameters and response. We recommend this data model
-endpoint for new integrations, as it shares its parameters and response with the other [data models](data-models.md).
+endpoint for new integrations, because it shares its parameters and response with the other [data models](data-models.md).
 
 ## Creating a query
 

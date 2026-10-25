@@ -4,11 +4,11 @@ sidebar_label: Super CX
 
 # Super CX Tool
 
-Super CX measures a brand's perceived customer experience. It is made up of the overall Super CX score and its Head,
-Heart and X Factor components, which in turn are built from a set of underlying measures.
+Super CX measures a brand's perceived customer experience. It contains the overall Super CX score and its Head, Heart
+and X Factor components. Each component is built from a set of underlying measures.
 
-Super CX is category specific. The category should always be shown together with the brand, as it can significantly
-change the interpretation of the results.
+Super CX is category specific. Always show the category together with the brand. The category can significantly change
+the interpretation of the results.
 
 The Super CX tool returns the percentile ranks of the Super CX metrics for a set of brands in one study. For Super CX
 data with the same parameters and response as the other data models, use the [Super CX data model](super-cx.md).
@@ -68,4 +68,4 @@ The metric keys in `data` are:
 }
 ```
 
-The values in the example are illustrative, and only some of the metrics are shown.
+The values in the example are illustrative, and the example shows only some of the metrics.

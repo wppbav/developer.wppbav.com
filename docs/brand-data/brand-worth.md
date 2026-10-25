@@ -30,7 +30,7 @@ The response follows the [standard data model schema](data-models.md#schema).
 
 ### Metrics
 
-The data points include the `good_value` and `worth_more` metrics with their `rank` scores. Brands that are studied in
-more than one category are only included once.
+The data points include the `good_value` and `worth_more` metrics with their `rank` scores. If a study examines a brand in more
+than one category, the model includes the brand only once.
 
-The quadrant is not returned as a `classification` on this endpoint. Use the rules above to place the brands.
+This endpoint does not return the quadrant as a `classification`. Use the rules above to place the brands.

@@ -26,5 +26,5 @@ The response follows the [standard data model schema](data-models.md#schema).
 ### Metrics
 
 The data points include the metrics in the `influence` [metric group](../metrics/metric-groups.md), such as
-`mib_innovation`, `mib_authenticity`, `mib_status` and `mib_trust`. The overall `mib_influential` metric is not
-included in this model.
+`mib_innovation`, `mib_authenticity`, `mib_status` and `mib_trust`. This model does not include the overall
+`mib_influential` metric.

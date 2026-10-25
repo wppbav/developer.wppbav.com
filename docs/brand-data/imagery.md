@@ -15,7 +15,7 @@ Imagery is category agnostic.
 POST /api/v2/brandscape/imagery
 ```
 
-The parameters are sent as a JSON body.
+Send the parameters as a JSON body.
 
 This endpoint requires the `bav:brand-data` scope.
 
@@ -34,4 +34,4 @@ The response follows the [standard data model schema](data-models.md#schema).
 The data points include the metrics in the `imagery` [metric group](../metrics/metric-groups.md), each with:
 
 - `percentage` - The percentage of respondents who associate the brand with the attribute.
-- `rank` - The percentile rank (0-100) comparing the brand to all other brands in the market.
+- `rank` - The percentile rank (0-100) that compares the brand to all other brands in the market.

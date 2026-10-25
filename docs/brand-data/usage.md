@@ -9,8 +9,8 @@ Usage shows how consumers use brands on a scale:
 
 Usage is consistent across all studies.
 
-Usage is category specific. Respondents are asked about their usage of the brand in the specific category. The
-category should always be shown together with the brand, as it can significantly change the interpretation of the
+Usage is category specific. The survey asks respondents about their usage of the brand in the specific category.
+Always show the category together with the brand. The category can significantly change the interpretation of the
 results.
 
 ## Creating a query
@@ -19,7 +19,7 @@ results.
 POST /api/v2/brandscape/usage
 ```
 
-The parameters are sent as a JSON body.
+Send the parameters as a JSON body.
 
 This endpoint requires the `bav:brand-data` scope.
 
@@ -37,5 +37,5 @@ The response follows the [standard data model schema](data-models.md#schema).
 
 The data points include the metrics in the `usage` [metric group](../metrics/metric-groups.md), each with:
 
-- `percentage` - The percentage of respondents who fall into each usage level.
-- `rank` - The percentile rank (0-100) comparing the brand to all other brands in the market.
+- `percentage` - The percentage of respondents who are in each usage level.
+- `rank` - The percentile rank (0-100) that compares the brand to all other brands in the market.

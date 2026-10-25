@@ -2,7 +2,7 @@
 
 The Brand Personality Match returns the brands in the same study whose imagery profile most closely matches the brand
 you name, ranked by similarity. Similarity is the correlation of the brands' imagery attribute ranks, so matches can
-come from any category. Only brands with a knowledge percentile rank of 50 or above are considered.
+come from any category. The tool considers only brands with a knowledge percentile rank of 50 or above.
 
 ## Creating a query
 
@@ -20,6 +20,6 @@ GET /api/v2/tools/brand-personality-match
 
 ## Response
 
-The response contains a `data` array of matching brands. Each entry has `brand`, `sector`, `category`, `study`,
-`country`, `year` and `audience` objects (each with `id` and `name`), plus `correlation` and `varianceExplained`, each
-with a `raw` value and a `formatted` percentage string.
+The response contains a `data` array of the brands that match. Each entry has `brand`, `sector`, `category`, `study`,
+`country`, `year` and `audience` objects (each with `id` and `name`). Each entry also has `correlation` and
+`varianceExplained`, each with a `raw` value and a `formatted` percentage string.

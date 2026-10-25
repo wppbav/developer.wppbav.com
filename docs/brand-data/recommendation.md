@@ -2,8 +2,8 @@
 
 Recommendation shows how likely consumers are to recommend a brand to a friend. It is consistent across all studies.
 
-Recommendation is category specific. Respondents are asked about their likelihood to recommend the brand in the
-specific category. The category should always be shown together with the brand, as it can significantly change the
+Recommendation is category specific. The survey asks respondents about their likelihood to recommend the brand in
+the specific category. Always show the category together with the brand. The category can significantly change the
 interpretation of the results.
 
 ## Creating a query
@@ -12,7 +12,7 @@ interpretation of the results.
 POST /api/v2/brandscape/recommendation
 ```
 
-The parameters are sent as a JSON body.
+Send the parameters as a JSON body.
 
 This endpoint requires the `bav:brand-data` scope.
 
@@ -31,4 +31,4 @@ The response follows the [standard data model schema](data-models.md#schema).
 The data points include the metrics in the `recommendation` [metric group](../metrics/metric-groups.md), each with:
 
 - `percentage` - The percentage of respondents who would recommend the brand.
-- `rank` - The percentile rank (0-100) comparing the brand to all other brands in the market.
+- `rank` - The percentile rank (0-100) that compares the brand to all other brands in the market.
