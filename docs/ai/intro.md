@@ -4,22 +4,19 @@ sidebar_label: Introduction
 
 # BAV in an Agentic World
 
-At WPP BAV we are committed to building the infrastructure to support the next generation of applications powered by AI.
-Our goal is to create a platform that empowers developers across the group to come up with innovative solutions that
-leverage the power of AI through our bespoke data and models.
+At WPP BAV, we build the infrastructure for the next generation of applications that use AI. Our goal is a platform
+that helps developers across the group to make new solutions with AI and our bespoke data and models.
 
-A new era requires new tools. While our existing API is great, we recognize that it may not be the best fit for
-all agentic applications. That's why we are committed to improving it and making it suitable for the next
-generation of use cases.
+A new era needs new tools. Our current API works well, but it is possibly not the best fit for all agentic
+applications. Thus, we will continue to improve it for the next generation of use cases.
 
-If you are building an AI application and using our APIs, don't hesitate to reach out so that we can
-collaborate on improvements and additions that will benefit the entire group.
+If you build an AI application with our APIs, contact us. We can then work together on improvements and additions
+that help the full group.
 
 ## BAV Agents
 
-Our BAV agents powered by Creative Studio and WPP Open enable you to easily integrate BAV data into your own agent
-workflows. This offers a quick way to leverage BAV expertise and insights without the overhead of managing requests to
-an MCP server.
+Our BAV agents use Creative Studio and WPP Open. With these agents, you can add BAV data to your own agent workflows.
+They give you fast access to BAV expertise and insights, and you do not have to manage requests to an MCP server.
 
 You can use the agents standalone or as part of a larger agentic team.
 
@@ -27,8 +24,8 @@ You can use the agents standalone or as part of a larger agentic team.
 
 ## MCP Servers
 
-Your AI models and agents can use the official BAV MCP servers to access BAV data, Best Countries, financial data and
-Euromonitor market share data in both a simple and secure way. The servers work with any MCP client that supports
-remote servers, including Claude, ChatGPT, Copilot and the agent builder in WPP Open.
+Your AI models and agents can use the official BAV MCP servers to get BAV data, Best Countries data, financial data and
+Euromonitor market share data. The servers are simple and secure. They work with all MCP clients that support remote
+servers, for example Claude, ChatGPT, Copilot and the agent builder in WPP Open.
 
 [Read more](mcp/intro.md)
