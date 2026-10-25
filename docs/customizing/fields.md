@@ -1,24 +1,24 @@
 # Configurable fields
 
-Since the BAV data and The Fount API is expansive and endpoints contain a lot of data the API responses can easily grow
-in size. A downside of REST APIs in general.
+The BAV data and The Fount API are expansive, and endpoints contain a lot of data. Because of this, the API responses
+can become large. This is a general disadvantage of REST APIs.
 
-To prevent forcing you to retrieve a full object with all resource data, you may configure to request only specific
+You do not have to get a full object with all the resource data. You can configure the request to get only specific
 fields.
 
-You may choose to configure to include any fields in the response. By default all fields are included. If choose to
-include specific fields you will need to specify all fields you want to include. There is no option to exclude fields.
+You can configure the response to include any fields. By default, all fields are included. If you include specific
+fields, you must specify all the fields that you want to include. You cannot exclude fields.
 
-Fields loaded via [includes](includes.md) are not configurable. The fields included via these relations are slimmed-down
-relation responses. Each endpoint documentation includes the schema for the relationship response alongside the full
-response.
+You cannot configure the fields that you load through [includes](includes.md). The fields from these relations are
+slimmed-down relation responses. The documentation for each endpoint contains the schema for the relationship response
+and the full response.
 
-Configurable fields are available on both indexes and single resource endpoints.
+Configurable fields are available on index endpoints and single resource endpoints.
 
 ## Making a request
 
-Configuring fields is done by adding the `fields` query parameter, the snake-case name of the resource, and passing a comma-separated string of field names,
-like so:
+To configure fields, add the `fields` query parameter with the snake-case name of the resource. Give a comma-separated
+string of field names as the value, for example:
 
 ```http request
 GET /api/v2/brands?fields[brands]=id,name
@@ -26,15 +26,15 @@ GET /api/v2/brands?fields[brands]=id,name
 
 ## Example: Getting a list of brands for a dropdown selection
 
-Let's say you want to retrieve a list of brands to show in a dropdown for users to select. You'll want the brand ID for
-the value and the name for the display label. Instead of forcing you to download the
-full [Brands response](../brands/brands.md), you may configure to only retrieve the columns you need.
+For example, you want to get a list of brands to show in a dropdown where users select a brand. You need the brand ID
+for the value and the name for the display label. You do not have to download the
+full [Brands response](../brands/brands.md). You can configure the request to get only the columns that you need.
 
 ```http request
 GET /api/v2/brands?fields[brands]=id,name
 ```
 
-This request would result in the following lean response:
+This request gives this lean response:
 
 ```json
 {
