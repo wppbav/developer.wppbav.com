@@ -2,13 +2,13 @@
 
 ## What are touchpoints?
 
-Some [Audience Origin metrics](metrics.md) measure a touchpoint. A metric that measures a touchpoint is linked to it,
-which lets you find all the metrics for a given touchpoint, either with the `metrics` include here or with the
-`touchpoint_id` filter on the metrics endpoint.
+Some [Audience Origin metrics](metrics.md) measure a touchpoint. A metric that measures a touchpoint has a link to it.
+Thus you can find all the metrics for a given touchpoint. Use the `metrics` include here or the `touchpoint_id` filter
+on the metrics endpoint.
 
 ## List all touchpoints
 
-To list all of the touchpoints and browse them via the API, use the list endpoint:
+To list all of the touchpoints and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/audience-origin/touchpoints
@@ -16,7 +16,7 @@ GET /api/v2/audience-origin/touchpoints
 
 ## Get a touchpoint
 
-You may also directly retrieve a touchpoint's details if you already have its system ID.
+If you already have the system ID of a touchpoint, you can also get its details directly.
 
 ```http request
 GET /api/v2/audience-origin/touchpoints/123
@@ -38,7 +38,7 @@ Where `123` is the system ID of the touchpoint.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the touchpoint is used as part of an include in another resource.
+The API uses the slim relationship schema when the touchpoint is part of an include in another resource.
 
 | Key    | Type    | Description                        |
 |--------|---------|------------------------------------|
@@ -48,14 +48,14 @@ The slim relationship schema is used when the touchpoint is used as part of an i
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+For convenience, there is a set of additional filters. These filters are not in
+the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
 
-- `has_metrics` - Set to `1` to only return touchpoints that are used by at least one metric.
+- `has_metrics` - Set to `1` to return only touchpoints that are used by at least one metric.
 
 ## Relationships & includes
 
-By default, relationships are not included. See
+By default, the response does not include relationships. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 

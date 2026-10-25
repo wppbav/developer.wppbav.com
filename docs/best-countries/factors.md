@@ -6,11 +6,11 @@ sidebar_label: Factors
 
 ## What are best countries factors?
 
-In Best Countries, the individual [metrics](metrics.md) (attributes) that countries are surveyed on are aggregated into
-a smaller number of broader factors, such as Adventure or Entrepreneurship. The factors are weighted together to
-calculate the overall Best Countries ranking, which is returned as `total` in the factor data.
+Best Countries surveys countries on individual [metrics](metrics.md) (attributes). Best Countries aggregates these
+metrics into a smaller number of broader factors, such as Adventure or Entrepreneurship. The weighted factors together
+give the overall Best Countries ranking. The factor data returns this ranking as `total`.
 
-The factors endpoint gives you the list of factors and which metrics each factor is built from. To get the scores and
+The factors endpoint gives you the list of factors and the metrics that each factor uses. To get the scores and
 ranks for each country on the factors, use the [country data](country-data.md) endpoint with the `factors` data type, or
 the [country factors model](models.md#country-factors).
 
@@ -18,7 +18,7 @@ This endpoint requires the **Best Countries Data** (`bav:best-countries-data`) s
 
 ## List all best countries factors
 
-To list all of the best countries factors and browse them via the API, use the list endpoint:
+To list all of the best countries factors and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/best-countries-factors
@@ -26,7 +26,7 @@ GET /api/v2/best-countries-factors
 
 ## Get a best countries factor
 
-You may also directly retrieve a best countries factor's details if you already have its system ID.
+If you already have the system ID of a best countries factor, you can also get its details directly.
 
 ```http request
 GET /api/v2/best-countries-factors/123
@@ -38,28 +38,28 @@ Where `123` is the system ID of the factor.
 
 ### Full response schema
 
-The factor endpoint returns every column of the factor. The `name` and `description` are translatable and are returned
-as an object keyed by locale, for example `{"en": "Adventure"}`.
+The factor endpoint returns every column of the factor. The `name` and `description` are translatable. The endpoint
+returns them as an object keyed by locale, for example `{"en": "Adventure"}`.
 
 | Key           | Type    | Description                                                                                                         |
 |---------------|---------|---------------------------------------------------------------------------------------------------------------------|
 | `id`          | integer | The system ID.                                                                                                      |
 | `name`        | object  | The name of the factor, keyed by locale.                                                                            |
 | `key`         | string  | The machine-readable key of the factor. The [country data](country-data.md) endpoint names its factor fields after it. |
-| `description` | object  | A description of the factor, keyed by locale. May be `null`.                                                        |
+| `description` | object  | A description of the factor, keyed by locale. Can be `null`.                                                        |
 | `created_at`  | string  | A datetime string when this factor was first created.                                                               |
 | `updated_at`  | string  | A datetime string when this factor was last updated.                                                                |
 
 ## Filters & Sorting
 
-This endpoint does not support any filters or sorting. As there are only a handful of factors, we recommend that you
-retrieve the full list and filter it in your application.
+This endpoint does not support filters or sorting. There are only a small number of factors. We recommend that you get
+the full list and filter it in your application.
 
 ## Relationships & includes
 
-By default, relationships are not included. See the [includes section](../customizing/includes) for more information
+By default, the response does not include relationships. See the [includes section](../customizing/includes) for more information
 on how this works. The following relationships are available:
 
-- `metrics` - The [best countries metrics](metrics.md) that the factor is built from. The metrics are returned with all
-  of their stored columns, along with a `pivot` object linking the metric to the factor. For the documented metric
+- `metrics` - The [best countries metrics](metrics.md) that the factor uses. The API returns the metrics with all of
+  their stored columns and a `pivot` object that links the metric to the factor. For the documented metric
   schema, use the [best countries metrics](metrics.md) endpoint.

@@ -1,24 +1,24 @@
 # Brands
 
-You may use the Brands endpoint to retrieve details about one or more brands.
+Use the Brands endpoint to get details about one or more brands.
 
 ## What are brands?
 
-Brands are the core of BAV. They are the entities that are researched by BAV surveys and is connected to many other
-resources. Brands differ from companies in that they are not necessarily a legal entity. Brands are owned by companies.
+Brands are the core of BAV. BAV surveys research these entities, and brands connect to many other resources. Brands
+differ from companies in that they are not necessarily a legal entity. Brands are owned by companies.
 
 Brands in BAV do not belong specifically to a [category resource](../studies/categories.md). Each brand is studied in a
 specific category in a specific [study](../studies/studies.md). However, for classification purposes each brand belongs
 to a [sector](../metadata/sectors.md) based on the studies it is in.
 
-A brand has no scores of its own. Brand data always belongs to a brand in a study, so use these endpoints to find a
-brand, then read its data from the [brandscape data](../brand-data/brandscape-data.md) endpoints.
+A brand has no scores of its own. Brand data always belongs to a brand in a study. Use these endpoints to find a
+brand. Then read its data from the [brandscape data](../brand-data/brandscape-data.md) endpoints.
 
 The brands endpoints are read-only.
 
 ## List all brands
 
-To list all of the brands and browse them via the API, use the list endpoint:
+To list all of the brands and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brands
@@ -26,7 +26,7 @@ GET /api/v2/brands
 
 ## Get a brand
 
-You may also directly retrieve a brand's details if you already have its system ID.
+If you already have the system ID of a brand, you can also get its details directly.
 
 ```http request
 GET /api/v2/brands/123
@@ -48,7 +48,7 @@ Where `123` is the system ID of the brand.
 | `share_of_company`    | float   |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The percentage share that this brand makes up of the parent company's revenue.                                                      |
 | `is_core`             | null    |                    :x:                    |        :x:         |        :x:         | **Deprecated.** Always `null`.                                                                                                      |
 | `is_studied_globally` | null    |                    :x:                    |        :x:         |        :x:         | **Deprecated.** Always `null`.                                                                                                      |
-| `is_deprecated`       | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the brand is deprecated. A deprecated brand keeps its historical data and may point to a `replacement` brand.               |
+| `is_deprecated`       | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the brand is deprecated. A deprecated brand keeps its historical data and can point to a `replacement` brand.               |
 | `signalai_id`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The brand's identifier in Signal AI.                                                                                                |
 | `parent_brand_id`     | integer |                    :x:                    |        :x:         | :white_check_mark: | The ID of the parent brand in the brand hierarchy, or `null` if the brand has no parent.                                            |
 | `website_url`         | string  |            :white_check_mark:             | :white_check_mark: |        :x:         | The brand's website address.                                                                                                        |
@@ -64,16 +64,16 @@ Where `123` is the system ID of the brand.
 
 :::caution Deprecated fields
 
-`bav_brand_id`, `bav_id`, `is_core` and `is_studied_globally` are still returned for backwards compatibility, but are
-always `null`. They can no longer be filtered or sorted on. Use `id` to identify brands. The `logo_url` field has been
-removed.
+The API still returns `bav_brand_id`, `bav_id`, `is_core` and `is_studied_globally` for backwards compatibility, but
+they are always `null`. You cannot filter or sort on them. Use `id` to identify brands. The API no longer returns the
+`logo_url` field.
 
 :::
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand is used as part of an include in another resource, and for the
-`replacement`, `parent` and `children` includes.
+The API uses the slim relationship schema when the brand is part of an include in another resource. The API also uses
+it for the `replacement`, `parent` and `children` includes.
 
 | Key           | Type    | Description                                                                |
 |---------------|---------|----------------------------------------------------------------------------|
@@ -84,59 +84,59 @@ The slim relationship schema is used when the brand is used as part of an includ
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters for brands that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+For convenience, brands have a set of additional filters. These filters are not in
+the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
 
-- `years` - A comma-separated list of year IDs. This will filter the brands to only those that are studied in the
-  specified years.
-- `year_numbers` - A comma-separated list of year numbers (e.g. `2024,2025`). This will filter the brands to only those
+- `years` - A comma-separated list of year IDs. The filter returns only the brands that are studied in the specified
+  years.
+- `year_numbers` - A comma-separated list of year numbers (for example `2024,2025`). The filter returns only the brands
   that are studied in the specified years.
-- `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
-  the specified categories. A brand can be in different categories in different studies.
-- `sectors` - A comma-separated list of sector IDs. This will filter the brands to only those in the given sectors.
-- `countries` - A comma-separated list of country IDs. This will filter the brands to only those that are studied in
-  the specified countries.
-- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the brands to only those
-  that are studied in the specified countries.
-- `regions` - A comma-separated list of region IDs. This will filter the brands to only those that are studied in
-  the specified regions.
-- `region_blocs` - A comma-separated list of region bloc IDs. This will filter the brands to only those that are
-  studied in countries belonging to the specified region blocs.
-- `studies` - A comma-separated list of study IDs. This will filter the brands to only those that are included in the
-  specified studies.
-- `companies` - A comma-separated list of [company](../company-data/companies.md) IDs. This will filter the brands to
-  only those owned by the specified companies.
-- `tags` - A comma-separated list of brand tag IDs or keys (e.g. `luxury`). See `/api/v2/brand-tags` for the available
-  tags.
-- `variations` - A comma-separated list of brand variation IDs. This will filter the brands to only those with the
-  specified variations.
-- `has_studies` - Set to `1` to only include brands that have been included in any study at any point in time, or `0`
-  for brands that have never been studied.
+- `categories` - A comma-separated list of category IDs. The filter returns only the brands that are studied in the
+  specified categories. A brand can be in different categories in different studies.
+- `sectors` - A comma-separated list of sector IDs. The filter returns only the brands in the specified sectors.
+- `countries` - A comma-separated list of country IDs. The filter returns only the brands that are studied in the
+  specified countries.
+- `country_codes` - A comma-separated list of two-letter ISO country codes. The filter returns only the brands that are
+  studied in the specified countries.
+- `regions` - A comma-separated list of region IDs. The filter returns only the brands that are studied in the
+  specified regions.
+- `region_blocs` - A comma-separated list of region bloc IDs. The filter returns only the brands that are studied in
+  countries that belong to the specified region blocs.
+- `studies` - A comma-separated list of study IDs. The filter returns only the brands that are in the specified
+  studies.
+- `companies` - A comma-separated list of [company](../company-data/companies.md) IDs. The filter returns only the
+  brands that the specified companies own.
+- `tags` - A comma-separated list of brand tag IDs or keys (for example `luxury`). See `/api/v2/brand-tags` for the
+  available tags.
+- `variations` - A comma-separated list of brand variation IDs. The filter returns only the brands with the specified
+  variations.
+- `has_studies` - Set to `1` to include only the brands that were in a study at any time. Set to `0` to include only
+  the brands that were never studied.
 
 ## Relationships & includes
 
-By default, only the `replacement` relationship is included. See the [includes section](../customizing/includes.md) for
+By default, the response includes only the `replacement` relationship. See the [includes section](../customizing/includes.md) for
 more information on how this works. The following relationships are available:
 
 - `company` - The [company](../company-data/companies.md) that owns the brand.
 - `sector` - The [sector](../metadata/sectors.md) that the brand belongs to.
-- `studies` - A list of [BAV studies](../studies/studies.md) where this brand was included. Each study contains its
-  `id`, `name`, `year`, `country`, `period` and `data_available_at`, plus the `brand_name` and `category_id` the brand
-  was measured under in that study.
-- `studies.category` - Accepted for compatibility. The study entries still only expose the `category_id`; look the
-  category up via the [categories endpoint](../studies/categories.md).
+- `studies` - A list of the [BAV studies](../studies/studies.md) that included this brand. Each study contains its
+  `id`, `name`, `year`, `country`, `period` and `data_available_at`. Each study also contains the `brand_name` and
+  `category_id` that the study used to measure the brand.
+- `studies.category` - The API accepts this include for compatibility. The study entries still show only the
+  `category_id`. To get the category, use the [categories endpoint](../studies/categories.md).
 - `countries` - The [countries](../metadata/countries.md) where the brand is present, with its local name and whether
   the country is its country of origin.
 - `variations` - The other names this brand is known by.
 - `replacement` - The brand that replaced this one, if it is deprecated. Always included.
 - `parent` - The parent brand in the brand hierarchy.
 - `children` - The child brands in the brand hierarchy.
-- `tags` - The brand's tags. `is_ai_generated` shows whether a tag was assigned by AI rather than by hand.
+- `tags` - The brand's tags. `is_ai_generated` shows if AI assigned the tag or a person assigned it by hand.
 
 ## Searching
 
 This endpoint supports searching. See the [searching section](../customizing/searching.md) for more details.
 
-When searching (using `search` or `filter[name]`), only the `years`, `year_numbers`, `countries`, `country_codes`,
+When you search (with `search` or `filter[name]`), only the `years`, `year_numbers`, `countries`, `country_codes`,
 `regions`, `region_blocs`, `studies`, `categories`, `sectors`, `companies`, `variations`, `tags`, `is_deprecated`
-and `has_studies` filters apply, and sorting is limited to a single column.
+and `has_studies` filters apply. You can also sort on only one column.

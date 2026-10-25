@@ -6,16 +6,16 @@ A [brand](brands.md) can be known under more than one name. Brand variations are
 A variation is either:
 
 - `equivalent` - Another name for the brand.
-- `previously` - A name the brand was previously known as.
+- `previously` - A name the brand had in the past.
 
 Each brand variation has a unique numeric `key`, which can be negative, and a short `code`. When a brand variation is
-deprecated, it may point to the variation that replaced it.
+deprecated, it can point to the variation that replaced it.
 
 This endpoint requires the `bav:brand-data` scope.
 
 ## List all brand variations
 
-To list all of the brand variations and browse them via the API, use the list endpoint:
+To list all of the brand variations and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brand-variations
@@ -23,7 +23,7 @@ GET /api/v2/brand-variations
 
 ## Get a brand variation
 
-You may also directly retrieve a brand variation's details if you already have its system ID.
+If you already have the system ID of a brand variation, you can also get its details directly.
 
 ```http request
 GET /api/v2/brand-variations/123
@@ -53,8 +53,8 @@ Where `123` is the system ID of the brand variation.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand variation is used as part of an include in another resource, such
-as the brandscape data.
+The API uses the slim relationship schema when the brand variation is part of an include in another resource, such as
+the brandscape data.
 
 | Key     | Type    | Description                                                         |
 |---------|---------|---------------------------------------------------------------------|
@@ -66,18 +66,18 @@ as the brandscape data.
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+For convenience, brand variations have a set of additional filters. These filters are not in
+the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
 
-- `brands` - A comma-separated list of brand IDs. Only variations of these brands are returned.
+- `brands` - A comma-separated list of brand IDs. The filter returns only the variations of these brands.
 - `keys` - A comma-separated list of brand variation keys.
-- `studies` - A comma-separated list of study IDs. Only variations included in these studies are returned.
-- `has_studies` - Set to `1` to only return variations that have been measured in at least one study, or `0` for
-  variations that have not.
+- `studies` - A comma-separated list of study IDs. The filter returns only the variations that are in these studies.
+- `has_studies` - Set to `1` to return only the variations that were measured in one or more studies. Set to `0` to
+  return only the variations that were not measured.
 
 ## Relationships & includes
 
-By default, relationships are not included. See
+By default, the response does not include relationships. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
@@ -88,6 +88,6 @@ are available:
 
 This endpoint supports searching by name. See the [searching section](../customizing/searching) for more details.
 
-When searching, either with `search` or `filter[name]`, only these filters apply: `id`, `brand_id`, `type`, `code`,
-`keys`, `studies`, `is_core`, `is_global`, `is_ranked`, `is_deprecated` and `has_studies`. Sorting is also limited to a
-single column.
+When you search with `search` or `filter[name]`, only these filters apply: `id`, `brand_id`, `type`, `code`, `keys`,
+`studies`, `is_core`, `is_global`, `is_ranked`, `is_deprecated` and `has_studies`. You can also sort on only one
+column.

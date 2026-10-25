@@ -5,11 +5,12 @@ sidebar_label: Query Data
 # Querying Audience Origin Data
 
 The query endpoint returns Audience Origin data for a set of [metrics](metrics.md) in one or more Audience Origin
-studies. The data is returned for an [audience](../audiences/audiences.md), which defaults to All Adults.
+studies. The endpoint returns the data for an [audience](../audiences/audiences.md). The default audience is All
+Adults.
 
 ## Creating a query
 
-The query is sent as a `POST` request with a JSON body:
+Send the query as a `POST` request with a JSON body:
 
 ```http request
 POST /api/v2/audience-origin/query
@@ -25,21 +26,21 @@ POST /api/v2/audience-origin/query
 }
 ```
 
-You choose which metrics to get data for with `metrics`, `metric_keys`, `metric_group_keys` or `metric_group_ids`. You
-can combine these, and a group returns every metric in it.
+To select the metrics to get data for, use `metrics`, `metric_keys`, `metric_group_keys` or `metric_group_ids`. You can
+combine these parameters. A group returns every metric in it.
 
 ### Parameters
 
-All parameters are passed inside the `filter` object.
+Send all parameters inside the `filter` object.
 
 | Key                 | Type    |      Required      | Description                                                                                                                          |
 |---------------------|---------|:------------------:|--------------------------------------------------------------------------------------------------------------------------------------|
-| `studies`           | array   | :white_check_mark: | The IDs of the Audience Origin [studies](../studies/studies.md) to read from. Only active Audience Origin studies you have access to are accepted. |
+| `studies`           | array   | :white_check_mark: | The IDs of the Audience Origin [studies](../studies/studies.md) to read from. The endpoint accepts only active Audience Origin studies that you have access to. |
 | `metrics`           | array   |        :x:         | The IDs of the [metrics](metrics.md) to return.                                                                                      |
 | `metric_keys`       | array   |        :x:         | The keys of the [metrics](metrics.md) to return.                                                                                     |
 | `metric_group_keys` | array   |        :x:         | The keys of [metric groups](metric-groups.md) to return every metric from.                                                           |
 | `metric_group_ids`  | array   |        :x:         | The IDs of [metric groups](metric-groups.md) to return every metric from.                                                            |
-| `quarters`          | array   |        :x:         | The quarters of the year to include, as numbers from `1` to `4`. All quarters are included by default.                               |
+| `quarters`          | array   |        :x:         | The quarters of the year to include, as numbers from `1` to `4`. By default, the endpoint includes all quarters.                     |
 | `audience`          | integer |        :x:         | The ID of the [audience](../audiences/audiences.md) to get the data for. Defaults to All Adults (`1`).                               |
 
 If any of the parameters are invalid, for example a study that is not an Audience Origin study or a metric key that
@@ -119,14 +120,14 @@ a `metrics` object with the data for each metric.
 | `id`             | integer | The system ID of the [metric](metrics.md).                                                                    |
 | `key`            | string  | The key of the metric.                                                                                        |
 | `name`           | string  | The name of the metric.                                                                                       |
-| `label`          | string  | The label of the metric. Falls back to the name.                                                              |
+| `label`          | string  | The label of the metric. If there is no label, this is the name.                                              |
 | `type`           | string  | The type of the metric, such as `dictionary`, `boolean`, `integer` or `decimal`.                              |
 | `values`         | object  | The scores for the metric, keyed by value. See below.                                                         |
 | `dictionary`     | object  | The answer options for the metric, as a map of values to labels.                                             |
 | `primaryGroup`   | string  | The name of the parent [metric group](metric-groups.md), if any.                                              |
 | `secondaryGroup` | string  | The name of the metric group the metric belongs to, if any.                                                   |
 
-How `values` is built depends on the type of the metric:
+The structure of `values` depends on the type of the metric:
 
 - **Dictionary and integer metrics.** One entry per value, with the `value`, its `label`, the `score` and a
   `full_label` that combines the metric label and the value label. The score is the weighted percentage of respondents

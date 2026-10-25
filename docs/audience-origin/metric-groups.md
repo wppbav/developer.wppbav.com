@@ -5,11 +5,11 @@
 [Audience Origin metrics](metrics.md) are organized in metric groups, such as a group for media usage or for
 attitudes. Groups nest one level deep: a top-level group can have child groups, and metrics belong to a group.
 
-The `key` of a group can be used in the [query endpoint](query.md) to get the data for every metric in the group.
+You can use the `key` of a group in the [query endpoint](query.md) to get the data for every metric in the group.
 
 ## List all Audience Origin metric groups
 
-To list all of the metric groups and browse them via the API, use the list endpoint:
+To list all of the metric groups and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/audience-origin/metric-groups
@@ -17,7 +17,7 @@ GET /api/v2/audience-origin/metric-groups
 
 ## Get an Audience Origin metric group
 
-You may also directly retrieve a metric group's details if you already have its system ID.
+If you already have the system ID of a metric group, you can also get its details directly.
 
 ```http request
 GET /api/v2/audience-origin/metric-groups/123
@@ -41,7 +41,7 @@ Where `123` is the system ID of the metric group.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the metric group is used as part of an include in another resource.
+The API uses the slim relationship schema when the metric group is part of an include in another resource.
 
 | Key         | Type    | Description                                                                 |
 |-------------|---------|-----------------------------------------------------------------------------|
@@ -49,19 +49,19 @@ The slim relationship schema is used when the metric group is used as part of an
 | `name`      | string  | The name of the metric group.                                               |
 | `key`       | string  | The key of the metric group.                                                |
 | `is_parent` | boolean | Whether this is a top-level metric group.                                   |
-| `parent`    | object  | The parent metric group, when it has been included.                         |
+| `parent`    | object  | The parent metric group, when you include it.                               |
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+For convenience, there is a set of additional filters. These filters are not in
+the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
 
-- `only_parents` - Set to `1` to only return top-level groups.
-- `only_children` - Set to `1` to only return groups nested under a parent.
+- `only_parents` - Set to `1` to return only top-level groups.
+- `only_children` - Set to `1` to return only groups nested under a parent.
 
 ## Relationships & includes
 
-By default, relationships are not included. See
+By default, the response does not include relationships. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available on the list endpoint:
 

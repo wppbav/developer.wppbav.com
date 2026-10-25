@@ -23,17 +23,17 @@ GET /api/v2/brands?filter[tags]=luxury
 
 ## List all brand tags
 
-To list all of the brand tags and browse them via the API, use the list endpoint:
+To list all of the brand tags and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brand-tags
 ```
 
-The tags are sorted by category and name by default.
+By default, the API sorts the tags by category and name.
 
 ## Get a brand tag
 
-You may also directly retrieve a brand tag's details if you already have its system ID.
+If you already have the system ID of a brand tag, you can also get its details directly.
 
 ```http request
 GET /api/v2/brand-tags/123
@@ -59,8 +59,8 @@ Where `123` is the system ID of the brand tag.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand tag is used as part of an include in another resource, such as
-the `tags` include on [brands](brands.md).
+The API uses the slim relationship schema when the brand tag is part of an include in another resource, such as the
+`tags` include on [brands](brands.md).
 
 | Key               | Type    | Description                                                                                            |
 |-------------------|---------|--------------------------------------------------------------------------------------------------------|
@@ -72,7 +72,7 @@ the `tags` include on [brands](brands.md).
 
 ## Relationships & includes
 
-By default, relationships are not included. See
+By default, the response does not include relationships. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 

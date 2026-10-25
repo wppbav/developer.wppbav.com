@@ -6,14 +6,14 @@ Audience Origin metrics are the questions and variables in the [Audience Origin]
 belongs to a [metric group](metric-groups.md). Media metrics can also measure a [touchpoint](touchpoints.md) and
 a [frequency](frequencies.md).
 
-The `key` of a metric is what you use to ask for its data in the [query endpoint](query.md).
+Use the `key` of a metric to request its data in the [query endpoint](query.md).
 
 Not every metric is available in every study. Use the `for_studies` filter or the `studies` include to see where a
 metric is available.
 
 ## List all Audience Origin metrics
 
-To list all of the Audience Origin metrics and browse them via the API, use the list endpoint:
+To list all of the Audience Origin metrics and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/audience-origin/metrics
@@ -21,7 +21,7 @@ GET /api/v2/audience-origin/metrics
 
 ## Get an Audience Origin metric
 
-You may also directly retrieve a metric's details if you already have its system ID.
+If you already have the system ID of a metric, you can also get its details directly.
 
 ```http request
 GET /api/v2/audience-origin/metrics/123
@@ -51,7 +51,7 @@ Where `123` is the system ID of the metric.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the metric is used as part of an include in another resource.
+The API uses the slim relationship schema when the metric is part of an include in another resource.
 
 | Key         | Type    | Description                                                                         |
 |-------------|---------|-------------------------------------------------------------------------------------|
@@ -77,19 +77,20 @@ value can mean different things in two studies.
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+For convenience, there is a set of additional filters. These filters are not in
+the [default filters](../customizing/filters.md) and are not columns. The additional filters are:
 
 - `touchpoint_id` - The ID of a [touchpoint](touchpoints.md) to filter by.
 - `frequency_id` - The ID of a [frequency](frequencies.md) to filter by.
-- `for_studies` - A comma-separated list of study IDs. Only metrics available in these studies are returned.
-- `has_touchpoint` - Set to `1` to only return metrics with a touchpoint.
-- `has_frequency` - Set to `1` to only return metrics with a frequency.
-- `has_studies` - Set to `1` to only return metrics that are available in at least one study.
+- `for_studies` - A comma-separated list of study IDs. The filter returns only metrics that are available in these
+  studies.
+- `has_touchpoint` - Set to `1` to return only metrics with a touchpoint.
+- `has_frequency` - Set to `1` to return only metrics with a frequency.
+- `has_studies` - Set to `1` to return only metrics that are available in at least one study.
 
 ## Relationships & includes
 
-By default, relationships are not included. See
+By default, the response does not include relationships. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 

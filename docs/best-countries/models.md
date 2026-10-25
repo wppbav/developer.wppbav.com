@@ -25,14 +25,14 @@ All model endpoints require the **Best Countries Data** (`bav:best-countries-dat
 
 ## Parameters
 
-The parameters are sent as a JSON body. List parameters are arrays, and each value can be either an ID or a name.
+Send the parameters as a JSON body. List parameters are arrays, and each value can be either an ID or a name.
 
 ### Country models
 
 | Key         |          Required?           | Type   | Description                                                                                                                  |
 |-------------|:----------------------------:|--------|------------------------------------------------------------------------------------------------------------------------------|
 | `years`     |      :white_check_mark:      | array  | The [years](../metadata/years.md) to read, as year IDs or calendar years.                                                    |
-| `countries` |  :x: (defaults to all)       | array  | The [countries](../metadata/countries.md) to read, by country ID, two- or three-letter ISO code, or name. Returns every country measured in the year when left out. |
+| `countries` |  :x: (defaults to all)       | array  | The [countries](../metadata/countries.md) to read, by country ID, two- or three-letter ISO code, or name. If you do not send it, the endpoint returns every country measured in the year. |
 | `audiences` | :x: (defaults to All Adults) | array  | The [audiences](../audiences/audiences.md) to read, by audience ID or name.                                                  |
 | `scoreType` |  :x: (depends on the model)  | string | The score type. See [score types](#score-types).                                                                             |
 | `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brand-data/data-models.md#response-formats).        |
@@ -44,7 +44,7 @@ The city models take the same parameters as the country models, but with `cities
 | Key         |          Required?           | Type   | Description                                                                                                         |
 |-------------|:----------------------------:|--------|---------------------------------------------------------------------------------------------------------------------|
 | `years`     |      :white_check_mark:      | array  | The [years](../metadata/years.md) to read, as year IDs or calendar years.                                           |
-| `cities`    |  :x: (defaults to all)       | array  | The [cities](../metadata/cities.md) to read, by city ID or name. Returns every city measured in the year when left out. |
+| `cities`    |  :x: (defaults to all)       | array  | The [cities](../metadata/cities.md) to read, by city ID or name. If you do not send it, the endpoint returns every city measured in the year. |
 | `audiences` | :x: (defaults to All Adults) | array  | The [audiences](../audiences/audiences.md) to read, by audience ID or name.                                         |
 | `scoreType` |  :x: (depends on the model)  | string | The score type. See [score types](#score-types).                                                                    |
 | `format`    |   :x: (defaults to `json`)   | string | The response format: `json`, `llm` or `mcp`. See [response formats](../brand-data/data-models.md#response-formats). |
@@ -57,7 +57,7 @@ The `scoreType` parameter accepts:
 - `percentage` - The percentage of respondents, for example those who would consider visiting.
 - `score` - A score from 0 to 100.
 
-The default score type depends on the model and is listed in the [table above](#available-models).
+The default score type depends on the model. The [table above](#available-models) shows the default for each model.
 
 ### Example
 
@@ -87,7 +87,7 @@ contains:
 | `year_id`        | integer | The system ID of the [year](../metadata/years.md). Only on the country models.                                     |
 | `audience_id`    | integer | The system ID of the [audience](../audiences/audiences.md).                                                        |
 | `audience`       | string  | The name of the audience.                                                                                          |
-| _metric keys_    | number  | One field per metric in the model, named after the [metric](metrics.md) or [factor](factors.md) `key`, holding the value for the requested score type. |
+| _metric keys_    | number  | One field per metric in the model, named after the [metric](metrics.md) or [factor](factors.md) `key`, with the value for the requested score type.    |
 
 ```json
 [
@@ -103,7 +103,7 @@ contains:
 ]
 ```
 
-The values in the example are illustrative, and only some of the metrics are shown.
+The values in the example are for illustration only. The example shows only some of the metrics.
 
 ## Country Imagery
 
@@ -120,8 +120,8 @@ the `rank` score type by default.
 POST /api/v2/best-countries/countries/factors
 ```
 
-Each country's scores on the Best Countries [factors](factors.md), the weighted categories that the overall ranking is
-calculated from. Returns one field per factor `key`, along with the overall `total`. Uses the `rank` score type by
+Each country's scores on the Best Countries [factors](factors.md), the weighted categories that give the overall
+ranking. Returns one field per factor `key` and the overall `total`. Uses the `rank` score type by
 default.
 
 ## Country Doing Business
