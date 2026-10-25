@@ -2,18 +2,18 @@
 
 ## What are studies?
 
-A fundamental element of our datasets are studies. A study is a collection of data from respondents in one market at a
-specific point in time. Most markets in BAV are for example covered at most once a year with the exception of the US
-which is done quarterly.
+Studies are a fundamental element of our datasets. A study is a collection of data from respondents in one market at a
+specific point in time. For example, BAV covers most markets at most once a year. The exception is the US, which BAV
+covers quarterly.
 
-Studies are a primary way of filtering our [brandscape data](../brand-data/brandscape-data.md) and also contains
+Studies are a primary way to filter our [brandscape data](../brand-data/brandscape-data.md). A study also contains
 information about the study itself, such as when it was conducted and how many respondents it had.
 
-You only see the studies you have access to. The studies endpoints are read-only.
+You see only the studies that you have access to. The studies endpoints are read-only.
 
 ## List all studies
 
-To list all of the studies and browse them via the API, use the list endpoint:
+To list all of the studies and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/studies
@@ -21,7 +21,7 @@ GET /api/v2/studies
 
 ## Get a study
 
-You may also directly retrieve a study's details if you already have its system ID.
+If you already have the system ID of a study, you can also get its details directly.
 
 ```http request
 GET /api/v2/studies/123
@@ -31,19 +31,19 @@ Where `123` is the system ID of the study.
 
 ## Get brands in a study
 
-You may get a list of all brands in a study by using the following endpoint:
+To get a list of all brands in a study, use the following endpoint:
 
 ```http request
 GET /api/v2/studies/123/brands
 ```
 
-Where `123` is the system ID of the study. A brand measured in several categories appears once per category. Returns
-`404` if the study does not exist or you do not have access to it. This endpoint requires a token with the `bav:brand-data`
+Where `123` is the system ID of the study. A brand measured in several categories appears once per category. If the
+study does not exist or you do not have access to it, the endpoint returns `404`. This endpoint requires a token with the `bav:brand-data`
 scope.
 
 ## Get categories in a study
 
-You may get a list of the categories in a study by using the following endpoint:
+To get a list of the categories in a study, use the following endpoint:
 
 ```http request
 GET /api/v2/studies/123/categories
@@ -71,18 +71,18 @@ relationship schema) describe it.
 :::note
 
 The standard BAV study was previously labelled "Syndicated". Its label is now "BAV (Standard)", but its slug is still
-`syndicated`, so existing `study_types` filters keep working.
+`syndicated`, so existing `study_types` filters continue to work.
 
 :::
 
 ## Methodologies
 
 Each study is run on a methodology, the version of the BAV model that decides how its metrics are calculated. Use the
-`methodology` include to get it. Metrics are calculated differently between methodologies, so take care when comparing
+`methodology` include to get it. Metrics are calculated differently between methodologies. Be careful when you compare
 studies that were run on different ones.
 
-Methodologies have a stable `key` and a display `name`. The names were changed in October 2026; the keys did not
-change, so use the `key` rather than the name to tell methodologies apart.
+Methodologies have a stable `key` and a display `name`. The names changed in October 2026. The keys did not
+change, so use the `key` and not the name to identify a methodology.
 
 | `key`             | Name                 | Previous name |
 |-------------------|----------------------|---------------|
@@ -122,7 +122,7 @@ change, so use the `key` rather than the name to tell methodologies apart.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the study is used as part of an include in another resource.
+The API uses the slim relationship schema when the study is part of an include in another resource.
 
 | Key                | Type    | Description                                                                              |
 |--------------------|---------|------------------------------------------------------------------------------------------|
@@ -142,13 +142,13 @@ The schema used for the `methodology` include.
 | Key           | Type    | Description                                                                                  |
 |---------------|---------|----------------------------------------------------------------------------------------------|
 | `id`          | integer | The system ID for the methodology.                                                           |
-| `key`         | string  | The stable methodology key, e.g. `v2025-2`. Use this rather than the name to tell them apart. |
+| `key`         | string  | The stable methodology key, e.g. `v2025-2`. Use this and not the name to identify a methodology. |
 | `name`        | string  | The methodology name, e.g. `BAV 3 (Default)`.                                                |
 | `description` | string  | What the methodology is and how it differs from the other versions.                          |
 
 ### Brands in Study Schema
 
-When getting the brands included in a study, the following schema is used:
+When you get the brands in a study, the API uses the following schema:
 
 | Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                             |
 |--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|---------------------------------------------------------|
@@ -159,7 +159,7 @@ When getting the brands included in a study, the following schema is used:
 
 ### Categories in Study Schema
 
-When getting the categories included in a study, the following schema is used:
+When you get the categories in a study, the API uses the following schema:
 
 | Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                         |
 |--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------------------------------|
@@ -200,13 +200,13 @@ The category is always included. The following additional relationships are avai
 
 ## Additional filters
 
-For convenience, we have a set of additional filters for studies that are not available in
+For convenience, there are some additional filters for studies that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `study_types` - A comma-separated list of study type slugs: `syndicated` (BAV Standard), `custom` (Kaleidoscope and
-  Consumer Eye), `snap` (SnapBAV) or `fused` (AO+BAV Fused). Unknown slugs are ignored. Use the `type` filter to filter
+  Consumer Eye), `snap` (SnapBAV) or `fused` (AO+BAV Fused). The API ignores unknown slugs. Use the `type` filter to filter
   by type number instead.
-- `data_updated_since` - A date string. This will filter the studies to only those that have had their data updated
+- `data_updated_since` - A date string. The API filters the studies to only those that have had their data updated
   since the given date. Unlike `updated_since`, this ignores changes to the study's details.
 - `active` - Set to `1` to only return active studies.
 - `inactive` - Set to `1` to only return inactive studies.
@@ -215,14 +215,14 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 - `unreleased` - Set to `1` to only return active studies that have not been released yet.
 - `full_year` - Set to `1` to only return full year studies (period `1`, excludes US quarterly waves).
 - `open_survey` - Set to `1` to only return studies with an open brand selection survey.
-- `regions` - A comma-separated list of region IDs. This will filter the studies to only those that are in the given
+- `regions` - A comma-separated list of region IDs. The API filters the studies to only those that are in the given
   regions.
-- `countries` - A comma-separated list of country IDs. This will filter the studies to only those that are in the given
+- `countries` - A comma-separated list of country IDs. The API filters the studies to only those that are in the given
   countries.
-- `country_codes` - A comma-separated list of two-letter ISO country codes. This will filter the studies to only those
+- `country_codes` - A comma-separated list of two-letter ISO country codes. The API filters the studies to only those
   that are in the given countries.
-- `years` - A comma-separated list of year IDs. This will filter the studies to only those that are in the given years.
-- `year_numbers` - A comma-separated list of year numbers. This will filter the studies to only those that are in the
+- `years` - A comma-separated list of year IDs. The API filters the studies to only those that are in the given years.
+- `year_numbers` - A comma-separated list of year numbers. The API filters the studies to only those that are in the
   given years.
 
 For the scope filters (`active`, `inactive`, `bav_study`, `released`, `unreleased`, `full_year` and `open_survey`), any
@@ -230,27 +230,27 @@ value turns the filter on.
 
 ### For brands in a study
 
-The following additional filters are available when fetching brands for a given study:
+The following additional filters are available when you get brands for a given study:
 
-- `categories` - A comma-separated list of category IDs. This will filter the brands to only those that are studied in
+- `categories` - A comma-separated list of category IDs. The API filters the brands to only those that are studied in
   the specified categories.
-- `brands` - A comma-separated list of brand IDs. This will filter the brands to only the ones provided.
-- `brandVariations` - A comma-separated list of brand variation IDs. This will filter the brands to only those measured
+- `brands` - A comma-separated list of brand IDs. The API filters the brands to only the ones provided.
+- `brandVariations` - A comma-separated list of brand variation IDs. The API filters the brands to only those measured
   under the given variations.
 
 ### For categories in a study
 
-The following additional filters are available when fetching categories for a given study:
+The following additional filters are available when you get categories for a given study:
 
-- `categories` - A comma-separated list of category IDs. This will filter the categories to only those given.
-- `brands` - A comma-separated list of brand IDs. This will filter the categories to only those that have the given
+- `categories` - A comma-separated list of category IDs. The API filters the categories to only those given.
+- `brands` - A comma-separated list of brand IDs. The API filters the categories to only those that have the given
   brands in the study.
-- `brand_variations` - A comma-separated list of brand variation IDs. This will filter the categories to only those
+- `brand_variations` - A comma-separated list of brand variation IDs. The API filters the categories to only those
   that have the given brand variations in the study.
 
 :::caution Filter naming
 
-The brand variation filter is named differently on the two endpoints: it is `filter[brandVariations]` (camelCase) on
+The brand variation filter has a different name on the two endpoints. It is `filter[brandVariations]` (camelCase) on
 `/studies/{id}/brands` and `filter[brand_variations]` (snake_case) on `/studies/{id}/categories`. Likewise, the include
 for the brand variation on `/studies/{id}/brands` is `brandVariation`.
 

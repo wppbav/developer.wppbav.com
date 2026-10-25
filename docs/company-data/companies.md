@@ -7,7 +7,7 @@ companies can be privately or publicly owned.
 
 ## List all companies
 
-To list all of the companies and browse them via the API, use the list endpoint:
+To list all of the companies and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/companies
@@ -15,7 +15,7 @@ GET /api/v2/companies
 
 ## Get a company
 
-You may also directly retrieve a company's details if you already have its system ID.
+If you already have the system ID of a company, you can also get the company details directly.
 
 ```http request
 GET /api/v2/companies/123
@@ -36,11 +36,11 @@ Where `123` is the system ID of the company.
 
 This returns the same response as the [stock prices endpoint](stock-prices.md#response) and is not paginated. It
 accepts the `from`, `to` and `interval` parameters described in
-the [stock prices documentation](stock-prices.md#parameters). Omitting `from` and `to` returns the full price history,
-so use a date window or a `weekly` or `monthly` `interval` to keep the response small.
+the [stock prices documentation](stock-prices.md#parameters). If you do not send `from` and `to`, the endpoint returns
+the full price history. To keep the response small, use a date window or a `weekly` or `monthly` `interval`.
 
-A company without a primary listing returns no rows, and its ID is listed in `meta.companies_without_listing`. A `503`
-error is returned if the market data provider cannot be reached.
+A company without a primary listing returns no rows, and the response lists its ID in `meta.companies_without_listing`.
+If the API cannot connect to the market data provider, it returns a `503` error.
 
 ## Schema
 
@@ -67,7 +67,7 @@ error is returned if the market data provider cannot be reached.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the company is used as part of an include in another resource.
+The API uses the slim relationship schema when the company is part of an include in another resource.
 
 | Key    | Type    | Description                      |
 |--------|---------|----------------------------------|
@@ -76,7 +76,7 @@ The slim relationship schema is used when the company is used as part of an incl
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `public` - Set to `1` to only return public (listed) companies.

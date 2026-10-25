@@ -2,12 +2,12 @@
 
 ## What are brand metrics?
 
-When BAV studies a brand it does so on a variety of metrics. These metrics are divided
+When BAV studies a brand, it uses many different metrics. BAV divides these metrics
 into [groups](metric-groups.md). Each group relates to a specific way to look at a brand, or to a BAV model.
 
 ## List all brand metrics
 
-To list all of the brand metrics and browse them via the API, use the list endpoint:
+To list all of the brand metrics and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brand-metrics
@@ -15,7 +15,7 @@ GET /api/v2/brand-metrics
 
 ## Get a brand metric
 
-You may also directly retrieve a brand metric's details if you already have its system ID.
+If you already have the system ID of a brand metric, you can also get its details directly.
 
 ```http request
 GET /api/v2/brand-metrics/123
@@ -32,11 +32,11 @@ Where `123` is the system ID of the brand metric.
 | `id`                        | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                   |
 | `key`                       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A machine-readable key for the metric. Brandscape data fields are named after it. |
 | `name`                      | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The primary name of the metric.                                                  |
-| `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description on what this metric is about.                                |
+| `description`               | string  |                    :x:                    |        :x:         | :white_check_mark: | A short description of what this metric is about.                                |
 | `is_active`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If the metric is active or deprecated.                                           |
 | `is_public`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric is publicly available for all users.                          |
 | `is_core`                   | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric is part of the core set of BAV metrics.                       |
-| `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has been discontinued and will not available in new studies.  |
+| `is_legacy`                 | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has been discontinued and will not be available in new studies. |
 | `has_construct_score`       | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a construct score available.                              |
 | `has_percentile_rank_score` | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a percentile rank score available.                        |
 | `has_percentage_score`      | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the metric has a percentage score available.                             |
@@ -48,7 +48,7 @@ Where `123` is the system ID of the brand metric.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand metric is used as part of an include in another resource.
+The API uses the slim relationship schema when the brand metric is part of an include in another resource.
 
 | Key         | Type    | Description                            |
 |-------------|---------|----------------------------------------|
@@ -58,14 +58,14 @@ The slim relationship schema is used when the brand metric is used as part of an
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters for brand metrics that are not available in
+For convenience, there are some additional filters for brand metrics that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `active` - Set to `1` to only return active metrics.
 - `inactive` - Set to `1` to only return inactive metrics.
 - `public` - Set to `1` to only return public metrics.
 - `private` - Set to `1` to only return private metrics.
-- `group` - A comma-separated list of [brand metric group](metric-groups.md) IDs. This will only return metrics that
+- `group` - A comma-separated list of [brand metric group](metric-groups.md) IDs. The API returns only the metrics that
   belong to the specified groups.
 - `current` - Set to `1` to only return metrics that are in use in studies today.
 - `legacy` - Set to `1` to only return legacy metrics.

@@ -2,12 +2,12 @@
 
 ## What are cities?
 
-Some BAV resources rely on segmenting data by cities. This resource contains a list of all the cities in
-the world with a population over 500 with additional metadata for system use.
+Some BAV resources segment data by cities. This resource contains a list of all the cities in the world with a
+population over 500. It also contains additional metadata for system use.
 
 ## List all cities
 
-To list all of the cities and browse them via the API, use the list endpoint:
+To list all of the cities and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/cities
@@ -15,7 +15,7 @@ GET /api/v2/cities
 
 ## Get a city
 
-You may also directly retrieve a city's details if you already have its system ID.
+If you already have the system ID of a city, you can also get its details directly.
 
 ```http request
 GET /api/v2/cities/123
@@ -38,7 +38,7 @@ Where `123` is the system ID of the city.
 | `population`              | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The population of the city.                                                                                                       |
 | `elevation`               | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The city's elevation in meters, where GeoNames has a surveyed value. Also see `digital_elevation_model` which is available for more cities. |
 | `digital_elevation_model` | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The city's elevation in meters from the GeoNames digital elevation model.                                                        |
-| `geonames_feature_code`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The [feature code](http://www.geonames.org/export/codes.html) from GeoNames, allowing you to filter on type of city. `PPLC` is a capital city. |
+| `geonames_feature_code`   | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The [feature code](http://www.geonames.org/export/codes.html) from GeoNames. You can use it to filter on the type of city. `PPLC` is a capital city. |
 | `created_at`              | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this city was first created in the system.                                                                |
 | `updated_at`              | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this city was last updated in the system.                                                                 |
 
@@ -46,7 +46,7 @@ You can also sort the cities by `country_id`. To get the country for each city, 
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `capitals` - Set to `1` to only return capital cities.

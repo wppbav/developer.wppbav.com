@@ -2,7 +2,7 @@
 
 ## What are regions?
 
-Many of the BAV resources rely on segmenting data by country. Countries in turn belong to different geographical
+Many of the BAV resources segment data by country. Countries in turn belong to different geographical
 regions. This resource contains a list of all the regions.
 
 These regions are world geographical regions according to
@@ -10,7 +10,7 @@ the [United Nations geoscheme](https://en.wikipedia.org/wiki/United_Nations_geos
 
 ## List all regions
 
-To list all of the regions and browse them via the API, use the list endpoint:
+To list all of the regions and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/regions
@@ -18,7 +18,7 @@ GET /api/v2/regions
 
 ## Get a region
 
-You may also directly retrieve a region's details if you already have its system ID.
+If you already have the system ID of a region, you can also get its details directly.
 
 ```http request
 GET /api/v2/regions/123
@@ -39,7 +39,7 @@ Where `123` is the system ID of the region.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the region is used as part of an include in another resource.
+The API uses the slim relationship schema when the region is part of an include in another resource.
 
 ## Relationships & includes
 
@@ -47,7 +47,7 @@ By default, relationships apart from the sector are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `countries` - The [countries](countries.md) countries that are part of the region.
+- `countries` - The [countries](countries.md) that are part of the region.
 
 ## Searching
 

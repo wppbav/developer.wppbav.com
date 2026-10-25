@@ -2,14 +2,14 @@
 
 ## What are countries?
 
-Many of the BAV resources rely on segmenting data by countries. This resource contains a list of all the countries in
+Many of the BAV resources segment data by countries. This resource contains a list of all the countries in
 the world, with additional ISO codes and metadata for system use.
 
-We suggest that you use the term `Market` instead of country when showing this in an interface.
+We recommend that you use the term `Market` instead of country when you show this in an interface.
 
 ## List all countries
 
-To list all of the countries and browse them via the API, use the list endpoint:
+To list all of the countries and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/countries
@@ -17,7 +17,7 @@ GET /api/v2/countries
 
 ## Get a country
 
-You may also directly retrieve a country's details if you already have its system ID.
+If you already have the system ID of a country, you can also get its details directly.
 
 ```http request
 GET /api/v2/countries/123
@@ -32,7 +32,7 @@ Where `123` is the system ID of the country.
 | Key            | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                         |
 |----------------|---------|:-----------------------------------------:|:------------------:|:------------------:|-------------------------------------------------------------------------------------|
 | `id`           | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID for the country. Always returned.                                     |
-| `is_active`    | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the market should be used/shown or not.                                     |
+| `is_active`    | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether you can use and show the market.                                            |
 | `name`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in English.                                                 |
 | `native_name`  | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the country in its native language.                                     |
 | `code`         | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The two-letter code (ISO 3166-1 alpha-2) for the country.                           |
@@ -48,7 +48,7 @@ Where `123` is the system ID of the country.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the country is used as part of an include in another resource.
+The API uses the slim relationship schema when the country is part of an include in another resource.
 
 | Key            | Type    | Description                                                                              |
 |----------------|---------|------------------------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ The slim relationship schema is used when the country is used as part of an incl
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `active` - Set to `1` to only return active countries.
@@ -69,8 +69,8 @@ the [default filters](../customizing/filters.md) or are part of the columns. The
 - `with_studies` - Include this parameter to only return countries that have studies (note that these can be both
   released and unreleased studies).
 - `with_recent_studies` - Set to a number (X) to only return countries that have an available syndicated BAV study in
-  the last X calendar years. For example: When set to 0 it will return countries that have studies in the current year.
-  When set to 1 it will return countries that have studies in the current or past calendar year.
+  the last X calendar years. For example, when you set it to 0, it returns countries that have studies in the current year.
+  When you set it to 1, it returns countries that have studies in the current or past calendar year.
 - `with_recent_studies_incl_snap` - Works like `with_recent_studies`, but also counts custom and SnapBAV studies.
 - `in_best_countries` - Set to a comma-separated list of year numbers (e.g. `2023,2024`) to only return countries that
   are included in the Best Countries ranking for those years.

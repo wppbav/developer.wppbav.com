@@ -4,8 +4,8 @@ sidebar_label: Overview
 
 # Measures & Questions
 
-When BAV studies brands it asks respondents a set of questions. The API exposes these in a few different ways depending
-on what you need:
+When BAV studies brands, it asks respondents a set of questions. The API exposes these questions in different ways.
+Select the one that you need:
 
 - **[Brand metrics](../metrics/metrics.md).** The calculated metrics that make up the BAV data, such as
   Differentiation and Esteem. These are the columns in the [brandscape data](../brand-data/brandscape-data.md).
@@ -24,6 +24,6 @@ All of the endpoints in this section require the `bav:brand-data` scope.
 
 ## Building audiences
 
-Brand measures and BAV questions can both be used as conditions when
+You can use brand measures and BAV questions as conditions when
 [building your own audiences](../audiences/managing-audiences.md). Use the `bav-study-measure` metric type for a brand
 measure and `bav-study-question` for a BAV question.

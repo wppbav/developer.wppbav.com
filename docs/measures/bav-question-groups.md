@@ -2,12 +2,12 @@
 
 ## What are BAV question groups?
 
-[BAV questions](bav-questions.md) are organized in groups, such as demographics. The groups can be used to create a
-better selection experience in an interface, for example when building an [audience](../audiences/audiences.md).
+[BAV questions](bav-questions.md) are organized in groups, such as demographics. You can use the groups to create a
+better selection experience in an interface, for example when you build an [audience](../audiences/audiences.md).
 
 ## List all BAV question groups
 
-To list all of the BAV question groups and browse them via the API, use the list endpoint:
+To list all of the BAV question groups and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/bav-question-groups
@@ -15,7 +15,7 @@ GET /api/v2/bav-question-groups
 
 ## Get a BAV question group
 
-You may also directly retrieve a BAV question group's details if you already have its system ID.
+If you already have the system ID of a BAV question group, you can also get its details directly.
 
 ```http request
 GET /api/v2/bav-question-groups/123
@@ -38,7 +38,7 @@ Where `123` is the system ID of the BAV question group.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the BAV question group is used as part of an include in another resource.
+The API uses the slim relationship schema when the BAV question group is part of an include in another resource.
 
 | Key           | Type    | Description                                                    |
 |---------------|---------|----------------------------------------------------------------|
@@ -52,10 +52,10 @@ The slim relationship schema is used when the BAV question group is used as part
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-- `questions` - A comma-separated list of BAV question IDs. Only groups containing these questions are returned.
+- `questions` - A comma-separated list of BAV question IDs. The API returns only the groups that contain these questions.
 
 ## Relationships & includes
 

@@ -2,14 +2,14 @@
 
 ## What are operating companies?
 
-The WPP organization consists of many operating companies. Each user in the platform generally belongs to an operating
-company. Each operating company may belong to another operating company as a hierarchy.
+The WPP organization consists of many operating companies. Usually, each user in the platform belongs to an operating
+company. An operating company can belong to another operating company in a hierarchy.
 
-In some cases an operating company may also have a brand, in which case it will have a brand relationship.
+In some cases, an operating company also has a brand. In that case, it has a brand relationship.
 
 ## List all operating companies
 
-To list all of the operating companies and browse them via the API, use the list endpoint:
+To list all of the operating companies and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/operating-companies
@@ -17,7 +17,7 @@ GET /api/v2/operating-companies
 
 ## Get a operating company
 
-You may also directly retrieve a operating company's details if you already have its system ID.
+If you already have the system ID of an operating company, you can also get its details directly.
 
 ```http request
 GET /api/v2/operating-companies/123
@@ -38,11 +38,11 @@ Where `123` is the system ID of the operating company.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the operating company is used as part of an include in another resource.
+The API uses the slim relationship schema when the operating company is part of an include in another resource.
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `parents` - Set to a comma-separated list of operating company IDs to only return countries owned by those operating

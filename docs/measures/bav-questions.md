@@ -3,7 +3,7 @@
 ## What are BAV questions?
 
 BAV questions are the respondent-level questions that BAV asks, such as demographics, opinions and behaviors. Unlike
-[brand measures](brand-measures.md), they are asked about the respondent rather than about a brand.
+[brand measures](brand-measures.md), they ask about the respondent and not about a brand.
 
 [Audiences](../audiences/audiences.md) are defined from these questions. Use these endpoints to find the questions that
 you can [build an audience](../audiences/managing-audiences.md) from, and the studies that asked them.
@@ -12,7 +12,7 @@ Questions are organized in [BAV question groups](bav-question-groups.md).
 
 ## List all BAV questions
 
-To list all of the BAV questions and browse them via the API, use the list endpoint:
+To list all of the BAV questions and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/bav-questions
@@ -20,7 +20,7 @@ GET /api/v2/bav-questions
 
 ## Get a BAV question
 
-You may also directly retrieve a BAV question's details if you already have its system ID.
+If you already have the system ID of a BAV question, you can also get its details directly.
 
 ```http request
 GET /api/v2/bav-questions/123
@@ -44,7 +44,7 @@ Where `123` is the system ID of the BAV question.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the BAV question is used as part of another resource.
+The API uses the slim relationship schema when the BAV question is part of another resource.
 
 | Key     | Type    | Description                              |
 |---------|---------|------------------------------------------|
@@ -59,12 +59,12 @@ the [includes section](../customizing/includes) for more information on how this
 are available:
 
 - `group` - The [BAV question group](bav-question-groups.md) that the question belongs to.
-- `studies` - The [studies](../studies/studies.md) that asked the question. Only studies you have access to are
-  included.
+- `studies` - The [studies](../studies/studies.md) that asked the question. The API includes only the studies
+  that you have access to.
 
 ## Studies that asked a BAV question
 
-To list every study that asked a BAV question, use the studies endpoint. This is useful to check where a question has
+To list every study that asked a BAV question, use the studies endpoint. Use it to check where a question has
 answers before you build an audience definition with it.
 
 ```http request
@@ -73,10 +73,10 @@ GET /api/v2/bav-questions/123/studies
 
 Where `123` is the system ID of the BAV question.
 
-Only studies you have access to are listed. Fused studies take their questions from the studies they were fused from,
-so they are listed under those source studies rather than on their own.
+The endpoint lists only the studies that you have access to. Fused studies take their questions from the studies that
+they were fused from. For this reason, the endpoint lists those source studies and not the fused study.
 
-The results are sorted by `study_id` by default. You may also sort by `id`, `created_at` and `updated_at`.
+By default, the results are sorted by `study_id`. You can also sort by `id`, `created_at` and `updated_at`.
 
 | Key          | Type   | Description                                                                                                                                       |
 |--------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -90,4 +90,4 @@ The following filters are available:
 - `studies` - A comma-separated list of study IDs to filter by.
 - `updated_since` - Only return records changed on or after this date. See [filters](../customizing/filters.md).
 
-To go the other way and list the questions a specific study asked, see the [study catalog](study-catalog.md).
+To list the questions that a specific study asked, see the [study catalog](study-catalog.md).

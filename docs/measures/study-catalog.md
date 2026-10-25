@@ -28,8 +28,8 @@ GET /api/v2/studies/123/brand-metrics
 
 Where `123` is the system ID of the study.
 
-Only active metrics that you have access to are returned. The results are sorted by `sort_order` and `name` by
-default.
+The endpoint returns only the active metrics that you have access to. By default, the results are sorted by
+`sort_order` and `name`.
 
 | Key                    | Type    |         Filterable         |      Sortable      | Description                                                                                  |
 |------------------------|---------|:--------------------------:|:------------------:|----------------------------------------------------------------------------------------------|
@@ -93,8 +93,8 @@ GET /api/v2/studies/123/audience-questions
 
 Where `123` is the system ID of the study.
 
-Only [BAV questions](bav-questions.md) that belong to a [question group](bav-question-groups.md) are listed. Use
-the [BAV questions in a study](#bav-questions-in-a-study) endpoint to list all questions.
+The endpoint lists only the [BAV questions](bav-questions.md) that belong to a [question group](bav-question-groups.md).
+Use the [BAV questions in a study](#bav-questions-in-a-study) endpoint to list all questions.
 
 | Key                       | Type    |         Filterable         |      Sortable      | Description                                                                         |
 |---------------------------|---------|:--------------------------:|:------------------:|-------------------------------------------------------------------------------------|
@@ -127,7 +127,7 @@ Each option has a `value` (what appears in the data) and a `label` (what the val
 ```
 
 The same measure or question can have different answer options in different studies, so always read the options for
-the study you are working with. Boolean measures and questions without stored options use `1` (Yes) and `0` (No).
+the study that you use. Boolean measures and questions without stored options use `1` (Yes) and `0` (No).
 
 ## BAV questions in a study
 
@@ -140,12 +140,12 @@ GET /api/v2/studies/123/bav-questions
 Where `123` is the system ID of the study.
 
 Unlike the [audience questions](#audience-questions-in-a-study) endpoint, this also lists questions that are not in a
-question group, and leaves out each question's group and answer options.
+question group, and does not include the group and answer options of each question.
 
 For a fused study, the questions come from the studies it was fused from. Each row names the study that asked the
-question, and only studies you have access to are listed.
+question. The endpoint lists only the studies that you have access to.
 
-The results are sorted by `measurable_id` (the question ID) by default. You may also sort by `id`, `created_at` and
+By default, the results are sorted by `measurable_id` (the question ID). You can also sort by `id`, `created_at` and
 `updated_at`.
 
 | Key          | Type   | Description                                                                                                                                       |

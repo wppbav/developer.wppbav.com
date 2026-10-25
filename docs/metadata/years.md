@@ -2,11 +2,11 @@
 
 ## What are years?
 
-We use a years resource to tie together all of the data that we have for a given year and to make it easily queryable.
+We use a years resource to connect all of the data that we have for a given year. It also makes this data easy to query.
 
 ## List all years
 
-To list all of the years and browse them via the API, use the list endpoint:
+To list all of the years and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/years
@@ -14,7 +14,7 @@ GET /api/v2/years
 
 ## Get a year
 
-You may also directly retrieve a year's details if you already have its system ID.
+If you already have the system ID of a year, you can also get its details directly.
 
 ```http request
 GET /api/v2/years/123
@@ -36,7 +36,7 @@ Where `123` is the system ID of the year.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the year is used as part of an include in another resource.
+The API uses the slim relationship schema when the year is part of an include in another resource.
 
 | Key    | Type    | Description                 |
 |--------|---------|-----------------------------|

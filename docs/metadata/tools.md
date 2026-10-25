@@ -2,13 +2,13 @@
 
 ## What are tools?
 
-The tools endpoint provides a list of all the available tools in the system and the parameters they expect. It can
-be used for various integrations as it provides the metadata for each tool. You can then use the specific tools
+The tools endpoint gives a list of all the available tools in the system and the parameters that they expect. You
+can use it for different integrations, because it gives the metadata for each tool. You can then use the specific tools
 endpoints to get the data for most tools.
 
 ## List all tools
 
-To list all of the tools and browse them via the API, use the list endpoint:
+To list all of the tools and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/tools
@@ -16,7 +16,7 @@ GET /api/v2/tools
 
 ## Get a year
 
-You may also directly retrieve a year's details if you already have its system ID.
+If you already have the system ID of a year, you can also get its details directly.
 
 ```http request
 GET /api/v2/tools/123
@@ -40,8 +40,8 @@ Where `123` is the system ID of the year.
 | `api_endpoint_url`           | string  |                    :x:                    |        :x:         | :white_check_mark: | The URL to the API endpoint for the tool, if available.                                                                                       |                          
 | `supported_parameters`       | object  |                    :x:                    |        :x:         | :white_check_mark: | The filter parameters that the tool supports. The object key is the parameter name, and the value is true/false.                              |                          
 | `required_parameters`        | object  |                    :x:                    |        :x:         | :white_check_mark: | The required parameters for the tool. The object key is the parameter name, and the value is true/false.                                      |                          
-| `multiple_choice_parameters` | object  |                    :x:                    |        :x:         | :white_check_mark: | The parameters which allow for more than one selection. The object key is the parameter name, and the value is true/false.                    |                          
-| `extra_parameters`           | object  |                    :x:                    |        :x:         | :white_check_mark: | Additional configuration parameters to control the querying experience.                                                                       |                          
+| `multiple_choice_parameters` | object  |                    :x:                    |        :x:         | :white_check_mark: | The parameters that allow more than one selection. The object key is the parameter name, and the value is true/false.                         |                          
+| `extra_parameters`           | object  |                    :x:                    |        :x:         | :white_check_mark: | Additional configuration parameters that control the query experience.                                                                        |                          
 | `export_formats`             | object  |                    :x:                    |        :x:         | :white_check_mark: | The available exports in the interface. The object key is the parameter name, and the value is true/false. Only available exports are listed. |                          
 | `is_in_preview`              | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | If true, the tool is currently unreleased but the user still has access to it under a "preview access" scheme.                                |                          
 | `created_at`                 | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this year was first created.                                                                                           |

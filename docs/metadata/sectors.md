@@ -2,15 +2,15 @@
 
 ## What are sectors?
 
-When doing a BAV study, some questions are asked that relate sectors to one or more [categories](../studies/categories.md). You
-can read more about the categories and what they represent on the [categories endpoint](../studies/categories.md).
+In a BAV study, some questions relate sectors to one or more [categories](../studies/categories.md). For more
+information about the categories and what they represent, see the [categories endpoint](../studies/categories.md).
 
 Each category belongs to a sector, which is a broader classification of categories. The benefit of a sector is that it
 is easier to compare across countries and years.
 
 ## List all sectors
 
-To list all of the sectors and browse them via the API, use the list endpoint:
+To list all of the sectors and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/sectors
@@ -18,7 +18,7 @@ GET /api/v2/sectors
 
 ## Get a sector
 
-You may also directly retrieve a sector's details if you already have its system ID.
+If you already have the system ID of a sector, you can also get its details directly.
 
 ```http request
 GET /api/v2/sectors/123
@@ -33,7 +33,7 @@ Where `123` is the system ID of the sector.
 | Key                             | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                                    |
 |---------------------------------|---------|:-----------------------------------------:|:------------------:|:------------------:|--------------------------------------------------------------------------------|
 | `id`                            | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                                 |    
-| `is_active`                     | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the sector should be seen and used.                                    |                                                      
+| `is_active`                     | boolean |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether you can see and use the sector.                                        |                                                      
 | `name`                          | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the sector.                                                        |         
 | `excluded_for_most_influential` | -       |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | Whether the sector should be part of the Most Influential brands lists or not. |
 | `created_at`                    | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this sector was first created.                          |
@@ -41,7 +41,7 @@ Where `123` is the system ID of the sector.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the sector is used as part of an include in another resource.
+The API uses the slim relationship schema when the sector is part of an include in another resource.
 
 | Key    | Type    | Description                     |
 |--------|---------|---------------------------------|
@@ -50,7 +50,7 @@ The slim relationship schema is used when the sector is used as part of an inclu
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
 - `in_most_influential` - Set to `1` to only return sectors that are part of the Most Influential lists.

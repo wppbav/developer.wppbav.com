@@ -2,14 +2,14 @@
 
 ## What are GICS sectors?
 
-The Global Industry Classification Standard is an industry taxonomy developed in 1999 by MSCI and Standard & Poor's for
-use by the global financial community.
+The Global Industry Classification Standard is an industry taxonomy. MSCI and Standard & Poor's developed it in 1999
+for use by the global financial community.
 
 We use them to classify companies and brands according to what they objectively do on a global basis.
 
 ## List all GICS sectors
 
-To list all of the GICS sectors and browse them via the API, use the list endpoint:
+To list all of the GICS sectors and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/gics-sectors
@@ -17,7 +17,7 @@ GET /api/v2/gics-sectors
 
 ## Get a GICS sector
 
-You may also directly retrieve a GICS sector's details if you already have its system ID.
+If you already have the system ID of a GICS sector, you can also get its details directly.
 
 ```http request
 GET /api/v2/gics-sectors/123
@@ -39,7 +39,7 @@ Where `123` is the system ID of the GICS sector.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the GICS sector is used as part of an include in another resource.
+The API uses the slim relationship schema when the GICS sector is part of an include in another resource.
 
 | Key    | Type    | Description                          |
 |--------|---------|--------------------------------------|

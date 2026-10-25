@@ -2,11 +2,11 @@
 
 ## What are brand measures?
 
-Brand measures are the brand-level measures in BAV studies. Most are asked about each brand directly in the survey,
-while some are calculated afterwards. Each measure belongs to a [brand measure group](brand-measure-groups.md).
+Brand measures are the brand-level measures in BAV studies. The survey asks most of them directly about each brand.
+Some are calculated afterwards. Each measure belongs to a [brand measure group](brand-measure-groups.md).
 
 Brand measures differ from [brand metrics](../metrics/metrics.md). Brand metrics are the calculated scores in
-the [brandscape data](../brand-data/brandscape-data.md), while brand measures describe what is asked about a brand and
+the [brandscape data](../brand-data/brandscape-data.md). Brand measures describe what the survey asks about a brand and
 how its answers are stored.
 
 A measure is not asked in every study. Use the [studies endpoint](#studies-a-brand-measure-was-asked-in) to see where a
@@ -14,7 +14,7 @@ measure has data, or the [study catalog](study-catalog.md) to see which measures
 
 ## List all brand measures
 
-To list all of the brand measures and browse them via the API, use the list endpoint:
+To list all of the brand measures and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brand-measures
@@ -22,7 +22,7 @@ GET /api/v2/brand-measures
 
 ## Get a brand measure
 
-You may also directly retrieve a brand measure's details if you already have its system ID.
+If you already have the system ID of a brand measure, you can also get its details directly.
 
 ```http request
 GET /api/v2/brand-measures/123
@@ -48,7 +48,7 @@ Where `123` is the system ID of the brand measure.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand measure is used as part of another resource.
+The API uses the slim relationship schema when the brand measure is part of another resource.
 
 | Key     | Type    | Description                                                         |
 |---------|---------|---------------------------------------------------------------------|
@@ -77,11 +77,12 @@ GET /api/v2/brand-measures/123/studies
 
 Where `123` is the system ID of the brand measure.
 
-Only studies you have access to are listed, so the same measure can return a different set of studies for a different
-API key. A fused study borrows the measures of the studies it was fused from, so it is only listed here for the few
-computed measures that are stored on the fused study itself.
+The endpoint lists only the studies that you have access to. For this reason, the same measure can return a different
+set of studies for a different API key. A fused study borrows the measures of the studies that it was fused from. For
+this reason, the endpoint lists a fused study only for the few computed measures that are stored on the fused study
+itself.
 
-The results are sorted by `study_id` by default. You may also sort by `id`, `created_at` and `updated_at`.
+By default, the results are sorted by `study_id`. You can also sort by `id`, `created_at` and `updated_at`.
 
 | Key                      | Type   | Description                                                                                                                                  |
 |--------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------|

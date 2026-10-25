@@ -6,7 +6,8 @@ split: true
 
 ## What are categories?
 
-Categories in BAV are related to how the respondent is asked their relationship to a brand in three sections only:
+In BAV, categories relate only to the three sections where the survey asks respondents about their relationship to a
+brand:
 
 - Usage
 - Preference
@@ -14,11 +15,11 @@ Categories in BAV are related to how the respondent is asked their relationship 
 
 All other BAV scores are the same across categories, which is a fundamental part of BAV's category-agnostic model.
 
-These categories are therefore, a way to relate a brand to usage and not a way to define what a brand is. For example,
-you might be interested to know how respondents see and use Google as both a search engine and advertiser, which would
-be two distinct categories, yet does not attempt to classify what Google objectively is.
+For this reason, these categories are a way to relate a brand to usage. They are not a way to define what a brand is.
+For example, you want to know how respondents see and use Google as a search engine and as an advertiser. These are two
+distinct categories, but they do not try to classify what Google objectively is.
 
-This also means that the amount of brands in a category may change slightly across years and greatly across markets.
+This also means that the number of brands in a category can change slightly across years and greatly across markets.
 Not all categories are available in all years and markets.
 
 ## List Categories
@@ -31,7 +32,7 @@ GET /api/v2/categories
 
 ## Get a Category
 
-You may also directly retrieve a category's details if you already have its system ID.
+If you already have the system ID of a category, you can also get its details directly.
 
 ```http request
 GET /api/v2/categories/123
@@ -54,7 +55,7 @@ The categories endpoints are read-only and require a token with the `bav:brand-d
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the category is used as part of an include in another resource.
+The API uses the slim relationship schema when the category is part of an include in another resource.
 
 | Key    | Type    | Description                       |
 |--------|---------|-----------------------------------|
@@ -66,10 +67,10 @@ also contains a `sector` object.
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters for categories that are not available in
+For convenience, there are some additional filters for categories that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-- `sectors` - A comma-separated list of sector IDs. This will filter the categories to only those in the given sectors.
+- `sectors` - A comma-separated list of sector IDs. The API filters the categories to only those in the given sectors.
 
 ## Relationships & includes
 

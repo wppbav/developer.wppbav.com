@@ -13,7 +13,7 @@ To list all years of indicators for a country, use the list endpoint:
 GET /api/v2/countries/123/indicators
 ```
 
-Where `123` is the system ID of the country. You may also use the country's two-letter (ISO 3166-1 alpha-2) or
+Where `123` is the system ID of the country. You can also use the country's two-letter (ISO 3166-1 alpha-2) or
 three-letter (ISO 3166-1 alpha-3) code instead of the ID:
 
 ```http request
@@ -22,8 +22,8 @@ GET /api/v2/countries/GB/indicators
 
 ## Get the indicators for a year
 
-You may also directly retrieve a country's indicators for a single year if you already have the system ID of
-the [year](years.md).
+If you already have the system ID of the [year](years.md), you can also get the indicators of a country for a single
+year directly.
 
 ```http request
 GET /api/v2/countries/123/indicators/45
@@ -45,7 +45,7 @@ Each item in `indicators` contains:
 
 - `key` - The key of the indicator. See the list below.
 - `value` - The value of the indicator. Null if the figure is not available.
-- `detailed_description` - A detailed description of the indicator, including its unit.
+- `detailed_description` - A detailed description of the indicator, with its unit.
 - `simple_description` - A short description of the indicator.
 - `axis_label` - A label to use for the indicator on a chart axis.
 
@@ -102,7 +102,7 @@ The list endpoint supports the following filters:
 - `updated_since` - Only return records updated on or after this date.
   See [filters](../customizing/filters.md).
 
-You may sort by `id`, `created_at`, `updated_at`, any of the indicator keys, or by the year with `year.year`. For
+You can sort by `id`, `created_at`, `updated_at`, any of the indicator keys, or by the year with `year.year`. For
 example, to get the most recent year first:
 
 ```http request

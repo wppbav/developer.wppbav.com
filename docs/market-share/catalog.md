@@ -3,7 +3,7 @@
 ## What is the catalog?
 
 Euromonitor keeps its own catalog of the brands, companies, categories, data types, geographies and industries that
-market share is measured for. The catalog endpoints give you read-only access to these lists so that you can find the
+market share is measured for. The catalog endpoints give you read-only access to these lists. Use them to find the
 Euromonitor IDs to pass to the [brand shares](brand-shares.md) and [company shares](company-shares.md) endpoints.
 
 :::note Euromonitor IDs
@@ -15,19 +15,19 @@ All catalog endpoints require the `bav:market-share-data` scope. They are pagina
 support [filters & sorting](../customizing/filters.md), [configurable fields](../customizing/fields.md)
 and [includes](../customizing/includes.md).
 
-Every relationship that can be included (including the `bav_` links) is returned in a slim relationship schema:
+Every relationship that you can include, and also the `bav_` links, uses a slim relationship schema:
 
 | Key    | Type    | Description                          |
 |--------|---------|--------------------------------------|
 | `id`   | integer | The ID of the related record.        |
 | `name` | string  | The name of the related record.      |
 
-A relationship that is not linked is returned as `null`.
+If a relationship is not linked, the API returns it as `null`.
 
 ## Brands
 
 Euromonitor's own brand catalog. This is not the same list as the [BAV brands](../brands/brands.md). It covers brands
-BAV has never surveyed, splits some brands that BAV holds as one, and names others differently. The `id` here is what
+that BAV has never surveyed, splits some brands that BAV holds as one, and names others differently. The `id` here is what
 the `brands` filter on [brand shares](brand-shares.md) takes.
 
 ```http request
@@ -50,12 +50,12 @@ Where `123` is the Euromonitor ID of the brand.
 ### Relationships & includes
 
 - `company` - The Euromonitor company that owns the brand.
-- `bav_brand` - The [BAV brand](../brands/brands.md) this brand is linked to. `null` when there is no link, in which
-  case its market share cannot be compared with BAV brand data.
+- `bav_brand` - The [BAV brand](../brands/brands.md) this brand is linked to. `null` when there is no link. In that
+  case, you cannot compare its market share with BAV brand data.
 
 ## Companies
 
-Euromonitor's own company catalog. As with brands, this is Euromonitor's list rather than the
+Euromonitor's own company catalog. As with brands, this is Euromonitor's list and not the
 BAV [companies](../company-data/companies.md). The `id` here is what the `companies` filter on the share endpoints
 takes.
 
@@ -83,11 +83,11 @@ Where `123` is the Euromonitor ID of the company.
 ## Categories
 
 The categories that market share is measured within. Categories form a tree: `level` 1 is a top-level category within
-its industry, and `parent_id` walks up from there. Filter on `level` to get one tier of the tree, or on `parent_id` to
+its industry, and `parent_id` gives the category one level above. Filter on `level` to get one tier of the tree, or on `parent_id` to
 get one category's children.
 
-A category's industry is not fixed for all time, as Euromonitor may reorganize its categories. Filter share rows by
-category rather than treating the industry as a permanent property of a category.
+A category's industry is not fixed for all time, because Euromonitor can reorganize its categories. Filter share rows
+by category. Do not treat the industry as a permanent property of a category.
 
 ```http request
 GET /api/v2/market-share/categories
@@ -119,8 +119,8 @@ Where `123` is the Euromonitor ID of the category.
 ## Data Types
 
 What a share row measures, such as retail value or retail volume. Two rows that differ only by data type measure
-different things and are not comparable. They must not be summed or averaged across. Not every data type applies to
-every category, which is what the `categories` and `industries` includes describe.
+different things and are not comparable. Do not sum or average across them. Not every data type applies to every
+category. The `categories` and `industries` includes show where each data type applies.
 
 ```http request
 GET /api/v2/market-share/data-types
@@ -146,8 +146,8 @@ Where `123` is the Euromonitor ID of the data type.
 ## Geographies
 
 The markets that market share is measured in, as a tree of regions, countries and cities. These are Euromonitor's
-geographies, not the BAV [countries](../metadata/countries.md). Where a geography lines up with a BAV country,
-`bav_country_id` points to it. It is `null` for regions and cities.
+geographies, not the BAV [countries](../metadata/countries.md). If a geography matches a BAV country,
+`bav_country_id` refers to that country. It is `null` for regions and cities.
 
 ```http request
 GET /api/v2/market-share/geographies
@@ -169,7 +169,7 @@ Where `123` is the Euromonitor ID of the geography.
 
 ### Additional Filters
 
-To take one level of the geography tree, use one of these filters. Any value turns the filter on.
+To get one level of the geography tree, use one of these filters. Any value turns the filter on.
 
 - `filter[regions]=1` - Only include regions, the top level of the tree.
 - `filter[countries]=1` - Only include countries.

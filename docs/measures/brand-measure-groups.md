@@ -6,7 +6,7 @@
 
 ## List all brand measure groups
 
-To list all of the brand measure groups and browse them via the API, use the list endpoint:
+To list all of the brand measure groups and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/brand-measure-groups
@@ -14,7 +14,7 @@ GET /api/v2/brand-measure-groups
 
 ## Get a brand measure group
 
-You may also directly retrieve a brand measure group's details if you already have its system ID.
+If you already have the system ID of a brand measure group, you can also get its details directly.
 
 ```http request
 GET /api/v2/brand-measure-groups/123
@@ -37,7 +37,7 @@ Where `123` is the system ID of the brand measure group.
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the brand measure group is used as part of an include in another resource.
+The API uses the slim relationship schema when the brand measure group is part of an include in another resource.
 
 | Key           | Type    | Description                                                  |
 |---------------|---------|--------------------------------------------------------------|
@@ -50,10 +50,10 @@ The slim relationship schema is used when the brand measure group is used as par
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
+For convenience, there are some additional filters that are not available in
 the [default filters](../customizing/filters.md) or are part of the columns. These are:
 
-- `measures` - A comma-separated list of brand measure IDs. Only groups containing these measures are returned.
+- `measures` - A comma-separated list of brand measure IDs. The API returns only the groups that contain these measures.
 
 ## Relationships & includes
 
