@@ -1,32 +1,32 @@
 # Includes
 
-The BAV The Fount API is expansive and contains many relationships. Loading all of these for every request by default
-would make the request larger than necessary. Instead, we allow you to select which relationships you want to include
-using the includes feature.
+The BAV The Fount API is expansive and contains many relationships. The API does not load all of these for every
+request by default, because this makes the request larger than necessary. Instead, you can use the includes feature to
+select the relationships that you want to include.
 
 Includes are available on both index and single resource endpoints.
 
-Each resource documentation contains a list of relationships and names that can be included.
+The documentation for each resource contains a list of relationships and names that you can include.
 
-Included resources only contain a subset of the data that the relationship resource has to make the response leaner. If
-you need the full data, please make a second query using the system ID to the respective endpoint. Both the full
-response schema and the slim, relationship schema is listed on each endpoint.
+To make the response leaner, included resources contain only a subset of the data of the relationship resource. If you
+need the full data, make a second query to the applicable endpoint with the system ID. Each endpoint shows both the
+full response schema and the slim relationship schema.
 
 :::note Relationships are excluded by default
-When you make a query to an endpoint that has relationships these are not loaded by default. For example, if you want to
-access the sector for a brand (a relationship), you need to explicitly request it with the `include` parameter.
+When you query an endpoint that has relationships, the API does not load these relationships by default. For example,
+if you want to get the sector for a brand (a relationship), you must request it explicitly with the `include`
+parameter.
 :::
 
 ## Making a request
 
-Adding an expansion is done by adding the `include` query parameter, and passing a comma-separated string of
-relationship names, like so:
+To add an include, add the `include` query parameter with a comma-separated string of relationship names, for example:
 
 ```http request
 GET /api/v2/brands/369?include=sector
 ```
 
-This would result in the following response:
+This request gives this response:
 
 ```json
 {

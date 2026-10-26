@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`studies` endpoint](/studies/studies.md).
 :::
 
-The `studies` endpoint has full support, including query validation.
+The `studies` endpoint has full support. This support includes query validation.
 
 | Endpoint    | Function  | `Client` method  | Filters class    |
 | ----------- | --------- | ---------------- | ---------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `country_codes`, `year_numbers`, `full_year`, `released`, `bav_study`
 - Keyword filters: `study_id`
 
-For other filters, passing a `StudiesFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `StudiesFilters` instance to the `filters` parameter.

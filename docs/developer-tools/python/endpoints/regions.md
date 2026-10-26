@@ -4,10 +4,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`regions` endpoint](/core-resources/regions.md).
+Read more in the API documentation for the [`regions` endpoint](/metadata/regions.md).
 :::
 
-The `regions` endpoint has full support, including query validation.
+The `regions` endpoint has full support. This support includes query validation.
 
 | Endpoint    | Function  | `Client` method  | Filters class    |
 | ----------- | --------- | ---------------- | ---------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`
 - Keyword filters: `region_id`
 
-For other filters, passing an `RegionsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `RegionsFilters` instance to the `filters` parameter.

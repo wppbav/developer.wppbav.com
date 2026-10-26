@@ -4,10 +4,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`companies` endpoint](/core-resources/companies.md).
+Read more in the API documentation for the [`companies` endpoint](/company-data/companies.md).
 :::
 
-The `companies` endpoint has full support, including query validation.
+The `companies` endpoint has full support. This support includes query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `public`, `private`, `brands`
 - Keyword filters: `company_id`
 
-For other filters, passing an `CompaniesFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `CompaniesFilters` instance to the `filters` parameter.

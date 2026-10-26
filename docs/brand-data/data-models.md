@@ -1,0 +1,243 @@
+---
+sidebar_label: Data Models
+---
+
+# Data Models
+
+The data model endpoints return the data behind the core BAV data models, such as the Powergrid, Pillars and
+Imagery. You do not need to know which [brand metrics](../metrics/metrics.md) make up each model. You ask for the
+model and you get the relevant metrics for each brand. Each data point also includes the brand, study, audience and
+category that the metrics belong to.
+
+The following models are available:
+
+| Model                               | Endpoint                                 | Category specific? |
+|-------------------------------------|------------------------------------------|:------------------:|
+| [Brand Worth](brand-worth.md)       | `POST /api/v2/brandscape/brand-worth`    |        :x:         |
+| [Imagery](imagery.md)               | `POST /api/v2/brandscape/imagery`        |        :x:         |
+| [Influence](influence.md)           | `POST /api/v2/brandscape/influence`      |        :x:         |
+| [Personality](personality.md)       | `POST /api/v2/brandscape/personality`    |        :x:         |
+| [Pillars](pillars.md)               | `POST /api/v2/brandscape/pillars`        |        :x:         |
+| [Powergrid](powergrid.md)           | `POST /api/v2/brandscape/powergrid`      |        :x:         |
+| [Preferences](preferences.md)       | `POST /api/v2/brandscape/preferences`    | :white_check_mark: |
+| [Recommendation](recommendation.md) | `POST /api/v2/brandscape/recommendation` | :white_check_mark: |
+| [Super CX](super-cx.md)             | `POST /api/v2/brandscape/super-cx`       | :white_check_mark: |
+| [Usage](usage.md)                   | `POST /api/v2/brandscape/usage`          | :white_check_mark: |
+
+All data model endpoints require the **BAV Brand Data** (`bav:brand-data`) scope.
+
+## Category specific and category agnostic models
+
+Most BAV metrics are category agnostic. The survey asks respondents to evaluate the brand without a specific category in mind.
+For these models, the category in the response has no analytical significance.
+
+Usage, preferences, recommendation and Super CX are category specific. The survey asks respondents about the brand in the
+category in which the study includes the brand. For these models, always show the category together with the brand.
+The category can significantly change the interpretation of the results.
+
+## Creating a query
+
+Each model is available as a `POST` request to `/api/v2/brandscape/{model}`. Send the parameters as a JSON body.
+
+```http request
+POST /api/v2/brandscape/pillars
+```
+
+You can also request most models with `GET` and query parameters, as part of the [tools](tools.md#data-model-tools).
+
+## Parameters
+
+All data model endpoints share the same set of parameters.
+
+List parameters are arrays. In a query string, pass repeated values (`brands[]=148&brands[]=149`). Each value can be
+either an ID or a name. If you pass a name, the system tries to find the correct record from the similarity of the
+name.
+
+| Key           |                Required?                 | Type   | Description                                                                                                                                                                                                                                                       |
+|---------------|:----------------------------------------:|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `brands`      |           At least one*          | array  | [Brand](../brands/brands.md) IDs or names. Max 50.                                                                                                                                                                                                |
+| `studies`     |           At least one*          | array  | [Study](../studies/studies.md) IDs or names. Max 50.                                                                                                                                                                                              |
+| `countries`   |           At least one*          | array  | [Country](../metadata/countries.md) IDs, ISO 3166-1 alpha-2 or alpha-3 codes, or names. Max 50.                                                                                                                                                   |
+| `years`       |           At least one*          | array  | [Year](../metadata/years.md) IDs or year numbers (e.g. `2025`). Max 50.                                                                                                                                                                           |
+| `audiences`   |       :x: (defaults to All Adults)       | array  | [Audience](../audiences/audiences.md) IDs or names. Max 50.                                                                                                                                                                                       |
+| `study_types` |       :x: (defaults to `syndicated`)     | array  | The kinds of study that a `countries` and `years` filter can resolve to: `syndicated` (the full BAV study), `snap` (SnapBAV), `fused` (AO+BAV, not comparable to syndicated studies) or `custom` (bespoke studies). The API ignores this parameter when `studies` is set. |
+| `benchmarks`  |                   :x:                    | object | Benchmark the brands against the average of a competitive set. See [benchmarks](#benchmarks).                                                                                                                                                     |
+| `format`      |          :x: (defaults to `json`)        | string | The response format. See [response formats](#response-formats).                                                                                                                                                                                  |
+
+\* At least one of `brands`, `studies`, `countries` or `years` is required.
+
+If you filter by `countries` and `years` and not by `studies`, the API selects the studies for you. It selects only
+studies of the `study_types` that you ask for. By default, the API uses only the syndicated studies. This prevents a
+response that mixes syndicated studies with SnapBAV or fused studies, which are not comparable to them.
+
+An example `POST` body:
+
+```json
+{
+  "brands": ["148", "149"],
+  "countries": ["US"],
+  "years": ["2025"],
+  "audiences": ["1"]
+}
+```
+
+### Benchmarks
+
+To add comparison rows to the response, benchmark the brands against the average of one or more competitive sets.
+Each benchmark adds a row to the response.
+
+- `benchmarks[categories]` - A comma-separated list of [category](../studies/categories.md) IDs.
+- `benchmarks[collections]` - A comma-separated list of [collection](../brands/collections.md) IDs.
+- `benchmarks[sectors]` - A comma-separated list of [sector](../metadata/sectors.md) IDs.
+
+```json
+{
+  "brands": ["148"],
+  "studies": ["635"],
+  "benchmarks": {
+    "categories": "12,13"
+  }
+}
+```
+
+## Response formats
+
+The `format` parameter accepts:
+
+- `json` - The default. The standard API response documented below.
+- `llm` - The data formatted for use in AI prompts. The response contains `model_instructions` (instructions that describe
+  the model), `data` (the data as a CSV string) and `prompt` (a finished prompt that combines the instructions and the
+  data, which you can send to an AI model).
+- `mcp` - The response shape used by our [MCP servers](../ai/mcp/intro.md).
+
+## Schema
+
+The `json` response is an object with a `meta` object and a `data` array.
+
+### Meta
+
+| Key                    | Type    | Description                                                                                     |
+|------------------------|---------|-------------------------------------------------------------------------------------------------|
+| `source`               | string  | A source label that names the studies and audiences of the data. You can use it as a caption.      |
+| `is_category_specific` | boolean | Whether the model is category specific. See [above](#category-specific-and-category-agnostic-models). |
+
+Some models add extra keys to the meta object. The page of each model lists these keys.
+
+### Data
+
+Each item in `data` is a data point for one brand, in one study, category and audience.
+
+| Key                    | Type         | Description                                                                                                                                                         |
+|------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`                 | string       | `brand` for individual brand data points. Benchmark rows have a different type.                                                                                     |
+| `study`                | string       | The name of the [study](../studies/studies.md).                                                                                                                     |
+| `study_id`             | integer      | The system ID of the study.                                                                                                                                         |
+| `year`                 | string       | The year.                                                                                                                                                           |
+| `year_id`              | integer      | The system ID of the [year](../metadata/years.md).                                                                                                                  |
+| `country`              | string       | The country name.                                                                                                                                                   |
+| `country_id`           | integer      | The system ID of the [country](../metadata/countries.md).                                                                                                           |
+| `base`                 | string       | The audience name.                                                                                                                                                  |
+| `base_id`              | integer      | The system ID of the [audience](../audiences/audiences.md).                                                                                                         |
+| `brand`                | string       | The brand name.                                                                                                                                                     |
+| `brand_id`             | integer      | The system ID of the [brand](../brands/brands.md).                                                                                                                  |
+| `brand_variation`      | string       | The brand variation, used to differentiate between different spellings of the same brand.                                                                          |
+| `brand_variation_id`   | integer      | The system ID of the brand variation.                                                                                                                               |
+| `brand_variation_key`  | integer      | The key of the brand variation. This can be a positive or a negative integer.                                                                                       |
+| `local_name`           | string       | The name of the brand (in English) as shown to the respondent in the survey.                                                                                       |
+| `category`             | string       | The category in which respondents answered about the usage, preference and recommendation of the brand. All other metrics are category agnostic and not related to the category. |
+| `category_id`          | integer      | The system ID of the [category](../studies/categories.md).                                                                                                          |
+| `sector`               | string       | The sector that the brand belongs to.                                                                                                                               |
+| `sector_id`            | integer      | The system ID of the [sector](../metadata/sectors.md).                                                                                                              |
+| `period`               | integer      | The period the data point is for. Typically Full Year (`1`) or Full Year - Rolling (`8`).                                                                           |
+| `company`              | string       | The name of the company that owns the brand.                                                                                                                        |
+| `company_id`           | integer      | The system ID of the [company](../company-data/companies.md).                                                                                                       |
+| `competitive_set`      | string\|null | The name of the competitive set. Only set for benchmark rows.                                                                                                      |
+| `competitive_set_id`   | integer\|null | The system ID of the competitive set. Only set for benchmark rows.                                                                                                |
+| `competitive_set_type` | string\|null | The type of competitive set. Only set for benchmark rows.                                                                                                          |
+| `classification`       | object\|null | The model's own interpretation of the data point, such as the Powergrid quadrant or pillar pattern. Only set on models that classify brands. See [classification](#classification). |
+| `metrics`              | object       | The metrics for the data point, keyed by metric key. See [metrics](#metrics).                                                                                      |
+
+### Metrics
+
+The `metrics` object is keyed by the metric key (for example `differentiation`). Each metric is an object with all of
+the score types. A score type that the metric does not support is `null`.
+
+| Key                | Type        | Description                                                                                                                                      |
+|--------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| `key`              | string      | The metric key. See [brand metrics](../metrics/metrics.md).                                                                                      |
+| `rank`             | float\|null | The percentile rank (0-100) that compares the brand to all other brands in the market.                                                          |
+| `value`            | float\|null | A raw value for metrics that have none of the other score types, such as base sizes.                                                            |
+| `percentage`       | float\|null | The percentage (0-100) of respondents, for example those who selected the attribute.                                                            |
+| `construct`        | float\|null | The underlying calculated score for metrics built from other metrics or respondent-level measures. Do not use it for display or analysis.       |
+| `brandscape_index` | float\|null | An index of the brand against the whole brandscape. Values above 100 are above average.                                                         |
+| `category_index`   | float\|null | An index of the brand against its category. Values above 100 are above average.                                                                 |
+
+### Classification
+
+Models that classify brands, such as the [Powergrid](powergrid.md) and [Pillars](pillars.md), return a
+`classification` object on each data point that they can classify. Use it. Do not derive the classification from the
+scores yourself.
+
+| Key           | Type         | Description                                                                                         |
+|---------------|--------------|-----------------------------------------------------------------------------------------------------|
+| `key`         | string       | The machine-readable key for the classification. This is stable. Use it for conditional logic.     |
+| `label`       | string       | The human-readable name of the classification, as The Fount labels it.                              |
+| `description` | string\|null | Copy that describes what the classification means for the brand. Only set on some models.           |
+
+### Example
+
+```json
+{
+  "meta": {
+    "source": "Source: WPP BAV, USA 2025 (All Adults)",
+    "is_category_specific": false
+  },
+  "data": [
+    {
+      "type": "brand",
+      "study": "USA 2025",
+      "study_id": 635,
+      "year": "2025",
+      "year_id": 45,
+      "country": "United States",
+      "country_id": 6,
+      "base": "All Adults",
+      "base_id": 1,
+      "brand": "Coca-Cola",
+      "brand_id": 148,
+      "brand_variation": "Coca-Cola",
+      "brand_variation_id": 1,
+      "brand_variation_key": 12345,
+      "local_name": "Coca-Cola",
+      "category": "Soft Drinks",
+      "category_id": 1,
+      "sector": "Food & Drink",
+      "sector_id": 1,
+      "period": 1,
+      "company": "The Coca-Cola Company",
+      "company_id": 1,
+      "competitive_set": null,
+      "competitive_set_id": null,
+      "competitive_set_type": null,
+      "classification": {
+        "key": "balanced-leader",
+        "label": "Balanced Leader",
+        "description": "..."
+      },
+      "metrics": {
+        "differentiation": {
+          "key": "differentiation",
+          "rank": 86.65,
+          "value": null,
+          "percentage": null,
+          "construct": 1.12,
+          "brandscape_index": null,
+          "category_index": null
+        }
+      }
+    }
+  ]
+}
+```
+
+The values in the example are illustrative.

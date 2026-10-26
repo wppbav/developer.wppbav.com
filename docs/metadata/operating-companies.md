@@ -2,22 +2,22 @@
 
 ## What are operating companies?
 
-The WPP organization consists of many operating companies. Each user in the platform generally belongs to an operating
-company. Each operating company may belong to another operating company as a hierarchy.
+The WPP organization consists of many operating companies. Usually, each user in the platform belongs to an operating
+company. An operating company can belong to another operating company in a hierarchy.
 
-In some cases an operating company may also have a brand, in which case it will have a brand relationship.
+In some cases, an operating company also has a brand. In that case, it has a brand relationship.
 
 ## List all operating companies
 
-To list all of the operating companies and browse them via the API, use the list endpoint:
+To list all of the operating companies and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/operating-companies
 ```
 
-## Get a operating company
+## Get an operating company
 
-You may also directly retrieve a operating company's details if you already have its system ID.
+If you already have the system ID of an operating company, you can also get its details directly.
 
 ```http request
 GET /api/v2/operating-companies/123
@@ -32,27 +32,33 @@ Where `123` is the system ID of the operating company.
 | Key          | Type    |                Filterable                 |      Sortable      |    Configurable    | Description                                                      |
 |--------------|---------|:-----------------------------------------:|:------------------:|:------------------:|------------------------------------------------------------------|
 | `id`         | integer |        :white_check_mark: (exact)         | :white_check_mark: | :white_check_mark: | The system ID.                                                   |
-| `name`       | integer |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The  name of the operating company.                              |                                                                                                                         |
-| `created_at` | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this operating company was first created. |
+| `name`       | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | The name of the operating company.                               |
+| `created_at` | string  |            :white_check_mark:             | :white_check_mark: | :white_check_mark: | A datetime string when this operating company was first created. |
 | `updated_at` | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this operating company was last updated.  |
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the operating company is used as part of an include in another resource.
+The API uses the slim relationship schema when the operating company is part of an include in another resource.
+
+| Key    | Type    | Description                              |
+|--------|---------|------------------------------------------|
+| `id`   | integer | The system ID for the operating company. |
+| `name` | string  | The name of the operating company.       |
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
-- `parents` - Set to a comma-separated list of operating company IDs to only return countries owned by those operating
-  companies.
+- `parents` - Set to a comma-separated list of operating company IDs to only return the operating companies that
+  have one of those operating companies as their parent.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `parent` - The [company](companies.md) that owns another company.
-- `brand` - The [brand](brands.md) that the operating company has.
+- `parent` - The parent operating company of this operating company, if it has one. The API uses the relationship
+  schema above.
+- `brand` - The [brand](../brands/brands.md) that the operating company has.

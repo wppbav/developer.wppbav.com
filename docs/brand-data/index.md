@@ -1,14 +1,15 @@
 # Overview
 
-While the core of BAV is the [brandscape data](brandscape-data.md) and the metrics within, the metrics are
-often used in specific ways. Either by combining a set of metrics together to tell a specific story, or to do some
-further mathematical work on the data to arrive at new insights. This is what each tool within BAV and its TurboPitch
-suite does.
+The brand data endpoints give you access to the BAV research data on brands. There are two kinds of endpoints:
 
-The other endpoints in the API correspond to each "data model" in BAV. Each response is
-slightly different, based on the data. The data returned includes, where applicable, brandscape data, calculated data
-and all relevant wording.
+- **[Brandscape data](brandscape-data.md)** is the raw data: every metric for each brand, study and audience. Use it when
+  you want full control over which metrics you use and how you combine them.
+- **[Data models](data-models.md)** return the metrics behind one of the core BAV models, such as the
+  [Powergrid](powergrid.md), [Pillars](pillars.md) or [Imagery](imagery.md). You ask for the model and you get the
+  relevant metrics for each brand. You do not need to know which metrics make up the model. All data models share the
+  same parameters and response.
 
-Each endpoint documentation will show you which parameters each endpoint takes and what the response will look like.
-However, we suggest that you also try each tool in the graphical interface on The Fount to get a better understanding of
-the results.
+If you want BAV data that has more processing applied to it, such as the Commitment Funnel, a SWOT or the
+Agency Change Predictor, see the [tools](tools.md).
+
+All brand data endpoints require a token with the **BAV Brand Data** (`bav:brand-data`) scope.

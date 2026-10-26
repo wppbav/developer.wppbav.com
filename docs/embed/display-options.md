@@ -1,14 +1,14 @@
 # Display Options
 
-By default when using the embeddable products, the BAV application scaffolding is hidden. This means the top header bar
-and the left sidebar navigation.
+By default, the embeddable products hide the BAV application scaffolding. The scaffolding is the top header bar and the
+left sidebar navigation.
 
 ## Hiding the step bar
 
-If you want to provide the product with all the required filters and not allow the user to change them you can hide the
-step navigation UI that would allow the user to change the parameters.
+You can give the product all the required filters and not let the user change them. To do this, hide the step
+navigation UI that lets the user change the parameters.
 
-Provide the `showStepsUi` query parameter in the iframe request and set it to `false`.
+Add the `showStepsUi` query parameter to the iframe request and set it to `false`.
 
 ```html
 

@@ -1,30 +1,29 @@
 # Introduction
 
-WPP BAV has a modern REST API available for consuming data through external systems. Most of the system's data can be
-accessed and we have made it a priority to make access as simple as possible.
+WPP BAV has a modern REST API that external systems can use to get data. You can access most of the data in the
+system. We made it a priority to make access as simple as possible.
 
-To use the API you need to have an access token. Please see the [authentication section](authentication.md) for more
-information on how to get one.
+To use the API, you need an access token. See the [authentication section](authentication.md) for information about
+how to get one.
 
-:::note Building a user-facing app? Please let us know...
-If you are integrating BAV data into an application, reporting tool or any other system where others will also be
-consuming the data, please [let us know before](/support). It's important to the credibility of BAV that the data is
-used correctly and displayed in the right context. Because BAV can be complex, we want to ensure that you have the
-right support and guidance to do so.
+:::note Tell us about user-facing applications
+If you integrate BAV data into an application, reporting tool or other system where other people also use the data,
+[tell us before you do this](/support). It is important for the credibility of BAV that the data is used correctly and
+shown in the correct context. BAV can be complex, so we want to make sure that you have the correct support and
+guidance.
 :::
 
 ## Structure
 
-The API is divided into several sections, each of which has its own set of resources. Endpoints include both
-those that return the research data that you might primarily think of when you think of BAV, such as
-how a brand is perceived. However, it also includes endpoints that return metadata about the data, such as
-the studies, years, and countries that the data is available for. This metadata is important to understand the context
-of the data and to be able to filter it correctly.
+The API has several sections, and each section has its own set of resources. Some endpoints return the research data
+that you primarily think of when you think of BAV, for example how people perceive a brand. Other endpoints return
+metadata about the data, for example the studies, years and countries that the data is available for. This metadata is
+important to understand the context of the data and to filter it correctly.
 
-The brand data itself can be accessed in two ways. Either through each specific "data model", which is a set lens of
-metrics that go together and give a specific view of the brand. Such as "Pillars", "Powergrid" or "Imagery". These
-endpoints are perfect for getting only a specific set of data. They also include the right phrases and descriptions
-needed to chart and display the data correctly.
+You can access the brand data itself in two ways. The first way is through each specific "data model". A data model is
+a fixed set of metrics that together give a specific view of the brand, for example "Pillars", "Powergrid" or
+"Imagery". These endpoints are ideal if you need only a specific set of data. They also include the correct phrases and
+descriptions that you need to chart and show the data correctly.
 
-Alternatively you can query our flexible "brandscape data" endpoint, which gives you access to all of the
-metrics for a brand in a specific study, year, country, audience, and category.
+The second way is our flexible "brandscape data" endpoint. This endpoint gives you access to all of the metrics for a
+brand in a specific study, year, country, audience and category.

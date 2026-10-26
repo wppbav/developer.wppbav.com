@@ -4,10 +4,10 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 :::info
-Read more in the API documentation for the [`brands` endpoint](/core-resources/brands.md).
+Read more in the API documentation for the [`brands` endpoint](/brands/brands.md).
 :::
 
-The `brands` endpoint has full support, including query validation.
+The `brands` endpoint has full support. This support includes query validation.
 
 | Endpoint   | Function | `Client` method | Filters class   |
 | ---------- | -------- | --------------- | --------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `name`, `country_codes`, `year_numbers`
 - Keyword filters: `brand_id`, `studies`
 
-For other filters, passing a `BrandsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `BrandsFilters` instance to the `filters` parameter.

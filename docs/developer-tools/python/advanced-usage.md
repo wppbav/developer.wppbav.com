@@ -7,28 +7,25 @@ sidebar_label: Advanced Usage
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This section is intended for developers who are interested in embedding `bavapi` functionality into their APIs and
-applications.
+This section is for developers who want to embed `bavapi` functionality into their APIs and applications.
 
 :::info Async Support
-`bavapi` natively supports asynchronous execution, so it is ready to work with popular `async` libraries such as
+`bavapi` natively supports asynchronous execution, so it can work with popular `async` libraries such as
 [`fastapi`](https://fastapi.tiangolo.com/).
 :::
 
 ## The `Client` interface
 
-The `Client` class is the backbone of `bavapi`, and it is the recommended way to interact with the API for more
-advanced users.
+The `Client` class is the backbone of `bavapi`. For more advanced users, we recommend `Client` to work with the API.
 
 :::tip
-If you're familiar with the `requests` or `httpx` python packages, this is similar to using `requests.Session()` or
-`httpx.Client()`.
+If you know the `requests` or `httpx` python packages, this is similar to `requests.Session()` or `httpx.Client()`.
 :::
 
-Using the `Client` class instead of the top-level endpoint functions (`bavapi.brands`, for example), can bring
-significant performance improvements, especially when performing multiple requests at the same time.
+The `Client` class can give significant performance improvements over the top-level endpoint functions (for example,
+`bavapi.brands`). This is especially true when you send multiple requests at the same time.
 
-The `Client` interface is based on `httpx.Client`, so it benefits from all the performance features from `httpx`:
+The `Client` interface is based on `httpx.Client`, so it gets all the performance features of `httpx`:
 
 :::note Quote from the `httpx` [docs](https://www.python-httpx.org/advanced/)
 
@@ -38,19 +35,18 @@ The `Client` interface is based on `httpx.Client`, so it benefits from all the p
 
 :::
 
-By using `Client`, you will also get all these benefits, including in Jupyter Notebooks.
+When you use `Client`, you get all these benefits. This is also true in Jupyter Notebooks.
 
 ## Using the `Client` interface
 
-It is recommended to use `Client` in an `async with` block:
+We recommend that you use `Client` in an `async with` block:
 
 ```py
 async with bavapi.Client("TOKEN") as bav:
     result = await bav.brands("Swatch")
 ```
 
-Otherwise, it is possible to use `Client` methods outside of an `async with` block, but it might be slightly less
-performant.
+You can also use `Client` methods outside of an `async with` block, but the performance can be slightly lower.
 
 ```py
 bav = bavapi.Client("TOKEN")
@@ -60,21 +56,21 @@ await bav.aclose()  # Close the connection after you're done making requests
 
 ## Other endpoints
 
-Because of the large number of available endpoints in the Fount and the highly customizable queries, some endpoints
-won't have extended support from the start.
+The Fount has a large number of endpoints, and the queries are highly customizable. Thus, some endpoints do not have
+extended support from the start.
 
 :::note Open for feedback
-If you would like to see new endpoints with full type annotations and validation support, please open an
+If you want new endpoints with full type annotations and validation support, open an
 [issue](https://github.com/wppbav/bavapi-sdk-python/issues) on GitHub with the "Feature Request" template.
 :::
 
-`bavapi` provides `raw_query` functions/methods to access all the available endpoints without existing endpoint
+`bavapi` has `raw_query` functions/methods. Use them to access the available endpoints that do not have endpoint
 functions/methods:
 
 - `bavapi.raw_query` for synchronous requests.
 - `bavapi.Client.raw_query` for asynchronous requests.
 
-These `raw_query` methods require the use of `bavapi.Query` instances to make the request:
+These `raw_query` methods require `bavapi.Query` instances to make the request:
 
 ```py
 async with bavapi.Client("TOKEN") as bav:
@@ -84,7 +80,7 @@ async with bavapi.Client("TOKEN") as bav:
     )
 ```
 
-These functions will return a list of JSON dictionaries, one for each entry retrieved from the Fount:
+These functions return a list of JSON dictionaries, one for each entry from the Fount:
 
 ```json
 [
@@ -95,17 +91,17 @@ These functions will return a list of JSON dictionaries, one for each entry retr
 ```
 
 :::tip
-These methods are meant to be used for custom processing of data (not resulting in a `pandas` DataFrame), but it is
-also possible to use some of the parsing functions available in `bavapising.responses`.
+These methods are for custom data processing that does not make a `pandas` DataFrame. But you can also use some of
+the parsing functions in `bavapi.parsing.responses`.
 :::
 
 ## The `Query` class
 
-`bavapi.Query` is a `pydantic`-powered class that holds and validates all the common (aside from
-endpoint-specific filters) query parameters to pass to the Fount API.
+`bavapi.Query` is a class that uses `pydantic`. It holds and validates all the common query parameters (not the
+endpoint-specific filters) to send to the Fount API.
 
-The default values for the class are the same as the default values in the Fount API itself, so an empty `Query`
-object can be used to get all entries for a specific endpoint:
+The default values for the class are the same as the default values in the Fount API. Thus, you can use an empty
+`Query` object to get all entries for a specific endpoint:
 
 ```py
 query = bavapi.Query()
@@ -115,7 +111,7 @@ async with bavapi.Client("TOKEN") as bav:
     res = await bav.raw_query("brand-metrics", query)
 ```
 
-`Query` can be used to set limits on the number of pages retrieved, or to request a specific page from a query:
+You can use `Query` to limit the number of pages that you get, or to request a specific page from a query:
 
 ```py
 bavapi.Query(
@@ -127,58 +123,65 @@ bavapi.Query(
 
 ### `Query` parameters
 
-All Fount queries performed with `bavapi.Query` support the following parameters:
+All Fount queries that use `bavapi.Query` support the following parameters:
 
 - `id`: Return only results for a specific id.
 - `page`: The page number of results to return.
-- `per_page`: The number of results to return per page. Default is 25 and maximum is 100.
-- `max_pages`: The maximum number of pages to request. Defaults to requesting all pages in a query.
+- `per_page`: The number of results to return per page. The Fount API default is 25 and the maximum is 1000. For
+  paginated queries, the `bavapi` default is 100.
+- `max_pages`: The maximum number of pages to request. By default, `bavapi` requests all pages in a query.
 - `fields`: The keys for the fields to include in the response. Usually they are the field name in lower case.
 - `sort`: The key(s) for the field(s) to order the response results by.
 - `include`: Additional linked resources to include in the response.
-- `updated_since`: Only return items that have been updated since this timestamp.
+- `metric_keys`: The keys for the metrics to include in the response. Only the `brandscape-data` endpoint supports
+  this parameter.
+- `metric_group_keys`: The keys for the metric groups to include in the response. Only the `brandscape-data` endpoint
+  supports this parameter.
 
-For more information on the behavior of each of these parameters, see the [customizing fields](/customizing/fields.md)
+To get only the items that changed after a timestamp, use the `updated_since` filter in `filters`. All filters classes
+have this filter.
+
+For more information about the behavior of each of these parameters, see the [customizing fields](/customizing/fields.md)
 section.
 
 ### Raw parameter dictionary
 
-The `to_params` method can be used to parse the parameters into a dictionary of what will be sent to the Fount API:
+Use the `to_params` method to parse the parameters into a dictionary. This dictionary shows what `bavapi` will send to
+the Fount API:
 
 ```py
 >>> bavapi.Query(
 ...     filters=BrandscapeFilters(
 ...         brand_name="Facebook",
-...         year_numbers=[2012, 2013, 2014, 2015]
+...         year_number=[2012, 2013, 2014, 2015]
 ...     ),
 ...     include=["company"]
 ... ).to_params(endpoint="brandscape-data")  # (1)
 {
-    "include[brandscape-data]": "company",  # (2)
+    "include": "company",  # (2)
     "filter[brand_name]": "Facebook",
-    "year_numbers": "2012,2013,2014,2015",
+    "filter[year_number]": "2012,2013,2014,2015",
 }
 ```
 
-1. Needs the endpoint name to format parameters correctly.
-2. Parses `filters` and `include` into the correct format for the Fount API, and parses all elements in lists of
+1. Needs the endpoint name to format the parameters correctly.
+2. Parses `filters` and `include` into the correct format for the Fount API. Also parses all elements in lists of
    parameters to their string representation.
 
 ## Control `bavapi` batching behavior
 
-`bavapi` will automatically batch paginated requests to the API to improve latency and throughput. Default values are
-set to maintain around twenty concurrent requests at a time.
+`bavapi` automatically batches paginated requests to the API to improve latency and throughput. The default values
+keep about twenty concurrent requests at a time.
 
-In addition, `bavapi` will also automatically retry failed requests a number of times (default `2`), which can be
-defined by the user.
+`bavapi` also automatically retries failed requests. You can set the number of retries (default `3`).
 
 Both top-level functions and the `Client` class have the following parameters to control the behavior of the requests:
 
-- `batch_size`: Number of pages to include in each batch of requests, default `10`.
-- `n_workers`: Number of worker coroutines that will make batched requests at once, default `2`.
-- `retries`: Number of times to retry a page request before raising an exception, default `3`.
-- `on_errors`: Whether to `"warn"` about failed requests at the end of the query, or `"raise"` immediately upon failure
-  (after retries), default `"warn"`.
+- `batch_size`: Number of pages in each batch of requests, default `10`.
+- `n_workers`: Number of worker coroutines that make batched requests at the same time, default `2`.
+- `retries`: Number of times to retry a page request before `bavapi` raises an exception, default `3`.
+- `on_errors`: Set to `"warn"` to get a warning about failed requests at the end of the query. Set to `"raise"` to
+  raise an exception immediately after a failure (after retries). Default `"warn"`.
 
 These parameters can be set in both top-level functions and the async `Client` class:
 
@@ -212,22 +215,22 @@ async with bavapi.Client(
   </TabItem>
 </Tabs>
 
-The query from the examples above will result in *25* concurrent API requests (5 `batch_size` * 5 `n_workers`), and
-`bavapi` will retry each failed request *twice* (after the initial request). `on_errors="raise"` will ensure that an
-exception is raised if all retries for any page result in exceptions.
+The query in the examples above makes *25* concurrent API requests (5 `batch_size` * 5 `n_workers`). `bavapi` will
+retry each failed request *twice* (after the initial request). If all retries for a page cause exceptions,
+`on_errors="raise"` makes sure that `bavapi` raises an exception.
 
 :::caution
-In order to avoid SSL and timeout issues, it is recommended to set `batch_size` and `n_workers` so `bavapi` will
-perform at most 20-30 concurrent requests. The default is 20 concurrent requests (10 `batch_size` * 2 `n_workers`).
+To prevent SSL and timeout problems, we recommend that you set `batch_size` and `n_workers` so that `bavapi` sends a
+maximum of 20-30 concurrent requests. The default is 20 concurrent requests (10 `batch_size` * 2 `n_workers`).
 :::
 
 ## User Agent
 
-It is possible to set the `User Agent` parameter for HTTP requests.
+You can set the `User Agent` parameter for HTTP requests.
 
 The default user agent is `"BAVAPI SDK Python"`.
 
-If you want to change the user agent for your application, you can set it when instantiating a `Client`:
+To change the user agent for your application, set it when you instantiate a `Client`:
 
 ```py
 bav = bavapi.Client(user_agent="Your User Agent")

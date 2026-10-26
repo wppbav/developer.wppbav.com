@@ -4,15 +4,14 @@ sidebar_label: Introduction
 
 # Embed Integration
 
-BAV offers the option to integrate its analytical tools into your application via an embedded integration. It
-allows you to embed any of the BAV products into your application via an iframe, with our application scaffolding
-removed. It also allows you to pass and log in as the existing user from your application, making the experience
-seamless for the user.
+BAV gives you the option to integrate its analytical tools into your application through an embedded integration. You
+can embed any of the BAV products into your application in an iframe, without our application scaffolding. You can
+also pass the existing user from your application and log in as that user. This gives the user a seamless experience.
 
 ## How does it work?
 
-On a high level, the integration flow consists of:
+At a high level, the integration flow has these steps:
 
-1. Authenticating a user against the BAV API and receiving an authentication token.
-2. Calling the embeddable product in an iframe with the authentication token and the required parameters for the
+1. Authenticate a user against the BAV API and receive an authentication token.
+2. Call the embeddable product in an iframe with the authentication token and the required parameters for the
    product.

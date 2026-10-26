@@ -1,27 +1,29 @@
 # Health Check
 
-For some integrations and applications it can be helpful to check if the BAV API is up and running. This can be done by
-sending a GET request to the `/health` endpoint. This endpoint is designed to return a simple response indicating the
-health status of the API.
+For some integrations and applications, it is helpful to check if the BAV API is available. To do this, send a GET
+request to the health endpoint. This endpoint returns a short response that shows the health status of the API.
 
 ## Endpoint
 
+```http request
+GET /api/v2/health
 ```
-GET /health
-```
+
+This endpoint does not require authentication, so you do not need to send an API token. The
+[rate limit](rate-limiting.md) also applies to this endpoint.
 
 ## Response
 
-The endpoint will return a 200 OK HTTP status code if the API is healthy. The response will be in JSON format and will
-include a status message and a timestamp of the check.
+If the API is healthy, the endpoint returns a 200 OK HTTP status code. The response is in JSON format and contains a
+status message and a timestamp of the check. The timestamp is in UTC, in the `YYYY-MM-DD HH:MM:SS` format.
 
-Any status code that isn't 200 OK or a permissions issue (401 and 403) should be considered a failure. Because this
-endpoint is very lightweight its response time should be very low. When connecting to the endpoint you may set a
-short timeout (e.g. 1 second) to avoid long waits in case of an issue.
+Consider all status codes other than 200 OK as a failure. This endpoint is lightweight, so we expect its response time
+to be low. When you connect to the endpoint, you can set a short timeout (for example 1 second). This prevents long
+waits if there is a problem.
 
 ```json
 {
   "status": "ok",
-  "timestamp": "2023-10-01T12:00:00Z"
+  "timestamp": "2026-10-01 12:00:00"
 }
 ```

@@ -12,7 +12,7 @@ function HomepageHeader() {
             <div className="container">
                 <h1 className="hero__title">BAV@WPP Developer</h1>
                 <p className="hero__subtitle">Integrate BAV into your workflows and applications through our API and
-                    embed products.</p>
+                    MCP connectors.</p>
             </div>
         </header>
     );
@@ -32,16 +32,6 @@ const features = [
         link: '/docs/2.x/intro',
     },
     {
-        title: 'Embed',
-        description: (
-            <>
-                Integrate BAV reports into your application without having to recreate everything by using our
-                customizable embed integrations.
-            </>
-        ),
-        link: '/docs/2.x/embed/intro',
-    },
-    {
         title: 'AI Agents',
         description: (
             <>
@@ -49,7 +39,7 @@ const features = [
                 applications, enabling them provide insights based on BAV data.
             </>
         ),
-        link: '/docs/2.x/embed/intro',
+        link: '/docs/2.x/ai/intro',
     }
 ];
 

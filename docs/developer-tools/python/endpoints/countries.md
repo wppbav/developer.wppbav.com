@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`countries` endpoint](/metadata/countries.md).
 :::
 
-The `countries` endpoint has full support, including query validation.
+The `countries` endpoint has full support. This support includes query validation.
 
 | Endpoint      | Function    | `Client` method    | Filters class      |
 | ------------- | ----------- | ------------------ | ------------------ |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `active`, `regions`, `with_studies`
 - Keyword filters: `country_id`, `with_recent_studies`
 
-For other filters, passing an `CountriesFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `CountriesFilters` instance to the `filters` parameter.

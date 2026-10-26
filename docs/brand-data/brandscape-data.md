@@ -2,123 +2,210 @@
 
 ## What is brandscape data?
 
-A fundamental core concept of BAV is the "Brandscape" which is the set of brands in a given country for a given year.
-The brandscape data is the collection of metrics and their respective values for the brandscape. You can, in practical
-terms, see the brandscape data is the "BAV data".
+A fundamental core concept of BAV is the "Brandscape". The brandscape is the set of brands in a given country for a
+given year. The brandscape data is the collection of metrics and their respective values for the brandscape. In
+practical terms, the brandscape data is the "BAV data".
 
-The brandscape data endpoint gives you data by:
+Brandscape data has one row per brand, category, study and audience, with every metric BAV calculates for that
+combination. You can get the data by:
 
-- [Study](studies.md)
-- [Year](years.md)
-- [Country](countries.md)
-- [Audience](audiences.md)
-- [Category](categories.md)
+- [Study](../studies/studies.md)
+- [Year](../metadata/years.md)
+- [Country](../metadata/countries.md)
+- [Audience](../audiences/audiences.md)
+- [Brand](../brands/brands.md)
+- [Category](../studies/categories.md)
 
 You can customize the response to include only the data you need, such as only specific metrics.
 
-:::note Filtering is required
-Please note that filtering is required on the brandscapa data endpoint to achieve quick response times. For best
-performance, please use these combinations of filters:
+## List brandscape data
 
-- Study + Audience + Brand + Category
-- Country + Year + Audience
-- Brand + Audience + Country + Year
-
-You should read these from left to right. A combination of "Study + Audience" works just as well as "Study + Audience +
-Brand". However, "Category + Audience" will not.
-
-You may filter on one or multiple of each type.
-:::
-
-## List all brandscape data
-
-To list all of the brandscape data and browse them via the API, use the list endpoint:
+To list the brandscape data, use the list endpoint:
 
 ```http request
 GET /api/v2/brandscape-data
 ```
 
-## Get a brandscape data
+The response is [paginated](../pagination.md). There is no endpoint that gets a single brandscape data row.
 
-You may also directly retrieve a brandscape data's details if you already have its system ID.
+### Scoping the request
 
-```http request
-GET /api/v2/brandscape-data/123
+Scope each request to one or more studies. You can do this in one of two ways:
+
+- **By study:** Use the `studies` filter with one or more study IDs.
+- **By market and year:** Use a country filter (`countries` or `country_code`) together with a year filter (`years`
+  or `year_number`).
+
+If you filter by a country without a year, or by a year without a country, the API returns a `400` error.
+
+If you do not give a study, country or year filter, the request uses the most recently released syndicated BAV
+study from the last three years. We recommend that you always scope your requests explicitly.
+
+If you do not give an `audiences` filter, the API returns the data for the All Adults audience (ID `1`).
+
+### Study types
+
+By default, if you filter by market and year, the request resolves only to syndicated BAV studies. To include other
+types of studies, set the `study_types` filter to a comma-separated list of the study types you want. The available
+study types are:
+
+- `syndicated` - The syndicated BAV study (default).
+- `snap` - SnapBAV studies.
+- `fused` - Fused studies.
+- `custom` - Custom studies.
+
+The API ignores unknown values. The `study_types` filter has no effect when you use the `studies` filter.
+
+Studies of other types can exist for the markets and years that you requested. If the study type filter excludes these
+studies, `meta.available_alternatives` lists them. Each entry gives information about the study and the `study_types`
+value that includes it:
+
+```json
+{
+  "data": [],
+  "meta": {
+    "available_alternatives": [
+      {
+        "study_id": 1234,
+        "study_name": "SnapBAV Norway 2025",
+        "market": "Norway",
+        "year": 2025,
+        "study_type": "snap",
+        "caveat": "...",
+        "message": "A SnapBAV study is available for this market and year. Add filter[study_types]=snap to include it."
+      }
+    ]
+    // ... pagination meta
+  }
+}
 ```
 
-Where `123` is the system ID of the brandscape data.
+This endpoint never returns data from BAV AURA studies.
+
+### Data generation
+
+The system generates brandscape data per study and audience the first time that you request it. If the generation of
+one or more of the requested study and audience combinations is not complete, the response has a `202 Accepted` status
+code. The response still contains the rows that are already available, and `meta.generation` lists the combinations
+that are pending. To get the full data, retry the request after a short time.
+
+```json
+{
+  "data": [
+    // ... rows that are already available
+  ],
+  "meta": {
+    "generation": {
+      "status": "partial",
+      "message": "Some of the requested combinations are still being generated. Retry the request shortly.",
+      "combinations": [
+        {
+          "study_id": 635,
+          "study_name": "BAV US 2025",
+          "audience_id": 42,
+          "audience_name": "Millennials",
+          "was_just_triggered": true
+        }
+      ]
+    }
+    // ... pagination meta
+  }
+}
+```
+
+The `status` is `partial` when some of the requested data is already available, and `pending` when none of it is.
 
 ## Schema
 
 ### Full response schema
 
-The brandscape data schema is large (≈ 350 fields). For that reason we omit the full schema here. It is divided into:
+The brandscape data schema is large (≈ 350 fields). For that reason, this page does not show the full schema. The schema has two parts:
 
 - Metadata (for example: study, category, brand, audience information)
-- Metric Data
+- Metric data
 
-The metric data field names are built up by the `import_name` of the [Brand Metrics](metrics.md) resource and a suffix
-depending on the score type. Not all metrics have all score types. The metric resource will show the available score
-types. Suffixes are:
+Each metric data field name is the `key` of the [Brand Metrics](../metrics/metrics.md) resource and a suffix for the
+score type. Not all metrics have all score types. The metric resource shows the available score types, and its
+`brandscape_data_columns` field lists the exact field names. The suffixes are:
 
 - `_rank` for percentile rank scores.
 - `_pct` for percentage scores.
 - `_c` for construct scores.
 - `_brandscape_index` for index scores against the entire brandscape.
 - `_category_index` for index scores against the brand's category.
-- No suffix for value scores, like base sizes.
+- No suffix for value scores, such as base sizes.
 
-In addition to this, there are two special fields:
+By default, the response contains every metric that you have access to. To limit the metrics in the response, use the
+`metric_keys` or `metric_group_keys` parameters (see below).
 
-- `is_duplicate` will be true if the brand is studied in multiple categories. All scores but the usage, preference and
-  recommendation scores are category-agnostic which means that if you perform aggregate analysis (average, standard
-  deviation etc) on these scores you want to remove duplicates first.
-- `brand_name` is the local brand name that was asked in the survey. This can be different from the global brand name
-  from the brands relationship. You should use this field in combination with the data when available as the brand name.
+Each row also has the following fields, together with the metric data:
 
-All fields are sortable, filterable and configurable.
+| Key            | Type    | Description                                                                                                                                                                                                                                                         |
+|----------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`           | integer | The system ID of the brandscape data row.                                                                                                                                                                                                                           |
+| `study_type`   | string  | The type of study that the row came from: `syndicated`, `snap`, `fused` or `custom`, or `null` for other study types. The API returns it by default, and when you include the `study` relationship.                                                                 |
+| `is_duplicate` | boolean | `true` for a brand's second and later categories in the same study. All scores except the usage, preference and recommendation scores are category-agnostic. Thus, before you do an aggregate analysis (average, standard deviation etc.) on these scores, remove the duplicates.                    |
+| `brand_name`   | string  | The local brand name that the survey asked about. This can be different from the global brand name in the brand relationship. When this field is available, use it as the brand name together with the data.                                                       |
+| `created_at`   | string  | A datetime string when this row was first created.                                                                                                                                                                                                                  |
+| `updated_at`   | string  | A datetime string when this row was last updated.                                                                                                                                                                                                                   |
+
+All metric fields are sortable, filterable and configurable. You can also sort by `id`, `brand_name`,
+`study_id`, `category_id`, `year_id`, `country_id`, `base_id`, `brand_variation_id`, `is_duplicate`, `created_at` and
+`updated_at`.
+
+For rollup studies (studies that contain several other studies), metrics with a per-study breakdown also return a
+`{metric}_rollup` field. This is an object with the value for each underlying study, keyed by study ID, or `null` when
+the row has no breakdown.
 
 ## Additional Filters
 
-In addition to the standard filters and all the fields, we have a set of helper filters to make querying the data easier
-by reducing the need for lookups in our database. These are:
+Together with the standard filters and the metric fields, you can use a set of helper filters. These filters make it
+easier to query the data, because you need fewer lookups in our database. The helper filters are:
 
-- `countries` - A comma-separated list of country IDs (for example: 1,2,3).
-- `country_code`. A comma-separated list of ISO two letter country codes (for example: GB) which can take the place of
-  a `country_id` filter.
-- `years` - A comma-separated list of year IDs (for example: 1,2,3).
-- `year_number`. A comma-separated of years by their numbers (for example: 2022) which can be used over a `year_id`
-  filter.
-- `brands` - A comma-separated list of brand IDs (for example: 1,2,3).
-- `categories` - A comma-separated list of category IDs (for example: 1,2,3).
-- `audiences` - A comma-separated list of audience IDs (for example: 1,2,3).
 - `studies` - A comma-separated list of study IDs (for example: 1,2,3).
+- `countries` - A comma-separated list of country IDs (for example: 1,2,3). Requires a year filter.
+- `country_code` - A comma-separated list of ISO two letter country codes (for example: GB). You can use it instead of
+  the `countries` filter. Requires a year filter.
+- `years` - A comma-separated list of year IDs (for example: 1,2,3). Requires a country filter.
+- `year_number` - A comma-separated list of years by their numbers (for example: 2022). You can use it instead of
+  the `years` filter. Requires a country filter.
+- `study_types` - A comma-separated list of study types that a country and year filter can resolve to (see
+  [study types](#study-types)).
+- `audiences` - A comma-separated list of audience IDs (for example: 1,2,3). Defaults to All Adults (`1`).
+- `brands` - A comma-separated list of brand IDs (for example: 1,2,3).
+- `brand_variations` - A comma-separated list of brand variation IDs (for example: 1,2,3).
+- `brand_name` - A search on the brand name. It uses the search index.
+- `categories` - A comma-separated list of category IDs (for example: 1,2,3).
+- `companies` - A comma-separated list of company IDs (for example: 1,2,3).
 - `sectors` - A comma-separated list of sector IDs (for example: 1,2,3).
-- `companies` - A comma-separated list of company IDs (for example: 1,2,3)
-- `brand_name`. A text search on the brand name.
+
+Give each filter as a separate key, for example `filter[country_code]=GB`. If you give `filter` as a single value, the
+API returns a `400` error.
 
 ## Additional Column Customizations
 
-In addition to the standard column customizations we have a helper parameter. This is used as a top-level query
-parameter.
+Together with the standard column customizations, you can use two helper parameters. Use them as top-level query
+parameters.
 
-- `metric_keys` - A comma-separated list of metric keys (for example: `differentation,relevance`) which can be used to
-  automatically get all the available score types for these metrics only without having to get each field specifically.
-- `metric_group_keys` - A comma-separated list of metric group keys (for example: `imagery,pillars`) which can be used
-  to automatically get all the available score types for the metrics in these groups, without having to set each metric
-  specifically.
+- `metric_keys` - A comma-separated list of metric keys (for example: `differentiation,relevance`). Use it to
+  automatically get all the available score types for only these metrics. You do not need to ask for each field.
+- `metric_group_keys` - A comma-separated list of [metric group](../metrics/metric-groups.md) keys (for
+  example: `pillars`). Use it to automatically get all the available score types for the metrics in these groups. You
+  do not need to set each metric.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
-the [includes section](../customizing/includes) for more information on how this works. The following relationships
-are available:
+If you do not use the `include` parameter, each row includes the `study`, `audience` (returned as `base`), `category`,
+`brand` and `brand_variation` relationships by default. If you use the `include` parameter, the API returns only the
+relationships that you ask for. For more information, see the [includes section](../customizing/includes).
+The following relationships are available:
 
-- `study` - The [study](studies.md) for the brandscape data record.
-- `year` - The [year](years.md) for the brandscape data record.
-- `country` - The [country](countries.md) for the brandscape data record.
-- `audiences` - The [audience](./audiences.md) for the brandscape data record.
-- `brand` - The [brand](brands.md) for the brandscape data record.
-- `category` - The [category](categories.md) for the brandscape data record.
-- `sector` - The [sector](sectors.md) for the brandscape data record.
-- `company` - The [company](companies.md) for the brandscape data record.
+- `study` - The [study](../studies/studies.md) for the brandscape data row.
+- `year` - The [year](../metadata/years.md) for the brandscape data row.
+- `country` - The [country](../metadata/countries.md) for the brandscape data row.
+- `audience` - The [audience](../audiences/audiences.md) for the brandscape data row. Returned in the `base` field.
+- `brand` - The [brand](../brands/brands.md) for the brandscape data row.
+- `brandVariation` - The brand variation the brand was measured under. Returned in the `brand_variation` field.
+- `category` - The [category](../studies/categories.md) for the brandscape data row.
+- `sector` - The [sector](../metadata/sectors.md) for the brandscape data row.
+- `company` - The [company](../company-data/companies.md) for the brandscape data row.

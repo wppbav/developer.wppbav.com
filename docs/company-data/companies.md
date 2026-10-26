@@ -7,7 +7,7 @@ companies can be privately or publicly owned.
 
 ## List all companies
 
-To list all of the companies and browse them via the API, use the list endpoint:
+To list all of the companies and browse them through the API, use the list endpoint:
 
 ```http request
 GET /api/v2/companies
@@ -15,13 +15,32 @@ GET /api/v2/companies
 
 ## Get a company
 
-You may also directly retrieve a company's details if you already have its system ID.
+If you already have the system ID of a company, you can also get the company details directly.
 
 ```http request
 GET /api/v2/companies/123
 ```
 
 Where `123` is the system ID of the company.
+
+## Get a company's stock prices
+
+To get the historical share prices for a company's primary stock exchange listing, use the company stock prices
+endpoint:
+
+```http request
+GET /api/v2/companies/123/stock-prices
+```
+
+Where `123` is the system ID of the company.
+
+This returns the same response as the [stock prices endpoint](stock-prices.md#response) and is not paginated. It
+accepts the `from`, `to` and `interval` parameters described in
+the [stock prices documentation](stock-prices.md#parameters). If you do not send `from` and `to`, the endpoint returns
+the full price history. To keep the response small, use a date window or a `weekly` or `monthly` `interval`.
+
+A company without a primary listing returns no rows, and the response lists its ID in `meta.companies_without_listing`.
+If the API cannot connect to the market data provider, it returns a `503` error.
 
 ## Schema
 
@@ -44,10 +63,11 @@ Where `123` is the system ID of the company.
 | `officers`        | array   |            :white_check_mark:             |        :x:         | :white_check_mark: | An array of names and roles of the registered company officers. |
 | `created_at`      | string  |                    :x:                    | :white_check_mark: | :white_check_mark: | A datetime string when this company was first created.          |
 | `updated_at`      | string  | ([updated since](../customizing/filters)) | :white_check_mark: | :white_check_mark: | A datetime string when this company was last updated.           |
+| `url`             | string  |                    :x:                    |        :x:         |        :x:         | The URL to view the company in The Fount.                       |
 
 ### Relationship Response Schema
 
-The slim relationship schema is used when the company is used as part of an include in another resource.
+The API uses the slim relationship schema when the company is part of an include in another resource.
 
 | Key    | Type    | Description                      |
 |--------|---------|----------------------------------|
@@ -56,22 +76,24 @@ The slim relationship schema is used when the company is used as part of an incl
 
 ## Additional Filters
 
-For convenience, we have a set of additional filters that are not available in
-the [default filters](../customizing/filters.md) or are part of the columns. These are:
+These filters do not match a column, but you use them with the same `filter[name]=value` format as the
+[default filters](../customizing/filters.md):
 
 - `public` - Set to `1` to only return public (listed) companies.
 - `private` - Set to `1` to only return private (unlisted) companies.
-- `brands` - Set to a comma-separated list of brand IDs to only return companies that own those brands.
+- `brands` - Set to a comma-separated list of brand IDs to only return companies whose linked `brand` (the brand that
+  represents the company itself) is one of those brands. This does not match every brand the company owns.
 
 ## Relationships & includes
 
-By default, relationships apart from the sector are not included. See
+By default, relationships are not included. See
 the [includes section](../customizing/includes) for more information on how this works. The following relationships
 are available:
 
-- `brand` - The [brand](brands.md) relation if the company name is also a tracked brand name.
-- `brands` - The [brands](brands.md) that belong to the company.
-- `gics_sector` - The [GICS Sector](gics-sectors.md) that categorizes the company.
-- `stock_exchanges` - The [stock exchanges](stock-exchanges.md) that the company is listed on.
-- `country` - The [country](countries.md) that the company is headquartered in.
+- `brand` - The [brand](../brands/brands.md) that represents the company itself, where one is linked.
+- `brands` - The [brands](../brands/brands.md) that belong to the company.
+- `gics_sector` - The [GICS Sector](../metadata/gics-sectors.md) that categorizes the company.
+- `stock_exchanges` - The [stock exchanges](../metadata/stock-exchanges.md) that the company is listed on. Each
+  exchange also includes the company's `stock_ticker` on that exchange.
+- `country` - The [country](../metadata/countries.md) that the company is registered in.
 - `latest_financials` - The latest financials for the company (available for public companies).

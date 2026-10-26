@@ -42,6 +42,8 @@ const sidebars = {
             items: [
                 'brands/brands',
                 'brands/collections',
+                'brands/brand-tags',
+                'brands/brand-variations',
             ],
         },
         {
@@ -58,6 +60,26 @@ const sidebars = {
             items: [
                 'brand-data/index',
                 'brand-data/brandscape-data',
+                'brand-data/data-models',
+                'brand-data/brand-worth',
+                'brand-data/cee-opinions',
+                'brand-data/imagery',
+                'brand-data/influence',
+                'brand-data/personality',
+                'brand-data/pillars',
+                'brand-data/powergrid',
+                'brand-data/preferences',
+                'brand-data/recommendation',
+                'brand-data/super-cx',
+                'brand-data/usage',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Tools',
+            items: [
+                'brand-data/tools',
+                'brand-data/agency-change-predictor',
                 'brand-data/archetypes',
                 'brand-data/brand-personality-match',
                 'brand-data/brand-vulnerability-map',
@@ -67,9 +89,9 @@ const sidebars = {
                 'brand-data/cost-of-entry',
                 'brand-data/love-plus',
                 'brand-data/partnership-exchange-map',
+                'brand-data/super-cx-tool',
                 'brand-data/swot',
                 'brand-data/toplist-market',
-                'brand-data/cee-opinions',
             ],
         },
         {
@@ -78,7 +100,20 @@ const sidebars = {
             items: [
                 'audiences/audiences',
                 'audiences/audience-groups',
+                'audiences/managing-audiences',
                 'audiences/export',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Audience Origin',
+            items: [
+                'audience-origin/index',
+                'audience-origin/metrics',
+                'audience-origin/metric-groups',
+                'audience-origin/touchpoints',
+                'audience-origin/frequencies',
+                'audience-origin/query',
             ],
         },
         {
@@ -90,6 +125,8 @@ const sidebars = {
                 'best-countries/metric-groups',
                 'best-countries/factors',
                 'best-countries/country-data',
+                'best-countries/models',
+                'best-countries/raw-data',
             ],
         },
         {
@@ -102,10 +139,32 @@ const sidebars = {
         },
         {
             type: 'category',
+            label: 'Market Share',
+            items: [
+                'market-share/index',
+                'market-share/catalog',
+                'market-share/brand-shares',
+                'market-share/company-shares',
+            ],
+        },
+        {
+            type: 'category',
             label: 'Metric Glossaries',
             items: [
                 'metrics/metrics',
                 'metrics/metric-groups',
+            ],
+        },
+        {
+            type: 'category',
+            label: 'Measures & Questions',
+            items: [
+                'measures/index',
+                'measures/brand-measure-groups',
+                'measures/brand-measures',
+                'measures/bav-question-groups',
+                'measures/bav-questions',
+                'measures/study-catalog',
             ],
         },
         {
@@ -119,6 +178,7 @@ const sidebars = {
                 'metadata/gics-sectors',
                 'metadata/stock-exchanges',
                 'metadata/countries',
+                'metadata/country-indicators',
                 'metadata/cities',
             ],
         },
@@ -135,13 +195,17 @@ const sidebars = {
         'ai/agents',
         {
             type: 'category',
-            label: 'MCP Servers',
+            label: 'MCP Connectors',
             items: [
                 'ai/mcp/intro',
+                'ai/mcp/concepts',
                 'ai/mcp/access-authorization',
+                'ai/mcp/connecting-clients',
+                'ai/mcp/mcp-apps',
                 'ai/mcp/bav',
                 'ai/mcp/best-countries',
                 'ai/mcp/financial-data',
+                'ai/mcp/market-share',
                 'ai/mcp/social'
             ],
         }

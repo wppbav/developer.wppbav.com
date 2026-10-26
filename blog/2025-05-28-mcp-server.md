@@ -13,4 +13,4 @@ Our new remote MCP server uses the latest MCP (Model Control Protocol) standard.
 We're excited to see how you and your agents use BAV data to power your workflows. If you have questions, feedback, or
 requests for new MCP tools, please let us know.
 
-[Read more about the MCP Server](/docs/2.x/ai/mcp-server)
+[Read more about the MCP Server](/docs/2.x/ai/mcp/intro)

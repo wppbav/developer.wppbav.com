@@ -1,15 +1,16 @@
 
 # Pagination
 
-All top-level API resources have support for fetching data in bulk via a list method. You can, for example, list brands
+All top-level API resources have a list method that you can use to get data in bulk. For example, you can list brands
 and collections.
 
 ## Parameters
 
-You may use the following query parameters on list resources:
+You can use these query parameters on list resources:
 
-- `page` will let you set the currently active page.
-- `per_page` will let you set how many records you want to retrieve per page. Maximum of 1000. Default is 25.
+- `page` sets the current page.
+- `per_page` sets the number of records on each page. The maximum is 1000. The default is 25. If you ask for more than
+  1000 records on each page, you get a `400` error.
 
 URL Example:
 
@@ -19,7 +20,7 @@ GET https://fount.wppbav.com/api/v2/brands?page=2&per_page=50
 
 ## Response
 
-The structure of the API list response is as follows:
+The API list response has this structure:
 
 ```json
 {
@@ -27,7 +28,7 @@ The structure of the API list response is as follows:
     {
       ...
     }
-    // Here's the specific request data for the resource.
+    // The data for the resource is here.
   ],
   "links": {
     "first": "https://fount.wppbav.com/api/v2/brands?page=1",
@@ -117,8 +118,9 @@ The structure of the API list response is as follows:
       }
     ],
     "path": "https://fount.wppbav.com/api/v2/brands",
-    "per_page": 15,
-    "to": 15,
-    "total": 2434
+    "per_page": 25,
+    "to": 25,
+    "total": 4062
   }
+}
 ```

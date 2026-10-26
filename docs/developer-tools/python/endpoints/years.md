@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 Read more in the API documentation for the [`years` endpoint](/metadata/years.md).
 :::
 
-The `years` endpoint has full support, including query validation.
+The `years` endpoint has full support. This support includes query validation.
 
 | Endpoint  | Function | `Client` method | Filters class  |
 | --------- | -------- | --------------- | -------------- |
@@ -44,4 +44,4 @@ These filters are available directly within the function/method:
 - Positional filters: `year`
 - Keyword filters: `year_id`
 
-For other filters, passing an `YearsFilters` instance to the `filters` parameter is required.
+For other filters, you must give a `YearsFilters` instance to the `filters` parameter.

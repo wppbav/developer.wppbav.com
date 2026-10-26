@@ -11,24 +11,25 @@ sidebar_label: Overview
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wpp-bavapi)
 ](https://pypi.org/project/wpp-bavapi/)
 
-The Python SDK for the BAV API makes it easy to consume BAV data within your Python scripts. It is published
+The Python SDK for the BAV API makes it easy to use BAV data in your Python scripts. It is published
 as `wpp-bavapi` in [PyPI](https://pypi.org/project/wpp-bavapi/) and hosted
 on [GitHub](https://github.com/wppbav/bavapi-sdk-python/).
 
-Queries are validated automatically thanks to `pydantic` and retrieved asynchronously via the `httpx` package.
+The SDK uses `pydantic` to validate queries automatically. It uses the `httpx` package to get the data
+asynchronously.
 
-To start using `bavapi`, go to the [Installation](installation.md) section.
+To start with `bavapi`, go to the [Installation](installation.md) section.
 
-After going through the Installation, please see [Basic Usage](basic-usage.md). For more advanced topics,
-see the [Advanced Usage](advanced-usage.md) section.
+After the installation, see [Basic Usage](basic-usage.md). For more advanced topics, see the
+[Advanced Usage](advanced-usage.md) section.
 
-Each Fount API endpoint may behave slightly differently. You can find detailed explanations in
-the [Endpoints](python/endpoints/) section.
+The behavior of each Fount API endpoint can be slightly different. You can find detailed explanations in
+the [Endpoints](endpoints/index.md) section.
 
 ## Example usage
 
-:::info "Protected access"
-:lock: To use `bavapi`, you will need a Fount API token. Read more in the [Authentication](../authentication) section.
+:::info Protected access
+:lock: To use `bavapi`, you need a Fount API token. Read more in the [Authentication](authentication.md) section.
 :::
 
 ```py
@@ -57,20 +58,21 @@ the [Endpoints](python/endpoints/) section.
     - [`collections`](endpoints/collections.md)
     - [`companies`](endpoints/companies.md)
     - [`countries`](endpoints/countries.md)
+    - [`regions`](endpoints/regions.md)
     - [`sectors`](endpoints/sectors.md)
     - [`studies`](endpoints/studies.md)
     - [`years`](endpoints/years.md)
-  - Other endpoints are available via the `raw_query` functions and methods.
-- Validates query parameters are of the correct types and provides type hints for better IDE support.
-- Retrieve multiple pages of data simultaneously, as well as monitors and prevents exceeding API rate limit.
-- Both synchronous and asynchronous APIs for accessing BAV data.
+  - Other endpoints are available through the `raw_query` functions and methods.
+- Validates that query parameters are of the correct types, and gives type hints for better IDE support.
+- Gets multiple pages of data at the same time. Monitors the API rate limit and prevents requests that exceed it.
+- Both synchronous and asynchronous APIs to access BAV data.
 
 ## Issues
 
-For bug reports and feature requests, please open an issue
+For bug reports and feature requests, open an issue
 on [GitHub](https://github.com/wppbav/bavapi-sdk-python/issues/).
 
 ## Contributing
 
-We welcome contributions to the Python SDK which is hosted as a public repository on GitHub. Please see the
-[Contributing](https://github.com/wppbav/bavapi-sdk-python/blob/main/CONTRIBUTING.md) document for more information.
+We welcome contributions to the Python SDK. It is a public repository on GitHub. For more information, see the
+[Contributing](https://github.com/wppbav/bavapi-sdk-python/blob/main/CONTRIBUTING.md) document.

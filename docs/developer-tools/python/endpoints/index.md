@@ -7,7 +7,7 @@ sidebar_label: Overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-As of `v1.1`, these are the endpoints that have been fully implemented in `bavapi`:
+As of `v1.1`, `bavapi` has full implementations of these endpoints:
 
 - [`audiences`](audiences.md)
 - [`audience-groups`](audience-groups.md)
@@ -25,34 +25,34 @@ As of `v1.1`, these are the endpoints that have been fully implemented in `bavap
 - [`studies`](studies.md)
 - [`years`](years.md)
 
-"Implemented" meaning that the endpoint has a corresponding function, `Client` method, and filters class associated
-with them. More info in each endpoint's respective section linked above.
+"Implemented" means that the endpoint has a related function, `Client` method, and filters class. For more
+information, see the section for each endpoint in the list above.
 
-If an existing endpoint does not appear in the list above, you can still perform queries to them using the `raw_query`
-methods (see [below](#other-endpoints)), but `bavapi` won't validate filter parameters.
+If an endpoint is not in the list above, you can still send queries to it with the `raw_query` methods (see
+[below](#other-endpoints)). But `bavapi` will not validate the filter parameters.
 
-Examples for each endpoint are available in each of their individual sections, both for the top-level, synchronous
-functions, and the asynchronous methods in `bavapi.Client`.
+The section for each endpoint has examples for the top-level, synchronous functions and for the asynchronous methods in
+`bavapi.Client`.
 
-For a summary of all existing Fount endpoints, as well as their parameters and supported filters, please see the
+For a summary of all Fount endpoints and their parameters and supported filters, see the
 [Resources](/intro.md) section of the Fount API documentation.
 
 ## Other endpoints
 
-While there are some commonly used endpoints with more extensive validation support, there are a *lot* of additional
-endpoints available for querying.
+Some commonly used endpoints have more extensive validation support. But there are a *lot* of other endpoints that
+you can query.
 
-With the `raw_query` functions and methods, you can perform requests to any endpoint in the Fount, even if it's not
-supported with dedicated code.
+With the `raw_query` functions and methods, you can send requests to any endpoint in the Fount. This is also true for
+endpoints that do not have dedicated code.
 
 | Endpoint | Function    | `Client` method    | Filters class  |
 | -------- | ----------- | ------------------ | -------------- |
 | `{any}`  | `raw_query` | `Client.raw_query` | `FountFilters` |
 
-Queries from `raw_query` functions and methods return a list of JSON dictionaries, instead of a `pandas` DataFrame.
+Queries from `raw_query` functions and methods return a list of JSON dictionaries, not a `pandas` DataFrame.
 
 :::note
-You need to use a `Query` instance to perform queries with `raw_query` methods.
+You must use a `Query` instance to send queries with `raw_query` methods.
 [More info](../advanced-usage.md#other-endpoints)
 :::
 
@@ -80,14 +80,14 @@ async with bavapi.Client("TOKEN") as bav:
   </TabItem>
 </Tabs>
 
-Since the result of these queries will be a list of JSON dictionaries, you can use the `parse_response` function in the
-`bavapi.parsing.responses` module to parse the JSON response into a DataFrame:
+The result of these queries is a list of JSON dictionaries. To parse the JSON response into a DataFrame, use the
+`parse_response` function in the `bavapi.parsing.responses` module:
 
 ```py
 import bavapi
 from bavapi.parsing.responses import parse_response
 
-result = bavapi.raw_query("companies", bavapi.Query())
+result = bavapi.raw_query("TOKEN", "companies", bavapi.Query())
 
 parsed = parse_response(result)  # will return a DataFrame
 ```

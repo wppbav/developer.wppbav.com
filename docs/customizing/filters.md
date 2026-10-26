@@ -2,37 +2,38 @@
 
 ## Filters
 
-To allow you to retrieve only the data that you need each resource comes with a set of filters. Some filters are
-globally available throughout all resources, while some are resource-specific.
+Each resource has a set of filters, so you can get only the data that you need. Some filters are available for all
+resources, and some filters are specific to a resource.
 
-Each resource documentation contains a list of which fields are filterable. Below you'll find information for the
-globally available filters.
+The documentation for each resource contains a list of the fields that you can filter on. Below is information about
+the filters that are available for all resources.
 
-Filters are applied via query parameters to the request URL. They are built up on the format: `filter[field]=value`.
+Apply filters with query parameters on the request URL. Filters use the format `filter[field]=value`.
 
-For example, to search for brands with the name "Facebook" you would use the following request:
+For example, to search for brands with the name "Facebook", use this request:
 
 ```http request
 GET /api/v2/brands?filter[name]=Facebook
 ```
 
 :::note
-In general all filters apart from ID filters are applied using a like/contains search. This means that a search for "
-Facebook" will also return "Facebook Messenger".
+In general, all filters except ID filters use a like/contains search. This means that a search for "Facebook" also
+returns "Facebook Messenger".
 :::
 
 ## Sorting Results
 
-All index resources can be sorted to present data in a specific order. Default sorting varies by resource and can be
-found in the respective resource documentation. Generally resources are sorted by their `id` field in ascending order.
+You can sort all index resources to show data in a specific order. The default sort order is different for each
+resource. You can find it in the documentation for the resource. Usually, resources are sorted by their `id` field in
+ascending order.
 
-Each resource also has a set number of "sortable fields". Each endpoint documentation will list which fields are
+Each resource also has a set of "sortable fields". The documentation for each endpoint lists the fields that are
 sortable.
 
-You define the sort order by setting the `sort` parameter and the field you want to sort on. To sort in descending order
-you prefix the column with a minus `-` sign.
+To set the sort order, set the `sort` parameter to the field that you want to sort on. To sort in descending order, put
+a minus `-` sign before the column name.
 
-A sorting query to show brands by name may look like this:
+A query that sorts brands by name can look like this:
 
 ```http request
 # Sort in ascending order (A-Z).
@@ -44,19 +45,20 @@ GET /api/v2/brands?sort=-name
 
 ## Updated Since
 
-You may choose to retrieve data on an index request that has been updated after a specific date and time. This is done
-via the `updated_since` filter. This takes a date time value of `YYYY-MM-DD HH:II:SS`.
+On an index request, you can get only the data that was updated on or after a specific date. To do this, use the
+`updated_since` filter. This filter takes a date in the format `YYYY-MM-DD`. The filter compares only the date part of
+the update time. Do not add a time to the value.
 
-A request to show brands that have been updated only after January 1, 2023 may look like this:
+A request that shows only the brands that were updated on or after January 1, 2023 can look like this:
 
 ```http request
 GET /api/v2/brands?filter[updated_since]=2023-01-01
 ```
 
-Please note that update times are generally shallow. For example, if a brand's brandscape data is updated, the updated
-timestamp for the brand itself does not change. However, if the brand itself receives an update to its global brand
-name, the timestamp is changed.
+Update times are usually shallow. For example, if the brandscape data of a brand is updated, the updated timestamp of
+the brand itself does not change. But if the brand itself gets an update to its global brand name, the timestamp
+changes.
 
 ## Pagination
 
-Please refer to the [pagination section](../pagination.md) of the documentation for more information on pagination.
+For more information about pagination, see the [pagination section](../pagination.md) of the documentation.
