@@ -98,7 +98,7 @@ An application always has at least one owner. Only an owner can give, change or 
 ### Application access
 
 When the application calls the API as itself, it has its own access to data. This access is separate from the access
-of its members. A new application starts with only basic access. [Contact us](mailto:support@bernskiold.com) to get the
+of its members. A new application starts with only basic access. [Contact us](mailto:bavsupport@wpp.com) to get the
 access that it needs.
 
 ### Application API keys
@@ -306,7 +306,7 @@ application, for example for your office or VPN network. From all other addresse
 usual.
 
 These trusted IP addresses are separate from the [allowed API IP addresses](#restricting-where-api-calls-come-from).
-[Contact us](mailto:support@bernskiold.com) if you want us to set up your application as trusted.
+[Contact us](mailto:bavsupport@wpp.com) if you want us to set up your application as trusted.
 
 ### Client credentials flow
 
@@ -359,7 +359,7 @@ curl https://fount.wppbav.com/api/v2/brands \
 All of these conditions must be true:
 
 - **The application is trusted and approved to act on behalf of users.** We set this.
-  [Contact us](mailto:support@bernskiold.com) if your application needs it.
+  [Contact us](mailto:bavsupport@wpp.com) if your application needs it.
 - **The token belongs to the application.** Use an [application API key](#application-api-keys) or a
   [client credentials token](#client-credentials-flow). A token that a user issued to your application through the
   authorization code flow cannot act as another user. A personal access token also cannot act as another user.
@@ -468,4 +468,4 @@ Some scopes are not for general use, and you cannot assign them to yourself. The
 application [act on behalf of users](#acting-on-behalf-of-users). It is available only on the API keys and client
 credentials clients of an application. The application must first be approved to act on behalf of users.
 
-[Contact us](mailto:support@bernskiold.com) if you think that your integration needs it.
+[Contact us](mailto:bavsupport@wpp.com) if you think that your integration needs it.

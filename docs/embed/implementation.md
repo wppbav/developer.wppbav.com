@@ -4,14 +4,14 @@
 
 To bypass the Okta login screen in the embed, you can pre-authenticate your user. There are some dependencies:
 
-- The API key that you use must have a specific set of permissions. Contact support@bernskiold.com to get these
+- The API key that you use must have a specific set of permissions. Contact bavsupport@wpp.com to get these
   permissions.
 - Your application must use Okta.
 - You can pass an email address, first name and last name of your user.
 
 :::note Access approval
 To use the embed integration through our auto-login flow and bypass a user connection approval screen, you must
-request approval. Contact support@bernskiold.com.
+request approval. Contact bavsupport@wpp.com.
 :::
 
 :::tip Authentication

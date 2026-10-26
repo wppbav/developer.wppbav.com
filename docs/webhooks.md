@@ -25,15 +25,6 @@ created, updated or deleted in BAV:
 | `collections_data_change`    | `Collection`          | A [collection](brands/collections.md) was created, updated or deleted.                |
 | `studies_data_change`        | `Study`               | A [study](studies/studies.md) was created, updated or deleted.                        |
 
-You can also add these events to a webhook, but BAV does not send them at this time:
-
-| Event                                 | Description                                    |
-|---------------------------------------|------------------------------------------------|
-| `audience_origin_metrics_data_change` | An Audience Origin metric was changed.         |
-| `tools_data_change`                   | A tool was changed.                            |
-| `tool_queries_data_change`            | A tool query was changed.                      |
-| `audience_export_italy_creator`       | An audience was exported to Italy Creator.     |
-
 ## How does a webhook work?
 
 A webhook is an HTTP POST request to a URL that you specify. BAV triggers the request automatically when data changes
@@ -73,7 +64,7 @@ your endpoint before the event occurs in BAV.
 ## Creating the webhook on The Fount
 
 At this time, you cannot create webhooks on The Fount yourself. Contact us
-at [support@bernskiold.com](mailto:support@bernskiold.com). We will then add the webhook to the system for you. We will
+at [bavsupport@wpp.com](mailto:bavsupport@wpp.com). We will then add the webhook to the system for you. We will
 also give you the secret key that you need to verify that the webhook requests are authentic.
 
 You are welcome to contact us when you start to plan your integration. We can help you with the first steps.

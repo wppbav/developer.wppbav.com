@@ -24,11 +24,6 @@ GET /api/v2/best-countries/countries/raw/2024
 
 If the endpoint cannot find the year, or the year has no Best Countries data, the endpoint returns a `404`.
 
-:::note Cities and Origin Index
-The equivalent raw data endpoints for cities (`/api/v2/best-countries/cities/raw/{year}`) and the Origin Index
-(`/api/v2/best-countries/origin-index/raw/{year}`) are not available and return a `400` response.
-:::
-
 ## Schema
 
 The response is [paginated](../pagination.md). Each row contains:

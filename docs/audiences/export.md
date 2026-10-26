@@ -61,7 +61,7 @@ Before you start with the Audience Export Integration, learn about:
   [Managing audiences](managing-audiences.md) for how to create and manage them.
 - The [Webhooks](../webhooks.md) and how to listen to audience export events.
 
-When you start to plan how to use the Audience Export Integration, [contact us](mailto:support@bernskiold.com). We can
+When you start to plan how to use the Audience Export Integration, [contact us](mailto:bavsupport@wpp.com). We can
 then plan the integration tasks on The Fount side that make your application visible as an export destination.
 
 We want to make the integration as smooth as possible for you and your users.
